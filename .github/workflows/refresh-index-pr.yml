@@ -1,0 +1,78 @@
+name: Refresh Index PR
+
+on:
+  schedule:
+    - cron: '17 3 * * 1'
+  workflow_dispatch:
+
+concurrency:
+  group: refresh-index-pr
+  cancel-in-progress: false
+
+jobs:
+  refresh-index-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: recursive
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Refresh snapshot
+        run: npm run refresh:index
+
+      - name: Detect snapshot changes
+        id: snapshot
+        run: |
+          if git diff --quiet --exit-code -- data/index.json docs/ukadoc; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Bump patch version for release
+        if: steps.snapshot.outputs.changed == 'true'
+        run: npm version patch --no-git-tag-version
+
+      - name: Create or update refresh PR
+        id: cpr
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.AUTOMATION_GITHUB_TOKEN }}
+          commit-message: 'chore: refresh documentation snapshot'
+          title: 'chore: refresh documentation snapshot'
+          body: |
+            Automated documentation snapshot refresh.
+
+            This PR updates:
+            - `docs/ukadoc` submodule pointer
+            - `data/index.json`
+            - package patch version for the release that follows merge
+          branch: bot/refresh-index
+          delete-branch: true
+          labels: auto-index-refresh
+          add-paths: |
+            data/index.json
+            docs/ukadoc
+            package.json
+            package-lock.json
+
+      - name: Enable auto-merge
+        if: steps.cpr.outputs.pull-request-number != ''
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          token: ${{ secrets.AUTOMATION_GITHUB_TOKEN }}
+          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
+          merge-method: squash

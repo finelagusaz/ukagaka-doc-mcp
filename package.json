@@ -2,16 +2,48 @@
   "name": "ukagaka-doc-mcp",
   "version": "0.1.0",
   "description": "MCP server for searching Ukagaka (伺か) technical documentation: UKADOC, YAYA Wiki, and 里々Wiki",
+  "keywords": [
+    "mcp",
+    "ukagaka",
+    "ssp",
+    "yaya",
+    "satori",
+    "documentation",
+    "search"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finelagusaz/ukagaka-doc-mcp.git"
+  },
+  "homepage": "https://github.com/finelagusaz/ukagaka-doc-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/finelagusaz/ukagaka-doc-mcp/issues"
+  },
   "type": "module",
   "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
   "bin": {
     "ukagaka-doc-mcp": "dist/index.js"
   },
+  "files": [
+    "dist",
+    "data/index.json",
+    "LICENSE",
+    "NOTICE.md",
+    "README.md",
+    "SPEC.md"
+  ],
   "scripts": {
     "build": "tsc",
     "build:index": "tsx src/build-index.ts",
     "dev": "tsx src/index.ts",
+    "refresh:index": "git submodule sync --recursive && git submodule update --init --remote docs/ukadoc && npm run build:index",
     "start": "node dist/index.js",
+    "prepack": "npm run build",
+    "prepublishOnly": "npm test",
     "test": "vitest run",
     "test:watch": "vitest"
   },
