@@ -182,7 +182,7 @@ jobs:
 
       - name: Publish to npm
         if: steps.release_state.outputs.should_publish == 'true'
-        run: npm publish --provenance --access public
+        run: npm publish --provenance --access public --loglevel verbose
 
       - name: Create git tag if missing
         if: steps.release_state.outputs.should_publish == 'true'
