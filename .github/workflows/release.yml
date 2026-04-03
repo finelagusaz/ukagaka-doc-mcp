@@ -166,6 +166,20 @@ jobs:
           npm install -g npm@">=11.5.1"
           npm -v
 
+      - name: Debug publish environment
+        if: steps.release_state.outputs.should_publish == 'true'
+        run: |
+          echo "npm version: $(npm -v)"
+          echo "node version: $(node -v)"
+          echo "ACTIONS_ID_TOKEN_REQUEST_URL set: ${ACTIONS_ID_TOKEN_REQUEST_URL:+yes}"
+          echo "ACTIONS_ID_TOKEN_REQUEST_TOKEN set: ${ACTIONS_ID_TOKEN_REQUEST_TOKEN:+yes}"
+          echo "NODE_AUTH_TOKEN set: ${NODE_AUTH_TOKEN:+yes}"
+          echo "--- npm config ---"
+          npm config list
+          echo "--- npmrc files ---"
+          cat ~/.npmrc 2>/dev/null || echo "No ~/.npmrc"
+          cat .npmrc 2>/dev/null || echo "No ./.npmrc"
+
       - name: Publish to npm
         if: steps.release_state.outputs.should_publish == 'true'
         run: npm publish --provenance --access public
