@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -15,7 +16,7 @@ concurrency:
 
 jobs:
   release:
-    if: ${{ startsWith(github.event.head_commit.message, 'chore: refresh documentation snapshot') }}
+    if: ${{ github.event_name == 'workflow_dispatch' || startsWith(github.event.head_commit.message, 'chore: refresh documentation snapshot') }}
     runs-on: ubuntu-latest
 
     steps:
