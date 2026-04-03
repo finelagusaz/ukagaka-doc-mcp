@@ -1,0 +1,32 @@
+{
+  "name": "ukagaka-doc-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for searching Ukagaka (伺か) technical documentation: UKADOC, YAYA Wiki, and 里々Wiki",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "ukagaka-doc-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:index": "tsx src/build-index.ts",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.0",
+    "cheerio": "^1.0.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

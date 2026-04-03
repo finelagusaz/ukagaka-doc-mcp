@@ -1,0 +1,3 @@
+[submodule "docs/ukadoc"]
+	path = docs/ukadoc
+	url = https://github.com/ukatech/ukadoc.git
