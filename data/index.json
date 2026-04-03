@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-04-03T05:38:35.290Z",
+  "generatedAt": "2026-04-03T11:37:44.255Z",
   "entries": [
     {
       "id": "ukadoc:descript_balloon:charset_2c_6587_5b57_30b3_30fc_30c9:1",
@@ -18183,7 +18183,7 @@
       "title": "ファイル構成 - satorite.exe , satorite.txt , satorite.dat",
       "source": "satori_wiki",
       "category": "satori_reference",
-      "content": "satorite.exe , satorite.txt , satorite.dat\nトークのテストをしたりできる補助ツールです。\n里々形式で会話を書いて、それを起動中のゴーストに（SSTPで）喋らせることができます。\n里々による「さくらスクリプト」の変換結果を見ることもできます。\nこのファイルが無くても起動します。\nゴースト配布ファイル作成時は削除して下さい。\n同梱してしまってもセーブデータほど緊急性のある事態にはなりませんが、残しておく意味はまったくありません。\n使い方→ゴースト作成入門-里々編-（深瀬氏）:さとりての使い方\n↑",
+      "content": "satorite.exe , satorite.txt , satorite.dat\nトークのテストをしたりできる補助ツールです。\n里々形式で会話を書いて、それを起動中のゴーストに（SSTPで）喋らせることができます。\n里々による「さくらスクリプト」の変換結果を見ることもできます。\nこのファイルが無くても起動します。\nゴースト配布ファイル作成時は削除して下さい。\n同梱してしまってもセーブデータほど緊急性のある事態にはなりませんが、残しておく意味はまったくありません。\n↑",
       "url": "https://soliton.sub.jp/satori/?%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%A7%8B%E6%88%90#zd7625e2"
     },
     {
@@ -18407,7 +18407,7 @@
       "title": "ゴースト作りのTIPSまとめ - ゴースト制作解説サイト",
       "source": "satori_wiki",
       "category": "satori_tips",
-      "content": "ゴースト制作解説サイト\nゴースト制作についてまとめている外部サイトへのリンク。\n残念ながらリンク切れも増え、いまや残存しているページもわずか…しかし大変参考になる事に変わりはありません。\nゴースト作成入門-里々編-\nインスタントゴーストクッキング\n『伺か』を始めてみたい人のための簡易リンク集\n↑",
+      "content": "ゴースト制作解説サイト\nゴースト制作についてまとめている外部サイトへのリンク。\n残念ながらリンク切れも増え、いまや残存しているページもわずか…しかし大変参考になる事に変わりはありません。\n『伺か』を始めてみたい人のための簡易リンク集\n↑",
       "url": "https://soliton.sub.jp/satori/?%E3%82%B4%E3%83%BC%E3%82%B9%E3%83%88%E4%BD%9C%E3%82%8A%E3%81%AETIPS%E3%81%BE%E3%81%A8%E3%82%81#f8decfe0"
     },
     {
@@ -18447,7 +18447,7 @@
       "title": "ゴースト作りのTIPSまとめ - 結局どこを読めばいいのです？",
       "source": "satori_wiki",
       "category": "satori_tips",
-      "content": "結局どこを読めばいいのです？\n未経験！\nようこそ里々wikiへ！　ゴースト３分クッキングっつってんだろ！\n外部サイトのゴースト作成入門-里々編-も大変参考になりますよ。\n経験あり！\n苦労しますよ。カッコの動作で。というか書き方が独特で。\nベースウェアの仕様をある程度把握しているなら、栞としての里々へ。\n↑",
+      "content": "結局どこを読めばいいのです？\n未経験！\nようこそ里々wikiへ！　ゴースト３分クッキングっつってんだろ！\n経験あり！\n苦労しますよ。カッコの動作で。というか書き方が独特で。\nベースウェアの仕様をある程度把握しているなら、栞としての里々へ。\n↑",
       "url": "https://soliton.sub.jp/satori/?%E3%82%B4%E3%83%BC%E3%82%B9%E3%83%88%E4%BD%9C%E3%82%8A%E3%81%AETIPS%E3%81%BE%E3%81%A8%E3%82%81#v4917bcc"
     },
     {
@@ -18647,7 +18647,7 @@
       "title": "困ったときの対処法 - ユーザー入力やファイル名など外部から取得した文字列の中の（）が展開されてしまう。",
       "source": "satori_wiki",
       "category": "satori_tips",
-      "content": "ユーザー入力やファイル名など外部から取得した文字列の中の（）が展開されてしまう。\nまず里々でユーザー入力やファイル名等で外部から（）｛全角丸括弧｝入りの文字列が入ってきた場合の挙動が分かり難いので纏めます。\n\nまず、OnFileDrop や OnUserInput イベントで取得したリファレンス（Ｒ？）の中に（）｛全角丸括弧｝が入っていても、リファレンス（Ｒ？）を直接表示等を行う分には括弧展開されません。\n＊OnFileDrop2\n：\\_q\\_!（Ｒ０）\\_!\\_q\n＊OnUserInput\n：（Ｒ１）\n次にリファレンス（Ｒ？）を、変数に【タブ】や set 関数を使って代入して、その変数を使っても括弧展開されません。（セーブデータを見ると括弧の前にφが自動挿入されて無効化しているのが分かります）\n＊OnUserInput\n＄ユーザ名【タブ】（Ｒ１）\n：（ユーザ名）\nただし、リファレンス（Ｒ？）を変数に＝を使って代入すると括弧展開されてしまいます、文字列を＝で代入するのはやめておきましょう。\n＊OnUserInput\n＄ユーザ名＝（Ｒ１）\n：（ユーザ名）\n次に（）｛全角丸括弧｝が入ってるリファレンス（Ｒ？）や変数を、関数を使って文字列操作した場合に関数返り値は括弧展開されてしまいます。\n＊OnFileDrop2\n＄,【タブ】（バイト値，２）\n＄引数区切り追加【タブ】（,）\n：\\_q\\_!（replace（,）（Ｒ０）（,）\\（,）/）\\_!\\_q\nただし関数の配列返り値（Ｓ０）だと括弧展開されません。\n＊OnFileDrop2\n＄,【タブ】（バイト値，２）\n＄引数区切り追加【タブ】（,）\n：\\_q\\_!（nop（,）（split（,）（Ｒ０）（,）\\））（for,0,（Ｓの数）-1,（lp））\\_!\\_q\n\n＠lp\n（if,（Ｃ０）!=0,/）（Ｓ（Ｃ０））\n以上が基本的な挙動です、ユーザー名など変数に保存して使うだけで、文字列処理系の関数を使って文字列操作したりするのでなければ特別な処理は必要ありません。変数に＝を使って代入だけしない様に注意して下さい。\n以上の挙動を理解した上で括弧展開しない様に何とか対策を立てることは可能です。\nまずYAYA as SAORI で、ファイルリスト取得（FENUM関数）やテキストファイル読出（FREAD関数）などは関数返り値で値を渡すのでファイル名やファイル内に（）があると括弧展開されてしまいます… yaya as saori 側の関数を配列返り値（Ｓ０）で返す様に改造して対応する事が出来ます。→改造例\n\n最後に、外部から取得した（）入りの文字列を関数を使って操作したい場合はどうするか…\n関数返り値に（）｛全角丸括弧｝があると括弧展開されてしまうので配列返り値で返す様に関数を改造する、ssuの文字列操作系関数は改造できないので yaya as saori で返り値を配列返り値（Ｓ０）で返すようにssuと同等の関数を改造＆自作する。（ﾑﾘﾀﾞﾅ…） yaya as saori で ssu と同等の動作ををする aym モジュールを作った人がいる→RabbitBike みち氏\n（）｛全角丸括弧｝を別の文字（例えば半角の丸括弧）に変換して括弧展開されない様にする。（ここまでならssuのreplace関数で可能）\nただしファイル処理等正確な文字列が必要な場合には元に戻さないといけませんが、戻すときにreplace関数を使うと関数返り値は括弧展開されてしまいます…→YAYA as SAORIのユーザー関数で何とかする \n里々を捨てて他の栞に乗り換える→「一生呪われろー！！貴様には一生里々が使えなく無くなる呪いをかけてやるぅーっ！！」\n「里々（文字列処理）の道は茨の道。さりとて、戻ることはかなわぬのです。」\n↑",
+      "content": "ユーザー入力やファイル名など外部から取得した文字列の中の（）が展開されてしまう。\nまず里々でユーザー入力やファイル名等で外部から（）｛全角丸括弧｝入りの文字列が入ってきた場合の挙動が分かり難いので纏めます。\n\nまず、OnFileDrop や OnUserInput イベントで取得したリファレンス（Ｒ？）の中に（）｛全角丸括弧｝が入っていても、リファレンス（Ｒ？）を直接表示等を行う分には括弧展開されません。\n＊OnFileDrop2\n：\\_q\\_!（Ｒ０）\\_!\\_q\n＊OnUserInput\n：（Ｒ１）\n次にリファレンス（Ｒ？）を、変数に【タブ】や set 関数を使って代入して、その変数を使っても括弧展開されません。（セーブデータを見ると括弧の前にφが自動挿入されて無効化しているのが分かります）\n＊OnUserInput\n＄ユーザ名【タブ】（Ｒ１）\n：（ユーザ名）\nただし、リファレンス（Ｒ？）を変数に＝を使って代入すると括弧展開されてしまいます、文字列を＝で代入するのはやめておきましょう。\n＊OnUserInput\n＄ユーザ名＝（Ｒ１）\n：（ユーザ名）\n次に（）｛全角丸括弧｝が入ってるリファレンス（Ｒ？）や変数を、関数を使って文字列操作した場合に関数返り値は括弧展開されてしまいます。\n＊OnFileDrop2\n＄,【タブ】（バイト値，２）\n＄引数区切り追加【タブ】（,）\n：\\_q\\_!（replace（,）（Ｒ０）（,）\\（,）/）\\_!\\_q\nただし関数の配列返り値（Ｓ０）だと括弧展開されません。\n＊OnFileDrop2\n＄,【タブ】（バイト値，２）\n＄引数区切り追加【タブ】（,）\n：\\_q\\_!（nop（,）（split（,）（Ｒ０）（,）\\））（for,0,（Ｓの数）-1,（lp））\\_!\\_q\n\n＠lp\n（if,（Ｃ０）!=0,/）（Ｓ（Ｃ０））\n以上が基本的な挙動です、ユーザー名など変数に保存して使うだけで、文字列処理系の関数を使って文字列操作したりするのでなければ特別な処理は必要ありません。変数に＝を使って代入だけしない様に注意して下さい。\n以上の挙動を理解した上で括弧展開しない様に何とか対策を立てることは可能です。\nまずYAYA as SAORI で、ファイルリスト取得（FENUM関数）やテキストファイル読出（FREAD関数）などは関数返り値で値を渡すのでファイル名やファイル内に（）があると括弧展開されてしまいます… yaya as saori 側の関数を配列返り値（Ｓ０）で返す様に改造して対応する事が出来ます。→改造例\n\n最後に、外部から取得した（）入りの文字列を関数を使って操作したい場合はどうするか…\n関数返り値に（）｛全角丸括弧｝があると括弧展開されてしまうので配列返り値で返す様に関数を改造する、ssuの文字列操作系関数は改造できないので yaya as saori で返り値を配列返り値（Ｓ０）で返すようにssuと同等の関数を改造＆自作する。（ﾑﾘﾀﾞﾅ…）\n（）｛全角丸括弧｝を別の文字（例えば半角の丸括弧）に変換して括弧展開されない様にする。（ここまでならssuのreplace関数で可能）\nただしファイル処理等正確な文字列が必要な場合には元に戻さないといけませんが、戻すときにreplace関数を使うと関数返り値は括弧展開されてしまいます…→YAYA as SAORIのユーザー関数で何とかする \n里々を捨てて他の栞に乗り換える→「一生呪われろー！！貴様には一生里々が使えなく無くなる呪いをかけてやるぅーっ！！」\n「里々（文字列処理）の道は茨の道。さりとて、戻ることはかなわぬのです。」\n↑",
       "url": "https://soliton.sub.jp/satori/?%E5%9B%B0%E3%81%A3%E3%81%9F%E3%81%A8%E3%81%8D%E3%81%AE%E5%AF%BE%E5%87%A6%E6%B3%95#i30d21bd"
     },
     {
@@ -19095,7 +19095,7 @@
       "title": "ゴースト３分クッキング - ゴースト作成完了",
       "source": "satori_wiki",
       "category": "satori_tips",
-      "content": "ゴースト作成完了\nSSPを再起動して変更した設定を読み込ませます。ゴーストを起動すればオリジナルゴーストの完成～～～って言うにはさびしすぎますがｗ\n後はトークやイベント対応などを追加して完成度を高めていきます。頑張れ～\nここからどうすればいいんだよ！→少し詳しい調理方法\nもっと丁寧な解説の外部サイト→ゴースト作成入門-里々編-",
+      "content": "ゴースト作成完了\nSSPを再起動して変更した設定を読み込ませます。ゴーストを起動すればオリジナルゴーストの完成～～～って言うにはさびしすぎますがｗ\n後はトークやイベント対応などを追加して完成度を高めていきます。頑張れ～\nここからどうすればいいんだよ！→少し詳しい調理方法",
       "url": "https://soliton.sub.jp/satori/?%E3%82%B4%E3%83%BC%E3%82%B9%E3%83%88%EF%BC%93%E5%88%86%E3%82%AF%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0#k011d0aa"
     },
     {
@@ -20103,7 +20103,7 @@
       "title": "ネットワーク更新 - ネットワーク更新の基本",
       "source": "satori_wiki",
       "category": "satori_tips",
-      "content": "ネットワーク更新の基本\n＠homeurl\nhttp://...............\nネットワーク更新用ファイルの置いてあるアドレスを入力。\nゴーストデータの一番親ディレクトリ（updates2.dauやreadme.txtのある所）を指定する。\nだいたいここ\n　　↓\nゴーストフォルダ名　←ここ\n　├ ghost ─┬...\n　├ shell ─┬...\n　├ delete.txt\n　├ developer_options.txt\n　├ install.txt\n　├ updates.txt\n　└ update2.dau\n以下執筆中。\n外部サイト\n深瀬氏のゴースト作成入門-里々編-の3.ゴーストを配布しようの項を参照\n神谷みゅん氏の駄でべ：ゴースト配布するなら\n↑",
+      "content": "ネットワーク更新の基本\n＠homeurl\nhttp://...............\nネットワーク更新用ファイルの置いてあるアドレスを入力。\nゴーストデータの一番親ディレクトリ（updates2.dauやreadme.txtのある所）を指定する。\nだいたいここ\n　　↓\nゴーストフォルダ名　←ここ\n　├ ghost ─┬...\n　├ shell ─┬...\n　├ delete.txt\n　├ developer_options.txt\n　├ install.txt\n　├ updates.txt\n　└ update2.dau\n以下執筆中。\n外部サイト\n神谷みゅん氏の駄でべ：ゴースト配布するなら\n↑",
       "url": "https://soliton.sub.jp/satori/?%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E6%9B%B4%E6%96%B0#nf92267d"
     },
     {
@@ -21855,7 +21855,7 @@
       "title": "リンク集 - 情報サイト",
       "source": "satori_wiki",
       "category": "satori_tips",
-      "content": "情報サイト\nうかぼーど 伺か関連全般のTipsへのリンク集。\n伺か開発情報検索　伺かの開発系情報に絞って検索を行うサービス。\nukatec 伺か全体の豆知識やサンプルを集積するwiki。\n伺かwiki　伺か関連総合wiki。\nデータベース - 天地の狭間　伺か非公式仕様書。\nさおりん　SAORI collection 後のSAORI情報を捕捉。\nSAORI collection　SAORI関連の情報。更新停止。\n↑",
+      "content": "情報サイト\nうかぼーど 伺か関連全般のTipsへのリンク集。\n伺か開発情報検索　伺かの開発系情報に絞って検索を行うサービス。\nukatec 伺か全体の豆知識やサンプルを集積するwiki。\n伺かwiki　伺か関連総合wiki。\nデータベース - 天地の狭間　伺か非公式仕様書。\nSAORI collection　SAORI関連の情報。更新停止。\n↑",
       "url": "https://soliton.sub.jp/satori/?%E3%83%AA%E3%83%B3%E3%82%AF%E9%9B%86#c3137019:2"
     },
     {
@@ -21871,7 +21871,7 @@
       "title": "リンク集 - 豆知識・小技集",
       "source": "satori_wiki",
       "category": "satori_tips",
-      "content": "豆知識・小技集\n里々まとめ　里々の文法のまとめ。書きかけ。\nsa to r　里々の小ネタ集。\nゴースト作成入門-里々編-　里々ゴーストの作り方を手順を追って解説。\npostic　YAYA as SAORI等、里々用のサンプルスクリプトつき解説ほか多数。\n里々における着せ替えパーツへのリアクション対応　着せ替えパーツの存在をチェック＆当たり判定を対応させる。\nOnBIFFComplete拡張を里々で使う　OnBIFFCompleteのReference7(メールの概要)を里々ゴーストで扱う方法。\n↑",
+      "content": "豆知識・小技集\n里々まとめ　里々の文法のまとめ。書きかけ。\n里々における着せ替えパーツへのリアクション対応　着せ替えパーツの存在をチェック＆当たり判定を対応させる。\nOnBIFFComplete拡張を里々で使う　OnBIFFCompleteのReference7(メールの概要)を里々ゴーストで扱う方法。\n↑",
       "url": "https://soliton.sub.jp/satori/?%E3%83%AA%E3%83%B3%E3%82%AF%E9%9B%86#v889655b"
     },
     {
@@ -21895,7 +21895,7 @@
       "title": "リンク集 - お役立ちツール",
       "source": "satori_wiki",
       "category": "satori_tips",
-      "content": "お役立ちツール\n被り負けチェッカー　ゴースト名・インストールフォルダ名が他のゴーストと被っていないかチェック。\nころぺた　シェル作成・編集用Javaプログラム（Mac対応）\nふちどり。　シェル画像にふちどりしたりPNAファイルを作成したり（要 .NET Framework 3.5 SP1 以降）\n↑",
+      "content": "お役立ちツール\n被り負けチェッカー　ゴースト名・インストールフォルダ名が他のゴーストと被っていないかチェック。\nころぺた　シェル作成・編集用Javaプログラム（Mac対応）\n↑",
       "url": "https://soliton.sub.jp/satori/?%E3%83%AA%E3%83%B3%E3%82%AF%E9%9B%86#z0a84aac"
     },
     {
@@ -22041,6 +22041,358 @@
       "category": "satori_tips",
       "content": "loadに関する注意点\nloadは華和梨形式の辞書及びセーブデータを読み込むコマンドですが、これは既存のエントリの上書きではなく追加で読み込む形になります。\nこのため、不意に（例えば多重読込などで）同じ辞書のloadを重ねてしまうと、各エントリの配列数が倍増してしまいます。このまま気付かずにsaveしてしまうとセーブデータのサイズが単純に倍、倍、倍…と膨れ上がる可能性もあります。\nセット例にて\n=kis\n\t# 全エントリをクリア\n\tlisttree @c .;\n\tset @a 0;\n\tloop $(size @c) $(\n\t\tclear $@c[${@a}];\n\t\tinc @a;\n\t);\n=end\nといった処理を冒頭に置いて、主要なエントリを一度全て削除を行っているのはこれが理由になります。\nセーブデータを一括管理ではなく任意のタイミングでロードさせたい場合、loadコマンドは自作関数化したものを使い、saveの項で説明した「セーブ変数」を流用する事で、予めロード予定の変数のみを削除してからロードするという方法も有効でしょう。\nセーブ変数 : 車種 , エンジン , タイヤ\nセーブ実行 : $(xargs セーブ変数 save セーブデータ.txt)\nセーブ読込 : $(loadex セーブ変数 セーブデータ.txt)\n\n=kis\nfunction loadex $(\n\tif $[ $(size @arg) != 3 ] $(return \"引数の数が正しくありません\");\n\tforeach @a $@arg[1] $(\n\t\tclear ${@a};\n\t);\n\tload $@arg[2];\n\treturn \"\";\n);\n=end\nここで使われているforeachコマンドはこれ一つで指定したエントリ（の中身のエントリ名）全てに同じ処理を実行させられる、非常に便利なコマンドです。",
       "url": "https://soliton.sub.jp/satori/?SAORI%2F%E8%8F%AF%E5%92%8C%E6%A2%A8#q08bf3f8"
+    },
+    {
+      "id": "satori:外部関数/yaya#d8554eb3",
+      "title": "外部関数/yaya - 使い方",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "使い方\n文屋から YAYA as SAORI をダウンロードして解凍します。\n解凍した yaya_saori フォルダから、ayasaori.aym, builtins.aym, yaya.dll, yaya.txt を、自ゴーストの saori フォルダへコピーします。\nなお aymファイルはテキストファイルなのでテキストエディタで編集できます。\n自ゴーストの satori_conf.txt の ＠saori 定義に下記の定義を追加します。\naya,saori/yaya.dll\nよく使う関数は関数別に登録すると良いかもです、以下は定義例\nstrstr,saori/yaya.dll,STRSTR\n里々でYAYAの関数を呼び出します。例えば、以下のように書きます。\n（aya,TRANSLATE,（）,ぁ-んァ-ン,ァ-ンぁ-ん）\nこうすると、ランダムトークのひらがなとカタカナが全て入れ替わります。\nTRANSLATE は文字を1対1で置き換える関数です。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2Fyaya#d8554eb3"
+    },
+    {
+      "id": "satori:外部関数/yaya#ya9cfc29",
+      "title": "外部関数/yaya - YAYA最新版へ入れ換え",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "YAYA最新版へ入れ換え\nYAYA as SAORI に入っている YAYA 本体が古い場合は、必要に応じてここ （文屋）から落とした、yaya.dll を最新版と入れ替えます。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2Fyaya#ya9cfc29"
+    },
+    {
+      "id": "satori:外部関数/yaya#b79efa2a",
+      "title": "外部関数/yaya - 里々で使うにあたっての注意",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "里々で使うにあたっての注意\n里々の文法との相性などが理由で、予期せぬ動作の原因となる事があるので注意してください。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2Fyaya#b79efa2a"
+    },
+    {
+      "id": "satori:外部関数/yaya#y05c89f9",
+      "title": "外部関数/yaya - FREAD関数",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "FREAD関数\nバグ、と言う訳ではありませんが里々では全角丸括弧など特殊記号として扱われる文字が関数の返り値として帰ってくると里々が更に括弧展開してしまいます。\nこれを防ぐために関数の帰り値としてではなく、配列戻り値Ｓ０として返すとそれ以上括弧展開が行われないので builtins.aym の FREAD関数の次の部分を改造すると問題が解決するかもしれません。\n改造前\nif GETTYPE(_result) == 1\n\t\tRES.VALUE0 = \"EOF\"\n\telse \n\t\tRES.RESULT = _result\n改造後、里々側のファイルエンド検出の処理とか変える必要がます。\nif GETTYPE(_result) == 1\n\t\tRES.RESULT = 0\n\telse {\n\t\tRES.RESULT = 1\n\t\tRES.VALUE0 = _result\n\t}\n参考→文wiki「文屋」 FREAD関数\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2Fyaya#y05c89f9"
+    },
+    {
+      "id": "satori:外部関数/yaya#xf845465",
+      "title": "外部関数/yaya - FENUM関数",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "FENUM関数\nファイル名にはカンマ類はすべて使用可能なため区切り文字はバイト値１等にした方が良いです。\n※ファイル名に（１）のような全角丸括弧数字入りとか入っていた場合は里々が括弧展開してしまうので、FREAD関数の改造例を参考にして配列戻り値で値を返すように改造して問題回避出来ます。\n参考→文wiki「文屋」 FENUM関数\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2Fyaya#xf845465"
+    },
+    {
+      "id": "satori:外部関数/yaya#k6679904",
+      "title": "外部関数/yaya - ユーザー関数",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "ユーザー関数\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2Fyaya#k6679904"
+    },
+    {
+      "id": "satori:外部関数/yaya#adf1615a",
+      "title": "外部関数/yaya - ユーザー関数の作り方",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "ユーザー関数の作り方\nユーザー関数は関数を builtins.aym に追記するか、任意の aym ファイルを作成して yaya.txt に読み込む辞書として作成した aym ファイルを追加定義します。\naym ファイルはテキストファイルですのでメモ帳等で編集できます。\n里々から saori の呼び出し時に渡した引数は、ユーザ関数内でREQ.ARGS[0], REQ.ARGS[1]...で取得します。\n関数戻り値は RES.RESULT に値を代入します、配列戻り値（※里々では（S0）などで受け取るもの）は RES.VALUE0, RES.VALUE1... に値を代入します。\n参考\n文wiki「文屋」 YAYA as SAORI YAYA as SAORIの配布場所、解説等。\n文wiki「文屋」 里々からYAYAへ移行する YAYAと里々の文法の違いがまとまっています。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2Fyaya#adf1615a"
+    },
+    {
+      "id": "satori:外部関数/yaya#bd4c0810",
+      "title": "外部関数/yaya - 文字列比較関数",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "文字列比較関数\n文字列比較するだけの関数、ssu の compare関数が大文字小文字・全角半角を無視し、里々の比較演算子による文字列比較が比較文字列中に演算子や演算子の欠片があると意図しない比較やエラーになる問題の回避用\n追記：問題回避には内部関数にequalが追加されたのでそちらを使って下さい、ここは簡単なユーザー関数のサンプルとして残します。\ncompare\n{\n\tif ARRAYSIZE(REQ.ARGS) < 2 {\n\t\tLOGGING(\"compare: 引数が不足しています\")\n\t\t-1\n\t\treturn\n\t}\n\n\tRES.RESULT = REQ.ARGS[0] == REQ.ARGS[1]\n}\n里々側使用例\n＊\n：（aya,compare,==,==）\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2Fyaya#bd4c0810"
+    },
+    {
+      "id": "satori:外部関数/yaya#pd38cb7b",
+      "title": "外部関数/yaya - 里々変数名列挙関数",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "里々変数名列挙関数\n里々で使用している変数名を列挙する関数\n// 里々のsatori_savedata.txtから変数名リストを取得、\n// この関数を実行する前に里々側で＄手動セーブ【タブ】実行をする事\n// 返り値は変数の数、Ｓ０以降に変数名を格納\nGetSatoriVarList\n{\n\t_FileName = '..\\satori_savedata.txt'\n\t_i = 0\n\n\t_charset = 'Shift_JIS'\n\tFCHARSET(_charset)\n\tif !FOPEN(_FileName, 'r') {\n\t\tRES.RESULT = -1\n\t\treturn\n\t}\n\t\n\twhile 1 {\n\t\tif (_s = FREAD(_FileName)) == -1; break\n\n\t\t// 先頭行は\"＊セーブデータ\"なので飛ばす（＄が見つからないで判断）\n\t\t// ２行目以降は先頭１文字（＄）を削る\n\t\t_n = STRSTR(_s,'＄',0)\n\t\tif _n == -1 { continue }\n\t\telse { _s = SUBSTR(_s,1,STRLEN(_s) -1) }\n\n\t\t// 変数の値（TAB以降）を削る\n\t\t_n = STRSTR(_s,CHR(0x09),0)\n\t\tif _n >  0 { _s = SUBSTR(_s,0,_n) }\n\n\t\t// 格納 \n\t\tLETTONAME(\"RES.VALUE%(_i)\", _s)\n\t\t_i++ \n\t}\n\tFCLOSE(_FileName)\n\tRES.RESULT = _i -1\n}\n里々側のOnDestroyイベントで下記の様にするとゴースト終了時に指定変数を削除出来ます。\n例では頭文字がアンダーバーの変数を削除しています。（YAYAのローカル変数の命名規則的に。全然ローカルじゃないですけど）\n＊OnDestroy\n＄手動セーブ【タブ】実行\n＄,【タブ】（バイト値,1）\n\\0（nop,（aya,GetSatoriVarList））（for、0、（Ｓの数）-1、（call,fncVarClear,（Ｃ０）））\n＄,【タブ】\n\n＃変数名の頭文字が_アンダーバーなら削除\n＊fncVarClear\n＞fncVarClear.exit【タブ】（compare_head（,）（Ｓ（Ａ０））（,）_）==0\n＄（Ｓ（Ａ０））【タブ】\n\n＊fncVarClear.exit\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2Fyaya#pd38cb7b"
+    },
+    {
+      "id": "satori:外部関数/yaya#d975740e",
+      "title": "外部関数/yaya - ソート関数",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "ソート関数\nバイト値１区切りの文字列をソートして返します、クイックソートアルゴリズム使用。\n追記：yayaにASORT関数が追加されたのでそちらを使ったほうがいいですが、こういう事も出来るというサンプルとして残しておきます。\n\nYAYA as SAORI 側に追加するユーザー関数\nsort\n{ \n\tif ARRAYSIZE(REQ.ARGS) < 1 {\n\t\tLOGGING(\"Sort: 引数が不足しています\")\n\t\t-1\n\t\treturn\n\t} \n\tarX = SPLIT(REQ.ARGS[0],CHR(0x01)) \n\t_x = quicksort(0,ARRAYSIZE(arX)-1) \n\t_s = \"\"\n\tfor _i = 0; _i < ARRAYSIZE(arX); _i++ {\n\t\tif (_i > 0) { _s = _s + CHR(0x01) }\n\t\t_s = _s + arX[_i]\n\t}\n\tRES.RESULT =_s\n\tERASEVAR(\"arX\")\n}\n\nquicksort\n{ \n\t_first = _argv[0]\n\t_last  = _argv[1] \n\tif (_first == _last) { return }\n\t_p = pivot(_first,_last)\n\tif (_p != -1) {\n\t\t_k = partition(_first,_last,arX[_p])\n\t\tquicksort(_first,_k-1)\n\t\tquicksort(_k,_last)\n\t} \n}\n\npivot\n{\n   \t_i = _argv[0]\n   \t_j = _argv[1] \n   \t_k = _i + 1 \n \twhile (_k <= _j && arX[_i] == arX[_k]) { _k++ } \n\tif (_k > _j) {\n\t\t-1 \n\t\treturn\n\t} \n\tif (arX[_i] >= arX[_k]) { _i } else { _k }\n}\n\npartition\n{\n   \t_i = _argv[0]\n   \t_j = _argv[1]\n  \t_x = _argv[2] \n  \t_l = _i\n\t_r = _j \n  \twhile (_l <= _r) { \n\t\twhile (_l <= _j && arX[_l] < _x) { _l++ } \n\t\twhile (_r >= _i && arX[_r] >= _x) { _r-- } \n\t\tif (_l > _r) { break }\n\t\t_t = arX[_l]\n\t\tarX[_l] = arX[_r]\n\t\tarX[_r] = _t\n    \t\t_l++ \n\t\t_r--\n\t}\n\t_l\n   \treturn \n}\n里々側で使う時の書式\n（aya,sort,[バイト値１区切りの文字列]）\n使用例\n＊\n＄s【タブ】C（バイト値,1）Z（バイト値,1）E2（バイト値,1）A0（バイト値,1）00（バ イト値,1）E1\n：\\_qデータ:（s）\n結　果:（aya,sort,（s））\\_q\\x\n使い所はOnFileDrop2で複数ファイルドロップ時のファイルのソートとか…\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2Fyaya#d975740e"
+    },
+    {
+      "id": "satori:外部関数/yaya#n744a43a",
+      "title": "外部関数/yaya - 里々文字列変換",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "里々文字列変換\n里々でユーザー入力やファイル読み込み等で外部から文字列を取得すると、文字列内に（）{全角丸括弧}や＃ {全角シャープ}が入っている可能性があります。\n（）は文字列処理するために関数を通すと括弧展開されてしまいます。\n＃は変数に入れてセーブデータとして保存すると次回ゴースト起動時のセーブデータ読出時にコメントとして機能してしまいます。\n参考→困ったときの対処法\n\n上記問題を次の二つの関数を使用する事で回避します。\nsatoristrenc関数：\"（\", \"）\", \"＃\"をバイト値３＋半角文字に変換します。変換後の文字列は文字列処理系関数で処理したりセーブデータに保存したりしても問題が無い様になります。（なおバイト値は３でなくても構いません引数区切りで使用してない値にして下さい）\nsatoristrdec関数：バイト値３＋半角文字を全角文字に戻します、返り値は関数戻り値は空で配列戻り値（Ｓ０）で返します。表示する時やファイル処理系関数に渡す時に使用します。\n//　文字列中の全角丸括弧及び全角＃がある場合バイト値３＋半角文字に変換\nsatoristrenc\n{\n\tif ARRAYSIZE(REQ.ARGS) < 1 {\n\t\tLOGGING(\"satoristrenc: 引数が不足しています\")\n\t\t-1\n\t\treturn\n\t}\n\tRES.RESULT = REPLACE(REPLACE(REPLACE(REQ.ARGS[0],\"（\",CHR(0x03)+\"(\"),\"）\",CHR(0x03)+\")\"),\"＃\",CHR(0x03)+\"#\")\n}\n//　文字列中のバイト値3＋\"(\" or \")\" or \"#\"を全角文字に変換する\n//  そのまま関数返り値で返すと里々が括弧展開するので配列戻り値Ｓ０で返す\nsatoristrdec\n{\n\tif ARRAYSIZE(REQ.ARGS) < 1 {\n\t\tLOGGING(\"satoristrdec: 引数が不足しています\")\n\t\t-1\n\t\treturn\n\t}\n\tRES.RESULT = \"\"\n\tRES.VALUE0 = REPLACE(REPLACE(REPLACE(REQ.ARGS[0],CHR(0x03)+\"(\",\"（\"),CHR(0x03)+\")\",\"）\"),CHR(0x03)+\"#\",\"＃\")\n}\n使用例\nファイル名に（１）などを含むファイルをドラッグ＆ドロップします。\nsatoristrenc関数で変換してからreplace関数を通せば全角丸括弧ではないのでreplace関数の返り値は括弧展開されません。\n全角丸括弧に戻す時はsatoristrdec関数を実行、関数返り値は何も入っていないので、配列返し値（Ｓ０）を使用します、（Ｓ０）に入ってる全角丸括弧は展開されません。\n＊OnFileDrop2\n＄,【タブ】（バイト値，２）\n＄引数区切り追加【タブ】（,）\n＄FileName1【タブ】（aya（,）satoristrenc（,）（Ｒ０））\n＄FileName2【タブ】（replace（,）（FileName1）（,）\\（,）/）\n：\\_q\\_!（Ｒ０）\\_!\n\\_!（FileName1）\\_!\n\\_!（aya（,）satoristrdec（,）（FileName1））（Ｓ０）\\_!\n\\_!（aya（,）satoristrdec（,）（FileName2））（Ｓ０）\\_!\n\\_q\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2Fyaya#n744a43a"
+    },
+    {
+      "id": "satori:外部関数/yaya#wa07845e",
+      "title": "外部関数/yaya - 関連外部リンク",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "関連外部リンク\n文屋 YAYA",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2Fyaya#wa07845e"
+    },
+    {
+      "id": "satori:外部関数/SAORI#z4d753ee",
+      "title": "外部関数/SAORI - さおりとは",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "さおりとは\nゴーストに関数・機能追加を行うSIORIから利用するプラグインで、dllやexe形式で提供されます。\nなおssu(ssu.dll)はゴースト｢ポストと狛犬｣に標準で組み込まれているさおりです。\n偽林檎で使用できるさおりはこのssuのみです。他のさおりは一切使用できません。\n解説サイト、SAORI集サイトのリンク\nさおりちゃんと遊ぼう\nさおこれ\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2FSAORI#z4d753ee"
+    },
+    {
+      "id": "satori:外部関数/SAORI#e97e5d17",
+      "title": "外部関数/SAORI - さおりを使う",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "さおりを使う\n1.ghost\\master\\saoriフォルダに、使いたいさおりを置く\n2.satori_conf.txtの「＠SAORI」以降の行に、次のように書く（例中の「[]」は不要）\n[使うさおりの適当な短縮名],saori/[「.dll」込みの使うさおりのファイル名]\n3.実際にさおりを使うときは、文中で次のように書く\n　引数を必要としないさおりならば、カンマ以降は省略可\n（[使うさおりの適当な短縮名],[引数1],[引数2],…）\nMIYさんのmciaudio.dllを組み込む例。\n2.\nmciaudio,saori/mciaudio.dll\n3.\n（mciaudio,load,鳥の詩.mp3）（mciaudio,play）\nさおりはsaoriフォルダに置く必要はない。\n里々と同じフォルダに置く場合、上の例の「saori/」が不要。\n短縮名は自分の好きな名前に設定できる。\n「、」「,」などの区切り文字は追加、削除できる。（特殊変数 > 引数区切り追加・削除）\nちなみに「＠SAORI」であらかじめ引数付きで設定しておくと、\n曲読み込み,saori/mciaudio.dll,load\n演奏,saori/mciaudio.dll,play\n文中で下記のように呼び出しできるようになる。\n（曲読み込み,鳥の詩.mp3）（演奏）\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2FSAORI#e97e5d17"
+    },
+    {
+      "id": "satori:外部関数/SAORI#v8804428",
+      "title": "外部関数/SAORI - 補足",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "補足\n配布されているさおり同梱の説明は里々以外の栞に向けて書かれている事が多いので、ちょっと説明。\nArgument0,Argument1,…（Arg0,Arg1,…）\nこれはさおりの引数です。（「第○パラメータ」と書かれてる事もあります）\n里々では上記の[引数1],[引数2]...にあたります。\n（[使うさおりの適当な短縮名],[Argument0],[Argument1],…）\nValue0,Value1,…\nこれはさおりからの返り値です。\n里々ではこれらを（Ｓ０）,（Ｓ１）,…と書いて取得します。\n（例：日時取得時に時分秒を付ける）\n「相対パス」はそのSAORIの置いてある位置から辿ったパスです。(※違う場合もあるかもしれません)\n例えばさおりがghost\\master\\saoriフォルダに入っていて、指定したいimagel.pngファイルがghost\\master\\saori\\skinsの中にある場合「skins\\imagel.png」と書きます。\n引数にウィンドウハンドル（HWND）を入れるよう指示するさおりもあります。それは下記の「ウィンドウハンドルのつかいかた」を参考にして入れてください。大抵の場合（本体ハンドル０）を使えばOK。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2FSAORI#v8804428"
+    },
+    {
+      "id": "satori:外部関数/SAORI#i42ff11c",
+      "title": "外部関数/SAORI - SAORI-basicのタイムアウト",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "SAORI-basicのタイムアウト\n里々ではSAORI-basicも標準でuniversalと区別無く使用できる様になっていますが、タイムアウトが設定されている為スグに値を返さない物はタイムアウトエラーになります。回避する方法としてはClearBrain Systemsさんの、SAORI \"Basic\" Proxy DLLを使用して下さい。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2FSAORI#i42ff11c"
+    },
+    {
+      "id": "satori:外部関数/SAORI#yfe6af59",
+      "title": "外部関数/SAORI - さおりを意図したタイミングで使う（同期呼び出し）",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "さおりを意図したタイミングで使う（同期呼び出し）\n例えば１回のトーク中でfill_desktopを複数回呼んでも、期待するような動作はしないでしょう。\nこれは何故かというと、「栞がmateriaからのリクエストを受け、辞書からさくらスクリプトを 組み上げて返す」というプロセスが、ゴーストの喋り始める前の段階で行われているからです（「れしば」へはリアルタイムに報告するので、眺めてると順序がわかるでしょう）\nで、喋り途中でダイナミックに演出を行う方法なんですが、一応用意されてます。さくらスクリプトの \\![raise,……] というコマンドがそれ。\n以下サンプル。\n＊\n：いくよー。\\w9\\w9\\w9\nまず赤。\\![raise,塗りつぶし,255,0,0]\\w8\\w8\n次は青。\\![raise,塗りつぶし,0,0,255]\\w8\\w8\nでもって黄色。\\![raise,塗りつぶし,255,255,0]\\w8\\w8\nおしまいっと。\\![raise,塗りつぶし解除]\n\n＊塗りつぶし\n（fill_desktop,（Ｒ０）,（Ｒ１）,（Ｒ２））\n\n＊塗りつぶし解除\n（fill_desktop）\nちなみに「さとりて」経由だと\\![raise]は効かない模様。多分セキュリティ上の理由なんでしょうけど、でもlocalだしな。想定された動作なのか微妙。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2FSAORI#yfe6af59"
+    },
+    {
+      "id": "satori:外部関数/SAORI#edc2c44c",
+      "title": "外部関数/SAORI - 新くて簡単な方法",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "新くて簡単な方法\n（sync,fill_desktop,255,255,0）\nとすると「しゃべり途中に同期して」黄色く塗りつぶされます。\n返値は捨てられます。挿入されたりはしません。\nよく使うものであれば、replace.txtに\nfilldt【タブ】sync,fill_desktop\nと書いた上で（filldt,255,255,0）とかすると楽。\n使いどころは http://www10.plala.or.jp/sryu/nanika/tips/#saori_raise 辺りを読むとわかりやすいかと。\n栞は、実際にしゃべりだす直前に、辞書からトーク内容を作っているわけです。\n○＞これってSAORIでなくてもsetや他の関数でも同期呼び出しできるんでせぅか？\nカッコで呼び出せるものであれば何でもいけるハズです。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2FSAORI#edc2c44c"
+    },
+    {
+      "id": "satori:外部関数/SAORI#y04ba362",
+      "title": "外部関数/SAORI - ウィンドウハンドルのつかいかた",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "ウィンドウハンドルのつかいかた\nウィンドウハンドルの通知時に ＊hwnd が呼ばれる。\nここで変数に保存するか、さおりに直接渡す。\n（Ｒ０）には本体ウィンドウ、（Ｒ１）にはバルーンウィンドウのハンドルが入ってくる。\nそれぞれ、\\0,\\1,\\2...（\\2以降はCROW/SSP限定）のハンドルがバイト値1で区切られたものである。\nこれをsplitで分割して、目的のウィンドウハンドルを得る。\n例）\n＊hwnd\n（split,（Ｒ０）,（sprintf,%c,1））\n＄本体ハンドル０＝（Ｓ０）\n＄本体ハンドル１＝（Ｓ１）\n（split,（Ｒ１）,（sprintf,%c,1））\n＄バルーンハンドル０＝（Ｓ０）\n＄バルーンハンドル１＝（Ｓ１）\n\n＃\\0・\\1の本体・バルーンのハンドルを変数に保存する。~\n＃この変数をハンドルを必要とするさおり呼び出しに使用する。~\n＃（Ｓ２）以降を参照することで\\2以降のハンドルも取得できるが、~\n＃ウィンドウが初期化されていない場合無効なハンドルが~\n＃渡されてくるかもしれない。（未検証）~\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2FSAORI#y04ba362"
+    },
+    {
+      "id": "satori:外部関数/SAORI#d3c0b9ae",
+      "title": "外部関数/SAORI - 「カッコずらずら → \\nずらずら」を回避する",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "「カッコずらずら → \\nずらずら」を回避する\n連続してSAORIを使うときなど、改行していくと\\nが連なってしまう問題を回避する。\n（nop,\n（あれ）\n（これ）\n（それ）\n（どれ）\n）\n内部関数nopは「何もしない」。引数も無視される。\nnop関数はset_wall_paper.exeなど使うと必ず返り値が返ってきてしまうさおりでトーク中に返り値を表示したくない時にも使います。\n＊\n：（nop、（set_wall_paper、img.bmp、1））壁紙貼りつけたよー。\nただし以下のように記述するとさおりが動作しなくなるので注意。\n＊\n：（nop、（sync、set_wall_paper、img.bmp、1））壁紙貼りつけたよー。\n（そもそもsyncを使うと返り値が返らなくなるのでnopを使う必要はありません）\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2FSAORI#d3c0b9ae"
+    },
+    {
+      "id": "satori:外部関数/SAORI#k0b88523",
+      "title": "外部関数/SAORI - バイト値1のつくりかた",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "バイト値1のつくりかた\n（sprintf,%c,1）\nでバイト値1が返る(satori_conf.txtにsprintf,saori/ssu.dll,sprintfの登録が必要)。\nhwndの分割にはこれを使う。\n里々134-901以降次の書式で作れるようになりました。\n（バイト値,１）\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2FSAORI#k0b88523"
+    },
+    {
+      "id": "satori:外部関数/SAORI#h5c7d125",
+      "title": "外部関数/SAORI - ssu.dllを使おう",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "ssu.dllを使おう\n里々で文字列操作を行う場合、必須となるSAORI。\n色んな関数が使える。\nポストに同梱。\nsatori_conf.txt に定義もされており、すぐにテストできる。\n参考：外部関数/ssu\n以下里々の履歴より抜粋。\n条件分岐\nif,真偽,真結果[,偽結果]\nunless,真偽,偽結果[,真結果]\n条件並列分岐\nswitch,左辺,右辺1,結果1,右辺2,結果2,...\n数値による分岐\nnswitch,数値,結果1,結果2,...\n部分文字列の抜き出し\nsubstr,文字列,位置,文字数\n文字列の分割（返値は個数、複数返値に分割結果を格納）\nsplit,文字列[,分割文字[,最大分割数]]\n文字列中の「前」を「後」に置換\nreplace,文字列,前,後\nreplace_first,文字列,前,後\n文字列中の「対象」を消去\nerase,文字列,対象\nerase_first,文字列,対象\n文字列中に「対象」がいくつあるか数えて個数を返す\ncount,文字列,対象\n２つの文字列が等しければ1,さもなくば0を返す\ncompare,文字列1,文字列2\n文字列の先頭が頭文字列であれば1,さもなくば0を返す\ncompare_head,文字列,頭文字列\n文字列の末尾が尾文字列であれば1,さもなくば0を返す\ncompare_tail,文字列,尾文字列\n文字数を返す\nlength,文字列\n「数字、アルファベット、一部の記号」を半角全角変換。\nzen2han,文字列\nhan2zen,文字列\n計算式を計算して結果を返す。ifやswitch等の引数は、暗黙のうちにこれを実行しています。\ncalc,計算式\n計算式を計算して結果を返す。少数も扱える。\ncalc_float,計算式\n引数が空文字列であれば 1 、さもなくば 0 を返す。\nis_empty\n引数が数値であれば 1 、さもなくば 0 を返す。\nis_digit\n引数が英字列であれば 1 、さもなくば 0 を返す。\nis_alpha\n一つの左辺に対し、複数の右辺を順番に比較していきます。\niflist\n＊OnBoot\n：（iflist、（現在時）、\n＜６、こんばんは。、\n＜１１、おはようございます。、\n＜１８、こんにちは。、\n＜２４、こんばんは。）\nカタカナとひらがなの相互変換。文字列比較用かな。\nkata2hira\nhira2kata\nsprintf\n書式指定出力。printfとしてはかなりサブセットですが。\n具体的には（sprintf,\u0002d:\u0002d,（現在時）,（現在分））で時刻の二桁出力ができます。\n詳しく知りたい場合は「printf 書式」とかで検索すると……出てはくるでしょうけど。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2FSAORI#h5c7d125"
+    },
+    {
+      "id": "satori:外部関数/SAORI#t7c441c9",
+      "title": "外部関数/SAORI - 引数がSAORIで処理する前に計算されてしまうのを防ぐ",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "引数がSAORIで処理する前に計算されてしまうのを防ぐ\n例えばこう記述して「1+1+1」内の「+」を消そうとすると\n（erase、1+1+1、+）\n「1+1+1」がerase処理前に計算され、「111」ではなく「3」という結果が出てしまう。\n計算されなくても全角数字にが勝手に半角になってしまい困る場合もある。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2FSAORI#t7c441c9"
+    },
+    {
+      "id": "satori:外部関数/SAORI#tf5b3d35",
+      "title": "外部関数/SAORI - 対処法・1",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "対処法・1\n（erase、\"1+1+1\"、+）\nこのように「\"」で囲めば「1+1+1」が計算されるのを防ぎ、「\"111\"」と出る\n（ダブルクオーテーションに限らず、数字/算術記号でなければなんでも可）\nただしこの場合「\"」が邪魔になってしまうので\n（erase、（erase、\"1+1+1\"、+）、\"）\nこうやって「\"」も消しておく。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2FSAORI#tf5b3d35"
+    },
+    {
+      "id": "satori:外部関数/SAORI#kc1ca139",
+      "title": "外部関数/SAORI - 対処法・2",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "対処法・2\n上記の方法が面倒な場合はこちらを。\n＄SAORI引数の計算【タブ】無効\nSAORIを使う前にこう記述すると引数の計算を防ぐ事ができる。\nただこの状態のままだとtime_check.dllなどのSAORIが正常に動かなくなるという弊害もあるので、用が済んだら「＄SAORI引数の計算【タブ】自動」に戻しておいた方が良い。\n＄SAORI引数の計算【タブ】有効\n計算する。\n＄SAORI引数の計算【タブ】無効\n計算しない。\n＄SAORI引数の計算【タブ】自動\n各引数の先頭文字が数値または＋、－記号のいずれかであれば計算する。\n何も指定しなければこれ。今までと同じ動作。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2FSAORI#kc1ca139"
+    },
+    {
+      "id": "satori:外部関数/SAORI#m9df2d42",
+      "title": "外部関数/SAORI - easyballoonを使った、起動／終了／交代トーク",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "easyballoonを使った、起動／終了／交代トーク\nもどきで質問があったeasyballoonを使った起動／終了／交代トーク。\n起動／他のゴーストから交代\n＊OnSatoriBoot\n（bln,change,読み込み中です。）\n終了\n＊OnClose\n：お疲れ様でした。\n（bln,change,終了処理中です。）\n他のゴーストへ交代\n＊OnGhostChanging\n：（Ｒ０）さんへ交代しますね。\n（bln,change,（Ｒ０）さんを呼んで来ます。）\n（bln,clear）\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2FSAORI#m9df2d42"
+    },
+    {
+      "id": "satori:外部関数/SAORI#u7dc7b4e",
+      "title": "外部関数/SAORI - 栞をさおりとして使う",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "栞をさおりとして使う\n栞の中には、さおりとしても使えるようになっているものもありますが、各栞の配布サイトでダウンロードしてきた初期状態ではさおりとして動作しないものもあります。\n華和梨8\n華和梨をさおりとして使うためのサンプルスクリプトをさとー氏が日記にて公開されています。\nhttp://d.hatena.ne.jp/satos/20060617#1150555971\n文\nTIPS→外部関数/yaya\n里々\n里々自体もさおりとして使うことができます。\n里々をさおりとして使用する際には特別必要なものはありません。\nsatoriで登録したならば、（satori,起動）のようにして使えます。この時、引数の間にスペースが入ってはいけません。\n最初から使える関数以外の定義（例えば上記の\"起動\"）は自分で里々形式のスクリプトを書き、さおりと同じフォルダに配置しなければなりません。\n忍\n忍をさおりとして使用する際には特別必要なものはありません。\nshinoで登録したならば、（shino, get, OnBoot?）のようにgetというコマンドを使います。\nOnBoot?等の定義は自分で忍形式のスクリプトを書き、さおりと同じフォルダに配置しなければなりませんが、サンプルとなるゴーストが既にダウンロードできない状態のようですので利用は難しいと思います。\n里珠\n里珠をさおりとして使うためには、別途さおりとして扱うためのスクリプトが必要ですが、現在のところ公開されているものはないようです。",
+      "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2FSAORI#u7dc7b4e"
+    },
+    {
+      "id": "satori:初めての人へ#r7d6ee67",
+      "title": "初めての人へ - 里々とは",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "里々とは\n櫛ケ浜やぎ氏が開発した栞(SHIORI)の一つで、辞書の記述のシンプルさが特徴です。\n本体は以下のサイトで配布されています。\n里々改修用プロジェクト（整備班）\n里々ダウンロードリスト\nまた、本wikiではこの里々を搭載したテンプレートゴーストRポストと狛犬が公開されています。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#r7d6ee67"
+    },
+    {
+      "id": "satori:初めての人へ#r0b6b192",
+      "title": "初めての人へ - ページ案内",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "ページ案内\n↑\n初めてゴーストを作る場合†\n簡単な作り方はゴースト３分クッキングへ。\n上記のページではテンプレートを改造しての作り方で説明されている。\nまずはテンプレートゴースト「Rポストと狛犬」を動かしながら、辞書を覗いて書き方を参考にしてみよう。\nファイル構成、特殊記号一覧のページが基本のマニュアルに近い。\nあとはTIPS総合のページ内にある基礎TIPSや応用TIPSに進むといいだろう。\n↑\nゴーストを作った経験がある場合†\n仕様をある程度把握していて、「里々って一体何？他の栞とどう違うの？」という方は、栞としての里々へ。\n続いて、ファイル構成、特殊記号一覧といった資料系のページ、里々の内部処理についてなど里々独自の挙動が記されたページへ進むのがおすすめ。\n↑\n必要な情報を探したい†\nこのwikiではほとんど全てのページが左メニューか、TIPS総合に収められているので、そこから探そう。\n探したいキーワードがある場合、単語検索を使おう。\n外部にある情報も探したい場合、ukatec（外部サイト）を見てみよう。\nこのwikiでは一部しか扱わない「さくらスクリプト」や「SHIORIイベント」については、\nukadoc（外部サイト、SSP仕様書）に一覧がまとまっている。\nさくらスクリプト\nSSPの開発者機能にある「スクリプト入力」で出現するsendboxに、ukadocの「記述例」をコピペして動作を見てみよう。\n開発者機能は初期状態では使えない。\nゴースト上で右クリック→設定→本体設定→「設定」タブ→「開発者用機能を有効にする」で使えるようになる。\n上記有効後、右クリック→機能→開発用パレット→「スクリプト入力」ボタンでsendbox表示。\nSHIORIイベント\nイベントとリファレンスのページを読んでみよう。\n↑\nバグった時は†\n困ったときの対処法に該当するものがあれば読もう。\nなければ単語検索をかけてみよう。\nそれで見つからなければ「伺的なフォーラム」の「里々での開発相談」に質問をしてみよう。\nリンク先上部に記述されている共有アカウントでログインしないと書き込めない点に注意。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#r0b6b192"
+    },
+    {
+      "id": "satori:初めての人へ#r4bb0868",
+      "title": "初めての人へ - 左側メニューのページの概説",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "左側メニューのページの概説\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#r4bb0868"
+    },
+    {
+      "id": "satori:初めての人へ#pe1585e0",
+      "title": "初めての人へ - 初心者向け",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "初心者向け\n初めての人へ\nこのページ。\nゴースト３分クッキング\nゴーストの作り方、流れをざっくりと説明しています。\n少し詳しい調理方法\n↑に続く、少しだけ詳しく踏み込んだページ。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#pe1585e0"
+    },
+    {
+      "id": "satori:初めての人へ#m524bdcb",
+      "title": "初めての人へ - 里々テンプレート",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "里々テンプレート\nRポストと狛犬\n里々のテンプレートゴーストを配布している場所です。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#m524bdcb"
+    },
+    {
+      "id": "satori:初めての人へ#t5ea0250",
+      "title": "初めての人へ - 基本事項",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "基本事項\nTIPS総合\nメニューにあるもの以外は全てこのページに収められています。\nまた、新規に記事を書いたら、この中に適宜追加して下さい。\n困ったときの対処法\nよくある問題への対処法をまとめています。トラブルシューティング。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#t5ea0250"
+    },
+    {
+      "id": "satori:初めての人へ#ma1808d6",
+      "title": "初めての人へ - 各種資料",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "各種資料\nファイル構成\n里々のファイル構成についてのページです。\n里々だけでなく、ゴーストとして配布するのに必要なファイルも含めて解説しています。\n特殊記号一覧\n記号は、里々のゴーストの中核となる辞書を書く上での基本ルールです。\nこのページでは特殊記号の種類とその特性を解説しています。\n演算子一覧\n使用可能な演算子の解説です。\n里々ではよくある四則演算から比較演算まで使えます。\n独自イベント\nベースウェアの通知する一般的なイベントとは異なる、里々が独自に実装している特殊なイベントについて解説しています。\n変数・関数の手引き\n変数\n変数の基礎知識についてのページです。\n情報取得変数\n現在時刻など、辞書上で記述することで参照できる情報を一覧化しています。\n特殊変数\n変数と同じように扱いますが、変数とは実体の異なるものをまとめています。\n内部設定の変更や、特殊な命令を実行させるタイプの二通りで構成されます。\n関数\n関数の基礎知識についてのページです。\n内部関数\n里々が基本実装している関数の一覧です。\n外部関数/ssu\n里々が標準で同梱しているssuについてのページです。\nssuは計算や条件分岐、比較や文字列切り出しなどの機能を里々に提供します。\nユーザー関数\ncall関数を用いたユーザ関数の作り方・使い方のページです。\n統合関数一覧\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#ma1808d6"
+    },
+    {
+      "id": "satori:初めての人へ#m6d3f5d3",
+      "title": "初めての人へ - 伺か本体関連仕様",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "伺か本体関連仕様\n栞としての里々\n里々を栞の側面から見た場合の解説です。\nある程度の仕様を把握している人向けのページです。\n里々の内部処理について\n里々が内部で行っている特殊な処理についてのページです。\n里々で複雑な動作をさせる際、注意が必要になります。\nイベント\nゴーストの基本となる、ベースウェアとのイベントのやり取りについて解説しています。\nリファレンス\nイベントに付随する情報の一つであるリファレンスについての解説です。\nSAORI\n里々でSAORIを使いたい時の解説ページです。\nプロパティシステム\nベースウェア「SSP」に実装された、スクリプトによる情報取得方法についてのページです。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#m6d3f5d3"
+    },
+    {
+      "id": "satori:初めての人へ#m73e980f",
+      "title": "初めての人へ - 里々とは？",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "里々とは？\nSHIORIの一つ。簡単で使いやすいのが特徴。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#m73e980f"
+    },
+    {
+      "id": "satori:初めての人へ#j5bbf885",
+      "title": "初めての人へ - SHIORI（栞, しおり）ってなに？",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "SHIORI（栞, しおり）ってなに？\n伺かゴーストの心臓部。\n主に辞書ファイルを読み込んで、ベースウェアとゴーストを仲介するdllのこと。*1\n里々は satori.dll が本体。\n代表的なSHIORIでは、他に「文」や「華和梨」がある。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#j5bbf885"
+    },
+    {
+      "id": "satori:初めての人へ#p2af3a1f",
+      "title": "初めての人へ - 伺かってなに？",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "伺かってなに？\nデスクトップマスコットの一つ、ベースウェア「materia」のこと。\n現在では、これを元に派生したコミュニティ全体を指す用語になっている。\n以下のサイトが詳しい。\nWikipedia https://ja.wikipedia.org/wiki/%E4%BC%BA%E3%81%8B\nニコニコ大百科 http://dic.nicovideo.jp/a/%E4%BC%BA%E3%81%8B\nPixiv百科事典 http://dic.pixiv.net/a/%E4%BC%BA%E3%81%8B\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#p2af3a1f"
+    },
+    {
+      "id": "satori:初めての人へ#e80bdf93",
+      "title": "初めての人へ - ゴーストってなに？",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "ゴーストってなに？\nキャラクターのこと。中身はゴースト（喋りとか）とシェル（見かけ）に分かれる。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#e80bdf93"
+    },
+    {
+      "id": "satori:初めての人へ#bf4de2dc",
+      "title": "初めての人へ - ベースウェアってなに？",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "ベースウェアってなに？\nゴーストを使うソフトウェアのこと。\nゴーストが音楽ファイル、ベースウェアが再生プレイヤーのような関係。\n現在は、動作の改善や、複数キャラクターの同時起動がなされた高機能な SSP ( http://ssp.shillest.net/ )が最も広く使われている。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#bf4de2dc"
+    },
+    {
+      "id": "satori:初めての人へ#ebf4b359",
+      "title": "初めての人へ - どうやって作るの？",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "どうやって作るの？\nまず、ゴースト３分クッキングを読もう。\n催眠術にかけられたように、その気になれる。\n出来そうだ、という気になるのが結構大切だったりする。\nそして次に、このページを読もう。\nさああとはゴースト「ポストと狛犬」を書き換えていけばゴーストが作れる。\n難しいことはおいおい勉強していけばいい。\nわからなかったら調べてみて、それでもわからなかったら掲示板とかで質問してみよう。\n（Ｒポストと狛犬をダウンロードしたらまずここで配布されている最新版の里々で上書きするのをおすすめ。）\n※ゴースト「ポストと狛犬」は「電気で動くうにゅう・廃屋の夏」で開発・公開されていた「里々」とサンプルゴーストのセットで現在開発終了してます（入手は可能）、「里々」は整備班によりこちらで公開中、ゴーストはWiz★氏によりバグ修正等のうえ「Ｒポストと狛犬」としてこちらで公開中となっています。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#ebf4b359"
+    },
+    {
+      "id": "satori:初めての人へ#m9cc88f3",
+      "title": "初めての人へ - 辞書ってなに？",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "辞書ってなに？\n喋りとか、サーフェス切り替え指示とかが書いてあるもの。テキストファイル。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#m9cc88f3"
+    },
+    {
+      "id": "satori:初めての人へ#id905e6c",
+      "title": "初めての人へ - サーフェスってなに？",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "サーフェスってなに？\n絵の一枚一枚。pngファイル。\nSSPに限り、透過pngやjpgファイルも使用可能。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#id905e6c"
+    },
+    {
+      "id": "satori:初めての人へ#i278fade",
+      "title": "初めての人へ - タブ文字ってなに？",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "タブ文字ってなに？\nキーボード上の左側にある（はず）の、『Tab』って書いてあるキーのこと。\n例文とかでしょっちゅう使われている【タブ】は反転させてＴａｂキー押しとけばおｋ。",
+      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#i278fade"
     }
   ]
 }
