@@ -21,4 +21,9 @@ describe('parseSatoriPage', () => {
     expect(normalizeSatoriWikiHref('./?TIPS総合#anchor')).toBe('?TIPS総合');
     expect(normalizeSatoriWikiHref('#anchor')).toBeNull();
   });
+
+  it('エラーページは空結果にする', () => {
+    const html = '<html><body><h1>有効なWikiNameではありません</h1><div id="body">有効なWikiNameではありません</div></body></html>';
+    expect(parseSatoriPage(html, 'TIPS総合#bad', 'satori_tips')).toEqual([]);
+  });
 });

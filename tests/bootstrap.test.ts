@@ -12,6 +12,11 @@ afterEach(() => {
 });
 
 describe('bootstrap', () => {
+  it('index.json が存在しない場合は起動失敗する', () => {
+    const indexPath = resolve(tempDir, 'missing.json');
+    expect(() => initializeSearchEngine(indexPath)).toThrow(/Index file not found/);
+  });
+
   it('freshness 警告を返す', () => {
     const now = new Date('2026-04-03T00:00:00.000Z').getTime();
     const warning = getFreshnessWarning('2026-03-20T00:00:00.000Z', now);
@@ -87,5 +92,24 @@ describe('bootstrap', () => {
 
     const result = parseAndValidateIndexFile(raw);
     expect(result.warnings.some(warning => warning.includes('schema version mismatch'))).toBe(true);
+  });
+
+  it('未知カテゴリのみの index は起動失敗する', () => {
+    mkdirSync(tempDir, { recursive: true });
+    const indexPath = resolve(tempDir, 'index.json');
+    writeFileSync(indexPath, JSON.stringify({
+      version: 1,
+      generatedAt: new Date().toISOString(),
+      entries: [{
+        id: 'unknown',
+        title: 'unknown',
+        source: 'ukadoc',
+        category: 'unknown_category',
+        content: 'x',
+        url: 'https://example.com',
+      }],
+    }), 'utf-8');
+
+    expect(() => initializeSearchEngine(indexPath)).toThrow(/no valid entries/i);
   });
 });

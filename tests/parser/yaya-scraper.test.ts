@@ -26,4 +26,14 @@ describe('parseYayaPage', () => {
     expect(normalizeYayaWikiHref('./?Tips/Foo#section')).toBe('?Tips/Foo');
     expect(normalizeYayaWikiHref('#section')).toBeNull();
   });
+
+  it('メタリンクと外部リンクはクロール対象にしない', () => {
+    expect(normalizeYayaWikiHref('./?cmd=edit&page=Tips')).toBe('?cmd=edit&page=Tips');
+    expect(normalizeYayaWikiHref('https://example.com')).toBeNull();
+  });
+
+  it('エラーページは空結果にする', () => {
+    const html = '<html><body><h1>有効なWikiNameではありません</h1><div id="content">有効なWikiNameではありません</div></body></html>';
+    expect(parseYayaPage(html, 'Tips/Bad', 'yaya_tips')).toEqual([]);
+  });
 });

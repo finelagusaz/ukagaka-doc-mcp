@@ -38,11 +38,25 @@ const validEntries: DocEntry[] = [
 ];
 
 describe('index-builder', () => {
+  it('必須ソースが欠けるとビルド失敗する', () => {
+    expect(() => buildIndexFile(validEntries.slice(0, 2))).toThrow(/Missing entries for required source: satori_wiki/);
+  });
+
   it('重複 id があるとビルド失敗する', () => {
     expect(() => buildIndexFile([
       ...validEntries,
       { ...validEntries[0] },
     ])).toThrow(/Duplicate ids/i);
+  });
+
+  it('無効ページマーカーを含むエントリでビルド失敗する', () => {
+    expect(() => buildIndexFile([
+      ...validEntries.slice(0, 2),
+      {
+        ...validEntries[2],
+        title: '有効なWikiNameではありません',
+      },
+    ])).toThrow(/Invalid pages detected/);
   });
 
   it('不正なエントリで buildIndexFile が失敗しても既存 index を壊さない', () => {

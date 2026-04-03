@@ -25,4 +25,21 @@ describe('parseUkadocFile', () => {
     expect(entries).toHaveLength(1);
     expect(entries[0].content).toContain(longText);
   });
+
+  it('フォールバックIDに出現順を含めて衝突を避ける', () => {
+    const html = `
+      <!doctype html><html><body>
+        <h1 id="page-title">spec</h1>
+        <dl>
+          <dt class="entry">\\_!</dt><dd>a</dd>
+          <dt class="entry">\\_?</dt><dd>b</dd>
+          <dt class="entry">\\_+</dt><dd>c</dd>
+        </dl>
+      </body></html>
+    `;
+    const entries = parseUkadocFile(html, 'list_sakura_script.html', 'sakurascript');
+
+    expect(entries).toHaveLength(3);
+    expect(new Set(entries.map(entry => entry.id)).size).toBe(3);
+  });
 });
