@@ -163,7 +163,9 @@ jobs:
 
       - name: Publish to npm
         if: steps.release_state.outputs.should_publish == 'true'
-        run: npm publish --provenance --access public
+        run: |
+          npm config delete //registry.npmjs.org/:_authToken
+          npm publish --provenance --access public
 
       - name: Create git tag if missing
         if: steps.release_state.outputs.should_publish == 'true'
