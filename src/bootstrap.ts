@@ -11,9 +11,9 @@ import { readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
-import type { IndexFile } from './types.js';
 import { SearchEngine } from './search/engine.js';
-import { STALE_AFTER_DAYS, INDEX_SCHEMA_VERSION } from './constants.js';
+import { STALE_AFTER_DAYS } from './constants.js';
+import { parseAndValidateIndexFile } from './index-validation.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -25,7 +25,7 @@ export function resolveDefaultIndexPath(): string {
 export function getFreshnessWarning(generatedAt: string, now = Date.now()): string | null {
   const builtAt = new Date(generatedAt);
   if (isNaN(builtAt.getTime())) {
-    return '[bootstrap] Warning: Invalid generatedAt in index.json';
+    return null;
   }
   const daysSince = (now - builtAt.getTime()) / (1000 * 60 * 60 * 24);
   if (daysSince > STALE_AFTER_DAYS) {
@@ -49,20 +49,11 @@ export function initializeSearchEngine(indexPath = resolveDefaultIndexPath()): S
     );
   }
 
-  let indexFile: IndexFile;
-  try {
-    const raw = readFileSync(indexPath, 'utf-8');
-    indexFile = JSON.parse(raw) as IndexFile;
-  } catch (err) {
-    throw new Error(`Failed to parse index.json: ${err}`);
-  }
+  const raw = readFileSync(indexPath, 'utf-8');
+  const { indexFile, warnings } = parseAndValidateIndexFile(raw);
 
-  // スキーマバージョンチェック
-  if (indexFile.version !== INDEX_SCHEMA_VERSION) {
-    console.error(
-      `[bootstrap] Warning: Index schema version mismatch (expected ${INDEX_SCHEMA_VERSION}, got ${indexFile.version}). ` +
-      `Consider rebuilding: npm run build:index`,
-    );
+  for (const warning of warnings) {
+    console.error(warning);
   }
 
   // freshness 判定

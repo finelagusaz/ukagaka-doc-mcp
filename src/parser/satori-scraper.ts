@@ -14,9 +14,9 @@
 import { SCRAPE_RATE_LIMIT_MS } from '../constants.js';
 import type { DocEntry, Category } from '../types.js';
 import * as cheerio from 'cheerio';
-import { truncateContent } from '../text.js';
 
 const BASE_URL = 'https://soliton.sub.jp/satori/';
+const INVALID_PAGE_MARKERS = ['有効なWikiNameではありません'];
 
 // ============================================================
 // スクレイプ対象ページ定義
@@ -96,6 +96,7 @@ export function parseSatoriPage(
 ): DocEntry[] {
   const $ = cheerio.load(html);
   const pageUrl = `${BASE_URL}?${encodeURIComponent(pageName)}`;
+  const usedAnchors = new Map<string, number>();
 
   // メタ要素・ナビゲーション除去
   $('script, style').remove();
@@ -115,6 +116,10 @@ export function parseSatoriPage(
   const $content = $('#content, #body, .body, .wiki').first();
   const $root = $content.length ? $content : $('body');
 
+  if (isInvalidWikiPage(pageTitle, $root.text().replace(/\s+/g, ' ').trim())) {
+    return [];
+  }
+
   const entries: DocEntry[] = [];
   const headers = $root.find('h2, h3');
 
@@ -127,7 +132,7 @@ export function parseSatoriPage(
         title: pageTitle,
         source: 'satori_wiki',
         category,
-        content: truncateContent(content),
+        content,
         url: pageUrl,
       });
     }
@@ -144,6 +149,7 @@ export function parseSatoriPage(
     const anchor = $header.find('a[id], a[name]').attr('id') ||
       $header.find('a[id], a[name]').attr('name') ||
       slugify(sectionTitle);
+    const uniqueAnchor = makeUniqueAnchor(anchor, usedAnchors);
 
     const parts: string[] = [sectionTitle];
     let $sibling = $header.next();
@@ -157,12 +163,12 @@ export function parseSatoriPage(
     if (content.trim().length < 5) return;
 
     entries.push({
-      id: `satori:${pageName}#${anchor}`,
+      id: `satori:${pageName}#${uniqueAnchor}`,
       title: `${pageTitle} - ${sectionTitle}`,
       source: 'satori_wiki',
       category,
-      content: truncateContent(content),
-      url: `${pageUrl}#${anchor}`,
+      content,
+      url: `${pageUrl}#${uniqueAnchor}`,
     });
   });
 
@@ -175,7 +181,7 @@ export function parseSatoriPage(
         title: pageTitle,
         source: 'satori_wiki',
         category,
-        content: truncateContent(content),
+        content,
         url: pageUrl,
       });
     }
@@ -198,9 +204,9 @@ export async function fetchSatoriTipsPageList(): Promise<string[]> {
 
   const $ = cheerio.load(html);
   $('a[href]').each((_, a) => {
-    const href = normalizeWikiHref($(a).attr('href'));
+    const href = normalizeSatoriWikiHref($(a).attr('href'));
     try {
-      if (!href?.startsWith('?')) {
+      if (!href?.startsWith('?') || isMetaWikiHref(href)) {
         return;
       }
 
@@ -279,14 +285,45 @@ function slugify(text: string): string {
     .slice(0, 64);
 }
 
-function normalizeWikiHref(href: string | undefined): string | null {
+function makeUniqueAnchor(anchor: string, usedAnchors: Map<string, number>): string {
+  const seenCount = (usedAnchors.get(anchor) ?? 0) + 1;
+  usedAnchors.set(anchor, seenCount);
+
+  if (seenCount === 1) {
+    return anchor;
+  }
+
+  return `${anchor}:${seenCount}`;
+}
+
+export function normalizeSatoriWikiHref(href: string | undefined): string | null {
   if (!href) {
     return null;
   }
 
-  if (href.startsWith('./?')) {
-    return href.slice(2);
+  if (href.startsWith('#')) {
+    return null;
   }
 
-  return href;
+  let normalized = href;
+
+  if (normalized.startsWith('./?')) {
+    normalized = normalized.slice(2);
+  }
+
+  if (!normalized.startsWith('?')) {
+    return null;
+  }
+
+  return normalized.split('#', 1)[0] || null;
+}
+
+function isMetaWikiHref(href: string): boolean {
+  return href.startsWith('?cmd=') || href.startsWith('?plugin=');
+}
+
+function isInvalidWikiPage(pageTitle: string, bodyText: string): boolean {
+  return INVALID_PAGE_MARKERS.some(marker =>
+    pageTitle.includes(marker) || bodyText.includes(marker),
+  );
 }

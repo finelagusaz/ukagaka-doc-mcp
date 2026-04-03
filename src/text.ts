@@ -1,6 +1,6 @@
-import { CONTENT_MAX_LENGTH } from './constants.js';
+import { SUMMARY_MAX_LENGTH } from './constants.js';
 
-export function truncateContent(content: string, maxLength = CONTENT_MAX_LENGTH): string {
+export function buildSummary(content: string, maxLength = SUMMARY_MAX_LENGTH): string {
   if (content.length <= maxLength) {
     return content;
   }

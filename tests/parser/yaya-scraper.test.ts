@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { parseYayaPage } from '../../src/parser/yaya-scraper.js';
+import { normalizeYayaWikiHref, parseYayaPage } from '../../src/parser/yaya-scraper.js';
 
 describe('parseYayaPage', () => {
   it('セクション単位で分割する', () => {
@@ -20,5 +20,10 @@ describe('parseYayaPage', () => {
     expect(entries).toHaveLength(1);
     expect(entries[0].id).toBe('yaya:マニュアル/関数/REPLACE');
     expect(entries[0].content).toContain('文字列を置換する関数です。');
+  });
+
+  it('フラグメント付きの Wiki リンクを正規化する', () => {
+    expect(normalizeYayaWikiHref('./?Tips/Foo#section')).toBe('?Tips/Foo');
+    expect(normalizeYayaWikiHref('#section')).toBeNull();
   });
 });

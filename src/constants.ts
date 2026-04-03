@@ -13,9 +13,6 @@ export const INDEX_SCHEMA_VERSION = 1;
 /** search_docs で返す summary の最大文字数 */
 export const SUMMARY_MAX_LENGTH = 500;
 
-/** インデックス保存時の content の最大文字数 */
-export const CONTENT_MAX_LENGTH = 4000;
-
 /** ビルド時スクレイプのレート制限 (ms) */
 export const SCRAPE_RATE_LIMIT_MS = 500;
 

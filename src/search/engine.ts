@@ -11,7 +11,7 @@
  */
 
 import type { DocEntry, SearchEntry, Source, Category } from '../types.js';
-import { SUMMARY_MAX_LENGTH } from '../constants.js';
+import { buildSummary } from '../text.js';
 
 // ============================================================
 // 正規化
@@ -138,7 +138,7 @@ function toSearchEntry(entry: DocEntry): SearchEntry {
     title: entry.title,
     source: entry.source,
     category: entry.category,
-    summary: entry.content.slice(0, SUMMARY_MAX_LENGTH),
+    summary: buildSummary(entry.content),
     url: entry.url,
   };
 }

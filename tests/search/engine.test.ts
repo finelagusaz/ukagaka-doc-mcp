@@ -16,7 +16,7 @@ const entries: DocEntry[] = [
     title: 'REPLACE',
     source: 'yaya_wiki',
     category: 'yaya_function',
-    content: 'REPLACE は文字列を置換する。',
+    content: 'R'.repeat(600),
     url: 'https://example.com/2',
   },
 ];
@@ -42,5 +42,13 @@ describe('SearchEngine', () => {
 
     expect(result.total).toBe(1);
     expect(result.results[0].id).toBe('yaya:マニュアル/関数/REPLACE');
+  });
+
+  it('summary を先頭500文字と明示的な省略記号で返す', () => {
+    const engine = new SearchEngine();
+    engine.load(entries);
+
+    const result = engine.search('replace');
+    expect(result.results[0].summary).toBe(`${'R'.repeat(500)}...`);
   });
 });

@@ -15,7 +15,6 @@ import { join, basename } from 'node:path';
 import * as cheerio from 'cheerio';
 import type { Element } from 'domhandler';
 import type { DocEntry, Category } from '../types.js';
-import { truncateContent } from '../text.js';
 
 // ============================================================
 // ファイル → カテゴリ のマッピング
@@ -108,6 +107,8 @@ export function parseUkadocFile(
   const $ = cheerio.load(html);
   const stem = basename(filename, '.html');
   const baseUrl = `https://ssp.shillest.net/ukadoc/manual/${filename}`;
+  const usedAnchors = new Map<string, number>();
+  const fallbackAnchorCounts = new Map<string, number>();
 
   // まずナビゲーションを除去
   $('nav').remove();
@@ -130,7 +131,12 @@ export function parseUkadocFile(
       if (!entryName) return;
 
       // id 属性または前のアンカーから anchor を取得
-      const anchor = $dt.attr('id') || $dt.prev('a').attr('name') || slugify(entryName);
+      const anchor = createUkadocAnchor(
+        $dt.attr('id') || $dt.prev('a').attr('name'),
+        entryName,
+        fallbackAnchorCounts,
+        usedAnchors,
+      );
 
       // dd (説明) を取得
       const $dd = $dt.next('dd');
@@ -150,7 +156,7 @@ export function parseUkadocFile(
         title: entryName,
         source: 'ukadoc',
         category,
-        content: truncateContent(content),
+        content,
         url: `${baseUrl}#${anchor}`,
       });
     });
@@ -169,7 +175,12 @@ export function parseUkadocFile(
       const sectionTitle = $header.text().trim();
       if (!sectionTitle) return;
 
-      const anchor = $header.attr('id') || slugify(sectionTitle);
+      const anchor = createUkadocAnchor(
+        $header.attr('id'),
+        sectionTitle,
+        fallbackAnchorCounts,
+        usedAnchors,
+      );
 
       // セクションの本文: 次のh2/h3が来るまでのテキストを集める
       const contentParts: string[] = [sectionTitle];
@@ -188,7 +199,7 @@ export function parseUkadocFile(
         title: `${pageTitle} - ${sectionTitle}`,
         source: 'ukadoc',
         category,
-        content: truncateContent(content),
+        content,
         url: `${baseUrl}#${anchor}`,
       });
     });
@@ -205,7 +216,7 @@ export function parseUkadocFile(
     title: pageTitle,
     source: 'ukadoc',
     category,
-    content: truncateContent(bodyText),
+    content: bodyText,
     url: baseUrl,
   });
 
@@ -228,11 +239,43 @@ function getSectionTitle($: cheerio.CheerioAPI, $el: cheerio.Cheerio<Element>): 
   return '';
 }
 
-function slugify(text: string): string {
+function createUkadocAnchor(
+  explicitAnchor: string | undefined,
+  rawTitle: string,
+  fallbackAnchorCounts: Map<string, number>,
+  usedAnchors: Map<string, number>,
+): string {
+  let anchor = explicitAnchor?.trim();
+
+  if (!anchor) {
+    const normalizedRawTitle = normalizeRawTitleForFallback(rawTitle);
+    const occurrenceIndex = (fallbackAnchorCounts.get(normalizedRawTitle) ?? 0) + 1;
+    fallbackAnchorCounts.set(normalizedRawTitle, occurrenceIndex);
+    anchor = `${normalizedRawTitle}:${occurrenceIndex}`;
+  }
+
+  const seenCount = (usedAnchors.get(anchor) ?? 0) + 1;
+  usedAnchors.set(anchor, seenCount);
+
+  if (seenCount === 1) {
+    return anchor;
+  }
+
+  return `${anchor}:${seenCount}`;
+}
+
+function normalizeRawTitleForFallback(text: string): string {
   return text
-    .toLowerCase()
-    .replace(/[\\\/\[\]]/g, '_')
-    .replace(/\s+/g, '_')
-    .replace(/[^\w\u3040-\u9FFF]/g, '')
-    .slice(0, 64);
+    .trim()
+    .replace(/\s+/g, ' ')
+    .normalize('NFKC')
+    .split('')
+    .map(char => {
+      if (/^[A-Za-z0-9._-]$/.test(char)) {
+        return char;
+      }
+      return `_${char.codePointAt(0)?.toString(16) ?? '0'}`;
+    })
+    .join('')
+    .slice(0, 120);
 }

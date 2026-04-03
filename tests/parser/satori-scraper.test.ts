@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { parseSatoriPage } from '../../src/parser/satori-scraper.js';
+import { normalizeSatoriWikiHref, parseSatoriPage } from '../../src/parser/satori-scraper.js';
 
 describe('parseSatoriPage', () => {
   it('見出しごとにエントリを作る', () => {
@@ -15,5 +15,10 @@ describe('parseSatoriPage', () => {
       source: 'satori_wiki',
     });
     expect(entries[0].content).toContain('特殊記号の説明。');
+  });
+
+  it('フラグメント付きの Wiki リンクを正規化する', () => {
+    expect(normalizeSatoriWikiHref('./?TIPS総合#anchor')).toBe('?TIPS総合');
+    expect(normalizeSatoriWikiHref('#anchor')).toBeNull();
   });
 });

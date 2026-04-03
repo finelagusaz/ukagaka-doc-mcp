@@ -12,9 +12,9 @@
 import { SCRAPE_RATE_LIMIT_MS } from '../constants.js';
 import type { DocEntry, Category } from '../types.js';
 import * as cheerio from 'cheerio';
-import { truncateContent } from '../text.js';
 
 const BASE_URL = 'https://emily.shillest.net/ayaya/';
+const INVALID_PAGE_MARKERS = ['有効なWikiNameではありません'];
 
 // ============================================================
 // スクレイプ対象ページ定義
@@ -52,7 +52,7 @@ export const YAYA_STATIC_PAGES: YayaPageDef[] = [
   { path: 'システム辞書/yaya_optional.dic', category: 'yaya_system' },
   // -- StartUp --
   { path: 'StartUp',                        category: 'yaya_startup' },
-  { path: 'StartUp/ゴーストの作り方',       category: 'yaya_startup' },
+  { path: 'StartUp/YAYAでゴーストを作る',   category: 'yaya_startup' },
   { path: 'StartUp/AYAからの移行',          category: 'yaya_startup' },
   { path: 'StartUp/里々からの移行',         category: 'yaya_startup' },
   // -- SAORI/MAKOTO/PLUGIN --
@@ -135,6 +135,10 @@ export function parseYayaPage(
   const $content = $('#content, #body, .body').first();
   const $root = $content.length ? $content : $('body');
 
+  if (isInvalidWikiPage(pageTitle, extractText($root.text()))) {
+    return [];
+  }
+
   if (onePageOneEntry) {
     // 関数ページ: 1ページ=1エントリ
     const content = extractText($root.text());
@@ -143,7 +147,7 @@ export function parseYayaPage(
       title: pageTitle,
       source: 'yaya_wiki',
       category,
-      content: truncateContent(content),
+      content,
       url: pageUrl,
     }];
   }
@@ -161,7 +165,7 @@ export function parseYayaPage(
         title: pageTitle,
         source: 'yaya_wiki',
         category,
-        content: truncateContent(content),
+        content,
         url: pageUrl,
       });
     }
@@ -191,7 +195,7 @@ export function parseYayaPage(
       title: `${pageTitle} - ${sectionTitle}`,
       source: 'yaya_wiki',
       category,
-      content: truncateContent(content),
+      content,
       url: `${pageUrl}#${anchor}`,
     });
   });
@@ -217,9 +221,9 @@ export async function fetchYayaFunctionPageList(): Promise<string[]> {
 
     const $ = cheerio.load(html);
     $('#content a, #body a, .body a').each((_, a) => {
-      const href = normalizeWikiHref($(a).attr('href'));
+      const href = normalizeYayaWikiHref($(a).attr('href'));
       // ?マニュアル/関数/XXX 形式のリンクを収集
-      if (href?.startsWith('?') && href.includes('%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB')) {
+      if (href?.startsWith('?') && !isMetaWikiHref(href) && href.includes('%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB')) {
         try {
           const pagePath = decodeURIComponent(href.slice(1));
           if (pagePath.startsWith(YAYA_FUNCTION_PAGE_PREFIX) && pagePath !== YAYA_FUNCTION_PAGE_PREFIX) {
@@ -247,8 +251,8 @@ export async function fetchYayaTipsPageList(): Promise<string[]> {
 
   const $ = cheerio.load(html);
   $('#content a, #body a').each((_, a) => {
-    const href = normalizeWikiHref($(a).attr('href'));
-    if (href?.startsWith('?')) {
+    const href = normalizeYayaWikiHref($(a).attr('href'));
+    if (href?.startsWith('?') && !isMetaWikiHref(href)) {
       try {
         const pagePath = decodeURIComponent(href.slice(1));
         if (pagePath.startsWith(YAYA_TIPS_PAGE_PREFIX)) {
@@ -334,14 +338,34 @@ function slugify(text: string): string {
     .slice(0, 64);
 }
 
-function normalizeWikiHref(href: string | undefined): string | null {
+export function normalizeYayaWikiHref(href: string | undefined): string | null {
   if (!href) {
     return null;
   }
 
-  if (href.startsWith('./?')) {
-    return href.slice(2);
+  if (href.startsWith('#')) {
+    return null;
   }
 
-  return href;
+  let normalized = href;
+
+  if (normalized.startsWith('./?')) {
+    normalized = normalized.slice(2);
+  }
+
+  if (!normalized.startsWith('?')) {
+    return null;
+  }
+
+  return normalized.split('#', 1)[0] || null;
+}
+
+function isMetaWikiHref(href: string): boolean {
+  return href.startsWith('?cmd=') || href.startsWith('?plugin=');
+}
+
+function isInvalidWikiPage(pageTitle: string, bodyText: string): boolean {
+  return INVALID_PAGE_MARKERS.some(marker =>
+    pageTitle.includes(marker) || bodyText.includes(marker),
+  );
 }

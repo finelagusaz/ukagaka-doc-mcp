@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { getFreshnessWarning, initializeSearchEngine } from '../src/bootstrap.js';
 import type { IndexFile } from '../src/types.js';
+import { parseAndValidateIndexFile } from '../src/index-validation.js';
 
 const tempDir = resolve('.tmp-tests');
 
@@ -38,5 +39,53 @@ describe('bootstrap', () => {
     const engine = initializeSearchEngine(indexPath);
     expect(engine.size).toBe(1);
     expect(engine.getById('ukadoc:list_sakura_script:tag_s0')?.title).toBe('\\s0');
+  });
+
+  it('重複 id を含む index.json では起動失敗する', () => {
+    mkdirSync(tempDir, { recursive: true });
+    const indexPath = resolve(tempDir, 'index.json');
+    const indexFile = {
+      version: 1,
+      generatedAt: new Date().toISOString(),
+      entries: [
+        {
+          id: 'dup',
+          title: 'a',
+          source: 'ukadoc',
+          category: 'sakurascript',
+          content: 'x',
+          url: 'https://example.com/a',
+        },
+        {
+          id: 'dup',
+          title: 'b',
+          source: 'ukadoc',
+          category: 'sakurascript',
+          content: 'y',
+          url: 'https://example.com/b',
+        },
+      ],
+    };
+    writeFileSync(indexPath, JSON.stringify(indexFile), 'utf-8');
+
+    expect(() => initializeSearchEngine(indexPath)).toThrow(/duplicate ids/i);
+  });
+
+  it('version 不一致は警告扱いで継続できる', () => {
+    const raw = JSON.stringify({
+      version: 999,
+      generatedAt: new Date().toISOString(),
+      entries: [{
+        id: 'ok',
+        title: 'ok',
+        source: 'ukadoc',
+        category: 'sakurascript',
+        content: 'ok',
+        url: 'https://example.com',
+      }],
+    });
+
+    const result = parseAndValidateIndexFile(raw);
+    expect(result.warnings.some(warning => warning.includes('schema version mismatch'))).toBe(true);
   });
 });
