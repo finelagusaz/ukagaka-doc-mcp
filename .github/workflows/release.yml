@@ -164,8 +164,8 @@ jobs:
       - name: Publish to npm
         if: steps.release_state.outputs.should_publish == 'true'
         run: |
-          sed -i '/_authToken/d' "$NPM_CONFIG_USERCONFIG"
-          npm publish --provenance --access public
+          echo "registry=https://registry.npmjs.org/" > /tmp/publish.npmrc
+          npm publish --provenance --access public --userconfig /tmp/publish.npmrc
         env:
           NODE_AUTH_TOKEN: ""
 
