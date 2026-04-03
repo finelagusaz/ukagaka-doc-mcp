@@ -164,10 +164,9 @@ jobs:
       - name: Publish to npm
         if: steps.release_state.outputs.should_publish == 'true'
         run: |
+          unset NODE_AUTH_TOKEN
           echo "registry=https://registry.npmjs.org/" > /tmp/publish.npmrc
           npm publish --provenance --access public --userconfig /tmp/publish.npmrc
-        env:
-          NODE_AUTH_TOKEN: ""
 
       - name: Create git tag if missing
         if: steps.release_state.outputs.should_publish == 'true'
