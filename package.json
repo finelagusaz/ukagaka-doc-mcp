@@ -1,6 +1,6 @@
 {
   "name": "ukagaka-doc-mcp",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "MCP server for searching Ukagaka (伺か) technical documentation: UKADOC, YAYA Wiki, and 里々Wiki",
   "keywords": [
     "mcp",
