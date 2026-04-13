@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-04-06T05:38:05.206Z",
+  "generatedAt": "2026-04-13T05:54:07.054Z",
   "entries": [
     {
       "id": "ukadoc:descript_balloon:charset_2c_6587_5b57_30b3_30fc_30c9:1",
@@ -8215,8 +8215,32 @@
       "title": "OnFileDropped",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnFileDropped\n[旧仕様]ファイルがDnDされた際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tドロップされたファイルパス。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tドロップされたキャラクターのスコープ番号。本体側0、相方1、3人目以降は2以降。",
+      "content": "OnFileDropped\n[旧仕様]ファイルがDnDされた際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tドロップされたファイルパス。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tドロップされたキャラクターのスコープ番号。本体側0、相方1、3人目以降は2以降。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tドロップされたファイルのMIMEタイプ(SSP 2.7.98以降)。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnFileDropped:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnFileDrop:1",
+      "title": "OnFileDrop",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnFileDrop\n[旧仕様]ファイルがDnDされた際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tドロップされたファイルパス。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tドロップされたキャラクターのスコープ番号。本体側0、相方1、3人目以降は2以降。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tドロップされたファイルのMIMEタイプ(SSP 2.7.98以降)。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnFileDrop:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnFileDrop2:1",
+      "title": "OnFileDrop2",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnFileDrop2\nファイルがDnDされた際に発生。このイベントが現時点での最新仕様となる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tドロップされたファイルパス。複数ファイル/ディレクトリがあればbyte値1で区切る。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tドロップされたキャラクターのスコープ番号。本体側0、相方1、3人目以降は2以降。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tドロップされたファイルのMIMEタイプ(SSP 2.7.98以降)。複数ファイル/ディレクトリがあればbyte値1で区切る。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnFileDrop2:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnFileDropEx:1",
+      "title": "OnFileDropEx",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnFileDropEx\n[旧仕様]ファイルがDnDされた際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tドロップされたファイルパス。複数ファイル/ディレクトリがあればbyte値1で区切る。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tドロップされたキャラクターのスコープ番号。本体側0、相方1、3人目以降は2以降。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tドロップされたファイルのMIMEタイプ(SSP 2.7.98以降)。複数ファイル/ディレクトリがあればbyte値1で区切る。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnFileDropEx:1"
     },
     {
       "id": "ukadoc:list_shiori_event:OnOtherObjectDropping:1",
@@ -8249,30 +8273,6 @@
       "category": "shiori_event",
       "content": "OnWallpaperChange\n画像ファイルのDnDによって壁紙が変更された際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tドロップされたファイルパス。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnWallpaperChange:1"
-    },
-    {
-      "id": "ukadoc:list_shiori_event:OnFileDrop:1",
-      "title": "OnFileDrop",
-      "source": "ukadoc",
-      "category": "shiori_event",
-      "content": "OnFileDrop\n[旧仕様]ファイルがDnDされた際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tドロップされたファイルパス。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tドロップされたキャラクターのスコープ番号。本体側0、相方1、3人目以降は2以降。",
-      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnFileDrop:1"
-    },
-    {
-      "id": "ukadoc:list_shiori_event:OnFileDrop2:1",
-      "title": "OnFileDrop2",
-      "source": "ukadoc",
-      "category": "shiori_event",
-      "content": "OnFileDrop2\nファイルがDnDされた際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tドロップされたファイルパスを（複数あればbyte値1で区切って）返す。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tドロップされたキャラクターのスコープ番号。本体側0、相方1、3人目以降は2以降。",
-      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnFileDrop2:1"
-    },
-    {
-      "id": "ukadoc:list_shiori_event:OnFileDropEx:1",
-      "title": "OnFileDropEx",
-      "source": "ukadoc",
-      "category": "shiori_event",
-      "content": "OnFileDropEx\nファイルがDnDされた際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tドロップされたファイルパスを（複数あればbyte値1で区切って）返す。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tドロップされたキャラクターのスコープ番号。本体側0、相方1、3人目以降は2以降。",
-      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnFileDropEx:1"
     },
     {
       "id": "ukadoc:list_shiori_event:OnUpdatedataCreating:1",
@@ -19023,7 +19023,7 @@
       "title": "ポストと狛犬 - 更新履歴",
       "source": "satori_wiki",
       "category": "satori_tips",
-      "content": "更新履歴\n↑\nＲポストと狛犬†\n2024/10/15\nMc170-1に差し替え\n2024/01/08\nMc169-3に差し替え\n2023/11/10\nMc168-2に差し替え\nリンク修正\n2023/05/06\nMc168-1に差し替え\nKillDangerousTag関数が消えていた問題を修正\n2022/05/18\nMc165-1に差し替え\nsatori_license.txtは名残で同梱されています。\n2022/01/07\nMc163-3に差し替え\n2021/10/19\nMc161-3に差し替え\n2018/12/31\nMc160-1に差し替え\n2018/04/24\nMc159-6に差し替え\n全体構成改修\n2014/10/26\ndeveloper_options.txt追加\nssu.dll用の記述追加\nrefrsh,1の削除\nセキュリティ強化：SP THX レゴキチ氏",
+      "content": "更新履歴\n↑\nＲポストと狛犬†\n2026/04/09\nMc172-2に差し替え\n2024/10/15\nMc170-1に差し替え\n2024/01/08\nMc169-3に差し替え\n2023/11/10\nMc168-2に差し替え\nリンク修正\n2023/05/06\nMc168-1に差し替え\nKillDangerousTag関数が消えていた問題を修正\n2022/05/18\nMc165-1に差し替え\nsatori_license.txtは名残で同梱されています。\n2022/01/07\nMc163-3に差し替え\n2021/10/19\nMc161-3に差し替え\n2018/12/31\nMc160-1に差し替え\n2018/04/24\nMc159-6に差し替え\n全体構成改修\n2014/10/26\ndeveloper_options.txt追加\nssu.dll用の記述追加\nrefrsh,1の削除\nセキュリティ強化：SP THX レゴキチ氏",
       "url": "https://soliton.sub.jp/satori/?%E3%83%9D%E3%82%B9%E3%83%88%E3%81%A8%E7%8B%9B%E7%8A%AC#qb3d230d"
     },
     {
