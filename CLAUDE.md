@@ -68,3 +68,7 @@ npm run test:watch    # ウォッチモード
 
 - TypeScript strict mode、ESM（`"type": "module"`）
 - `NodeNext` module resolution
+
+## Maintenance
+
+人手介入が必要な手順（dep 更新・`npm audit fix`・手動リリース・refresh-index 衝突対処等）は `docs/maintenance.md` に集約。トラブル時はまずそちらを参照。
