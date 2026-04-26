@@ -53,6 +53,7 @@ docs/
 - **`setup-node` に `registry-url` を渡さないこと**。渡すと `GITHUB_TOKEN` が `NODE_AUTH_TOKEN` に自動注入され OIDC 認証が阻害される
 - **`release.yml` のトリガーは `push`**。`pull_request_target` は OIDC subject claim が npm に拒否される
 - PR 作成に GitHub App トークンを使用（`APP_ID` / `APP_PRIVATE_KEY` secrets）。`GITHUB_TOKEN` で作った PR は CI をトリガーしない
+- **人手の dep PR は refresh-index PR と必ず衝突する**。週次 cron で `package.json` version と `package-lock.json` が頻繁に動くため、長く寝かせると merge 不能に。dep PR は branch を切ったら短期で merge まで進めるか、merge 直前に `git rebase origin/main` で吸収する。lockfile 衝突は `git checkout --ours package-lock.json && npm install --package-lock-only` で main 側を採用 → 自分の `package.json` 制約で再生成、が定石
 
 ## Testing
 
