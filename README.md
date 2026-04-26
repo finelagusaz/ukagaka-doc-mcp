@@ -85,6 +85,8 @@ npm start
 npm test
 ```
 
+メンテナンス（依存更新・脆弱性対応・手動リリース等）の手順は [docs/maintenance.md](docs/maintenance.md) を参照してください。
+
 ## インデックスの自動更新フロー
 
 ```
