@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-04-20T05:53:10.671Z",
+  "generatedAt": "2026-04-27T06:14:12.105Z",
   "entries": [
     {
       "id": "ukadoc:descript_balloon:charset_2c_6587_5b57_30b3_30fc_30c9:1",
@@ -6875,6 +6875,54 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bexecute_2crss-post_2cURL_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3...:1"
     },
     {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bexecute_2cwebsocket_2cURL_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3..:1",
+      "title": "\\![execute,websocket,URL,オプション,オプション,オプション...]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![execute,websocket,URL,オプション,オプション,オプション...]\n※オプション付きでWebSocket接続を確立する。接続・受信・切断の各タイミングでSHIORIイベントが発行される。パラメータ群の指定はrss-getと同じ。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bexecute_2cwebsocket_2cURL_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3..:1"
+    },
+    {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bsend_2cwebsocket_2cURL_2cdata1_2cdata2_2c..._5d:1",
+      "title": "\\![send,websocket,URL,data1,data2,...]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![send,websocket,URL,data1,data2,...]\n接続済みのWebSocketセッションに対して、テキストフレームとして送信する。URLで対象のセッションを特定する。dataを2つ以上指定すると、それらをCRLFで結合したテキストが送られる。セッションが存在しない場合（接続前・切断後）はタグは無視される。\n\t\t\t\t\t\n\t\t\t\t\t\tURL……接続時に使ったURLと同じ文字列。\n\t\t\t\t\t\tdata1,data2,……送信するUTF-8テキスト。2つ以上指定するとCRLFで結合される。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\![send,websocket,ws://example.com/chat,Hello!,World]ws://example.com/chat に \"Hello!\\r\\nWorld\" をテキストフレームとして送信する。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bsend_2cwebsocket_2cURL_2cdata1_2cdata2_2c..._5d:1"
+    },
+    {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bsend_2cwebsocket-binary_2cURL_2cbase64data_5d:1",
+      "title": "\\![send,websocket-binary,URL,base64data]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![send,websocket-binary,URL,base64data]\n接続済みのWebSocketセッションに対して、バイナリフレームとして送信する。URLで対象のセッションを特定する。セッションが存在しない場合はタグは無視される。\n\t\t\t\t\t\n\t\t\t\t\t\tURL……接続時に使ったURLと同じ文字列。\n\t\t\t\t\t\tbase64data……Base64エンコードされたバイナリデータ。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\![send,websocket-binary,ws://example.com/stream,SGVsbG8=]ws://example.com/stream に Base64デコードしたバイナリデータをバイナリフレームとして送信する。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bsend_2cwebsocket-binary_2cURL_2cbase64data_5d:1"
+    },
+    {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bclose_2cwebsocket_2cURL_5d:1",
+      "title": "\\![close,websocket,URL]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![close,websocket,URL]\nRFC 6455に従いCloseフレームを送信して正常に切断する。サーバー側のCloseフレーム応答を待ってから接続を閉じる。切断後にOnExecuteWebSocketClose (Reference2=\"1000\") が発生する。\n\t\t\t\t\t\n\t\t\t\t\t\tURL……接続時に使ったURLと同じ文字列。\n\t\t\t\t\t\tstatus_code……省略時は1000（正常終了）。1001=going away、1008=policy violation等 (RFC 6455 §7.4.1)。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\![close,websocket,ws://example.com/chat]ws://example.com/chat を正常に切断する。\n\t\t\t\t\t\t\t\\![close,websocket,ws://example.com/chat,1001]ステータスコード1001 (going away) で切断する。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bclose_2cwebsocket_2cURL_5d:1"
+    },
+    {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bcancel_2cwebsocket_2cURL_5d:1",
+      "title": "\\![cancel,websocket,URL]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![cancel,websocket,URL]\nCloseフレームを送らずに接続を強制中断する。自動再接続のバックオフ待機中でも即座に中断する。切断後にOnExecuteWebSocketClose (Reference2=\"userbreak\") が発生する。正常に会話を終わらせる場合は\\![close,websocket,...]を使用すること。\n\t\t\t\t\t\n\t\t\t\t\t\tURL……接続時に使ったURLと同じ文字列。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bcancel_2cwebsocket_2cURL_5d:1"
+    },
+    {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bcancel_2chttp_2cURL_5d:1",
+      "title": "\\![cancel,http,URL]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![cancel,http,URL]\n進行中のHTTPリクエストをキャンセルする。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.04",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bcancel_2chttp_2cURL_5d:1"
+    },
+    {
       "id": "ukadoc:list_sakura_script:_5c_21_5bexecute_2cextractarchive_2c_30d5_30a1_30a4_30eb_540d_2c_30c7_30a3_30ec_30af_30c8_30ea_540d_2c_30aa_30d7_30b7_30:1",
       "title": "\\![execute,extractarchive,ファイル名,ディレクトリ名,オプション...]",
       "source": "ukadoc",
@@ -8809,6 +8857,54 @@
       "category": "shiori_event",
       "content": "OnExecuteRSS_SSLInfo\n取得失敗(HTTPレスポンスが200以外)でも、SSL/TLSレベルでは接続に成功しているので通知される。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0～\n\t\t\t\t\t\tOnExecuteHTTPSSLInfoと同じ",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteRSS_SSLInfo:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnExecuteWebSocketOpen:1",
+      "title": "OnExecuteWebSocketOpen",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnExecuteWebSocketOpen\nWebSocket接続確立時（HTTP 101 Upgrade成功後）に発生。初回接続のみ発火し、再接続成功時はOnExecuteWebSocketReconnectが発生する。--eventオプションで指定したeventIDが \"On\" で始まる場合はeventID+\"Open\" がイベント名となる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tSakura Scriptの--eventオプションで指定されたイベント識別子。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t接続URL (ws:// または wss://)。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t\"200\"（固定）。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteWebSocketOpen:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnExecuteWebSocketReceive:1",
+      "title": "OnExecuteWebSocketReceive",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnExecuteWebSocketReceive\nWebSocket接続中にサーバーからデータフレームを受信するたびに発生。断片化フレームは自動的に再組み立てされてから発火する。Ping/Pong/Closeフレームでは発火しない。--eventオプションで指定したeventIDが \"On\" で始まる場合はeventIDそのままがイベント名となる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tSakura Scriptの--eventオプションで指定されたイベント識別子。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t接続URL。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\topcodeの種別。\"1\"=テキストフレーム (UTF-8)、\"2\"=バイナリフレーム。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t受信データ。テキストフレームの場合はUTF-8文字列そのまま(改行コードはバイト値1に変換)、バイナリフレームの場合はBase64エンコード文字列。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteWebSocketReceive:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnExecuteWebSocketReconnect:1",
+      "title": "OnExecuteWebSocketReconnect",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnExecuteWebSocketReconnect\nエラー切断後の自動再接続が成功したときに発生。OnExecuteWebSocketOpenは発火せず、このイベントがOpenに相当する役割を担う。再接続後の受信は通常どおりOnExecuteWebSocketReceiveで通知される。--eventオプションで指定したeventIDが \"On\" で始まる場合はeventID+\"Reconnect\" がイベント名となる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tSakura Scriptの--eventオプションで指定されたイベント識別子。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t接続URL。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t\"200\"（固定）。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteWebSocketReconnect:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnExecuteWebSocketClose:1",
+      "title": "OnExecuteWebSocketClose",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnExecuteWebSocketClose\nWebSocket接続が最終的に切断されたときに発生。自動再接続を試みた場合はその後に発火する。Failure時は発火しない。--eventオプションで指定したeventIDが \"On\" で始まる場合はeventID+\"Close\" がイベント名となる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tSakura Scriptの--eventオプションで指定されたイベント識別子。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t接続URL。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t切断要因コード。\"1000\"=正常切断（サーバーまたは\\![close,websocket]による）、\"userbreak\"=\\![cancel,websocket]またはゴースト終了による強制中断。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteWebSocketClose:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnExecuteWebSocketFailure:1",
+      "title": "OnExecuteWebSocketFailure",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnExecuteWebSocketFailure\n初回接続でHTTP 101 Upgradeに失敗したとき、または接続中にエラー切断が発生し自動再接続を5回試みてもすべて失敗したときに発生。--eventオプションで指定したeventIDが \"On\" で始まる場合はeventID+\"Failure\" がイベント名となる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tSakura Scriptの--eventオプションで指定されたイベント識別子。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t接続URL。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tエラー内容文字列。初回接続失敗時はSPHttpのエラーテキスト、自動再接続全失敗時は\"reconnect failed\"（固定）。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteWebSocketFailure:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnExecuteWebSocket_SSLInfo:1",
+      "title": "OnExecuteWebSocket_SSLInfo",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnExecuteWebSocket_SSLInfo\nwss://接続時にSSL/TLS接続が確立したときに発生。初回接続時のみ発火し、Upgradeの成否にかかわらず発火する。イベント名は常に固定で--eventオプションによる変更は不可。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tSakura Scriptの--eventオプションで指定されたイベント識別子。\n\t\t\t\t\t\tReference1～\n\t\t\t\t\t\tOnExecuteHTTPSSLInfoのReference1以降と同じ。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteWebSocket_SSLInfo:1"
     },
     {
       "id": "ukadoc:list_shiori_event:OnPingComplete:1",
@@ -17563,54 +17659,6 @@
       "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#je2986ba"
     },
     {
-      "id": "satori:関数#we7d9214",
-      "title": "関数 - 関数",
-      "source": "satori_wiki",
-      "category": "satori_reference",
-      "content": "関数\n関数とはなんぞや。\nそれは、何かを入れると何かが返ってくるものです。\n変数やトークを呼び出す時と同じように、かっこ（）を使います。\n大きく違うのは、「引数」と呼ばれるオプションがついていること。（ついていない時もある）\n（関数名、引数1、引数2、....）\n関数名が使いたい機能、引数が処理して欲しいもの...という感じ。\nSAORIを使う時もこれと同じ仕組みです。\n関数\n関連ページ\n引数区切りについて\n引数区切り文字問題\nwhen,times,while,forでバイト値を引数区切り文字にする場合の注意\n原因\n対応策\n選択肢（＿、\\q[]）を含むスクリプトを関数の引数とする場合の注意\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E9%96%A2%E6%95%B0#we7d9214"
-    },
-    {
-      "id": "satori:関数#x80e6d16",
-      "title": "関数 - 関連ページ",
-      "source": "satori_wiki",
-      "category": "satori_reference",
-      "content": "関連ページ\n関数一覧\n里々で使用できる関数。\n以前の内部間数とssu関数をまとめたページです（Mc157-1よりssuは内部関数と統合）。\ncall関数\n自作関数についてのページです。ユーザ関数とも。\n里々では文（トーク）＊・単語群＠をcall関数によって引数をつけて呼び出す事で実現します。\nSAORI\n里々でSAORIを組み込む方法などの解説。\nSAORIの呼び出し方は、基本的には関数と一緒。\nSAORI/YAYASAORI/YAYA/統合関数一覧\n里々と並んで有名なSHIORIである「YAYA」をSAORIとして登録し、関数や機能を拝借する方法。\n何らかのデータ（引数）や命令を渡して、処理してもらった結果を受け取る流れになります。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E9%96%A2%E6%95%B0#x80e6d16"
-    },
-    {
-      "id": "satori:関数#b92d8132",
-      "title": "関数 - 引数区切りについて",
-      "source": "satori_wiki",
-      "category": "satori_reference",
-      "content": "引数区切りについて\n一般的な関数の書式では、\n（関数名[,引数１,引数２,…引数ｎ]）\nのように記述しますが、この関数名や引数をそれぞれ区切る文字を「引数区切り文字」と呼びます。\n（上記書式では半角カンマ\",\"）\n引数区切り文字は標準で\",\" \"，\" \"､\" \"、\" バイト値１が定義されています。\nこれらは追加または削除が可能です。→特殊変数-引数区切り追加・削除\n引数の文字列に区切り文字と同じ記号が含まれていれば、区切り文字として機能します。\nただし、引数区切り文字が実際に機能するのは、最初に現れたもの一つだけ（らしい）です。従って、さくらスクリプトで使われる半角カンマなどが誤爆するのを防ぐ・引数区切り文字を文字列として使う場合…\n＃────区切り文字がさくらスクリプトでも使われていると意図通りの動作をしない\n（関数名,hoge,\\q[ほげ,メメタァ]）\n\n＃────区切り文字を半角コンマ以外に書き換える\n（関数名､hoge､\\q[ほげ,メメタァ]）\n（関数名、hoge、\\q[ほげ,メメタァ]）\n（関数名，hoge，\\q[ほげ,メメタァ]）\nこれで半角カンマをただの文字列として動作させられます。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E9%96%A2%E6%95%B0#b92d8132"
-    },
-    {
-      "id": "satori:関数#wbedea1a",
-      "title": "関数 - 引数区切り文字問題",
-      "source": "satori_wiki",
-      "category": "satori_reference",
-      "content": "引数区切り文字問題\n例：（Ｒ０）の中に半角カンマが含まれエラーが出る場合\n（split,（Ｒ０）,（バイト値，１））\n引数区切り文字を\"、\"に替えるとエラーを防げる\n（split、（Ｒ０）、（バイト値，１））\n引数の中に全ての区切り文字が含まれる可能性がある場合は一時的に引数内に含まれない文字を引数区切りとして設定する事でこの問題を回避します。参考：引数区切り追加・削除\n例えばファイル名にはカンマ類の文字は全て含まれる可能性があります、ファイル名リストをバイト値１区切りで渡された場合に、ファイル名をsplit関数で分割しようとする場合は引数区切り文字を新たに定義して対処します。参考：split関数\n例\n＄引数区切り追加【タブ】（バイト値，２）\n（split（バイト値，２）（Ｒ０）（バイト値，２）（バイト値，１））\n＄引数区切り削除【タブ】（バイト値，２）\n例2 上の例は非常に可読性が悪いので対策\n＄,【タブ】（バイト値，２）\n＄引数区切り追加【タブ】（,）\n（split（,）（Ｒ０）（,）（バイト値，１））\n＄引数区切り削除【タブ】（,）\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E9%96%A2%E6%95%B0#wbedea1a"
-    },
-    {
-      "id": "satori:関数#ebbcd3ea",
-      "title": "関数 - when,times,while,forでバイト値を引数区切り文字にする場合の注意",
-      "source": "satori_wiki",
-      "category": "satori_reference",
-      "content": "when,times,while,forでバイト値を引数区切り文字にする場合の注意\nwhen,times,while,for関数で、区切り文字として（バイト値、１）などと書くと、関数が正しく動かなくなってしまうという現象があります。\n↑\n原因†\n里々は普通、かっこ（）が入れ子になっている場合、内側のかっこから順に展開していきますが、if関数のように内側の処理系が先に実行されると逆に不都合のあるケースもあり、この対策にwhen,times,while,for関数は、内部のかっこの展開を遅延させる為の特別な処理をしています。\nこの処理の結果、引数区切り文字に（バイト値、１）などと書くと、そのかっこが展開されるタイミングも遅れてしまい、結果として区切り文字として認識できず、想定外の動作をしてしまうというわけです。\n↑\n対応策†\n要は直接「バイト値」を書けば問題はありません。\n手軽な方法として下記をreplace.txtにコピペし、以下引数区切りには（b1）を使うようにするというものがあります。\n（b1）\t\u0001\n透明なので見た目では分かりませんが、（b1）[タブ文字][1バイト文字]と書かれています。即ち、（b1）を1バイト文字に置換するという簡単な動作です。\n一見結局かっこを使っているために正しく動かないように思われるかもしれませんが\n、ミソはreplace.txtの置換処理が、辞書中のかっこが展開されるよりも先に行われる事です。従ってこの場合、whenなどの関数が実行される時には既に（b1）はバイト値1に置き換わっており、区切り文字として正しく認識されます。\n参考\nバイト値を自力で書く場合、里々同梱のまずはsatoriteを起動し、下部の「里々」のチェックボックスにチェックが入っていることを確認して、\n（バイト値、１）\nとだけ書いて送信します。するとsatoriteの下のほうに、\n\\1\u0001\\e\nと表示されるはずです。この\\1と\\eの間にある空白が紛れもなくバイト値1なので、これをコピーすればバイト値1が使えます（バイト値2以降も同様）。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E9%96%A2%E6%95%B0#ebbcd3ea"
-    },
-    {
-      "id": "satori:関数#z06111e2",
-      "title": "関数 - 選択肢（＿、\\q[]）を含むスクリプトを関数の引数とする場合の注意",
-      "source": "satori_wiki",
-      "category": "satori_reference",
-      "content": "選択肢（＿、\\q[]）を含むスクリプトを関数の引数とする場合の注意\nOnTranslateでトーク全文に対して置換などの処理を行いたい場合など、トーク全文を関数の引数として渡すケースがあると思います。\nそのような場合、里々の選択肢記法「＿」や、さくらスクリプトの\\q[...]タグがトーク中に存在していると、トーク中に必ずバイト値１が含まれることになります。従って、関数の区切り字には「、」や「,」だけでなく、バイト値１も使用できません。",
-      "url": "https://soliton.sub.jp/satori/?%E9%96%A2%E6%95%B0#z06111e2"
-    },
-    {
       "id": "satori:関数一覧#ea945048",
       "title": "関数一覧 - 関数一覧",
       "source": "satori_wiki",
@@ -21633,142 +21681,6 @@
       "category": "satori_tips",
       "content": "関連外部リンク\n文屋 YAYA",
       "url": "https://soliton.sub.jp/satori/?SAORI%2FYAYA#wa07845e"
-    },
-    {
-      "id": "satori:SAORIを作る#d1b5d013",
-      "title": "SAORIを作る - この記事について",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "この記事について\nこの記事は、SAORIの仕様書にあるSAORI-universalの説明を、里々で使用するSAORIという前提で、できるだけ噛み砕いて説明したつもりです。\nわかりにくければ、ぜひかきなおしてください。\n↑",
-      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#d1b5d013"
-    },
-    {
-      "id": "satori:SAORIを作る#ifa058e8",
-      "title": "SAORIを作る - 必要スキル",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "必要スキル\nC++ で ダイナミック リンク ライブラリ(dll)をビルドできる方。\n↑",
-      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#ifa058e8"
-    },
-    {
-      "id": "satori:SAORIを作る#jc4171f0",
-      "title": "SAORIを作る - 前準備",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "前準備\nGlobalAlloc() や GlobalFree() などのWinAPI関数を使う必要があるので、\nその宣言を含む、Windows.hをインクルードしておきましょう。\n↑",
-      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#jc4171f0"
-    },
-    {
-      "id": "satori:SAORIを作る#e681a375",
-      "title": "SAORIを作る - 実装が必要な関数",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "実装が必要な関数\nSAORI-universal の作成には、load(),unload(),request()の３つの関数の実装が必要です。\nload() と unload() の２つは、両方実装する・両方実装しないが任意です。（片方だけはだめ）\nload() と unload() を実装する場合、SAORIの仕様上、ゴーストの読み込み時から終了時まで（里々の読み込み時から解放時まで）SAORIが読み込まれていることになりますが、実装しない場合は、いつ読み込みや解放を行っても良いことになっています。そのため、ゴースト起動中に保持しておきたい情報が有るのであれば、実装するようにしておきましょう。\n↑",
-      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#e681a375"
-    },
-    {
-      "id": "satori:SAORIを作る#f5d82bbf",
-      "title": "SAORIを作る - load()",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "load()\nSAORIが読み込まれる際に一番最初に呼び出される関数です。\n（DllMainなどのDLL エントリポイント関数を実装しているのであれば、そちらが先に呼びだされます。）\n宣言:\n extern \"C\" __declspec(dllexport) BOOL __cdecl load(HGLOBAL h, long len);\n\n説明:\n SAORIが呼び出した際に呼び出されます。\n SAORIはここで初期化を行うのが望ましいようです。\n\n引数:\n HGLOBAL h\n  SAORIのあるフォルダの絶対パスが\\で終端された文字列へのポインタ。\n  SAORIはこれを利用して、同フォルダ以下にあるファイルを読み書きするようにしてください。\n  （このHGLOBALは、char* として扱うことが出来ます。）\n  このポインタはSAORI側で、GlobalFree() を使って解放する必要があります。\n long len\n  h のバイトサイズ。\n\n返り値:\n 関数のの成否。\n FALSEが返った場合、SAORIのロードに失敗したと判断することができます。\n\n注意:\n h をGlobalFree() で開放しない場合、メモリリークが発生します。\n↑",
-      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#f5d82bbf"
-    },
-    {
-      "id": "satori:SAORIを作る#df4b2fb5",
-      "title": "SAORIを作る - unload()",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "unload()\nSAORIが解放される際に最後に呼び出される関数です。\n宣言:\n extern \"C\" __declspec(dllexport) BOOL __cdecl unload();\n\n説明:\n SAORIのアンロード時に呼び出されます。\n （里々ではゴーストの終了時、里々のアンロードのタイミングで。）\n\n返り値:\n 関数の成否。\n↑",
-      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#df4b2fb5"
-    },
-    {
-      "id": "satori:SAORIを作る#l9e6a2fd",
-      "title": "SAORIを作る - request()",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "request()\nload() の後と、SAORIの呼び出し時に呼びだされます。\n宣言:\n extern \"C\" __declspec(dllexport) HGLOBAL __cdecl request(HGLOBAL h, long *len);\n\n説明:\n load() と、SAORIの呼び出し時に呼び出されます。\n\n引数:\n HGLOBAL h\n  リクエスト文字列へのポインタ。\n  (load() 同様に、char* として扱うことが出来ます。)\n  このポインタはSAORI側で、GlobalFree() を使って解放する必要があります。\n\n long *len\n  リクエスト文字列のバイトサイズを格納する変数へのポインタ。\n  関数終了時には、返り値の HGLOBAL のバイトサイズを参照先に格納するして、里々に返り値の文字列のバイトサイズを通知します。\n\n返り値:\n SAORIの実行結果文字列を格納したHGLOBAL。\n 返り値のHGLOBALを作成するには、GlobalAlloc() を使って確保した領域に返り値の文字列を格納します。返り値の文字列の書式は、下の項目に従ってください。\n GlobalAlloc() の最初の引数（UINT uFlags）には GMEM_FIXED を指定します。また、この時に確保したバイトサイズを引数の len の参照先に設定します。\n注意:\n h をGlobalFree() で開放しない場合、メモリリークが発生します。\n バージョンチェック時の呼び出しは、load() がない場合にも発生するはずです。\n↑",
-      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#l9e6a2fd"
-    },
-    {
-      "id": "satori:SAORIを作る#ud160ec8",
-      "title": "SAORIを作る - リクエスト文字列",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "リクエスト文字列\nリクエスト文字列は次の書式に従った文字列で行われます。\n（最初の行(コマンド SAORI/1.0)と最後の行(\\r\\n)以外は順不同です。）\n（コマンド） SAORI/1.0\\r\\n\nSecurityLevel: （セキュリティレベル）\\r\\n\nArgument0: （引数０）\\r\\n\nArgument1: （引数１）\\r\\n\nCharset: Shift_JIS\\r\\n\nSender: SATORI\\r\\n\n\\r\\n\n↑",
-      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#ud160ec8"
-    },
-    {
-      "id": "satori:SAORIを作る#a4a646d4",
-      "title": "SAORIを作る - コマンド",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "コマンド\nGET Version\nEXECUTE\nこのどちらかが入ります。\n↑\nGET Version†\nGET Versionは、load()が呼び出された後（loadがない場合でも呼び出されるはず）に呼び出されます。\nこれは、DLLがSAORIであるかを確認しています。（もっと言えば期待するバージョンのSAORIか、なのですが今のところ SAORI/1.0 しか無いです。）\nGET Versionには、\nSAORI/1.0 200 OK\\r\\n\\r\\n\nとだけ返しておけば問題ありません。\nまた、そうでなければSAORIとして認識されません。\n↑\nEXECUTE†\nこちらは実際にSAORIを呼び出した際に呼び出されます。\nArgumentをもとに処理を行い、結果を返すと良いでしょう。\n↑",
-      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#a4a646d4"
-    },
-    {
-      "id": "satori:SAORIを作る#gf62f098",
-      "title": "SAORIを作る - セキュリティレベル",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "セキュリティレベル\nLoca|\nExternal\nこのどちらかが入ります。\n里々の場合、通常はLocalが、外部からスクリプトが入力されて実行される場合はExternalが入るようです。\n一応里々自体は、SSPの開発者モードを有効にした上で、里々で　＄デバッグ＝有効　にしないと外部からスクリプトを入力できないはず（ShioriEchoが使えない）なので、気にする必要は無いでしょう。\n↑",
-      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#gf62f098"
-    },
-    {
-      "id": "satori:SAORIを作る#re6aad83",
-      "title": "SAORIを作る - 引数",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "引数\nさおりを呼び出した時に使われた引数です。\nArgument0から数字は1ずつ増えていきます。\n↑",
-      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#re6aad83"
-    },
-    {
-      "id": "satori:SAORIを作る#kb529c6b",
-      "title": "SAORIを作る - その他",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "その他\nCharsetとSenderは、それぞれ里々の場合はこのような固定値になりますが、他のSHIORIでは他の値になることがあります。（少なくともSenderはSHIORIに名前になるでしょう。）\nCharsetが異なる場合は、この文字列の文字コードも異なることになりますので、注意が必要です。\n逆に、里々専用のSAORIにするのであれば、考慮の必要は無いでしょう。\n↑",
-      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#kb529c6b"
-    },
-    {
-      "id": "satori:SAORIを作る#c97aac33",
-      "title": "SAORIを作る - 返り値の文字列",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "返り値の文字列\n返り値の文字列も次の書式に従った文字列で行います。\nSAORI/1.0 （ステータスコード）\\r\\n\nResult: （返り値）\\r\\n\nValue0: （追加の返り値２）\\r\\n\nValue1: （追加の返り値１）\\r\\n\nCharset: Shift_JIS\\r\\n\n\\r\\n\n↑",
-      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#c97aac33"
-    },
-    {
-      "id": "satori:SAORIを作る#zf618f1d",
-      "title": "SAORIを作る - ステータスコード",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "ステータスコード\nSAORIの実行が成功したかどうかを返します。\nいくつか決まった種類があるので、合うものを使います。\n200 OK\n正しく実行が完了した。\n204 No Content\n正しく呼び出しが実行されたが、返り値は無い。\n400 Bad Request\n呼び出しの不備。リクエスト文字列が正しくない場合や、引数が期待するものでなかった場合のエラーを示します。\n500 Internal Server Error\nSAORIでエラーが発生し、正常に処理が完了できなかった場合に、これを返します。\n↑",
-      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#zf618f1d"
-    },
-    {
-      "id": "satori:SAORIを作る#w1e9af72",
-      "title": "SAORIを作る - 返り値",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "返り値\nSAORIの返り値です。\n例えばssuのsplitは、分割数を返しますが、それがこれに当たります。\n↑",
-      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#w1e9af72"
-    },
-    {
-      "id": "satori:SAORIを作る#i16cb133",
-      "title": "SAORIを作る - 追加の返り値",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "追加の返り値\n返り値が複数ある場合、Value0から1ずつ増える形で複数の返り値を返せます。\nSAORIの実行後、里々で（Ｓ０）などのように取得することが出来ます。\n↑",
-      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#i16cb133"
-    },
-    {
-      "id": "satori:SAORIを作る#v286e4e5",
-      "title": "SAORIを作る - 全体的な注意",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "全体的な注意\nSAORIでメモリ違反などの致命的なエラーが発生した場合やアサートを呼び出した場合は、SSPごと落ちる可能性があるので、エラーは必ずステータスコードとして返すようにし、関数自体は正常に終了するようにしてください。",
-      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#v286e4e5"
     },
     {
       "id": "satori:きのこを生やす#icc27807",
