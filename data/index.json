@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-04-27T06:14:12.105Z",
+  "generatedAt": "2026-05-04T06:25:50.620Z",
   "entries": [
     {
       "id": "ukadoc:descript_balloon:charset_2c_6587_5b57_30b3_30fc_30c9:1",
@@ -17659,6 +17659,54 @@
       "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#je2986ba"
     },
     {
+      "id": "satori:関数#we7d9214",
+      "title": "関数 - 関数",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "関数\n関数とはなんぞや。\nそれは、何かを入れると何かが返ってくるものです。\n変数やトークを呼び出す時と同じように、かっこ（）を使います。\n大きく違うのは、「引数」と呼ばれるオプションがついていること。（ついていない時もある）\n（関数名、引数1、引数2、....）\n関数名が使いたい機能、引数が処理して欲しいもの...という感じ。\nSAORIを使う時もこれと同じ仕組みです。\n関数\n関連ページ\n引数区切りについて\n引数区切り文字問題\nwhen,times,while,forでバイト値を引数区切り文字にする場合の注意\n原因\n対応策\n選択肢（＿、\\q[]）を含むスクリプトを関数の引数とする場合の注意\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E9%96%A2%E6%95%B0#we7d9214"
+    },
+    {
+      "id": "satori:関数#x80e6d16",
+      "title": "関数 - 関連ページ",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "関連ページ\n関数一覧\n里々で使用できる関数。\n以前の内部間数とssu関数をまとめたページです（Mc157-1よりssuは内部関数と統合）。\ncall関数\n自作関数についてのページです。ユーザ関数とも。\n里々では文（トーク）＊・単語群＠をcall関数によって引数をつけて呼び出す事で実現します。\nSAORI\n里々でSAORIを組み込む方法などの解説。\nSAORIの呼び出し方は、基本的には関数と一緒。\nSAORI/YAYASAORI/YAYA/統合関数一覧\n里々と並んで有名なSHIORIである「YAYA」をSAORIとして登録し、関数や機能を拝借する方法。\n何らかのデータ（引数）や命令を渡して、処理してもらった結果を受け取る流れになります。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E9%96%A2%E6%95%B0#x80e6d16"
+    },
+    {
+      "id": "satori:関数#b92d8132",
+      "title": "関数 - 引数区切りについて",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "引数区切りについて\n一般的な関数の書式では、\n（関数名[,引数１,引数２,…引数ｎ]）\nのように記述しますが、この関数名や引数をそれぞれ区切る文字を「引数区切り文字」と呼びます。\n（上記書式では半角カンマ\",\"）\n引数区切り文字は標準で\",\" \"，\" \"､\" \"、\" バイト値１が定義されています。\nこれらは追加または削除が可能です。→特殊変数-引数区切り追加・削除\n引数の文字列に区切り文字と同じ記号が含まれていれば、区切り文字として機能します。\nただし、引数区切り文字が実際に機能するのは、最初に現れたもの一つだけ（らしい）です。従って、さくらスクリプトで使われる半角カンマなどが誤爆するのを防ぐ・引数区切り文字を文字列として使う場合…\n＃────区切り文字がさくらスクリプトでも使われていると意図通りの動作をしない\n（関数名,hoge,\\q[ほげ,メメタァ]）\n\n＃────区切り文字を半角コンマ以外に書き換える\n（関数名､hoge､\\q[ほげ,メメタァ]）\n（関数名、hoge、\\q[ほげ,メメタァ]）\n（関数名，hoge，\\q[ほげ,メメタァ]）\nこれで半角カンマをただの文字列として動作させられます。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E9%96%A2%E6%95%B0#b92d8132"
+    },
+    {
+      "id": "satori:関数#wbedea1a",
+      "title": "関数 - 引数区切り文字問題",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "引数区切り文字問題\n例：（Ｒ０）の中に半角カンマが含まれエラーが出る場合\n（split,（Ｒ０）,（バイト値，１））\n引数区切り文字を\"、\"に替えるとエラーを防げる\n（split、（Ｒ０）、（バイト値，１））\n引数の中に全ての区切り文字が含まれる可能性がある場合は一時的に引数内に含まれない文字を引数区切りとして設定する事でこの問題を回避します。参考：引数区切り追加・削除\n例えばファイル名にはカンマ類の文字は全て含まれる可能性があります、ファイル名リストをバイト値１区切りで渡された場合に、ファイル名をsplit関数で分割しようとする場合は引数区切り文字を新たに定義して対処します。参考：split関数\n例\n＄引数区切り追加【タブ】（バイト値，２）\n（split（バイト値，２）（Ｒ０）（バイト値，２）（バイト値，１））\n＄引数区切り削除【タブ】（バイト値，２）\n例2 上の例は非常に可読性が悪いので対策\n＄,【タブ】（バイト値，２）\n＄引数区切り追加【タブ】（,）\n（split（,）（Ｒ０）（,）（バイト値，１））\n＄引数区切り削除【タブ】（,）\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E9%96%A2%E6%95%B0#wbedea1a"
+    },
+    {
+      "id": "satori:関数#ebbcd3ea",
+      "title": "関数 - when,times,while,forでバイト値を引数区切り文字にする場合の注意",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "when,times,while,forでバイト値を引数区切り文字にする場合の注意\nwhen,times,while,for関数で、区切り文字として（バイト値、１）などと書くと、関数が正しく動かなくなってしまうという現象があります。\n↑\n原因†\n里々は普通、かっこ（）が入れ子になっている場合、内側のかっこから順に展開していきますが、if関数のように内側の処理系が先に実行されると逆に不都合のあるケースもあり、この対策にwhen,times,while,for関数は、内部のかっこの展開を遅延させる為の特別な処理をしています。\nこの処理の結果、引数区切り文字に（バイト値、１）などと書くと、そのかっこが展開されるタイミングも遅れてしまい、結果として区切り文字として認識できず、想定外の動作をしてしまうというわけです。\n↑\n対応策†\n要は直接「バイト値」を書けば問題はありません。\n手軽な方法として下記をreplace.txtにコピペし、以下引数区切りには（b1）を使うようにするというものがあります。\n（b1）\t\u0001\n透明なので見た目では分かりませんが、（b1）[タブ文字][1バイト文字]と書かれています。即ち、（b1）を1バイト文字に置換するという簡単な動作です。\n一見結局かっこを使っているために正しく動かないように思われるかもしれませんが\n、ミソはreplace.txtの置換処理が、辞書中のかっこが展開されるよりも先に行われる事です。従ってこの場合、whenなどの関数が実行される時には既に（b1）はバイト値1に置き換わっており、区切り文字として正しく認識されます。\n参考\nバイト値を自力で書く場合、里々同梱のまずはsatoriteを起動し、下部の「里々」のチェックボックスにチェックが入っていることを確認して、\n（バイト値、１）\nとだけ書いて送信します。するとsatoriteの下のほうに、\n\\1\u0001\\e\nと表示されるはずです。この\\1と\\eの間にある空白が紛れもなくバイト値1なので、これをコピーすればバイト値1が使えます（バイト値2以降も同様）。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E9%96%A2%E6%95%B0#ebbcd3ea"
+    },
+    {
+      "id": "satori:関数#z06111e2",
+      "title": "関数 - 選択肢（＿、\\q[]）を含むスクリプトを関数の引数とする場合の注意",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "選択肢（＿、\\q[]）を含むスクリプトを関数の引数とする場合の注意\nOnTranslateでトーク全文に対して置換などの処理を行いたい場合など、トーク全文を関数の引数として渡すケースがあると思います。\nそのような場合、里々の選択肢記法「＿」や、さくらスクリプトの\\q[...]タグがトーク中に存在していると、トーク中に必ずバイト値１が含まれることになります。従って、関数の区切り字には「、」や「,」だけでなく、バイト値１も使用できません。",
+      "url": "https://soliton.sub.jp/satori/?%E9%96%A2%E6%95%B0#z06111e2"
+    },
+    {
       "id": "satori:関数一覧#ea945048",
       "title": "関数一覧 - 関数一覧",
       "source": "satori_wiki",
@@ -18079,7 +18127,7 @@
       "title": "ファイル構成 - ゴースト全体の構成",
       "source": "satori_wiki",
       "category": "satori_reference",
-      "content": "ゴースト全体の構成\n以下はゴーストとしてのフォルダとファイルの構成の代表的な物を列挙した概略になります。\n★マークのある項が里々とその関連の制御下・範疇にあるファイルです。\nC:\\Program Files\\ssp\\ghost\\○○\n│  readme.txt\n│  install.txt                   【narファイルには必須】\n│  thumbnail.png\n│  developer_options.txt \n│  update2.dau                   【ネットワーク更新でサーバーに必須】\n├─ghost\n│  └─master\n│      │  descript.txt          【必須】\n│      │  ○○.ico\n│      │  dic○○.txt\n│      │  replace.txt\n│      │  replace_after.txt\n│      │  satori.dll            ★【必須】\n│      │  satori_conf.txt       ★\n│      │  satori_license.txt    ★【必須→配布時不要】 ※Mc163-5以降はなくてもOK\n│      │  satori_savebackup.txt ★【自動生成、配布時要削除】\n│      │  satori_savedata.txt   ★【自動生成、配布時要削除】\n│      │  satorite.exe          ★【配布時不要】\n│      │  satorite.dat          ★【配布時不要】\n│      │  satorite.txt          ★【配布時不要】\n│      │  れしば.exe            ★【配布時不要】\n│      │  れしば.txt            ★【配布時不要】\n│      │  characters.ini        ★\n│      ├─saori\n│      │      fill_desktop.dll  【例／SAORI】\n│      │      ssu.dll           ★\n│      ├─another               ★【例／辞書フォルダ】\n│      ├─profile               【自動生成、配布時要削除】\n│      └─var                   【自動生成、配布時要削除】\n└─shell\n     ├─master\n     │     descript.txt\n     │     surface○○.png\n     │     surfaces.txt\n     └─profile                  【自動生成、配布時削除】\nフォルダ名は半角英数推奨。\n詳しく→Ukadoc ゴーストの構成 (一般的ゴーストの構成です、ここのshiori.dllが里々使用ゴーストではsatori.dllになります)\n↑",
+      "content": "ゴースト全体の構成\n以下はゴーストとしてのフォルダとファイルの構成の代表的な物を列挙した概略になります。\n★マークのある項が里々とその関連の制御下・範疇にあるファイルです。\nC:\\Program Files\\ssp\\ghost\\○○\n│  readme.txt\n│  install.txt                   【narファイルには必須】\n│  thumbnail.png\n│  developer_options.txt \n│  update2.dau                   【ネットワーク更新でサーバーに必須】\n├─ghost\n│  └─master\n│      │  descript.txt          【必須】\n│      │  ○○.ico\n│      │  dic○○.txt\n│      │  replace.txt\n│      │  replace_after.txt\n│      │  satori.dll            ★【必須】\n│      │  satori_conf.txt       ★\n│      │  satori_bootconf.txt   ★\n│      │  satori_license.txt    ★【必須→配布時不要】 ※Mc163-5以降はなくてもOK\n│      │  satori_savebackup.txt ★【自動生成、配布時要削除】\n│      │  satori_savedata.txt   ★【自動生成、配布時要削除】\n│      │  satorite.exe          ★【配布時不要】\n│      │  satorite.dat          ★【配布時不要】\n│      │  satorite.txt          ★【配布時不要】\n│      │  れしば.exe            ★【配布時不要】\n│      │  れしば.txt            ★【配布時不要】\n│      │  characters.ini        ★\n│      ├─saori\n│      │      fill_desktop.dll  【例／SAORI】\n│      │      ssu.dll           ★\n│      ├─another               ★【例／辞書フォルダ】\n│      ├─profile               【自動生成、配布時要削除】\n│      └─var                   【自動生成、配布時要削除】\n└─shell\n     ├─master\n     │     descript.txt\n     │     surface○○.png\n     │     surfaces.txt\n     └─profile                  【自動生成、配布時削除】\nフォルダ名は半角英数推奨。\n詳しく→Ukadoc ゴーストの構成 (一般的ゴーストの構成です、ここのshiori.dllが里々使用ゴーストではsatori.dllになります)\n↑",
       "url": "https://soliton.sub.jp/satori/?%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%A7%8B%E6%88%90#m5dc8711"
     },
     {
@@ -18177,6 +18225,14 @@
       "category": "satori_reference",
       "content": "satori_conf.txt\n変数・特殊変数の初期値設定、SAORI使用時の定義を記述するファイル。\nこのファイルが無くても起動しますが、通常ゴーストであればほぼ必須になります。\nreplace.txtによる辞書置き換え対象ファイル。\n↑\n変数の初期値設定†\nゴースト起動時に変数・特殊変数へ初期値を与えたい時に記述します。\n初期値が読み込まれるとゴースト終了時に変数の値は satori_savedata.txt に保存され、次回起動時からは satori_savedata.txt の値が優先されます。（初期値は１回だけ参照される事になります。）\n「＊初期化」行以降にエントリーを記述。\n変数の使用時に必ず必要なわけではありません。\n変数を削除し、satori_savedata.txt に変数の値が書き込まれなくなると、また satori_conf.txt の初期値が適用されます。\n既に変数を使用していて satori_savedata.txt に変数の値がある状況では、satori_conf.txt にエントリを追記しても参照されません。\n動的に値を変更する必要が無い特殊変数等は、このファイルで初期値を設定しておくと良いでしょう。\n例\n＊初期化\n＄喋り間隔【タブ】１８０秒\n＄喋り間隔誤差【タブ】１０％\n補足\n上記にもある様に satori_conf.txt で設定した変数の初期値は、ゴーストを起動して初期値が読み込まれると、終了時に satori_savedata.txt に保存され、次回起動以降は satori_savedata.txt の値の方が優先されるので、ゴースト起動後は satori_conf.txt の初期値だけ変えてもゴーストに反映されません。\nゴースト開発中の場合は、一旦ゴーストを終了し satori_conf.txt と satori_savedata.txt 両方の変数の値を書き換えるか、セーブデータが不要であれば satori_savedata.txt のファイル自体を削除する、といった手段で値をゴーストに反映させます。\n※SSPではゴーストキャッシュがあるため、ゴーストを2体起動しながら開発していると開発中のゴーストだけを再起動させても sator_savedata.txt からでなくキャッシュから変数の値を読み込んでしまうのでSSPのメニューから「機能」の「ゴーストキャッシュ開放」をしてやるか、SSP自体を再起動して下さい。\n\nユーザーに配布してしまったゴーストの初期値変更する場合は、起動イベントの中で値を設定するか、終了イベントの中で変数を削除し毎回初期値を読み込ませるかして下さい。\n↑\nSAORI使用時の定義†\n使用するSAORIを定義します。\n「＠SAORI」行以降にエントリーを記述。\nSAORIごとに1件ではなく引数別に登録できます。\nSAORI-basic も区別せずに登録できます。\nゴースト「ポストと狛犬」では fill_desktop が例として定義されています。\n定義されているSAORIが存在しないと、ゴースト起動時に「プラグインが存在しません」エラーが出ます。\n例\n＠SAORI\nfill_desktop,saori/fill_desktop.dll\nfill_red,saori/fill_dektop.dll,255,0,0\n詳しく→SAORI\n↑",
       "url": "https://soliton.sub.jp/satori/?%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%A7%8B%E6%88%90#j3e3ee70"
+    },
+    {
+      "id": "satori:ファイル構成#y15a9360",
+      "title": "ファイル構成 - satori_bootconf.txt",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "satori_bootconf.txt\n起動時の辞書・セーブデータ読み込み前の設定ファイルです。省略可。\n辞書の文字コードなどを設定できます。\nMc169-1から使用可能です。\n行ごとに以下のように設定します。\nis_utf_8_dic,true\n全辞書を強制的にUTF-8扱いにします。\nis_utf8_replace,true\nreplace/replace_afterを強制的にUTF-8扱いにします。\nis_utf8_savedata,true\nセーブデータを強制的にUTF-8扱いにします。\nis_utf8_all,true\n上記した3つの設定を有効にします。つまり、辞書、replace/replace_after、セーブデータの全てを強制的にUTF-8扱いにします。\n辞書とreplace/replace_afterをUTF-8にしたいときの例\nis_utf8_dic,true\nis_utf8_replace,true\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%A7%8B%E6%88%90#y15a9360"
     },
     {
       "id": "satori:ファイル構成#hbaf66ef",
@@ -19931,62 +19987,6 @@
       "url": "https://soliton.sub.jp/satori/?%E3%82%A6%E3%82%A7%E3%82%A4%E3%83%88#m6277fe5"
     },
     {
-      "id": "satori:サーフェス#c6cfe107",
-      "title": "サーフェス - サーフェス指定の基礎知識",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "サーフェス指定の基礎知識\n（）内に表示したいサーフェス番号を入れて指定します、現在スコープがあるキャラのサーフェスが変わります。\n：（５）おはよう！（７）って昼だよ！！\n：（１２）ねむねむ\nサーフェス番号はshellフォルダにある surface（番号）.png か、surfaces.txtにて定義された番号になります。\n該当する番号のサーフェスが無い場合は無視されます。\n番号は半角で記述してもOKです。\n上記の例では、（５）が¥s[5]、（７）が¥s[7]、（１２）が¥s[12]、という具合に、自動的にさくらスクリプトへと変換されてベースウェアに渡されます。\nもちろん、さくらスクリプトをそのまま使用しても構いません。\n：\\s5おはよう！\\s7って昼だよ！！\n：\\s[12]ねむねむ\n里々書式とさくらスクリプトの混在も可能です。\nただし、さくらスクリプトで直接書いた場合、下記の＄サーフェス加算値○による置換は行われません。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E3%82%B5%E3%83%BC%E3%83%95%E3%82%A7%E3%82%B9#c6cfe107"
-    },
-    {
-      "id": "satori:サーフェス#c6cfcb27",
-      "title": "サーフェス - 「サーフェス加算値○」が指定されていた場合",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "「サーフェス加算値○」が指定されていた場合\n＄サーフェス加算値○が設定されていると、指定した数値が番号に加算されます。\nつまり、仮に＄サーフェス加算値0に１００が、＄サーフェス加算値1に０が代入されていた（又は指定がない）場合、\n：（５）おはよう！（７）って昼だよ！！\n：（１２）ねむねむ\nが\n：\\s[105]おはよう！\\s[107]って昼だよ！！\n：\\s[12]ねむねむ\nと置換されるわけです。\n活用例としては、マルチキャラクタ・多重人格を参照。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E3%82%B5%E3%83%BC%E3%83%95%E3%82%A7%E3%82%B9#c6cfcb27"
-    },
-    {
-      "id": "satori:サーフェス#q341c93c",
-      "title": "サーフェス - 「会話時サーフェス戻し」が「有効」になっていた場合",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "「会話時サーフェス戻し」が「有効」になっていた場合\n＄会話時サーフェス戻しが「有効」に設定されていると、変数「デフォルトサーフェス0」「デフォルトサーフェス1」に設定されるサーフェスが、トークの冒頭に自動的に挿入されます。\n前のトーク終了時のサーフェスから一度戻るわけです。\n関連→特殊変数,困ったときの対処法\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E3%82%B5%E3%83%BC%E3%83%95%E3%82%A7%E3%82%B9#q341c93c"
-    },
-    {
-      "id": "satori:サーフェス#feabe438",
-      "title": "サーフェス - サーフェス関連TIPS",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "サーフェス関連TIPS\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E3%82%B5%E3%83%BC%E3%83%95%E3%82%A7%E3%82%B9#feabe438"
-    },
-    {
-      "id": "satori:サーフェス#faea133d",
-      "title": "サーフェス - サーフェス指定を変数で制御する",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "サーフェス指定を変数で制御する\nサーフェスは変数で指定する事も出来ます（変数の値は数値である必要があります）。\n好感度によって怒りや笑いのサーフェスを変更したい場合等に有効。\n＄サーフェス加算値○を使っても似たような事が可能。\n＊好感度普通サーフェス設定\n＄怒【タブ】7 \n\n＊好感度良いサーフェス設定\n＄怒【タブ】1007 \n\n＊\n：（（怒））馬鹿！\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E3%82%B5%E3%83%BC%E3%83%95%E3%82%A7%E3%82%B9#faea133d"
-    },
-    {
-      "id": "satori:サーフェス#hb46fc74",
-      "title": "サーフェス - 緩衝用のサーフェス",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "緩衝用のサーフェス\n現在のサーフェスの状態によって、続くサーフェス番号を変化させる方法です。\n怒っている表情の時には、急に笑顔にならないようにワンクッションを置く、など。\n＠緩衝サーフェス\n（（nswitch,（サーフェス0）,５,５,０,０,０,５,５,０,５,３））\n\n＊\n：（緩衝サーフェス）そろそろ休憩しよっか？\n：（１０）せやね。\n直前のサーフェス番号に対応して、適切だと思われるサーフェスに変化します。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E3%82%B5%E3%83%BC%E3%83%95%E3%82%A7%E3%82%B9#hb46fc74"
-    },
-    {
-      "id": "satori:サーフェス#ndaa5e74",
-      "title": "サーフェス - サーフェス関連記事",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "サーフェス関連記事\n特殊変数／情報取得変数\n＄デフォルトサーフェス○\n＄会話時サーフェス戻し\n＄今回は会話時サーフェス戻し\nサーフェス関連\nサーフェス○ (現在のサーフェス番号取得)\n前回終了時サーフェス○\nTIPS\nマルチキャラクタ・多重人格\nサーフェスが勝手に変化してしまう",
-      "url": "https://soliton.sub.jp/satori/?%E3%82%B5%E3%83%BC%E3%83%95%E3%82%A7%E3%82%B9#ndaa5e74"
-    },
-    {
       "id": "satori:アンカー#k1d71f3b",
       "title": "アンカー - アンカーとは",
       "source": "satori_wiki",
@@ -21683,6 +21683,142 @@
       "url": "https://soliton.sub.jp/satori/?SAORI%2FYAYA#wa07845e"
     },
     {
+      "id": "satori:SAORIを作る#d1b5d013",
+      "title": "SAORIを作る - この記事について",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "この記事について\nこの記事は、SAORIの仕様書にあるSAORI-universalの説明を、里々で使用するSAORIという前提で、できるだけ噛み砕いて説明したつもりです。\nわかりにくければ、ぜひかきなおしてください。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#d1b5d013"
+    },
+    {
+      "id": "satori:SAORIを作る#ifa058e8",
+      "title": "SAORIを作る - 必要スキル",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "必要スキル\nC++ で ダイナミック リンク ライブラリ(dll)をビルドできる方。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#ifa058e8"
+    },
+    {
+      "id": "satori:SAORIを作る#jc4171f0",
+      "title": "SAORIを作る - 前準備",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "前準備\nGlobalAlloc() や GlobalFree() などのWinAPI関数を使う必要があるので、\nその宣言を含む、Windows.hをインクルードしておきましょう。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#jc4171f0"
+    },
+    {
+      "id": "satori:SAORIを作る#e681a375",
+      "title": "SAORIを作る - 実装が必要な関数",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "実装が必要な関数\nSAORI-universal の作成には、load(),unload(),request()の３つの関数の実装が必要です。\nload() と unload() の２つは、両方実装する・両方実装しないが任意です。（片方だけはだめ）\nload() と unload() を実装する場合、SAORIの仕様上、ゴーストの読み込み時から終了時まで（里々の読み込み時から解放時まで）SAORIが読み込まれていることになりますが、実装しない場合は、いつ読み込みや解放を行っても良いことになっています。そのため、ゴースト起動中に保持しておきたい情報が有るのであれば、実装するようにしておきましょう。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#e681a375"
+    },
+    {
+      "id": "satori:SAORIを作る#f5d82bbf",
+      "title": "SAORIを作る - load()",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "load()\nSAORIが読み込まれる際に一番最初に呼び出される関数です。\n（DllMainなどのDLL エントリポイント関数を実装しているのであれば、そちらが先に呼びだされます。）\n宣言:\n extern \"C\" __declspec(dllexport) BOOL __cdecl load(HGLOBAL h, long len);\n\n説明:\n SAORIが呼び出した際に呼び出されます。\n SAORIはここで初期化を行うのが望ましいようです。\n\n引数:\n HGLOBAL h\n  SAORIのあるフォルダの絶対パスが\\で終端された文字列へのポインタ。\n  SAORIはこれを利用して、同フォルダ以下にあるファイルを読み書きするようにしてください。\n  （このHGLOBALは、char* として扱うことが出来ます。）\n  このポインタはSAORI側で、GlobalFree() を使って解放する必要があります。\n long len\n  h のバイトサイズ。\n\n返り値:\n 関数のの成否。\n FALSEが返った場合、SAORIのロードに失敗したと判断することができます。\n\n注意:\n h をGlobalFree() で開放しない場合、メモリリークが発生します。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#f5d82bbf"
+    },
+    {
+      "id": "satori:SAORIを作る#df4b2fb5",
+      "title": "SAORIを作る - unload()",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "unload()\nSAORIが解放される際に最後に呼び出される関数です。\n宣言:\n extern \"C\" __declspec(dllexport) BOOL __cdecl unload();\n\n説明:\n SAORIのアンロード時に呼び出されます。\n （里々ではゴーストの終了時、里々のアンロードのタイミングで。）\n\n返り値:\n 関数の成否。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#df4b2fb5"
+    },
+    {
+      "id": "satori:SAORIを作る#l9e6a2fd",
+      "title": "SAORIを作る - request()",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "request()\nload() の後と、SAORIの呼び出し時に呼びだされます。\n宣言:\n extern \"C\" __declspec(dllexport) HGLOBAL __cdecl request(HGLOBAL h, long *len);\n\n説明:\n load() と、SAORIの呼び出し時に呼び出されます。\n\n引数:\n HGLOBAL h\n  リクエスト文字列へのポインタ。\n  (load() 同様に、char* として扱うことが出来ます。)\n  このポインタはSAORI側で、GlobalFree() を使って解放する必要があります。\n\n long *len\n  リクエスト文字列のバイトサイズを格納する変数へのポインタ。\n  関数終了時には、返り値の HGLOBAL のバイトサイズを参照先に格納するして、里々に返り値の文字列のバイトサイズを通知します。\n\n返り値:\n SAORIの実行結果文字列を格納したHGLOBAL。\n 返り値のHGLOBALを作成するには、GlobalAlloc() を使って確保した領域に返り値の文字列を格納します。返り値の文字列の書式は、下の項目に従ってください。\n GlobalAlloc() の最初の引数（UINT uFlags）には GMEM_FIXED を指定します。また、この時に確保したバイトサイズを引数の len の参照先に設定します。\n注意:\n h をGlobalFree() で開放しない場合、メモリリークが発生します。\n バージョンチェック時の呼び出しは、load() がない場合にも発生するはずです。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#l9e6a2fd"
+    },
+    {
+      "id": "satori:SAORIを作る#ud160ec8",
+      "title": "SAORIを作る - リクエスト文字列",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "リクエスト文字列\nリクエスト文字列は次の書式に従った文字列で行われます。\n（最初の行(コマンド SAORI/1.0)と最後の行(\\r\\n)以外は順不同です。）\n（コマンド） SAORI/1.0\\r\\n\nSecurityLevel: （セキュリティレベル）\\r\\n\nArgument0: （引数０）\\r\\n\nArgument1: （引数１）\\r\\n\nCharset: Shift_JIS\\r\\n\nSender: SATORI\\r\\n\n\\r\\n\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#ud160ec8"
+    },
+    {
+      "id": "satori:SAORIを作る#a4a646d4",
+      "title": "SAORIを作る - コマンド",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "コマンド\nGET Version\nEXECUTE\nこのどちらかが入ります。\n↑\nGET Version†\nGET Versionは、load()が呼び出された後（loadがない場合でも呼び出されるはず）に呼び出されます。\nこれは、DLLがSAORIであるかを確認しています。（もっと言えば期待するバージョンのSAORIか、なのですが今のところ SAORI/1.0 しか無いです。）\nGET Versionには、\nSAORI/1.0 200 OK\\r\\n\\r\\n\nとだけ返しておけば問題ありません。\nまた、そうでなければSAORIとして認識されません。\n↑\nEXECUTE†\nこちらは実際にSAORIを呼び出した際に呼び出されます。\nArgumentをもとに処理を行い、結果を返すと良いでしょう。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#a4a646d4"
+    },
+    {
+      "id": "satori:SAORIを作る#gf62f098",
+      "title": "SAORIを作る - セキュリティレベル",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "セキュリティレベル\nLoca|\nExternal\nこのどちらかが入ります。\n里々の場合、通常はLocalが、外部からスクリプトが入力されて実行される場合はExternalが入るようです。\n一応里々自体は、SSPの開発者モードを有効にした上で、里々で　＄デバッグ＝有効　にしないと外部からスクリプトを入力できないはず（ShioriEchoが使えない）なので、気にする必要は無いでしょう。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#gf62f098"
+    },
+    {
+      "id": "satori:SAORIを作る#re6aad83",
+      "title": "SAORIを作る - 引数",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "引数\nさおりを呼び出した時に使われた引数です。\nArgument0から数字は1ずつ増えていきます。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#re6aad83"
+    },
+    {
+      "id": "satori:SAORIを作る#kb529c6b",
+      "title": "SAORIを作る - その他",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "その他\nCharsetとSenderは、それぞれ里々の場合はこのような固定値になりますが、他のSHIORIでは他の値になることがあります。（少なくともSenderはSHIORIに名前になるでしょう。）\nCharsetが異なる場合は、この文字列の文字コードも異なることになりますので、注意が必要です。\n逆に、里々専用のSAORIにするのであれば、考慮の必要は無いでしょう。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#kb529c6b"
+    },
+    {
+      "id": "satori:SAORIを作る#c97aac33",
+      "title": "SAORIを作る - 返り値の文字列",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "返り値の文字列\n返り値の文字列も次の書式に従った文字列で行います。\nSAORI/1.0 （ステータスコード）\\r\\n\nResult: （返り値）\\r\\n\nValue0: （追加の返り値２）\\r\\n\nValue1: （追加の返り値１）\\r\\n\nCharset: Shift_JIS\\r\\n\n\\r\\n\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#c97aac33"
+    },
+    {
+      "id": "satori:SAORIを作る#zf618f1d",
+      "title": "SAORIを作る - ステータスコード",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "ステータスコード\nSAORIの実行が成功したかどうかを返します。\nいくつか決まった種類があるので、合うものを使います。\n200 OK\n正しく実行が完了した。\n204 No Content\n正しく呼び出しが実行されたが、返り値は無い。\n400 Bad Request\n呼び出しの不備。リクエスト文字列が正しくない場合や、引数が期待するものでなかった場合のエラーを示します。\n500 Internal Server Error\nSAORIでエラーが発生し、正常に処理が完了できなかった場合に、これを返します。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#zf618f1d"
+    },
+    {
+      "id": "satori:SAORIを作る#w1e9af72",
+      "title": "SAORIを作る - 返り値",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "返り値\nSAORIの返り値です。\n例えばssuのsplitは、分割数を返しますが、それがこれに当たります。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#w1e9af72"
+    },
+    {
+      "id": "satori:SAORIを作る#i16cb133",
+      "title": "SAORIを作る - 追加の返り値",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "追加の返り値\n返り値が複数ある場合、Value0から1ずつ増える形で複数の返り値を返せます。\nSAORIの実行後、里々で（Ｓ０）などのように取得することが出来ます。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#i16cb133"
+    },
+    {
+      "id": "satori:SAORIを作る#v286e4e5",
+      "title": "SAORIを作る - 全体的な注意",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "全体的な注意\nSAORIでメモリ違反などの致命的なエラーが発生した場合やアサートを呼び出した場合は、SSPごと落ちる可能性があるので、エラーは必ずステータスコードとして返すようにし、関数自体は正常に終了するようにしてください。",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#v286e4e5"
+    },
+    {
       "id": "satori:きのこを生やす#icc27807",
       "title": "きのこを生やす - きのこを生やす基本",
       "source": "satori_wiki",
@@ -21961,6 +22097,14 @@
       "category": "satori_tips",
       "content": "loadに関する注意点\nloadは華和梨形式の辞書及びセーブデータを読み込むコマンドですが、これは既存のエントリの上書きではなく追加で読み込む形になります。\nこのため、不意に（例えば多重読込などで）同じ辞書のloadを重ねてしまうと、各エントリの配列数が倍増してしまいます。このまま気付かずにsaveしてしまうとセーブデータのサイズが単純に倍、倍、倍…と膨れ上がる可能性もあります。\nセット例にて\n=kis\n\t# 全エントリをクリア\n\tlisttree @c .;\n\tset @a 0;\n\tloop $(size @c) $(\n\t\tclear $@c[${@a}];\n\t\tinc @a;\n\t);\n=end\nといった処理を冒頭に置いて、主要なエントリを一度全て削除を行っているのはこれが理由になります。\nセーブデータを一括管理ではなく任意のタイミングでロードさせたい場合、loadコマンドは自作関数化したものを使い、saveの項で説明した「セーブ変数」を流用する事で、予めロード予定の変数のみを削除してからロードするという方法も有効でしょう。\nセーブ変数 : 車種 , エンジン , タイヤ\nセーブ実行 : $(xargs セーブ変数 save セーブデータ.txt)\nセーブ読込 : $(loadex セーブ変数 セーブデータ.txt)\n\n=kis\nfunction loadex $(\n\tif $[ $(size @arg) != 3 ] $(return \"引数の数が正しくありません\");\n\tforeach @a $@arg[1] $(\n\t\tclear ${@a};\n\t);\n\tload $@arg[2];\n\treturn \"\";\n);\n=end\nここで使われているforeachコマンドはこれ一つで指定したエントリ（の中身のエントリ名）全てに同じ処理を実行させられる、非常に便利なコマンドです。",
       "url": "https://soliton.sub.jp/satori/?SAORI%2F%E8%8F%AF%E5%92%8C%E6%A2%A8#q08bf3f8"
+    },
+    {
+      "id": "satori:伝言板",
+      "title": "伝言板",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "FrontPage 海外からのスパム対策のため日本国外からのアクセス制限を行いました。しばらく様子見させて下さい。 -- 2022-03-17 (木) 10:13:13 ばぐとら と同様にベーシック認証作るとか「PukiWikiにBasic認証をつける」公式のユーザ認証プラグインを有効にするとか「PukiWiki/Authentication」 -- 2022-03-20 (日) 18:14:03 スパム対策のため、ページの新規作成、編集および伝言板への投稿に認証かけました。それに伴い日本国外からのアクセス制限を撤廃しました。以上、宜しくお願い致します。 -- 2022-05-17 (火) 21:28:10 好感度/call関数による好感度の調整のサンプルコピペすると動かなかったので見てみたら、setの内部で変数が（）で不必要にくくられてる…とおもいました 関数わかってないのでひとまずコメントにだけ… -- 2022-06-03 (金) 02:27:43 このサンプルだとマイナスになったときに変数がおかしくなりますね。修正しておきました。 -- 2022-06-05 (日) 06:45:17 5月のコメントでは海外からのアクセス制限は解除したとのことですが、海外のコミュニティの方からUSからはアクセスできない(403)ため管理者に聞いてほしいと質問されました。急ぎのものではないですが、確認していただけると嬉しいです -- 2022-11-25 (金) 17:55:25 ＞Naoさま ご報告ありがとうございます。設定ミスにより海外からのアクセスができない状態になっていました。修正が完了致しましたので、ご確認をお願い致します。 -- 2022-11-28 (月) 23:25:28 確認取れました！対応ありがとうございます -- 2022-12-04 (日) 10:01:41 「困ったときの対処法」ページの伺的なフォーラムへのリンク切れを直しました。 -- 2023-11-09 (木) 23:59:46 リンク集を修正。現状SSLに対応(HTTPS化)していないサイトのリンクも残してありますが、今後いずれ他のブラウザも表示しなくなる可能性が予想されます。ご注意。 -- 2023-11-10 (金) 18:05:56 「OnTranslate」の記事のサンプル、）が多かった点を修正しました。 -- 2023-11-30 (木) 09:39:00 「ファイル構成」のページに、「satori_bootconf.txt」について記述しました。 -- 2026-04-30 (木) 08:13:22",
+      "url": "https://soliton.sub.jp/satori/?%E4%BC%9D%E8%A8%80%E6%9D%BF"
     },
     {
       "id": "satori:外部関数/yaya#d8554eb3",
