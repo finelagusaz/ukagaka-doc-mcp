@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-05-04T06:25:50.620Z",
+  "generatedAt": "2026-05-11T06:53:57.470Z",
   "entries": [
     {
       "id": "ukadoc:descript_balloon:charset_2c_6587_5b57_30b3_30fc_30c9:1",
@@ -6179,6 +6179,22 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bset_2cwindowstate_2cminimize_5d:1"
     },
     {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bsave_2cwallpaper_5d:1",
+      "title": "\\![save,wallpaper]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![save,wallpaper]\n現在の壁紙をいったん保存し、restoreで復帰できるようにする。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.11",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bsave_2cwallpaper_5d:1"
+    },
+    {
+      "id": "ukadoc:list_sakura_script:_5c_21_5brestore_2cwallpaper_5d:1",
+      "title": "\\![restore,wallpaper]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![restore,wallpaper]\nsave,wallpaperで保存された壁紙を復帰する。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.11",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5brestore_2cwallpaper_5d:1"
+    },
+    {
       "id": "ukadoc:list_sakura_script:_5c_21_5bset_2cwallpaper_2c_30d5_30a1_30a4_30eb_540d_2c_30aa_30d7_30b7_30e7_30f3_5d:1",
       "title": "\\![set,wallpaper,ファイル名,オプション]",
       "source": "ukadoc",
@@ -7959,7 +7975,7 @@
       "title": "OnMouseClick",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnMouseClick\n左・右ボタン（＋中ボタン）でマウスクリックされた時(マウスボタンを1回押して放された瞬間)に、OnMouseUpに反応しない場合に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t左クリックは0、右クリックは1、中クリックは2(互換仕様：OnMouseClickExへの移行を推奨)。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\t※SSPのみ　windows7以降、マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、マウスなどからの入力でmouse",
+      "content": "OnMouseClick\n左・右ボタン（＋中ボタン）でマウスクリックされた時(マウスボタンを1回押して放された瞬間)に、OnMouseUpに反応しない場合に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t左クリックは0、右クリックは1、中クリックは2(互換仕様：OnMouseClickExへの移行を推奨)。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\t※SSP/NINIXのみ　マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、ペンタブレットでpen、ペンタブの消しゴム側でeraser、マウスなどからの入力でmouse",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnMouseClick:1"
     },
     {
@@ -7967,7 +7983,7 @@
       "title": "OnMouseClickEx",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnMouseClickEx\n左・右ボタン以外でマウスクリックされた時(マウスボタンを1回押して放された瞬間)に、OnMouseUpExに反応しない場合に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\tホイールクリック(または3ボタンマウスの中ボタン)はmiddle、拡張ボタン1(通常「戻る」に割当)はxbutton1、拡張ボタン2(通常「進む」に割当)はxbutton2。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\twindows7以降、マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、マウスなどからの入力でmouse",
+      "content": "OnMouseClickEx\n左・右ボタン以外でマウスクリックされた時(マウスボタンを1回押して放された瞬間)に、OnMouseUpExに反応しない場合に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\tホイールクリック(または3ボタンマウスの中ボタン)はmiddle、拡張ボタン1(通常「戻る」に割当)はxbutton1、拡張ボタン2(通常「進む」に割当)はxbutton2。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\tマルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、ペンタブレットでpen、ペンタブの消しゴム側でeraser、マウスなどからの入力でmouse",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnMouseClickEx:1"
     },
     {
@@ -7975,7 +7991,7 @@
       "title": "OnMouseDoubleClick",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnMouseDoubleClick\n左・右ボタンでダブルクリックされた際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t左クリックは0、右クリックは1。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\t※SSPのみ　windows7以降、マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、マウスなどからの入力でmouse",
+      "content": "OnMouseDoubleClick\n左・右ボタンでダブルクリックされた際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t左クリックは0、右クリックは1。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\t※SSP/NINIXのみ　マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、ペンタブレットでpen、ペンタブの消しゴム側でeraser、マウスなどからの入力でmouse",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnMouseDoubleClick:1"
     },
     {
@@ -7983,7 +7999,7 @@
       "title": "OnMouseDoubleClickEx",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnMouseDoubleClickEx\n左・右ボタン以外でダブルクリックされた際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\tホイールクリック(または3ボタンマウスの中ボタン)はmiddle、拡張ボタン1(通常「戻る」に割当)はxbutton1、拡張ボタン2(通常「進む」に割当)はxbutton2。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\twindows7以降、マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、マウスなどからの入力でmouse",
+      "content": "OnMouseDoubleClickEx\n左・右ボタン以外でダブルクリックされた際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\tホイールクリック(または3ボタンマウスの中ボタン)はmiddle、拡張ボタン1(通常「戻る」に割当)はxbutton1、拡張ボタン2(通常「進む」に割当)はxbutton2。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\tマルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、ペンタブレットでpen、ペンタブの消しゴム側でeraser、マウスなどからの入力でmouse",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnMouseDoubleClickEx:1"
     },
     {
@@ -7991,7 +8007,7 @@
       "title": "OnMouseMultipleClick",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnMouseMultipleClick\n3回以上連続でクリックされた際に発生。※SHIORIから同イベントに応答が無い場合、通常通りOnMouseClickとOnMouseDoubleClickの流れに戻る。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。それ以降2～\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t左クリックは0、右クリックは1\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\twindows7以降、マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、マウスなどからの入力でmouse\n\t\t\t\t\t\tReference7\n\t\t\t\t\t\t連続クリック回数",
+      "content": "OnMouseMultipleClick\n3回以上連続でクリックされた際に発生。※SHIORIから同イベントに応答が無い場合、通常通りOnMouseClickとOnMouseDoubleClickの流れに戻る。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。それ以降2～\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t左クリックは0、右クリックは1\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\tマルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、ペンタブレットでpen、ペンタブの消しゴム側でeraser、マウスなどからの入力でmouse\n\t\t\t\t\t\tReference7\n\t\t\t\t\t\t連続クリック回数",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnMouseMultipleClick:1"
     },
     {
@@ -7999,7 +8015,7 @@
       "title": "OnMouseMultipleClickEx",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnMouseMultipleClickEx\n左・右ボタン以外で3回以上連続でクリックされた際に発生。※SHIORIから同イベントに応答が無い場合、通常通りOnMouseClickExとOnMouseDoubleClickExの流れに戻る。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。それ以降2～\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\tホイールクリック(または3ボタンマウスの中ボタン)はmiddle、拡張ボタン1(通常「戻る」に割当)はxbutton1、拡張ボタン2(通常「進む」に割当)はxbutton2。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\twindows7以降、マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、マウスなどからの入力でmouse\n\t\t\t\t\t\tReference7\n\t\t\t\t\t\t連続クリック回数",
+      "content": "OnMouseMultipleClickEx\n左・右ボタン以外で3回以上連続でクリックされた際に発生。※SHIORIから同イベントに応答が無い場合、通常通りOnMouseClickExとOnMouseDoubleClickExの流れに戻る。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。それ以降2～\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\tホイールクリック(または3ボタンマウスの中ボタン)はmiddle、拡張ボタン1(通常「戻る」に割当)はxbutton1、拡張ボタン2(通常「進む」に割当)はxbutton2。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\tマルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、ペンタブレットでpen、ペンタブの消しゴム側でeraser、マウスなどからの入力でmouse\n\t\t\t\t\t\tReference7\n\t\t\t\t\t\t連続クリック回数",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnMouseMultipleClickEx:1"
     },
     {
@@ -8007,7 +8023,7 @@
       "title": "OnMouseUp",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnMouseUp\n左・右のマウスボタンが放された際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t左クリックは0、右クリックは1、中クリックは2(互換仕様：OnMouseClickExへの移行を推奨)。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\twindows7以降、マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、マウスなどからの入力でmouse",
+      "content": "OnMouseUp\n左・右のマウスボタンが放された際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t左クリックは0、右クリックは1、中クリックは2(互換仕様：OnMouseClickExへの移行を推奨)。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\tマルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、ペンタブレットでpen、ペンタブの消しゴム側でeraser、マウスなどからの入力でmouse",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnMouseUp:1"
     },
     {
@@ -8015,7 +8031,7 @@
       "title": "OnMouseUpEx",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnMouseUpEx\n左・右以外のマウスボタンが放された際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\tホイールクリック(または3ボタンマウスの中ボタン)はmiddle、拡張ボタン1(通常「戻る」に割当)はxbutton1、拡張ボタン2(通常「進む」に割当)はxbutton2。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\twindows7以降、マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、マウスなどからの入力でmouse",
+      "content": "OnMouseUpEx\n左・右以外のマウスボタンが放された際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\tホイールクリック(または3ボタンマウスの中ボタン)はmiddle、拡張ボタン1(通常「戻る」に割当)はxbutton1、拡張ボタン2(通常「進む」に割当)はxbutton2。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\tマルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、ペンタブレットでpen、ペンタブの消しゴム側でeraser、マウスなどからの入力でmouse",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnMouseUpEx:1"
     },
     {
@@ -8023,7 +8039,7 @@
       "title": "OnMouseDown",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnMouseDown\n左・右のマウスボタンが押された際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t左クリックは0、右クリックは1、中クリックは2(互換仕様：OnMouseClickExへの移行を推奨)。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\twindows7以降、マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、マウスなどからの入力でmouse",
+      "content": "OnMouseDown\n左・右のマウスボタンが押された際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t左クリックは0、右クリックは1、中クリックは2(互換仕様：OnMouseClickExへの移行を推奨)。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\tマルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、ペンタブレットでpen、ペンタブの消しゴム側でeraser、マウスなどからの入力でmouse",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnMouseDown:1"
     },
     {
@@ -8031,7 +8047,7 @@
       "title": "OnMouseDownEx",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnMouseDownEx\n左・右以外のマウスボタンが押された際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\tホイールクリック(または3ボタンマウスの中ボタン)はmiddle、拡張ボタン1(通常「戻る」に割当)はxbutton1、拡張ボタン2(通常「進む」に割当)はxbutton2。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\twindows7以降、マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、マウスなどからの入力でmouse",
+      "content": "OnMouseDownEx\n左・右以外のマウスボタンが押された際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\tホイールクリック(または3ボタンマウスの中ボタン)はmiddle、拡張ボタン1(通常「戻る」に割当)はxbutton1、拡張ボタン2(通常「進む」に割当)はxbutton2。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\tマルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、ペンタブレットでpen、ペンタブの消しゴム側でeraser、マウスなどからの入力でmouse",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnMouseDownEx:1"
     },
     {
@@ -8039,7 +8055,7 @@
       "title": "OnMouseMove",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnMouseMove\nマウスが移動した際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tマウスホイールの回転量および回転方向。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t※SSPのみ　常に0。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\t※SSPのみ　windows7以降、マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、マウスなどからの入力でmouse",
+      "content": "OnMouseMove\nマウスが移動した際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tマウスホイールの回転量および回転方向。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t※SSP/NINIXのみ　常に0。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\t※SSPのみ　マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、ペンタブレットでpen、ペンタブの消しゴム側でeraser、マウスなどからの入力でmouse",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnMouseMove:1"
     },
     {
@@ -8047,7 +8063,7 @@
       "title": "OnMouseWheel",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnMouseWheel\nマウスホイールが回転した際に発生。SSP2.3.53以降、タッチパネル環境であった場合に、OnMouseGestureのReference5がupまたはdownであるようなものに対してSHIORIが何も返さなかった（204 No Contentが返された）時にも代替イベントとしてOnMouseWheelが発生する。その場合Reference2の数値は元々のOnMouseGestureの移動量とup・downの方向から変換される（upなら正数、downなら負数）。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tマウスホイールの回転量および回転方向。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t※SSPのみ　常に0。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\t※SSPのみ　windows7以降、マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、マウスなどからの入力でmouse",
+      "content": "OnMouseWheel\nマウスホイールが回転した際に発生。SSP2.3.53以降、タッチパネル環境であった場合に、OnMouseGestureのReference5がupまたはdownであるようなものに対してSHIORIが何も返さなかった（204 No Contentが返された）時にも代替イベントとしてOnMouseWheelが発生する。その場合Reference2の数値は元々のOnMouseGestureの移動量とup・downの方向から変換される（upなら正数、downなら負数）。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tマウスホイールの回転量および回転方向。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t※SSP/NINIXのみ　常に0。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\t※SSP/NINIXのみ　マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、ペンタブレットでpen、ペンタブの消しゴム側でeraser、マウスなどからの入力でmouse",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnMouseWheel:1"
     },
     {
@@ -8055,7 +8071,7 @@
       "title": "OnMouseEnterAll",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnMouseEnterAll\nマウスがキャラクターウインドウに入った際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\twindows7以降、マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、マウスなどからの入力でmouse",
+      "content": "OnMouseEnterAll\nマウスがキャラクターウインドウに入った際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\tマルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、ペンタブレットでpen、ペンタブの消しゴム側でeraser、マウスなどからの入力でmouse",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnMouseEnterAll:1"
     },
     {
@@ -8063,7 +8079,7 @@
       "title": "OnMouseLeaveAll",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnMouseLeaveAll\nマウスがキャラクターウインドウから出た際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\twindows7以降、マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、マウスなどからの入力でmouse",
+      "content": "OnMouseLeaveAll\nマウスがキャラクターウインドウから出た際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\tマルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、ペンタブレットでpen、ペンタブの消しゴム側でeraser、マウスなどからの入力でmouse",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnMouseLeaveAll:1"
     },
     {
@@ -8071,7 +8087,7 @@
       "title": "OnMouseEnter",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnMouseEnter\nマウスが当たり判定に入った際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\twindows7以降、マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、マウスなどからの入力でmouse",
+      "content": "OnMouseEnter\nマウスが当たり判定に入った際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\tマルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、ペンタブレットでpen、ペンタブの消しゴム側でeraser、マウスなどからの入力でmouse",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnMouseEnter:1"
     },
     {
@@ -8079,7 +8095,7 @@
       "title": "OnMouseLeave",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnMouseLeave\nマウスが当たり判定から出た際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\twindows7以降、マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、マウスなどからの入力でmouse",
+      "content": "OnMouseLeave\nマウスが当たり判定から出た際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\tマルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、ペンタブレットでpen、ペンタブの消しゴム側でeraser、マウスなどからの入力でmouse",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnMouseLeave:1"
     },
     {
@@ -8087,7 +8103,7 @@
       "title": "OnMouseDragStart",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnMouseDragStart\nマウスをドラッグし始めた際に発生。ただしパッシブモードでは抑制される。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tマウスホイールの回転量および回転方向。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t左クリックは0、右クリックは1。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\twindows7以降、マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、マウスなどからの入力でmouse",
+      "content": "OnMouseDragStart\nマウスをドラッグし始めた際に発生。ただしパッシブモードでは抑制される。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tマウスホイールの回転量および回転方向。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t左クリックは0、右クリックは1。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\tマルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、ペンタブレットでpen、ペンタブの消しゴム側でeraser、マウスなどからの入力でmouse",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnMouseDragStart:1"
     },
     {
@@ -8095,7 +8111,7 @@
       "title": "OnMouseDragEnd",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnMouseDragEnd\nマウスをドラッグし終えた際に発生。ただしパッシブモードでは抑制される。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tマウスホイールの回転量および回転方向。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t左クリックは0、右クリックは1。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\twindows7以降、マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、マウスなどからの入力でmouse",
+      "content": "OnMouseDragEnd\nマウスをドラッグし終えた際に発生。ただしパッシブモードでは抑制される。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tマウスホイールの回転量および回転方向。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t左クリックは0、右クリックは1。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\tマルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、ペンタブレットでpen、ペンタブの消しゴム側でeraser、マウスなどからの入力でmouse",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnMouseDragEnd:1"
     },
     {
@@ -8103,7 +8119,7 @@
       "title": "OnMouseHover",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnMouseHover\nマウスが静止している際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\twindows7以降、マルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、マウスなどからの入力でmouse",
+      "content": "OnMouseHover\nマウスが静止している際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tマウスカーソルの x 座標（ローカル座標）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tマウスカーソルの y 座標（ローカル座標）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t本体の場合は0、相方の場合は1。SSP/CROWでは2以降もある。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t当たり判定の識別子。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t常に0。\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\tマルチタッチ対応環境のタッチパネル（※タッチパッド不可）からの入力でtouch、ペンタブレットでpen、ペンタブの消しゴム側でeraser、マウスなどからの入力でmouse",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnMouseHover:1"
     },
     {
@@ -8825,6 +8841,14 @@
       "category": "shiori_event",
       "content": "OnExecuteHTTPProgress\nexecute-httpで--progress-notifyを指定した際に発生。ReferenceはCompleteと同じ。\n\t\t\t\t\t\n\t\t\t\t\t\t [2.6.44]",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteHTTPProgress:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnExecuteHTTPStreaming:1",
+      "title": "OnExecuteHTTPStreaming",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnExecuteHTTPStreaming\nexecute-httpで--streamingを指定した際に発生。Reference4以外はCompleteと同じ。\n\t\t\t\t\t\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\tStreamingデータのうち、改行をバイト値1に置き換えたもの。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t [2.8.14]",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteHTTPStreaming:1"
     },
     {
       "id": "ukadoc:list_shiori_event:OnExecuteHTTPSSLInfo:1",
@@ -19985,6 +20009,62 @@
       "category": "satori_tips",
       "content": "自動挿入ウェイトを使う\n…と、ここまで手動でなんとかする方法を書いたが、実は里々は自動でウェイトを入れていたりする。\n特殊変数のウェイト関連の項を参照のこと。",
       "url": "https://soliton.sub.jp/satori/?%E3%82%A6%E3%82%A7%E3%82%A4%E3%83%88#m6277fe5"
+    },
+    {
+      "id": "satori:サーフェス#c6cfe107",
+      "title": "サーフェス - サーフェス指定の基礎知識",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "サーフェス指定の基礎知識\n（）内に表示したいサーフェス番号を入れて指定します、現在スコープがあるキャラのサーフェスが変わります。\n：（５）おはよう！（７）って昼だよ！！\n：（１２）ねむねむ\nサーフェス番号はshellフォルダにある surface（番号）.png か、surfaces.txtにて定義された番号になります。\n該当する番号のサーフェスが無い場合は無視されます。\n番号は半角で記述してもOKです。\n上記の例では、（５）が¥s[5]、（７）が¥s[7]、（１２）が¥s[12]、という具合に、自動的にさくらスクリプトへと変換されてベースウェアに渡されます。\nもちろん、さくらスクリプトをそのまま使用しても構いません。\n：\\s5おはよう！\\s7って昼だよ！！\n：\\s[12]ねむねむ\n里々書式とさくらスクリプトの混在も可能です。\nただし、さくらスクリプトで直接書いた場合、下記の＄サーフェス加算値○による置換は行われません。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%82%B5%E3%83%BC%E3%83%95%E3%82%A7%E3%82%B9#c6cfe107"
+    },
+    {
+      "id": "satori:サーフェス#c6cfcb27",
+      "title": "サーフェス - 「サーフェス加算値○」が指定されていた場合",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "「サーフェス加算値○」が指定されていた場合\n＄サーフェス加算値○が設定されていると、指定した数値が番号に加算されます。\nつまり、仮に＄サーフェス加算値0に１００が、＄サーフェス加算値1に０が代入されていた（又は指定がない）場合、\n：（５）おはよう！（７）って昼だよ！！\n：（１２）ねむねむ\nが\n：\\s[105]おはよう！\\s[107]って昼だよ！！\n：\\s[12]ねむねむ\nと置換されるわけです。\n活用例としては、マルチキャラクタ・多重人格を参照。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%82%B5%E3%83%BC%E3%83%95%E3%82%A7%E3%82%B9#c6cfcb27"
+    },
+    {
+      "id": "satori:サーフェス#q341c93c",
+      "title": "サーフェス - 「会話時サーフェス戻し」が「有効」になっていた場合",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "「会話時サーフェス戻し」が「有効」になっていた場合\n＄会話時サーフェス戻しが「有効」に設定されていると、変数「デフォルトサーフェス0」「デフォルトサーフェス1」に設定されるサーフェスが、トークの冒頭に自動的に挿入されます。\n前のトーク終了時のサーフェスから一度戻るわけです。\n関連→特殊変数,困ったときの対処法\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%82%B5%E3%83%BC%E3%83%95%E3%82%A7%E3%82%B9#q341c93c"
+    },
+    {
+      "id": "satori:サーフェス#feabe438",
+      "title": "サーフェス - サーフェス関連TIPS",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "サーフェス関連TIPS\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%82%B5%E3%83%BC%E3%83%95%E3%82%A7%E3%82%B9#feabe438"
+    },
+    {
+      "id": "satori:サーフェス#faea133d",
+      "title": "サーフェス - サーフェス指定を変数で制御する",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "サーフェス指定を変数で制御する\nサーフェスは変数で指定する事も出来ます（変数の値は数値である必要があります）。\n好感度によって怒りや笑いのサーフェスを変更したい場合等に有効。\n＄サーフェス加算値○を使っても似たような事が可能。\n＊好感度普通サーフェス設定\n＄怒【タブ】7 \n\n＊好感度良いサーフェス設定\n＄怒【タブ】1007 \n\n＊\n：（（怒））馬鹿！\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%82%B5%E3%83%BC%E3%83%95%E3%82%A7%E3%82%B9#faea133d"
+    },
+    {
+      "id": "satori:サーフェス#hb46fc74",
+      "title": "サーフェス - 緩衝用のサーフェス",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "緩衝用のサーフェス\n現在のサーフェスの状態によって、続くサーフェス番号を変化させる方法です。\n怒っている表情の時には、急に笑顔にならないようにワンクッションを置く、など。\n＠緩衝サーフェス\n（（nswitch,（サーフェス0）,５,５,０,０,０,５,５,０,５,３））\n\n＊\n：（緩衝サーフェス）そろそろ休憩しよっか？\n：（１０）せやね。\n直前のサーフェス番号に対応して、適切だと思われるサーフェスに変化します。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%82%B5%E3%83%BC%E3%83%95%E3%82%A7%E3%82%B9#hb46fc74"
+    },
+    {
+      "id": "satori:サーフェス#ndaa5e74",
+      "title": "サーフェス - サーフェス関連記事",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "サーフェス関連記事\n特殊変数／情報取得変数\n＄デフォルトサーフェス○\n＄会話時サーフェス戻し\n＄今回は会話時サーフェス戻し\nサーフェス関連\nサーフェス○ (現在のサーフェス番号取得)\n前回終了時サーフェス○\nTIPS\nマルチキャラクタ・多重人格\nサーフェスが勝手に変化してしまう",
+      "url": "https://soliton.sub.jp/satori/?%E3%82%B5%E3%83%BC%E3%83%95%E3%82%A7%E3%82%B9#ndaa5e74"
     },
     {
       "id": "satori:アンカー#k1d71f3b",
