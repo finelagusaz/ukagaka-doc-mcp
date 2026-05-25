@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-05-18T07:09:13.356Z",
+  "generatedAt": "2026-05-25T08:01:40.662Z",
   "entries": [
     {
       "id": "ukadoc:descript_balloon:charset_2c_6587_5b57_30b3_30fc_30c9:1",
@@ -5075,6 +5075,14 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bbind_2c_30ab_30c6_30b4_30ea_540d_2c_30d1_30fc_30c4_540d_2c_6570_5024_5d:1"
     },
     {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bbind-noevent_2c_30ab_30c6_30b4_30ea_540d_2c_30d1_30fc_30c4_540d_2c_6570_5024_5d:1",
+      "title": "\\![bind-noevent,カテゴリ名,パーツ名,数値]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![bind-noevent,カテゴリ名,パーツ名,数値]\n\\![bind]と同様に着せ替えパーツを操作するが、イベントを発生させない。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.23",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bbind-noevent_2c_30ab_30c6_30b4_30ea_540d_2c_30d1_30fc_30c4_540d_2c_6570_5024_5d:1"
+    },
+    {
       "id": "ukadoc:list_sakura_script:_5c_21_5block_2crepaint_5d:1",
       "title": "\\![lock,repaint]",
       "source": "ukadoc",
@@ -6603,6 +6611,14 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bopen_2cmailer_2c_30d1_30e9_30e1_30fc_30bf_5d:1"
     },
     {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bopen_2caddressbar_5d:1",
+      "title": "\\![open,addressbar]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![open,addressbar]\nアドレスバーを開く。URLをドラッグ＆ドロップするのと同じ操作ができる。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bopen_2caddressbar_5d:1"
+    },
+    {
       "id": "ukadoc:list_sakura_script:_5c_21_5bopen_2ceditor_2c_30d5_30a1_30a4_30eb_2c_8868_793a_884c_5d:1",
       "title": "\\![open,editor,ファイル,表示行]",
       "source": "ukadoc",
@@ -6913,6 +6929,14 @@
       "category": "sakurascript",
       "content": "\\![open,shiorirequest]\nSHIORI Request 送信パレットを開く。開発者用モードがOFFの場合は何も起こらない。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.5.78",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bopen_2cshiorirequest_5d:1"
+    },
+    {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bopen_2cerrorlog_5d:1",
+      "title": "\\![open,errorlog]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![open,errorlog]\nエラーログウィンドウを開く。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bopen_2cerrorlog_5d:1"
     },
     {
       "id": "ukadoc:list_sakura_script:_5c_21_5bopen_2cdressupexplorer_5d:1",
@@ -17299,6 +17323,534 @@
       "url": "https://soliton.sub.jp/satori/?%E6%83%85%E5%A0%B1%E5%8F%96%E5%BE%97%E5%A4%89%E6%95%B0#s44fed9c"
     },
     {
+      "id": "satori:特殊変数#t6507092",
+      "title": "特殊変数 - 特殊変数",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "特殊変数\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#t6507092"
+    },
+    {
+      "id": "satori:特殊変数#c272196b",
+      "title": "特殊変数 - ＄Value○",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄Value○\nコミュニケートを実行するコマンド。Value0にコミュニケートを送りたいゴースト名を入れます。\n実行時にそのゴーストが同時起動中であればコミュニケートが送信されます。\n以下例示。\n＄Value0【タブ】Emily\nとすると、（Emilyが同時に起動していれば）Emilyに話しかけます。\n要するに→と同じ効果ですが、こちらはさらに＄Value1以降を設定することで、追加情報を相手に送ることができます。\n（受け取る相手は、OnCommunicateのReference1以降で送られた情報を参照できます）\nコミュニケート送信キャンセル\n＄Value0【タブ】Emily\nとした後、\n＄Value0【タブ】\nと上書きすることでコミュニケート送信をキャンセルが可能になりました。\n掲示板にあった要望のようなので、おそらくこの書き方。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#c272196b"
+    },
+    {
+      "id": "satori:特殊変数#bd85dfb9",
+      "title": "特殊変数 - ＄教わること",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄教わること\nなにか値を入れると、teachboxを開きます。 \n\\![open,teachbox]と直接書くのとほぼ同じです。好みで使いましょう。\n詳しく→OnTeach\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#bd85dfb9"
+    },
+    {
+      "id": "satori:特殊変数#f7ace755",
+      "title": "特殊変数 - ＄引数区切り追加 / ＄引数区切り削除",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄引数区切り追加 / ＄引数区切り削除\n＄引数区切り追加【タブ】（追加したい区切り文字）\n＄引数区切り削除【タブ】（削除したい区切り文字）\n区切るのに使う文字をカスタマイズすることができます。\nちなみに初期状態では下記が実行された状態。\n＄引数区切り追加【タブ】、\n＄引数区切り追加【タブ】､\n＄引数区切り追加【タブ】，\n＄引数区切り追加【タブ】,\n＄引数区切り追加【タブ】（sprintf,%c,1）\nつまり、これらを削除してしまうこともできます。ただし引数区切りの設定は保存されません。＊OnSatoriLoadで設定するか、あるいは一時的に利用して戻すような感じで。\n「,」を削除するとSAORIを（sync～）で実行できなくなります。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#f7ace755"
+    },
+    {
+      "id": "satori:特殊変数#o772b719",
+      "title": "特殊変数 - ＄文「○」の重複回避 / ＄単語群「○」の重複回避",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄文「○」の重複回避 / ＄単語群「○」の重複回避\n＄文「○」の重複回避【タブ】方式、期間\n＄単語群「○」の重複回避【タブ】方式、期間\n里々では、同名のトーク及び単語群を呼び出したとき、候補から一つだけが選ばれます。\nこのコマンドは、「どのように選ぶか」を設定するものです。\n\n○にはトーク名か単語群名が入ります。\n「＊」とすると、全てのトーク及び単語群が設定対象になります。 \n方式と期間の間にある「、」は引数区切りと違い、他の記号での代用はできません。注意して下さい。\n【方式】\n無効　ランダムです。同じものが連続して選ばれることもあります。\n直前　ランダムですが、同じものを２回連続で選ぶことだけは回避します。\n有効　ランダムですが、全トークor全単語を一巡するまで同じものを選びません。\n降順　最初から後ろに向かって順番に選択していきます。一巡したら戻ります。\n昇順　最後尾から前に向かって順番に選択していきます。一巡したら戻ります。\n【期間】\n起動中　終了するまで設定が適用されます。\nトーク中　１回のトーク中でだけ設定が適用されます。次のトークでは再度選択をやり直します（この時の再選択の挙動は方式によって異なります）。\n方式を省略した（何も指定しない）場合は「無効」、期間を省略した場合は「起動中」と見なされます。また、方式が「無効」の場合は期間の設定は無意味になります。\n重複回避の指定はOnSatoriLoadで行う事が推奨されています。\n例\n＊OnSatoriLoad\n＄文「＊」の重複回避【タブ】有効、起動中\n＄単語群「くだもの」の重複回避【タブ】有効、トーク中\nまた、何も指定せずとも、デフォルトで\n本家里々\n＄文「＊」の重複回避【タブ】無効\n＄単語群「＊」の重複回避【タブ】有効、トーク中\n整備班ver里々\n＄文「＊」の重複回避【タブ】有効\n＄単語群「＊」の重複回避【タブ】有効、トーク中\nが自動で設定されています。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#o772b719"
+    },
+    {
+      "id": "satori:特殊変数#f06e4cc9",
+      "title": "特殊変数 - ＄呼び出し回数制限 / ＄ジャンプ回数制限",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄呼び出し回数制限 / ＄ジャンプ回数制限\n数値を代入し、最大呼び出し回数を設定します。\nデフォルトでは200。0を代入すると制限を解除します（非推奨！！）。\n（※里々Mc128-1以降では括弧や＞での無限呼び出しでスタックオーバーフローするのを防ぐ処理がされています）\n⇒「呼び出し回数制限」はcall機能利用時のみに。\n新たに「ジャンプ回数制限」キーワードが追加。（デフォルト20000回、0で制限を解除）\n里々Mc128-1以降で使用可。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#f06e4cc9"
+    },
+    {
+      "id": "satori:特殊変数#g8dae8e7",
+      "title": "特殊変数 - ＄括弧展開サイズ制限",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄括弧展開サイズ制限\n括弧展開処理時に、展開後のサイズが際限なく膨れ上がっていくようなコードを誤って書いてしまった時に、防御するためのサイズ制限です。\nデフォルトは256KB（262144）が設定されています。0を代入すると制限を解除します（非推奨！！）。\n里々Mc170-5以降で使用可。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#g8dae8e7"
+    },
+    {
+      "id": "satori:特殊変数#r0f887a7",
+      "title": "特殊変数 - ＄BalloonOffset○",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄BalloonOffset○\n＄BalloonOffset0【タブ】10,-50\n＄BalloonOffset1【タブ】20,35\nバルーン位置を指定します。\n○はスコープID番号、¥0側は0、¥1側は1になります。\n初めて指定するときは、必ず両方とも指定すること。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#r0f887a7"
+    },
+    {
+      "id": "satori:特殊変数#hedbd483",
+      "title": "特殊変数 - ＄SAORI引数の計算",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄SAORI引数の計算\n＄SAORI引数の計算【タブ】自動\n＄SAORI引数の計算【タブ】無効\nSAORIを使用する際の引数計算の機能切替をします。\n引数がSAORIで処理する前に計算されてしまうのを防ぐ事ができます。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#hedbd483"
+    },
+    {
+      "id": "satori:特殊変数#y69b2fb6",
+      "title": "特殊変数 - ＄デバッグ",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄デバッグ\n＄デバッグ＝有効\n＄デバッグ＝有効 にしないとShioriEchoが動作しない？\n里々Mc147-4以降で使用可。\n配布時には無効にしておく事を強く推奨します。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#y69b2fb6"
+    },
+    {
+      "id": "satori:特殊変数#dasnotify",
+      "title": "特殊変数 - ＄NOTIFYの自動保存",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄NOTIFYの自動保存\n＄NOTIFYの自動保存＝有効\n一部のNOTIFY情報の自動内部保持を有効にします。\nこれを有効にしておくと、里々がベースウェアから送られてくるNOTIFYイベントを処理するようになります。\n具体的には、導入済み○○などの情報取得変数が使えるようになります。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#dasnotify"
+    },
+    {
+      "id": "satori:特殊変数#n355c83e",
+      "title": "特殊変数 - ＄コミュニケートの検索方法",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄コミュニケートの検索方法\n＄コミュニケートの検索方法＝里々\n＄コミュニケートの検索方法＝合計文字数\n里々Mc154-1以降で使用可。\nコミュニケートボックスや他のゴーストから話しかけられたときの、コミュニケートの検索方法を設定します。\nデフォルトは「＄コミュニケートの検索方法＝里々」。\n解説→コミュニケート\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#n355c83e"
+    },
+    {
+      "id": "satori:特殊変数#uca3286a",
+      "title": "特殊変数 - ＄返信ヘッダ「ヘッダ名」",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄返信ヘッダ「ヘッダ名」\n＄返信ヘッダ「ヘッダ名」【タブ】設定する内容\n里々Mc162-1以降で使用可。\nSHIORI(またはSAORI)の任意のレスポンスを設定できるコマンド。\nこれまでは不可能だった送り主(Sender)の変更やバルーンのsstpメッセージ(Marker)の他、コミュニケートの仕様とも通じているので、そちらの独自拡張といった方法にも使うことができます。\n活用しやすいのはMarker辺りかも。\n＊\n＄返信ヘッダ「Marker」【タブ】このメッセージは自動的に消滅する\nバルーンに大事な事を表示しておいたで。\n以下はSSTP専用。\n＄返信ヘッダ「X-SSTP-PassThru-Hoge」【タブ】HogeHoge\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#uca3286a"
+    },
+    {
+      "id": "satori:特殊変数#qe875f29",
+      "title": "特殊変数 - ＄外部から実行可能なイベントの接頭辞",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄外部から実行可能なイベントの接頭辞\n＄外部から実行可能なイベントの接頭辞【タブ】OnHoge\n里々Mc167-1以降で使用可。\n通常はSecurityLevelがexternalの場合、里々は多くの機能の実行をデフォルトで拒否します。\n別途指定を行うことで、指定したイベントは通常通り実行することができます。\nカンマおよび読点区切りで複数指定可能。\n「全部」と書くと全部通します。\n＃ExternalEvent.○○ が実行可能\n＄外部から実行可能なイベントの接頭辞【タブ】ExternalEvent.\n\n＃全部実行可能\n＄外部から実行可能なイベントの接頭辞【タブ】全部\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#qe875f29"
+    },
+    {
+      "id": "satori:特殊変数#r4f34de2",
+      "title": "特殊変数 - れしば",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "れしば\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#r4f34de2"
+    },
+    {
+      "id": "satori:特殊変数#t212b710",
+      "title": "特殊変数 - ＄Log",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄Log\n\"有効\"を代入すると、れしばへの送信が有効になります。\n\"有効\"以外を代入すると無効に。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#t212b710"
+    },
+    {
+      "id": "satori:特殊変数#a140b585",
+      "title": "特殊変数 - ＄RequestLog",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄RequestLog\n設定値は Log と同じ。本体からのリクエストの内容をれしばに送ったり送らなかったりを変えられます。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#a140b585"
+    },
+    {
+      "id": "satori:特殊変数#mdeeb0dc",
+      "title": "特殊変数 - ＄OperationLog",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄OperationLog\nリクエストとレスポンス以外のログ、かな？\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#mdeeb0dc"
+    },
+    {
+      "id": "satori:特殊変数#s5eec8cf",
+      "title": "特殊変数 - ＄ResponseLog",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄ResponseLog\n本体へのレスポンスの内容を(略)。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#s5eec8cf"
+    },
+    {
+      "id": "satori:特殊変数#m0ac8a2a",
+      "title": "特殊変数 - スコープ切換",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "スコープ切換\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#m0ac8a2a"
+    },
+    {
+      "id": "satori:特殊変数#m8b98f06",
+      "title": "特殊変数 - ＄スコープ切り換え時",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄スコープ切り換え時\n＄スコープ切り換え時【タブ】\\n[half]\n「：」により¥0と¥1のスコープが切り替わったときに挿入されるスクリプトを記述します。 \nゴースト｢ポストと狛犬｣ではsatori_conf.txtで¥n[half]が設定されています。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#m8b98f06"
+    },
+    {
+      "id": "satori:特殊変数#g730a069",
+      "title": "特殊変数 - ＄さくらスクリプトによるスコープ切り換え時",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄さくらスクリプトによるスコープ切り換え時\n＄さくらスクリプトによるスコープ切り換え時【タブ】\\n[half]\n「＄スコープ切り換え時」のさくらスクリプト版。\n¥0,¥1,¥h,¥uが対象です。デフォルトで設定なし。\n改行せずにキャラを切り替える用途で¥0,¥1,¥h,¥uが使えます。\n「：」と全く同じ動作にしたい時は｢＄スコープ切り換え時｣と同じ値を設定してください。（デフォルトのままなら¥n[half]）\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#g730a069"
+    },
+    {
+      "id": "satori:特殊変数#nde962d2",
+      "title": "特殊変数 - トーク系の開始・終了時の装飾",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "トーク系の開始・終了時の装飾\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#nde962d2"
+    },
+    {
+      "id": "satori:特殊変数#o334a39e",
+      "title": "特殊変数 - ＄スクリプトの一番頭",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄スクリプトの一番頭\n里々はスクリプトの先頭に自動でサーフェス指定等が挿入されるため、¥Cなどの「冒頭にないと効果がないさくらスクリプト」が使用できませんでした。そこで考案されたのがこのコマンドです。\nこの\"＄スクリプトの一番頭\"に代入した内容はスクリプトの先頭に挿入されます。また、一度使用されると内容が消えて初期化されるのも特徴です。\n例\n＊\n＄スクリプトの一番頭【タブ】\\C\n\\0\\j[（ＵＲＬ）]\\e\n里々Mc131-1以降で使用可。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#o334a39e"
+    },
+    {
+      "id": "satori:特殊変数#a883a8e5",
+      "title": "特殊変数 - ＄トーク開始時",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄トーク開始時\nトークの一番最初に常に挿入するSakuraScriptを設定します。設定していない場合は何もしません。\nなお、＄スクリプトの一番頭 と両方設定していた場合、＄スクリプトの一番頭 の方が先になります。\n例えば\n＄トーク開始時【タブ】愛\n＄スクリプトの一番頭【タブ】勇気\nとしていた場合、スクリプトの最初に「勇気愛」が挿入されます。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#a883a8e5"
+    },
+    {
+      "id": "satori:特殊変数#t3cab332",
+      "title": "特殊変数 - ＄トーク終了時",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄トーク終了時\nトークの一番最後に常に挿入するSakuraScriptを設定します。設定していない場合は何もしません。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#t3cab332"
+    },
+    {
+      "id": "satori:特殊変数#kf6a3c95",
+      "title": "特殊変数 - ＄選択肢開始時",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄選択肢開始時\n＿を使った選択肢表示の直前に挿入するSakuraScriptを設定します。\n設定していない場合は何もしません。\n＄選択肢開始時【タブ】\\![*]\nとしておくと、選択肢の頭に¥![*]（さくらスクリプトのマーカー）を自動で挿入するようになります。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#kf6a3c95"
+    },
+    {
+      "id": "satori:特殊変数#r49b80ea",
+      "title": "特殊変数 - ＄選択肢終了時",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄選択肢終了時\n＿を使った選択肢表示の終了直後に挿入するSakuraScriptを設定します。\n設定していない場合は¥n（改行1個）を挿入します。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#r49b80ea"
+    },
+    {
+      "id": "satori:特殊変数#hbdb737b",
+      "title": "特殊変数 - タイマ",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "タイマ\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#hbdb737b"
+    },
+    {
+      "id": "satori:特殊変数#p366f286",
+      "title": "特殊変数 - ＄○タイマ",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄○タイマ\n＄○タイマ【タブ】数値\n代入した数値（単位は秒）が経過すると、○で指定した名前のトークを実行します。\nさらに詳しく→カウント・タイマ\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#p366f286"
+    },
+    {
+      "id": "satori:特殊変数#kfc75888",
+      "title": "特殊変数 - ＄全タイマ解除",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄全タイマ解除\n＄全タイマ解除【タブ】実行\n全てのタイマを解除します。\n個別に解除したい場合は、「＄○タイマ解除」と記述するか、秒数の入った「＄○タイマ」に空文字をセットして削除します。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#kfc75888"
+    },
+    {
+      "id": "satori:特殊変数#r8bc7dcf",
+      "title": "特殊変数 - ＄タイマ変数はセーブしない",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄タイマ変数はセーブしない\nMc166-5以降で使用可。\n＄タイマ変数はセーブしない【タブ】有効\n通常はタイマ変数はセーブデータに残ったままになり、次の起動時も自動でタイマ処理が続きますが、これを設定するとセーブデータに保存しなくなり、終了時に自動で全タイマが解除されます。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#r8bc7dcf"
+    },
+    {
+      "id": "satori:特殊変数#af320606",
+      "title": "特殊変数 - トーク予約",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "トーク予約\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#af320606"
+    },
+    {
+      "id": "satori:特殊変数#jaad7a7c",
+      "title": "特殊変数 - ＄次から○回目のトーク",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄次から○回目のトーク\n○で指定したランダムトークの回数後のトークを指定します。\n＊\n：明日は買い物に行かないとね。\n：冷蔵庫カラやからね。\n＄次から５回目のトーク【タブ】明日の予定\n＊明日の予定\n：あたし、明日何するって言ったっけ？\n：……買い物や。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#jaad7a7c"
+    },
+    {
+      "id": "satori:特殊変数#n6a86d66",
+      "title": "特殊変数 - ＄次のトーク",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄次のトーク\n次に来るトークを指定する。\n＊\n：安子さんの好きなものってなんだっけ？\n：えーっと、確か……。\n＄次のトーク【タブ】安子さん\n＊安子さん\n思い出した、あんぱんや！\n：そうそう、それそれ。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#n6a86d66"
+    },
+    {
+      "id": "satori:特殊変数#d0544aee",
+      "title": "特殊変数 - ＄トーク予約のキャンセル",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄トーク予約のキャンセル\n＄トーク予約のキャンセル【タブ】＊\n指定したトークの予約をキャンセルします。\n「＊」を代入することで全ての予約をキャンセルします。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#d0544aee"
+    },
+    {
+      "id": "satori:特殊変数#la079620",
+      "title": "特殊変数 - サーフェス",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "サーフェス\n関連→サーフェス\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#la079620"
+    },
+    {
+      "id": "satori:特殊変数#i67fbef9",
+      "title": "特殊変数 - ＄デフォルトサーフェス○",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄デフォルトサーフェス○\n＄デフォルトサーフェス0【タブ】0\n＄デフォルトサーフェス1【タブ】10\n変数「会話時サーフェス戻し」が有効である場合に、挿入するサーフェス番号を指定します。\n○はスコープID番号、¥0側は0、¥1側は1になります（¥p[2]側以降もそのまま2、3、4、、でＯＫ）。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#i67fbef9"
+    },
+    {
+      "id": "satori:特殊変数#j901292e",
+      "title": "特殊変数 - ＄会話時サーフェス戻し",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄会話時サーフェス戻し\n＄会話時サーフェス戻し【タブ】有効\n＄会話時サーフェス戻し【タブ】無効\n＄会話時サーフェス戻し【タブ】強制\nトークの先頭に、変数「デフォルトサーフェス○」で設定されているサーフェス変更を自動挿入するかどうかを設定します。\n「有効」にすると、トークの先頭で任意のサーフェス指定が無い場合にデフォルトサーフェスを表示します。\n「強制」は、トークの先頭で必ずデフォルトサーフェスを表示するようにします。\n\nなお、この機能を「有効」にすると、トーク後に一定時間経過するとデフォルトサーフェスに戻る機能も同時に有効になります。\n関連→困ったときの対処法#w92fb37d\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#j901292e"
+    },
+    {
+      "id": "satori:特殊変数#gcf06eeb",
+      "title": "特殊変数 - ＄今回は会話時サーフェス戻し",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄今回は会話時サーフェス戻し\n＄今回は会話時サーフェス戻し【タブ】無効\n＄今回は会話時サーフェス戻し【タブ】有効\n＄今回は会話時サーフェス戻し【タブ】強制\n里々全体の設定ではなく、トークを出力する際に1回だけサーフェス戻し設定を一時的に変更する機能。\n里々Mc148-1より使用可。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#gcf06eeb"
+    },
+    {
+      "id": "satori:特殊変数#d73cce18",
+      "title": "特殊変数 - ＄サーフェス加算値○",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄サーフェス加算値○\n＄サーフェス加算値○【タブ】数値\n代入した値の分、表示されるサーフェスの番号をずらします。\n○はスコープID番号、¥0側は0、¥1側は1になります。\nただし ＄サーフェス加算値○ を設定すると ＄デフォルトサーフェス〇 にも同じ値が自動的に設定されます。\nこのため、この変数を使用する時は必ず ＄サーフェス加算値○ の後に ＄デフォルトサーフェス〇 を一緒に設定するようにして下さい。\nなお、デフォルトサーフェス〇の値にはサーフェス加算値〇は加算されません。注意して下さい。\n＊例１\n＄デフォルトサーフェス0【タブ】３０\n＄サーフェス加算値0【タブ】１００\n\n＃↑これでは「デフォルトサーフェス0」も１００に設定されてしまう。\n＃トークした時は冒頭に１００番サーフェスが挟まれる。\n＊例２\n＄サーフェス加算値0【タブ】１００\n＄デフォルトサーフェス0【タブ】３０\n\n＃↑この順序なら「デフォルトサーフェス0」は３０になる。\n＃トークした時は冒頭に３０番サーフェスが挟まれる。１３０番ではないので注意！\n＃よって、デフォルトサーフェスは加算後を見越して設定すること。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#d73cce18"
+    },
+    {
+      "id": "satori:特殊変数#u52cadf2",
+      "title": "特殊変数 - ＄辞書フォルダ",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄辞書フォルダ\n＄辞書フォルダ【タブ】フォルダ名\n使用する辞書のフォルダを変更します。\n実行時は、セーブも同時に行われます。\n主に変数「サーフェス加算値」と組み合わせて多重人格を実現する際に使用されます。\nカンマ「,」で区切ることで、複数のフォルダを指定し、共有辞書を作る事もできます。\n以下のようなフォルダ構成の場合\n（otherフォルダに別人格用の辞書が入っているとする）\nghost\n　└master\n　　　└other\n＊\n：へーんしんっ！　とうっ！\n＄辞書フォルダ【タブ】other\n＄サーフェス加算値0【タブ】30\n\n＊\n：戻るよー。\n＄辞書フォルダ【タブ】.\n＄サーフェス加算値0【タブ】0\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#u52cadf2"
+    },
+    {
+      "id": "satori:特殊変数#nda49d2c",
+      "title": "特殊変数 - ＄辞書リロード",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄辞書リロード\n＄辞書リロード【タブ】実行\n辞書をリロードします。\nここでいう辞書のリロードとは、里々を一度終了して読み込み直すということ。\nこのため、実行時はOnSatoriUnloadなどの独自イベントが呼ばれ、SAORIを読み込み直し、起動回数が一回増えたりします。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#nda49d2c"
+    },
+    {
+      "id": "satori:特殊変数#z122cc1c",
+      "title": "特殊変数 - ＄辞書接頭辞 / ＄辞書拡張子",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄辞書接頭辞 / ＄辞書拡張子\n＄辞書接頭辞【タブ】dict \n＄辞書拡張子【タブ】uka\n読み込む辞書の拡張子・接頭辞を任意の文字に変更します。\nsatori_conf内でのみ設定できます。savedata内、辞書等の指定は無効。\nreplace.txt / replace_after.txt / satori_conf.txt には影響しません。\n拡張子を変更した場合、セーブデータの拡張子も変わるので注意してください。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#z122cc1c"
+    },
+    {
+      "id": "satori:特殊変数#f345f6dc",
+      "title": "特殊変数 - セーブデータ",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "セーブデータ\n関連→セーブデータ\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#f345f6dc"
+    },
+    {
+      "id": "satori:特殊変数#v4de587a",
+      "title": "特殊変数 - ＄自動セーブ間隔",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄自動セーブ間隔\n＄手動セーブ間隔【タブ】秒数\n指定した時間おきにセーブデータにセーブします。（単位は秒）\n０で自動セーブを行いません。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#v4de587a"
+    },
+    {
+      "id": "satori:特殊変数#ga4f5345",
+      "title": "特殊変数 - ＄手動セーブ",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄手動セーブ\n＄手動セーブ【タブ】実行\n値の代入が行われた時点で、セーブデータにセーブします。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#ga4f5345"
+    },
+    {
+      "id": "satori:特殊変数#e7d5d728",
+      "title": "特殊変数 - ＄セーブデータ暗号化",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄セーブデータ暗号化\n＄セーブデータ暗号化【タブ】有効\nセーブデータが暗号化されます。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#e7d5d728"
+    },
+    {
+      "id": "satori:特殊変数#h4c08e7f",
+      "title": "特殊変数 - ウェイト",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "ウェイト\n関連→ウェイト\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#h4c08e7f"
+    },
+    {
+      "id": "satori:特殊変数#yc9de64b",
+      "title": "特殊変数 - ＄自動挿入ウェイトタイプ",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄自動挿入ウェイトタイプ\n＄自動挿入ウェイトタイプ【タブ】無効\n＄自動挿入ウェイトタイプ【タブ】里々\n＄自動挿入ウェイトタイプ【タブ】一般\n「無効」自動挿入全て無効\n「里々」従来の処理\n「一般」ゴーストで一般的に使われるウェイトを自動挿入\n「一般」の時「、」で\\w5ぐらい、「。！？」や改行など文末で¥w9ぐらい、話者変更で¥w9¥w9ぐらい。\n微妙にランダム調整が行なわれているようです。 \n「里々」従来の処理は、長い台詞を喋るとそれにあわせてウエイトを長めに入れる、らしい？\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#yc9de64b"
+    },
+    {
+      "id": "satori:特殊変数#oe757f98",
+      "title": "特殊変数 - ＄自動挿入ウェイトの倍率",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄自動挿入ウェイトの倍率\n＄自動挿入ウェイトの倍率【タブ】１００％\n自動的に挿入されるウェイトの大きさを記述します。\n｢自動挿入ウェイトタイプ｣が「一般」だと効果が大きい？\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#oe757f98"
+    },
+    {
+      "id": "satori:特殊変数#md9b70b1",
+      "title": "特殊変数 - ＄喋り間隔",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄喋り間隔\n＄喋り間隔【タブ】１８０秒\n自発的にランダムトークする間隔を指定します。（単位は秒）\n０秒にすると、自発的に喋らなくなります。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#md9b70b1"
+    },
+    {
+      "id": "satori:特殊変数#p2d3a054",
+      "title": "特殊変数 - ＄喋り間隔誤差",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄喋り間隔誤差\n＄喋り間隔誤差【タブ】１０％\n自発的にランダムトークする間隔の誤差を指定します。（単位は％）\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#p2d3a054"
+    },
+    {
+      "id": "satori:特殊変数#n82294fb",
+      "title": "特殊変数 - ＄今回は喋らない",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄今回は喋らない\n＄今回は喋らない【タブ】有効\n「有効」を代入すると、何をしようが今回は喋らなくなります。\n仕様挙動的に言うと、常に204 No Contentを返します。\n一度SHIORI呼び出しが来るごとに「無効」に戻るため、必要な時はその都度設定が必要。\n里々Mc126-1～4以降で使用可。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#n82294fb"
+    },
+    {
+      "id": "satori:特殊変数#i2db08f0",
+      "title": "特殊変数 - ＄見切れてても喋る",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄見切れてても喋る\n＄見切れてても喋る【タブ】有効\n見切れ状態でもランダムトークが発生する？\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#i2db08f0"
+    },
+    {
+      "id": "satori:特殊変数#d7eb8e66",
+      "title": "特殊変数 - なでられ",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "なでられ\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#d7eb8e66"
+    },
+    {
+      "id": "satori:特殊変数#w0e1e57f",
+      "title": "特殊変数 - ＄トーク中のなでられ反応",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄トーク中のなでられ反応\n＄トーク中のなでられ反応【タブ】有効\n＄トーク中のなでられ反応【タブ】無効\nトーク中の撫でにも反応します。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#w0e1e57f"
+    },
+    {
+      "id": "satori:特殊変数#cd11143d",
+      "title": "特殊変数 - ＄なでられ持続秒数",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄なでられ持続秒数\n＄なでられ持続秒数【タブ】２\n指定した秒数撫でが止まると、なでられが発生するためのカウントがリセットされます。デフォルトで２。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#cd11143d"
+    },
+    {
+      "id": "satori:特殊変数#p52eb76f",
+      "title": "特殊変数 - ＄なでられ反応回数",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄なでられ反応回数\n＄なでられ反応回数【タブ】６０\n撫でに対する感度。デフォルトで60。\n数値を上げると鈍感になります。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#p52eb76f"
+    },
+    {
+      "id": "satori:特殊変数#reddc0cd",
+      "title": "特殊変数 - ＄なでられ時実行イベント",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄なでられ時実行イベント\n＄なでられ時実行イベント【タブ】なでられ時の反応\n設定すると、トーク「＊なでられ時の反応」をなでられ反応時に実行します。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#reddc0cd"
+    },
+    {
+      "id": "satori:特殊変数#of2abad9",
+      "title": "特殊変数 - 自動アンカー",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "自動アンカー\n関連→アンカー\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#of2abad9"
+    },
+    {
+      "id": "satori:特殊変数#a86c4a9b",
+      "title": "特殊変数 - ＄自動アンカー",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄自動アンカー\n＄自動アンカー＝有効　\n＄自動アンカー＝無効\n自動アンカー辞書の有効・無効制御を行います。\n里々Mc149-1以降で使用可。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#a86c4a9b"
+    },
+    {
+      "id": "satori:特殊変数#qcde4eaf",
+      "title": "特殊変数 - ＄今回は自動アンカー",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄今回は自動アンカー\n＄今回は自動アンカー＝有効\n＄今回は自動アンカー＝無効\n＄自動アンカー のトーク１回のみ版\n1トーク出力が終わったら、＄自動アンカー の設定に戻ります。\n里々Mc149-1以降で使用可。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#qcde4eaf"
+    },
+    {
+      "id": "satori:特殊変数#x83b7a68",
+      "title": "特殊変数 - 自動改行挿入",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "自動改行挿入\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#x83b7a68"
+    },
+    {
+      "id": "satori:特殊変数#xae02c43",
+      "title": "特殊変数 - ＄自動改行挿入",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄自動改行挿入\n＄自動改行挿入＝有効\n＄自動改行挿入＝無効\n辞書は改行したいけれど、出力するスクリプトには改行を入れたくない場合に無効にします。\n＄スコープ切り換え時 や ＄選択肢終了時 にデフォルトで設定されている改行は出力されるので、これも要らない場合は別途設定してください。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#xae02c43"
+    },
+    {
+      "id": "satori:特殊変数#je2986ba",
+      "title": "特殊変数 - ＄今回は自動改行挿入",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "＄今回は自動改行挿入\n＄今回は自動改行挿入＝有効\n＄今回は自動改行挿入＝無効\n＄自動改行挿入 のトーク１回のみ版\n1トーク出力が終わったら、＄自動改行挿入 の設定に戻ります。",
+      "url": "https://soliton.sub.jp/satori/?%E7%89%B9%E6%AE%8A%E5%A4%89%E6%95%B0#je2986ba"
+    },
+    {
       "id": "satori:関数#we7d9214",
       "title": "関数 - 関数",
       "source": "satori_wiki",
@@ -20291,94 +20843,6 @@
       "url": "https://soliton.sub.jp/satori/?%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E5%8F%8D%E5%BF%9C#w0f122e1"
     },
     {
-      "id": "satori:マルチキャラクタ・多重人格#u8259317",
-      "title": "マルチキャラクタ・多重人格 - 基本",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "基本\n具体的には、別の辞書フォルダをまるごと読み込むことによって実現する。\nghost/master/内に任意の名前のフォルダを用意し、変数を使って人格を切り替える。\n＊別人格\n：別人格に切り替えます。\n＄辞書フォルダ【タブ】another\nこれで、『another』フォルダ内の辞書が読み込まれる。\n『master』内の辞書は一旦破棄される。\nreplace.txtとsatori_savedeta.txtの内容は『another』フォルダへそのまま引継ぎされる。\n別人格の数に制限はない。\nまた、交代直後の文章は同じフォルダにテキストを書きます。\nこの場合、masterフォルダ内に書くってことです。\n＊別人格\n：別人格に切り替えます。\n＄辞書フォルダ【タブ】another\n＞別人格の朝【タブ】（現在時）＜９\n別人格に切り替わりました。\n\n＃同じフォルダ内 \n＊別人格の朝\n：朝から別人格にかわりました。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#u8259317"
-    },
-    {
-      "id": "satori:マルチキャラクタ・多重人格#e6327002",
-      "title": "マルチキャラクタ・多重人格 - デフォルトサーフェスを変える",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "デフォルトサーフェスを変える\n辞書と一緒にデフォルトサーフェスを切り替えたい場合がほとんどだろう。\nデフォルトサーフェスを同時に変更する場合は次のように書く。\n＊別人格\n：別人格に切り替えます。\n＄辞書フォルダ【タブ】another\n＄デフォルトサーフェス0【タブ】200\n＄デフォルトサーフェス1【タブ】300\nこれで、￥0側のデフォルトサーフェスが200に、￥1側のデフォルトサーフェスが300になる。\n『デフォルトサーフィス』ではないのでちゅうい。\n里々サンプルゴーストのポストも一緒に見てみよう。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#e6327002"
-    },
-    {
-      "id": "satori:マルチキャラクタ・多重人格#e10889eb",
-      "title": "マルチキャラクタ・多重人格 - サーフェス加算値",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "サーフェス加算値\n＄サーフェス加算値0【タブ】200\nとしてから（５）とすると、実際にはsurface205.pngが表示されます。\nさくら側とうにゅう側で個別に設定できます。\nうにゅう側はサーフェス加算値1で。\n『サーフェス』です。サーフィスと書くと動きません。\nサーフィス番号の割り当て方によっては、\n＄デフォルトサーフェス0【タブ】200　を使うよりも\nこちらを使う方が楽な場合があるので覚えておくと便利。\n通常サーフェスの衣装違いバージョンなどを同梱しておいて、\nサーフェス加算値によって衣装替えをしてみるという事もできます。\nサーフェス加算値を使うと、デフォルトサーフェスが\n加算した値、上記でいえば200に設定されてしまう模様。\n＊別人格\n：別人格に切り替えます。\n＄辞書フォルダ【タブ】another\n＄サーフェス加算値0【タブ】200\n＄サーフェス加算値1【タブ】200\n＄デフォルトサーフェス0【タブ】200\n＄デフォルトサーフェス1【タブ】210\nのように、サーフェス加算値を先に設定してあとからデフォルトサーフェスを設定すればOKです。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#e10889eb"
-    },
-    {
-      "id": "satori:マルチキャラクタ・多重人格#t38da2f7",
-      "title": "マルチキャラクタ・多重人格 - master人格に戻す",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "master人格に戻す\n人格を戻す場合、次のように記述する。\n＄辞書フォルダ【タブ】.\n＄辞書フォルダ【タブ】masterと書いても戻ってくれない。\n意味がわからない人は、とにかくこう書くと覚えておこう。\nデフォルトサーフェスとサーフェス加算値を変更している場合は、\n＄サーフェス加算値0【タブ】0\n＄サーフェス加算値1【タブ】0\n＄デフォルトサーフェス0【タブ】0\n＄デフォルトサーフェス1【タブ】10\nを記述する必要もある。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#t38da2f7"
-    },
-    {
-      "id": "satori:マルチキャラクタ・多重人格#t6302268",
-      "title": "マルチキャラクタ・多重人格 - 複数の辞書フォルダを読み込む",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "複数の辞書フォルダを読み込む\n＄辞書フォルダ【タブ】.,test1,test2\nと記述すれば「master」「test1」「test2」三つのフォルダの辞書が読み込まれる。\nifによる条件分岐と組み合わせたり用途はいろいろ。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#t6302268"
-    },
-    {
-      "id": "satori:マルチキャラクタ・多重人格#ee86d827",
-      "title": "マルチキャラクタ・多重人格 - 使用の際の注意",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "使用の際の注意\n■イベント\n　別人格においてもネットワーク更新、時計あわせ、ヘッドラインなどを行わせる場合は、別人格の辞書にも対応するイベントを書く必要がある。\n書かないとmasterフォルダが呼び出される\nヘッドライン\n書かないとできない\nネットワーク更新\n時計あわせ（空バルーンのみ表示される）\n書かなくても一応できる\nゴーストのインストール\n■satori_conf.txt\n　satori_conf.txt　の「＊初期化」で\n＄辞書フォルダ【タブ】\nの定義をしない。\n■サーフェス加算値とデフォルトサーフェス\n　サーフェス加算値を先に設定する。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#ee86d827"
-    },
-    {
-      "id": "satori:マルチキャラクタ・多重人格#r820a973",
-      "title": "マルチキャラクタ・多重人格 - TIPS",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "TIPS\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#r820a973"
-    },
-    {
-      "id": "satori:マルチキャラクタ・多重人格#v0c863ac",
-      "title": "マルチキャラクタ・多重人格 - satori_conf.txtに「＄辞書フォルダ」を定義するとどうなるか",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "satori_conf.txtに「＄辞書フォルダ」を定義するとどうなるか\n一言で言えば、定義した辞書フォルダに加え里々のルートフォルダも含めて常に読み込まれるようになる。\n起動中に辞書フォルダを読み込み直しても消すことはできない。\nその際、セーブデータには痕跡が残らないので混乱の元になる。\n参考リンク\nレゴキチ/里々まとめ\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#v0c863ac"
-    },
-    {
-      "id": "satori:マルチキャラクタ・多重人格#ea6cc5e4",
-      "title": "マルチキャラクタ・多重人格 - シェルによって語尾を変化させる",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "シェルによって語尾を変化させる\nmakoto.dllを使わず、ゴースト側から制御する方法。＊OnTranslateの応用。\n＊OnShellChanging\n＄現在のシェル【タブ】（Ｒ０）\n：シェル変更します。\n\n＊OnShellChanged\n＄りぷれいす【タブ】（現在のシェル）\n：シェル変更してきました。\nここで現在使われているシェルの名称を取得し、＊OnTranslateで分岐させる為の「＄りぷれいす」という変数に格納します。\n現在のシェルが「男の子シェル」という名前のシェルだった場合＊男の子モード　に飛び、指定した単語を置き換えます。それ以外のシェルだった場合はそのまましゃべります。\n＊OnTranslate\n＞男の子モード【タブ】（りぷれいす）==男の子シェル\n＊男の子モード\n＄話【タブ】（Ｒ０）\n＄話【タブ】（replace（sprintf,%c,3）（話）（sprintf,%c,3）あたし（sprintf,%c,3）僕）\n＄話【タブ】（replace（sprintf,%c,3）（話）（sprintf,%c,3）じゃないの（sprintf,%c,3）じゃないか）\n＄話【タブ】（replace（sprintf,%c,3）（話）（sprintf,%c,3）のよ（sprintf,%c,3）んだよ）\n（話）\n＊OnSatoriLoad\n＄引数区切り追加【タブ】（sprintf,%c,3）\n引数区切りの追加を ＊OnSatoriLoadに記述します。 引数区切りに関してはこちらを参照。\n＊OnTranslateの記述に関しては＊OnTranslateとssuのreplaceを参照。\nセーブデータに「＄りぷれいす」がないとエラーが出るので、それを防ぐ為に以下を記述しておきます。\n＊OnSatoriBoot\n＞りぷれいすげっと【タブ】（変数「現在のシェル」の存在）＝＝０\n＄りぷれいす【タブ】（現在のシェル）\n\n＊りぷれいすげっと\n＄りぷれいす【タブ】デフォルトシェル\n変数「現在のシェル」が存在しなかった場合、仮に「＄りぷれいす」に「デフォルトシェル」を格納します。\n変数の名前などは適当なので、適宜書き換えてください。\n↑\n記述をシンプルにしてみる†\n＊OnTranslate?の部分がごちゃごちゃしているので、見やすくしてみます。\n＊OnTranslate\n＞男の子モード【タブ】（りぷれいす）==男の子シェル\n＊男の子モード\n＄話【タブ】（Ｒ０）\n＄話【タブ】（replace（■）（話）（■）あたし（■）僕）\n＄話【タブ】（replace（■）（話）（■）じゃないの（■）じゃないか）\n＄話【タブ】（replace（■）（話）（■）のよ（■）んだよ）\n（話）\n\n＠■\n（sprintf,%c,3）\nこのように書き換えることで、見た目も簡単になってわかりやすく、書きやすくなります。\n↑\nさらにシンプルにしてみる†\n＊OnTranslate?\n＞男の子モード【タブ】（りぷれいす）==男の子シェル\n＊男の子モード\n＄話【タブ】（Ｒ０）\n＄話【タブ】（replace●（話）●あたし●僕）\n＄話【タブ】（replace●（話）●じゃないの●じゃないか）\n＄話【タブ】（replace●（話）●のよ●んだよ）\n（話）\n引数区切りを以下のように書き換えます。\n＊OnSatoriLoad\n＄引数区切り追加【タブ】●\n「●」は任意の記号ですが、必ずトーク中に使用していない記号を使用してください。\n見やすくする為だけに「●」を使っているので、（sprintf,%c,3）を使う場合と基本的には同じ。\n引数区切りに追加すれば「【×】」や「[◆]」などでも使えます。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#ea6cc5e4"
-    },
-    {
-      "id": "satori:マルチキャラクタ・多重人格#fca47971",
-      "title": "マルチキャラクタ・多重人格 - 起動する時複数人格から選んで起動",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "起動する時複数人格から選んで起動\n例えば起動した時ランダムで人格を変更、起動した時間帯や曜日によって人格を変更…など。\nここではメイン人格が「normal」フォルダ、別人格が「another」フォルダにあり、別人格のサーフェスが200番代で、起動時1/3の確率で別人格を出したい場合の例\n（サーフェスを変更しない場合＄デフォルトサーフェス～＄サーフェス加算値～は省略）\nもっといい方法があれば直してください。\nmasterフォルダ内dic～.txt\n＊OnBoot\n＞anotherモードへ【タブ】（乱数１～３）==1\n＞normalモードへ\n＊normalモードへ\n＄サーフェス加算値0【タブ】0\n＄サーフェス加算値1【タブ】0\n＄デフォルトサーフェス0【タブ】0\n＄デフォルトサーフェス1【タブ】10\n＄辞書フォルダ【タブ】.,normal\n：normal起動トーク\n＊anotherモードへ\n＄サーフェス加算値0【タブ】200\n＄サーフェス加算値0【タブ】200\n＄デフォルトサーフェス0【タブ】200\n＄デフォルトサーフェス1【タブ】210\n＄辞書フォルダ【タブ】.,another\n：another起動トーク\nmaster/normalフォルダ内に通常モード用の、master/anotherフォルダ内にアナザー用の辞書ファイルを置き、起動トーク以外を記述。 \n各モードのフォルダとmasterフォルダ（.）も同時に読み込ませる…という方法。\nmasterフォルダには各モードごとの起動トークと、どのモードの時も共通して使う辞書を置く。\nマルチキャラクタ・多重人格\n起動トークは起動時に読み込んだ辞書ではなく、前回起動時に読み込んだ辞書でされてしまうのは里々の仕様なんでしょうか…。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#fca47971"
-    },
-    {
-      "id": "satori:マルチキャラクタ・多重人格#q327cf1d",
-      "title": "マルチキャラクタ・多重人格 - 終了時にmaster人格に戻す",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "終了時にmaster人格に戻す\nメイン人格が「master」フォルダ、別人格が「another」フォルダ。の完全分離の場合。\n（動作確認はしましたが、まだバグがあるかもしれません）\nanotherフォルダからmasterフォルダに戻る場合\n他のゴーストへ変更\n終了\nanotherフォルダからmasterフォルダに戻らない場合\n＄辞書リロード＝実行\nゴーストメニューから自ゴーストへの交代（リロード）時\n！注意！\n【ポスト】を自ゴーストの\\0側の名前に書き換えてください。\nその時、【】は不要です。\nanotherフォルダ内dic～.txt\n＊OnSatoriClose\n＞OSC2【タブ】（変数「（Ｒ０）」の存在）==0\n＞リロード開始【タブ】（Ｒ０）==【ポスト】\n＄サーフェス加算値0【タブ】0\n＄サーフェス加算値1【タブ】0\n＄デフォルトサーフェス0【タブ】0\n＄デフォルトサーフェス1【タブ】10\n＄辞書フォルダ【タブ】.\n＊OSC2\n＄サーフェス加算値0【タブ】0\n＄サーフェス加算値1【タブ】0\n＄デフォルトサーフェス0【タブ】0\n＄デフォルトサーフェス1【タブ】10\n＄辞書フォルダ【タブ】.\n＃トーク時にmaster時のサーフェスに戻ってしまうので、\n＃トークの前にサーフェスを指定します。\n＊OnClose\n：（１００）\n：（２００）\n：さようなら。\n：バイバーイ。\n＃他のゴーストから変更\n＊OnGhostChanged\n＞リロード終了【タブ】（Ｒ０）==【ポスト】\n＞起動\n＃＊他のゴーストへ変更\n＊OnGhostChanging\n＞リロード開始【タブ】（Ｒ０）==【ポスト】\n：（１００）\n：（２００）\n：（Ｒ０）さんに代わるねー。\n：あとはよろしくー。\n＊リロード開始\n：リロードします。\n＊リロード終了\n：リロード終わりました。\n別人格（anotherフォルダ）の場合、交代や終了で元の人格（masterフォルダ）に戻ります。\nもっといい方法があれば直しをお願いします。",
-      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#q327cf1d"
-    },
-    {
       "id": "satori:単語の追加#g0f644a8",
       "title": "単語の追加 - 単語の追加",
       "source": "satori_wiki",
@@ -21379,6 +21843,142 @@
       "url": "https://soliton.sub.jp/satori/?SAORI%2FYAYA#wa07845e"
     },
     {
+      "id": "satori:SAORIを作る#d1b5d013",
+      "title": "SAORIを作る - この記事について",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "この記事について\nこの記事は、SAORIの仕様書にあるSAORI-universalの説明を、里々で使用するSAORIという前提で、できるだけ噛み砕いて説明したつもりです。\nわかりにくければ、ぜひかきなおしてください。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#d1b5d013"
+    },
+    {
+      "id": "satori:SAORIを作る#ifa058e8",
+      "title": "SAORIを作る - 必要スキル",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "必要スキル\nC++ で ダイナミック リンク ライブラリ(dll)をビルドできる方。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#ifa058e8"
+    },
+    {
+      "id": "satori:SAORIを作る#jc4171f0",
+      "title": "SAORIを作る - 前準備",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "前準備\nGlobalAlloc() や GlobalFree() などのWinAPI関数を使う必要があるので、\nその宣言を含む、Windows.hをインクルードしておきましょう。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#jc4171f0"
+    },
+    {
+      "id": "satori:SAORIを作る#e681a375",
+      "title": "SAORIを作る - 実装が必要な関数",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "実装が必要な関数\nSAORI-universal の作成には、load(),unload(),request()の３つの関数の実装が必要です。\nload() と unload() の２つは、両方実装する・両方実装しないが任意です。（片方だけはだめ）\nload() と unload() を実装する場合、SAORIの仕様上、ゴーストの読み込み時から終了時まで（里々の読み込み時から解放時まで）SAORIが読み込まれていることになりますが、実装しない場合は、いつ読み込みや解放を行っても良いことになっています。そのため、ゴースト起動中に保持しておきたい情報が有るのであれば、実装するようにしておきましょう。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#e681a375"
+    },
+    {
+      "id": "satori:SAORIを作る#f5d82bbf",
+      "title": "SAORIを作る - load()",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "load()\nSAORIが読み込まれる際に一番最初に呼び出される関数です。\n（DllMainなどのDLL エントリポイント関数を実装しているのであれば、そちらが先に呼びだされます。）\n宣言:\n extern \"C\" __declspec(dllexport) BOOL __cdecl load(HGLOBAL h, long len);\n\n説明:\n SAORIが呼び出した際に呼び出されます。\n SAORIはここで初期化を行うのが望ましいようです。\n\n引数:\n HGLOBAL h\n  SAORIのあるフォルダの絶対パスが\\で終端された文字列へのポインタ。\n  SAORIはこれを利用して、同フォルダ以下にあるファイルを読み書きするようにしてください。\n  （このHGLOBALは、char* として扱うことが出来ます。）\n  このポインタはSAORI側で、GlobalFree() を使って解放する必要があります。\n long len\n  h のバイトサイズ。\n\n返り値:\n 関数のの成否。\n FALSEが返った場合、SAORIのロードに失敗したと判断することができます。\n\n注意:\n h をGlobalFree() で開放しない場合、メモリリークが発生します。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#f5d82bbf"
+    },
+    {
+      "id": "satori:SAORIを作る#df4b2fb5",
+      "title": "SAORIを作る - unload()",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "unload()\nSAORIが解放される際に最後に呼び出される関数です。\n宣言:\n extern \"C\" __declspec(dllexport) BOOL __cdecl unload();\n\n説明:\n SAORIのアンロード時に呼び出されます。\n （里々ではゴーストの終了時、里々のアンロードのタイミングで。）\n\n返り値:\n 関数の成否。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#df4b2fb5"
+    },
+    {
+      "id": "satori:SAORIを作る#l9e6a2fd",
+      "title": "SAORIを作る - request()",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "request()\nload() の後と、SAORIの呼び出し時に呼びだされます。\n宣言:\n extern \"C\" __declspec(dllexport) HGLOBAL __cdecl request(HGLOBAL h, long *len);\n\n説明:\n load() と、SAORIの呼び出し時に呼び出されます。\n\n引数:\n HGLOBAL h\n  リクエスト文字列へのポインタ。\n  (load() 同様に、char* として扱うことが出来ます。)\n  このポインタはSAORI側で、GlobalFree() を使って解放する必要があります。\n\n long *len\n  リクエスト文字列のバイトサイズを格納する変数へのポインタ。\n  関数終了時には、返り値の HGLOBAL のバイトサイズを参照先に格納するして、里々に返り値の文字列のバイトサイズを通知します。\n\n返り値:\n SAORIの実行結果文字列を格納したHGLOBAL。\n 返り値のHGLOBALを作成するには、GlobalAlloc() を使って確保した領域に返り値の文字列を格納します。返り値の文字列の書式は、下の項目に従ってください。\n GlobalAlloc() の最初の引数（UINT uFlags）には GMEM_FIXED を指定します。また、この時に確保したバイトサイズを引数の len の参照先に設定します。\n注意:\n h をGlobalFree() で開放しない場合、メモリリークが発生します。\n バージョンチェック時の呼び出しは、load() がない場合にも発生するはずです。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#l9e6a2fd"
+    },
+    {
+      "id": "satori:SAORIを作る#ud160ec8",
+      "title": "SAORIを作る - リクエスト文字列",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "リクエスト文字列\nリクエスト文字列は次の書式に従った文字列で行われます。\n（最初の行(コマンド SAORI/1.0)と最後の行(\\r\\n)以外は順不同です。）\n（コマンド） SAORI/1.0\\r\\n\nSecurityLevel: （セキュリティレベル）\\r\\n\nArgument0: （引数０）\\r\\n\nArgument1: （引数１）\\r\\n\nCharset: Shift_JIS\\r\\n\nSender: SATORI\\r\\n\n\\r\\n\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#ud160ec8"
+    },
+    {
+      "id": "satori:SAORIを作る#a4a646d4",
+      "title": "SAORIを作る - コマンド",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "コマンド\nGET Version\nEXECUTE\nこのどちらかが入ります。\n↑\nGET Version†\nGET Versionは、load()が呼び出された後（loadがない場合でも呼び出されるはず）に呼び出されます。\nこれは、DLLがSAORIであるかを確認しています。（もっと言えば期待するバージョンのSAORIか、なのですが今のところ SAORI/1.0 しか無いです。）\nGET Versionには、\nSAORI/1.0 200 OK\\r\\n\\r\\n\nとだけ返しておけば問題ありません。\nまた、そうでなければSAORIとして認識されません。\n↑\nEXECUTE†\nこちらは実際にSAORIを呼び出した際に呼び出されます。\nArgumentをもとに処理を行い、結果を返すと良いでしょう。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#a4a646d4"
+    },
+    {
+      "id": "satori:SAORIを作る#gf62f098",
+      "title": "SAORIを作る - セキュリティレベル",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "セキュリティレベル\nLoca|\nExternal\nこのどちらかが入ります。\n里々の場合、通常はLocalが、外部からスクリプトが入力されて実行される場合はExternalが入るようです。\n一応里々自体は、SSPの開発者モードを有効にした上で、里々で　＄デバッグ＝有効　にしないと外部からスクリプトを入力できないはず（ShioriEchoが使えない）なので、気にする必要は無いでしょう。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#gf62f098"
+    },
+    {
+      "id": "satori:SAORIを作る#re6aad83",
+      "title": "SAORIを作る - 引数",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "引数\nさおりを呼び出した時に使われた引数です。\nArgument0から数字は1ずつ増えていきます。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#re6aad83"
+    },
+    {
+      "id": "satori:SAORIを作る#kb529c6b",
+      "title": "SAORIを作る - その他",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "その他\nCharsetとSenderは、それぞれ里々の場合はこのような固定値になりますが、他のSHIORIでは他の値になることがあります。（少なくともSenderはSHIORIに名前になるでしょう。）\nCharsetが異なる場合は、この文字列の文字コードも異なることになりますので、注意が必要です。\n逆に、里々専用のSAORIにするのであれば、考慮の必要は無いでしょう。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#kb529c6b"
+    },
+    {
+      "id": "satori:SAORIを作る#c97aac33",
+      "title": "SAORIを作る - 返り値の文字列",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "返り値の文字列\n返り値の文字列も次の書式に従った文字列で行います。\nSAORI/1.0 （ステータスコード）\\r\\n\nResult: （返り値）\\r\\n\nValue0: （追加の返り値２）\\r\\n\nValue1: （追加の返り値１）\\r\\n\nCharset: Shift_JIS\\r\\n\n\\r\\n\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#c97aac33"
+    },
+    {
+      "id": "satori:SAORIを作る#zf618f1d",
+      "title": "SAORIを作る - ステータスコード",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "ステータスコード\nSAORIの実行が成功したかどうかを返します。\nいくつか決まった種類があるので、合うものを使います。\n200 OK\n正しく実行が完了した。\n204 No Content\n正しく呼び出しが実行されたが、返り値は無い。\n400 Bad Request\n呼び出しの不備。リクエスト文字列が正しくない場合や、引数が期待するものでなかった場合のエラーを示します。\n500 Internal Server Error\nSAORIでエラーが発生し、正常に処理が完了できなかった場合に、これを返します。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#zf618f1d"
+    },
+    {
+      "id": "satori:SAORIを作る#w1e9af72",
+      "title": "SAORIを作る - 返り値",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "返り値\nSAORIの返り値です。\n例えばssuのsplitは、分割数を返しますが、それがこれに当たります。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#w1e9af72"
+    },
+    {
+      "id": "satori:SAORIを作る#i16cb133",
+      "title": "SAORIを作る - 追加の返り値",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "追加の返り値\n返り値が複数ある場合、Value0から1ずつ増える形で複数の返り値を返せます。\nSAORIの実行後、里々で（Ｓ０）などのように取得することが出来ます。\n↑",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#i16cb133"
+    },
+    {
+      "id": "satori:SAORIを作る#v286e4e5",
+      "title": "SAORIを作る - 全体的な注意",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "全体的な注意\nSAORIでメモリ違反などの致命的なエラーが発生した場合やアサートを呼び出した場合は、SSPごと落ちる可能性があるので、エラーは必ずステータスコードとして返すようにし、関数自体は正常に終了するようにしてください。",
+      "url": "https://soliton.sub.jp/satori/?SAORI%E3%82%92%E4%BD%9C%E3%82%8B#v286e4e5"
+    },
+    {
       "id": "satori:きのこを生やす#icc27807",
       "title": "きのこを生やす - きのこを生やす基本",
       "source": "satori_wiki",
@@ -21663,8 +22263,48 @@
       "title": "伝言板",
       "source": "satori_wiki",
       "category": "satori_tips",
-      "content": "FrontPage 海外からのスパム対策のため日本国外からのアクセス制限を行いました。しばらく様子見させて下さい。 -- 2022-03-17 (木) 10:13:13 ばぐとら と同様にベーシック認証作るとか「PukiWikiにBasic認証をつける」公式のユーザ認証プラグインを有効にするとか「PukiWiki/Authentication」 -- 2022-03-20 (日) 18:14:03 スパム対策のため、ページの新規作成、編集および伝言板への投稿に認証かけました。それに伴い日本国外からのアクセス制限を撤廃しました。以上、宜しくお願い致します。 -- 2022-05-17 (火) 21:28:10 好感度/call関数による好感度の調整のサンプルコピペすると動かなかったので見てみたら、setの内部で変数が（）で不必要にくくられてる…とおもいました 関数わかってないのでひとまずコメントにだけ… -- 2022-06-03 (金) 02:27:43 このサンプルだとマイナスになったときに変数がおかしくなりますね。修正しておきました。 -- 2022-06-05 (日) 06:45:17 5月のコメントでは海外からのアクセス制限は解除したとのことですが、海外のコミュニティの方からUSからはアクセスできない(403)ため管理者に聞いてほしいと質問されました。急ぎのものではないですが、確認していただけると嬉しいです -- 2022-11-25 (金) 17:55:25 ＞Naoさま ご報告ありがとうございます。設定ミスにより海外からのアクセスができない状態になっていました。修正が完了致しましたので、ご確認をお願い致します。 -- 2022-11-28 (月) 23:25:28 確認取れました！対応ありがとうございます -- 2022-12-04 (日) 10:01:41 「困ったときの対処法」ページの伺的なフォーラムへのリンク切れを直しました。 -- 2023-11-09 (木) 23:59:46 リンク集を修正。現状SSLに対応(HTTPS化)していないサイトのリンクも残してありますが、今後いずれ他のブラウザも表示しなくなる可能性が予想されます。ご注意。 -- 2023-11-10 (金) 18:05:56 「OnTranslate」の記事のサンプル、）が多かった点を修正しました。 -- 2023-11-30 (木) 09:39:00 「ファイル構成」のページに、「satori_bootconf.txt」について記述しました。 -- 2026-04-30 (木) 08:13:22",
+      "content": "FrontPage 海外からのスパム対策のため日本国外からのアクセス制限を行いました。しばらく様子見させて下さい。 -- 2022-03-17 (木) 10:13:13 ばぐとら と同様にベーシック認証作るとか「PukiWikiにBasic認証をつける」公式のユーザ認証プラグインを有効にするとか「PukiWiki/Authentication」 -- 2022-03-20 (日) 18:14:03 スパム対策のため、ページの新規作成、編集および伝言板への投稿に認証かけました。それに伴い日本国外からのアクセス制限を撤廃しました。以上、宜しくお願い致します。 -- 2022-05-17 (火) 21:28:10 好感度/call関数による好感度の調整のサンプルコピペすると動かなかったので見てみたら、setの内部で変数が（）で不必要にくくられてる…とおもいました 関数わかってないのでひとまずコメントにだけ… -- 2022-06-03 (金) 02:27:43 このサンプルだとマイナスになったときに変数がおかしくなりますね。修正しておきました。 -- 2022-06-05 (日) 06:45:17 5月のコメントでは海外からのアクセス制限は解除したとのことですが、海外のコミュニティの方からUSからはアクセスできない(403)ため管理者に聞いてほしいと質問されました。急ぎのものではないですが、確認していただけると嬉しいです -- 2022-11-25 (金) 17:55:25 ＞Naoさま ご報告ありがとうございます。設定ミスにより海外からのアクセスができない状態になっていました。修正が完了致しましたので、ご確認をお願い致します。 -- 2022-11-28 (月) 23:25:28 確認取れました！対応ありがとうございます -- 2022-12-04 (日) 10:01:41 「困ったときの対処法」ページの伺的なフォーラムへのリンク切れを直しました。 -- 2023-11-09 (木) 23:59:46 リンク集を修正。現状SSLに対応(HTTPS化)していないサイトのリンクも残してありますが、今後いずれ他のブラウザも表示しなくなる可能性が予想されます。ご注意。 -- 2023-11-10 (金) 18:05:56 「OnTranslate」の記事のサンプル、）が多かった点を修正しました。 -- 2023-11-30 (木) 09:39:00 「ファイル構成」のページに、「satori_bootconf.txt」について記述しました。 -- 2026-04-30 (木) 08:13:22 プロパティシステムのページに（get_property,プロパティ名）による取得をとりあえず書きました。 -- 2026-05-24 (日) 12:04:06",
       "url": "https://soliton.sub.jp/satori/?%E4%BC%9D%E8%A8%80%E6%9D%BF"
+    },
+    {
+      "id": "satori:プロパティシステム#y69659b8",
+      "title": "プロパティシステム - 注意点",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "注意点\n環境変数やプロパティシステムは、さくらスクリプトと同じくSSP（ベースウェア）で処理される命令です。\n#ref(): File not found: \"event_ref2.png\" at page \"プロパティシステム\"\nイベントのレスポンスの図。\nここで重要なのは環境変数やプロパティシステムは里々の手を離れてから処理されるという事。\n図の矢印を逆流させる事はできないので、環境変数やプロパティシステムで得た情報を\n里々で扱うには、別のイベントを仕込んで里々に渡すなどの工夫が必要になります。\n以下、詳細。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0#y69659b8"
+    },
+    {
+      "id": "satori:プロパティシステム#e5d97c80",
+      "title": "プロパティシステム - 環境変数の取得",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "環境変数の取得\n（隣で起動しているゴースト）と記述すると、同時起動している別ゴーストの本体側キャラクター名が表示されます。\nこれを環境変数でゴースト名を取得して表示してみます。\n%property[表示したい情報]という書き方で表示が出来ます。\n＊\n＃括弧は全角\n：（隣で起動しているゴースト）\n＃外側の括弧は半角、内側は全角\n%property[activeghostlist(（隣で起動しているゴースト）).name]\nこの結果、例えば「Ｒポストと狛犬」が同時に起動していれば、結果は以下になります。\nポスト\nＲポストと狛犬\nもし、情報が取れなかった場合、結果は空っぽになります。\n今回の例であれば、同時起動しているゴーストがいなかった場合があてはまります。\n環境変数による取得では、この情報を里々で調べたりすることは出来ません。\n＊\n＃インストールされている全ゴーストのうち、\\0名が「ポスト」のゴースト名を取得\n：%property[ghostlist(ポスト).name]\n＃この文字数を表示してみる\n：（length（バイト値、１）%property[ghostlist(ポスト).name]）\nバルーンへの表示は以下になります。\nＲポストと狛犬\n36\n「Ｒポストと狛犬」の文字数7ではなく、「%property[ghostlist(ポスト).name]」の文字数36が表示されます。\n長所\n記述が比較的簡単。\n短所\n内容によって分岐させたり出来ない。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0#e5d97c80"
+    },
+    {
+      "id": "satori:プロパティシステム#y8741b6f",
+      "title": "プロパティシステム - さくらスクリプトによる拾得",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "さくらスクリプトによる拾得\n上記の環境変数では、バルーンに表示することしか出来ません。\n取得結果を使って、処理を変化するようにさせたい場合は\\![get,property,...]というさくらスクリプトを使用します。\n＊\n＃括弧は半角\n\\![get,property,ポストはいるかな,\"ghostlist(Ｒポストと狛犬).name\"]\n＃\\![get,property,ポストはいるかな,\"ghostlist(ポスト).name\"]でもOKだが\n＃\\0が同じ名前のことがあるので、ゴースト名の方が確実\n\n＊ポストはいるかな\n＞ポストはいないよ【タブ】（is_empty（バイト値、１）（Ｒ０））\n：ポストをちゃんとインストールしてるんだね。\nえらい！\n\n＊ポストはいないよ\n：そんな、ポストがインストールされていないなんて。\n一度に複数の情報を取得することも出来ます。\n＊\n＃ほしい情報を、半角カンマ区切りで順番に羅列する\n\\![get,property,ポスト起動時間,\"rateofuselist(Ｒポストと狛犬).boottime\",\"rateofuselist(Ｒポストと狛犬).bootminute\"]\n\n＊ポスト起動時間\n＃\\![get,property,...]で羅列した順に、１番目は（Ｒ０）、２番目は（Ｒ１）、３番目は（Ｒ２）...\n：ポストの起動は（Ｒ０）回で、合計（Ｒ１）分。\n＞ポストたくさん起動した【タブ】（Ｒ０）＞＝１０＆＆（Ｒ１）＞＝１２０\nまだまだだね！\n\n＊ポストたくさん起動した\n：そんなにたくさん起動してるなんて！\n長所\n取得した情報を里々で使うことが出来る。\n短所\n記述量が多くなるため、書くのが大変。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0#y8741b6f"
+    },
+    {
+      "id": "satori:プロパティシステム#ue8f222e",
+      "title": "プロパティシステム - \\![embed,...]を使う",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "\\![embed,...]を使う\n\\0側の現在表示しているサーフェスによって、おまけの一言をつける処理を作ります。\n＃うまく動かない例\n＊\n：（０）普通の気分。\n＞おまけの一言\n\n＊\n：（７）怒ってます！\n＞おまけの一言\n\n＊おまけの一言\n＃これだとちゃんと判定できない\n：（whenlist、（サーフェス0）＝＝\n、０、普通すぎて退屈だなあ。\n、７、あー腹が立つ。\n）\n（サーフェス0）は表示している本体側キャラクターのサーフェス番号が取得できます。\n実際には「トーク開始直前のサーフェス」を取得します。\nトーク開始前が（０）だったら、以下のように表示されてしまいます。\n怒ってます！\n普通すぎて退屈だなあ。\n\\![get,property,...]と\\![embed,]をあわせることで、現在表示しているサーフェス番号を取得できます。\n＊\n：（０）普通の気分。\n＞おまけの一言\n\n＊\n：（７）怒ってます！\n＞おまけの一言\n\n＊おまけの一言\n\\![get,property,表情取得,\"currentghost.scope(0).surface.num\",\"currentghost.scope(1).surface.num\"]\\![embed,おまけの一言の内容]\n\n＊表情取得\n＄０側サーフェス番号【タブ】（Ｒ０）\n＄１側サーフェス番号【タブ】（Ｒ１）\n\n＊おまけの一言の内容\n：（whenlist、（０側サーフェス番号）＝＝\n、０、普通すぎて退屈だなあ。\n、７、あー腹が立つ。\n）\nこれだと、トークでのサーフェスによってきちんと分岐してくれるようになります。\n怒ってます！\nあー腹が立つ。\nバルーン全体を表のように使ってみる例。\nバルーンの幅によらず、ブラウザのように調整して表示するのが利点です。\nただし文字が多い場合の改行などは自動処理できないので、はみ出さないように注意してください。\n\\![get,property,...]の直前に\\b[ID]などでバルーン幅が変化したとしても、自動的に合わせてくれます。\n＊\n＃現在表示しているバルーンで、文字表示範囲の横幅（ピクセル数）を取得\n\\![get,property,バルーン表示幅取得,\"currentghost.balloon.scope(0).validwidth.initial\"]\\![embed,表示する内容]\n\n＊バルーン表示幅取得\n＄バルーン横方向１【タブ】（zen2han、（calc、（Ｒ０）×２５÷１００））\n＄バルーン横方向２【タブ】（zen2han、（calc、（Ｒ０）×５０÷１００））\n＃＄バルーン横方向３【タブ】（zen2han、（calc、（Ｒ０）×７５÷１００）） ＃項目を増やしたい場合\n\n＊表示する内容\n＃\\f[bold,true]は太字にする、\\f[bold,false]は太字を解除する\n：\\_q\\f[bold,true]本体名\\_l[（バルーン横方向１）,]相方名\\_l[（バルーン横方向２）,]その他\\f[bold,false]\nポスト\\_l[（バルーン横方向１）,]狛犬\\_l[（バルーン横方向２）,]里々\nEmily\\_l[（バルーン横方向１）,]Teddy\\_l[（バルーン横方向２）,]SSP\nさくら\\_l[（バルーン横方向１）,]うにゅう\\_l[（バルーン横方向２）,]materia\n\\_q\n＃項目を増やしたい場合\n＃項目１\\_l[（バルーン横方向１）,]項目２\\_l[（バルーン横方向２）,]項目３\\_l[（バルーン横方向３）,]項目４\n長所\n適切なタイミングで処理を実行できる。\n短所\n処理がかなり複雑になる。\n参考\n![embed,...]の使い方がわかった | すくりや\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0#ue8f222e"
+    },
+    {
+      "id": "satori:プロパティシステム#t3eb3c56",
+      "title": "プロパティシステム - （get_property,プロパティ名）による取得",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "（get_property,プロパティ名）による取得\n（get_property,プロパティ名）で取得できるようです",
+      "url": "https://soliton.sub.jp/satori/?%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0#t3eb3c56"
     },
     {
       "id": "satori:外部関数/yaya#d8554eb3",
