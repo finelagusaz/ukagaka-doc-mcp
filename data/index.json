@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-05-25T08:01:40.662Z",
+  "generatedAt": "2026-06-01T08:48:25.018Z",
   "entries": [
     {
       "id": "ukadoc:descript_balloon:charset_2c_6587_5b57_30b3_30fc_30c9:1",
@@ -2967,7 +2967,7 @@
       "title": "animation*.pattern*,描画メソッド,サーフェスID,ウェイト,X座標,Y座標",
       "source": "ukadoc",
       "category": "descript",
-      "content": "animation*.pattern*,描画メソッド,サーフェスID,ウェイト,X座標,Y座標\nアニメーションの各コマの定義。各コマは通常それ以前のコマをリセットして新たにベースサーフェスに合成される形で描画される（厳密には描画メソッドによる）。\n\t\t\t\t\t\tanimationに続く*の部分はanimationID（animation*.intervalの*と同一）。\n\t\t\t\t\t\tpatternに次ぐ*の部分（パターンID）は、一連のanimation*.pattern定義において0から始まる通し番号。materiaでは127が上限。番号の小さい方から積み重なる形で描画される。\n\t\t\t\t\t\t描画メソッドは下記の描画メソッド参照。\n\t\t\t\t\t\tウェイトはそのコマを描画するまでの待ち時間。単位はミリ秒。SSPのみ「最小ウェイト-最大ウェイト」とマイナス文字で区切った書き方もでき、その場合は最小～最大間でランダムに選択される。\n\t\t\t\t\t\tX座標、Y座標はそのコマをベース（そのコマまでの描画結果）に対してどれだけずらして表示するかの指定。\n\t\t\t\t\t\tサーフェスIDに-1でそのアニメーションの停止、-2で現在実行中の他の全てのアニメーションを停止する事ができる。いずれの場合も描画メソッドやX座標、Y座標は無視される。\n\t\t\t\t\t\t旧定義：*pattern*,サーフェスID,ウェイト,描画メソッド,X座標,Y座標\n\t\t\t\t\t挙動なし",
+      "content": "animation*.pattern*,描画メソッド,サーフェスID,ウェイト,X座標,Y座標\nアニメーションの各コマの定義。各コマは通常それ以前のコマをリセットして新たにベースサーフェスに合成される形で描画される（厳密には描画メソッドによる）。\n\t\t\t\t\t\tanimationに続く*の部分はanimationID（animation*.intervalの*と同一）。\n\t\t\t\t\t\tpatternに次ぐ*の部分（パターンID）は、一連のanimation*.pattern定義において0から始まる通し番号。materiaでは127が上限。番号の小さい方から積み重なる形で描画される。\n\t\t\t\t\t\t描画メソッドは下記の描画メソッド参照。\n\t\t\t\t\t\tウェイトはそのコマを描画するまでの待ち時間。単位はミリ秒。SSPのみ「最小ウェイト-最大ウェイト」とマイナス文字で区切った書き方もでき、その場合は最小～最大間でランダムに選択される。\n\t\t\t\t\t\tX座標、Y座標はそのコマをベース（そのコマまでの描画結果）に対してどれだけずらして表示するかの指定。\n\t\t\t\t\t\tサーフェスIDに-1でそのアニメーションの停止、-2で現在実行中の他の全てのアニメーションを停止する事ができる。いずれの場合も描画メソッドやX座標、Y座標は無視される。\n\t\t\t\t\t\tサーフェスIDにはname定義で指定したID以外の別名も指定できる。 (SSP 2.8.25～)\n\t\t\t\t\t\t旧定義：*pattern*,サーフェスID,ウェイト,描画メソッド,X座標,Y座標\n\t\t\t\t\t挙動なし",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#animation_2a.pattern_2a_2c_63cf_753b_30e1_30bd_30c3_30c9_2c_30b5_30fc_30d5_30a7_30b9ID_2c_30a6_30a7_30a4_30c8_2cX_5ea7_6:1"
     },
     {
@@ -3009,6 +3009,14 @@
       "category": "descript",
       "content": "animation*.collision*,当たり判定定義animation*.collisionex*,当たり判定定義(ex)\n通常のcollisionやcollisionexのアニメーション動作中限定の定義。インターバルbindにも有効。\n\t\t\t\t\t\tanimationに続く*の部分はanimationID（animation*.intervalの*と同一）。\n\t\t\t\t\t\tcollisionに次ぐ*の部分は、一連のanimation*.collision定義内で重複しない番号。\n\t\t\t\t\t挙動なし",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#animation_2a.collision_2a_2c_5f53_305f_308a_5224_5b9a_5b9a_7fa9animation_2a.collisionex_2a_2c_5f53_305f_308a_5224_5b9a_5:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:animation_2a.name_2c_5b9a_7fa9_540d:1",
+      "title": "animation*.name,定義名",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "animation*.name,定義名\nアニメーションの名前。animationIDと同様に、\\i[]タグ・\\![anim]タグ・start,stop・exclusivemodeなどのID欄に使用できる。\n\t\t\t\t\t未定義\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.24",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#animation_2a.name_2c_5b9a_7fa9_540d:1"
     },
     {
       "id": "ukadoc:descript_shell_surfaces:collision_2a_2c_59cb_70b9X_2c_59cb_70b9Y_2c_7d42_70b9X_2c_7d42_70b9Y_2cID:1",
@@ -3121,6 +3129,14 @@
       "category": "descript",
       "content": "point.basepos.y,座標\nウインドウを初期配置・位置保存する際の基準位置のY座標です。\n\t\t\t\t\t異なるサーフェスサイズの画像に切り替えた際の位置ずれなどを調整することができる。\n\t\t\t\t\tサーフェスの下端",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#point.basepos.y_2c_5ea7_6a19:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:name_2c_5b9a_7fa9_540d:1",
+      "title": "name,定義名",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "name,定義名\nサーフェスの名前。surface.aliasブレスと同様に扱われ、\\s[]タグでIDの代わりに使用できる。\n\t\t\t\t\t未定義\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.24",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#name_2c_5b9a_7fa9_540d:1"
     },
     {
       "id": "ukadoc:descript_shell_surfaces:sometimes:1",
@@ -4983,7 +4999,7 @@
       "title": "\\s[ID番号]",
       "source": "ukadoc",
       "category": "sakurascript",
-      "content": "\\s[ID番号]\n現スコープ側のサーフェスをID番号のサーフェスに変更する。\\s[-1]で非表示サーフェス。\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\s[100]本体側にサーフェス100番を表示。",
+      "content": "\\s[ID番号]\n現スコープ側のサーフェスをID番号のサーフェスに変更する。\\s[-1]で非表示サーフェス。surfaces.txtのsurface.aliasまたはnameで定義された文字列をIDの代わりに使用できる。\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\s[100]本体側にサーフェス100番を表示。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5cs_5bID_756a_53f7_5d:1"
     },
     {
@@ -4991,7 +5007,7 @@
       "title": "\\i[ID番号]",
       "source": "ukadoc",
       "category": "sakurascript",
-      "content": "\\i[ID番号]\n現スコープ側にID番号のサーフェスアニメーションを表示する。\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\s[0]本体側にサーフェス0番を表示。\\i[1]サーフェス0番に設定された、アニメーション1番を表示。",
+      "content": "\\i[ID番号]\n現スコープ側にID番号のサーフェスアニメーションを表示する。surfaces.txtのanimation*.nameで定義された文字列をIDの代わりに使用できる。\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\s[0]本体側にサーフェス0番を表示。\\i[1]サーフェス0番に設定された、アニメーション1番を表示。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5ci_5bID_756a_53f7_5d:1"
     },
     {
@@ -4999,7 +5015,7 @@
       "title": "\\i[ID,wait]",
       "source": "ukadoc",
       "category": "sakurascript",
-      "content": "\\i[ID,wait]\nID番号のサーフェスアニメーションを待ちながら表示する。\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\1\\s[10]相方側にサーフェス10番を表示。\\i[2,wait]この文章はサーフェス10番内のアニメーション2番を表示し終わってから表示。",
+      "content": "\\i[ID,wait]\nID番号のサーフェスアニメーションを待ちながら表示する。surfaces.txtのanimation*.nameで定義された文字列をIDの代わりに使用できる。\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\1\\s[10]相方側にサーフェス10番を表示。\\i[2,wait]この文章はサーフェス10番内のアニメーション2番を表示し終わってから表示。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5ci_5bID_2cwait_5d:1"
     },
     {
@@ -10135,7 +10151,7 @@
       "title": "OnHydrateStatsNotify",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnHydrateStatsNotify\nNotifies information about Hydrate's current state and the user's hydration stats.\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tThe name of the shell Hydrate is currently using.\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tA list of the current dressups. This is a 2-dimensional array, where each dressup is delimited by 0xFDEF, and the category and part name of each dressup is delimited by 0x01. (Example: \"Glass shape[0x01]Tall[0xFDEF]Drink[0x01]Tea\")\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tCurrently blank, reserved for future use.\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\tCurrently blank, reserved for future use.\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\tThe number of drinks today.\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\tThe number of drinks in total.\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\tThe current drink streak (number of drinks in a row).\n\t\t\t\t\t\tReference7\n\t\t\t\t\t\tThe highest ever drink streak (number of drinks in a row).\n\t\t\t\t\t\tReference8\n\t\t\t\t\t\tThe number of extra sips taken today.\n\t\t\t\t\t\tReference9\n\t\t\t\t\t\tThe number of extra sips in total.\n\t\t\t\t\t\tReference10\n\t\t\t\t\t\tWhether Hydrate is minimized or not. 1 if true, 0 otherwise.",
+      "content": "OnHydrateStatsNotify\nNotifies information about Hydrate's current state and the user's hydration stats.\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tThe name of the shell Hydrate is currently using.\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tA list of the current dressups. This is a 2-dimensional array, where each dressup is delimited by 0xFDEF, and the category and part name of each dressup is delimited by 0x01. (Example: \"Glass shape[0x01]Tall[0xFDEF]Drink[0x01]Tea\")\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tThe current X scaling of the shell (as a percentage).\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\tThe current Y scaling of the shell (as a percentage).\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\tThe number of drinks today.\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\tThe number of drinks in total.\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\tThe current drink streak (number of drinks in a row).\n\t\t\t\t\t\tReference7\n\t\t\t\t\t\tThe highest ever drink streak (number of drinks in a row).\n\t\t\t\t\t\tReference8\n\t\t\t\t\t\tThe number of extra sips taken today.\n\t\t\t\t\t\tReference9\n\t\t\t\t\t\tThe number of extra sips in total.\n\t\t\t\t\t\tReference10\n\t\t\t\t\t\tWhether Hydrate is minimized or not. 1 if true, 0 otherwise.",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event_ex.html#OnHydrateStatsNotify:1"
     },
     {
@@ -17903,7 +17919,7 @@
       "title": "関数一覧 - 関数一覧",
       "source": "satori_wiki",
       "category": "satori_reference",
-      "content": "関数一覧\n里々で使うことのできる関数の一覧。\nMc157-1からssu*1は里々内部に統合され不要になりました。\n｜構文・コマンド｜ループ｜条件分岐｜文字列操作｜文字列調査｜未分類｜\n関数一覧\n関数名概説参考書式例備考\ncalc計算（calc,計算式）\ncalc_float（calc_float,計算式）\nset変数設定（set,変数名,値）\nnop出力の抑制（nop,引数）\ncall関数呼び出し（call,関数名[,引数n…]）\nvncall（vncall,関数名[,引数n…]）Mc158-1\nループ\nloopループ※特記事項（loop,文または単語群名,ループ回数）（loop,文または単語群名,開始値,終了値[,増分]）\ntimes（times,ループ回数[,開始値],処理）Mc146-1\nwhile（while,条件式[,開始値],処理）Mc146-1\nfor（for,開始値,終了値[,増分],処理）Mc146-1\n条件分岐\nif分岐（if,条件式,真の結果[,偽の結果]）\nwhen（when,条件式,真の結果[,偽の結果]）Mc145-1\nunless（unless,条件式,偽の結果[,真の結果]）\niflist複数分岐（iflist,左辺,右辺１,結果１[,右辺n,結果n…][,偽の結果]）\nwhenlist（whenlist,左辺,右辺１,結果１[,右辺n,結果n…][,偽の結果]）Mc156-1\nswitch（switch,左辺,右辺１,結果１[,右辺n,結果n…][,該当なし]）\nnswitch（nswitch,数値,結果１[,結果n…]）\n文字列操作\nsubstr抽出（substr,文字列,開始位置[,文字数]）\nat（at,文字列,位置）\nsplit分割（split,文字列[,区切文字[,最大分割数[,空要素分割可否]]]）Mc147-4r2\nsplit_string（split_string,文字列[,区切文字[,最大分割数[,空要素分割可否]]]）Mc170-1\nreplace置換（replace,文字列,検索文字列,置換文字列）\nreplace_first（replace_first,文字列,検索文字列,置換文字列）\nerase削除（erase,文字列,消去文字列）\nerase_first（erase_first,文字列,消去文字列）\njoin接続（join,区切り文字,文字列１[,文字列n…]）\nreverse反転（reverse,文字列）\nzen2han全角→半角（zen2han,文字列[,変換タイプ]）Mc137-1\nhan2zen半角→全角（han2zen,文字列[,変換タイプ]）Mc137-1\nkata2hira片仮名→平仮名（kata2hira,文字列）\nhira2kata平仮名→片仮名（hira2kata,文字列）\n文字列調査\ncompare比較※判定の差異（compare,文字列,比較文字列）\ncompare_head（compare_head,文字列,比較文字列）\ncompare_tail（compare_tail,文字列,比較文字列）\ncompare_case（compare_case,文字列,比較文字列）Mc150-1\ncompare_head_case（compare_head_case,文字列,比較文字列）Mc150-1\ncompare_tail_case（compare_tail_case,文字列,比較文字列）Mc150-1\nequal（equal,文字列,比較文字列）Mc157-1\ncount検索（count,文字列,検索文字列）\nlength文字数計測（length,文字列）\nis_empty文字列判定（is_empty,文字列）\nis_digit（is_digit,文字列[,integer]）\nis_alpha（is_alpha,文字列）\n未分類\nchoiceランダム選択（choice,引数１[,引数n…]）\nlsimg画像数検索（lsimg,絶対パス）\nmkdirフォルダ作成（mkdir,絶対パス又はベースウェアからの相対パス）\nrememberスクリプト参照（remember,参照値）\nsync同期（sync,関数名[,引数n…]）\nsprintfフォーマット出力※特記事項（sprintf,フォーマット[,引数n…]）\nバイト値バイト値出力（バイト値、１）\n単語の追加単語群操作（単語の追加,単語群名,単語）\n追加単語の削除（追加単語の削除,単語群名,単語）\n追加単語の全削除（追加単語の全削除,単語群名）\n合成単語群（合成単語群,単語群名１[,単語群名n…]）Mc140-1\nload_saoriSAORI追加読込（load_saori,呼び出し名,モジュールパス[,引数n…]）Mc163-3\n関数一覧\n関数解説\ncalc / calc_float\nset\nnop\ncall\nvncall\nループ\nloop\ntimes\nwhile\nfor\n条件分岐\nif / when\nunless\niflist / whenlist\nswitch\nnswitch\n文字列操作\nsubstr\nat\nsplit / split_string\nreplace / replace_first\nerase / erase_first\njoin\nreverse\nzen2han / han2zen\nkata2hira / hira2kata\n文字列調査\ncompare / compare_head / compare_tail\ncompare_case / compare_head_case / compare_tail_case\nequal\ncount\nlength\nis_empty\nis_digit\nis_alpha\n未分類\nchoice\nlsimg\nmkdir\nremember\nsync\nsprintf\nフォーマット指定子\nバイト値\n単語の追加\n追加単語の削除\n追加単語の全削除\n合成単語群\nload_saori\n↑",
+      "content": "関数一覧\n里々で使うことのできる関数の一覧。\nMc157-1からssu*1は里々内部に統合され不要になりました。\n｜構文・コマンド｜ループ｜条件分岐｜文字列操作｜文字列調査｜未分類｜\n関数一覧\n関数名概説参考書式例備考\ncalc計算（calc,計算式）\ncalc_float（calc_float,計算式）\nset変数設定（set,変数名,値）\nnop出力の抑制（nop,引数）\ncall関数呼び出し（call,関数名[,引数n…]）\nvncall（vncall,関数名[,引数n…]）Mc158-1\nループ\nloopループ※特記事項（loop,文または単語群名,ループ回数）（loop,文または単語群名,開始値,終了値[,増分]）\ntimes（times,ループ回数[,開始値],処理）Mc146-1\nwhile（while,条件式[,開始値],処理）Mc146-1\nfor（for,開始値,終了値[,増分],処理）Mc146-1\n条件分岐\nif分岐（if,条件式,真の結果[,偽の結果]）\nwhen（when,条件式,真の結果[,偽の結果]）Mc145-1\nunless（unless,条件式,偽の結果[,真の結果]）\niflist複数分岐（iflist,左辺,右辺１,結果１[,右辺n,結果n…][,偽の結果]）\nwhenlist（whenlist,左辺,右辺１,結果１[,右辺n,結果n…][,偽の結果]）Mc156-1\nswitch（switch,左辺,右辺１,結果１[,右辺n,結果n…][,該当なし]）\nnswitch（nswitch,数値,結果１[,結果n…]）\n文字列操作\nsubstr抽出（substr,文字列,開始位置[,文字数]）\nat（at,文字列,位置）\nsplit分割（split,文字列[,区切文字[,最大分割数[,空要素分割可否]]]）Mc147-4r2\nsplit_string（split_string,文字列[,区切文字[,最大分割数[,空要素分割可否]]]）Mc170-1\nreplace置換（replace,文字列,検索文字列,置換文字列）\nreplace_first（replace_first,文字列,検索文字列,置換文字列）\nerase削除（erase,文字列,消去文字列）\nerase_first（erase_first,文字列,消去文字列）\njoin接続（join,区切り文字,文字列１[,文字列n…]）\nreverse反転（reverse,文字列）\nzen2han全角→半角（zen2han,文字列[,変換タイプ]）Mc137-1\nhan2zen半角→全角（han2zen,文字列[,変換タイプ]）Mc137-1\nkata2hira片仮名→平仮名（kata2hira,文字列）\nhira2kata平仮名→片仮名（hira2kata,文字列）\n文字列調査\ncompare比較※判定の差異（compare,文字列,比較文字列）\ncompare_head（compare_head,文字列,比較文字列）\ncompare_tail（compare_tail,文字列,比較文字列）\ncompare_case（compare_case,文字列,比較文字列）Mc150-1\ncompare_head_case（compare_head_case,文字列,比較文字列）Mc150-1\ncompare_tail_case（compare_tail_case,文字列,比較文字列）Mc150-1\nequal（equal,文字列,比較文字列）Mc157-1\ncount検索（count,文字列,検索文字列）\nlength文字数計測（length,文字列）\nis_empty文字列判定（is_empty,文字列）\nis_digit（is_digit,文字列[,integer]）\nis_alpha（is_alpha,文字列）\n未分類\nchoiceランダム選択（choice,引数１[,引数n…]）\nlsimg画像数検索（lsimg,絶対パス）\nmkdirフォルダ作成（mkdir,絶対パス又はベースウェアからの相対パス）\nrememberスクリプト参照（remember,参照値）\nsync同期（sync,関数名[,引数n…]）\nsprintfフォーマット出力※特記事項（sprintf,フォーマット[,引数n…]）\nバイト値バイト値出力（バイト値、１）\n単語の追加単語群操作（単語の追加,単語群名,単語）\n追加単語の削除（追加単語の削除,単語群名,単語）\n追加単語の全削除（追加単語の全削除,単語群名）\n合成単語群（合成単語群,単語群名１[,単語群名n…]）Mc140-1\nload_saoriSAORI追加読込（load_saori,呼び出し名,モジュールパス[,引数n…]）Mc163-3\nget_propertyプロパティシステム（get_property,プロパティ名[,エラー時の戻り値]）Mc172-1\nset_property（set_property,プロパティ名,値）Mc172-1\n関数一覧\n関数解説\ncalc / calc_float\nset\nnop\ncall\nvncall\nループ\nloop\ntimes\nwhile\nfor\n条件分岐\nif / when\nunless\niflist / whenlist\nswitch\nnswitch\n文字列操作\nsubstr\nat\nsplit / split_string\nreplace / replace_first\nerase / erase_first\njoin\nreverse\nzen2han / han2zen\nkata2hira / hira2kata\n文字列調査\ncompare / compare_head / compare_tail\ncompare_case / compare_head_case / compare_tail_case\nequal\ncount\nlength\nis_empty\nis_digit\nis_alpha\n未分類\nchoice\nlsimg\nmkdir\nremember\nsync\nsprintf\nフォーマット指定子\nバイト値\n単語の追加\n追加単語の削除\n追加単語の全削除\n合成単語群\nload_saori\nget_property\nset_property\n↑",
       "url": "https://soliton.sub.jp/satori/?%E9%96%A2%E6%95%B0%E4%B8%80%E8%A6%A7#ea945048"
     },
     {
@@ -18303,8 +18319,24 @@
       "title": "関数一覧 - load_saori",
       "source": "satori_wiki",
       "category": "satori_reference",
-      "content": "load_saori\n（load_saori,呼び出し名,モジュールパス[,引数n…]）\nsatori_conf.txt に書いていないSAORIを関数実行時にロードすることができます。\n引数はsatori_conf.txt に記載の順番で記述。\nロードするタイミングがロードするかどうかを制御したい場合に。\n一度ロードしたSAORIは、satori_conf.txt に書かれているSAORIと同じタイミングでアンロードされます。",
+      "content": "load_saori\n（load_saori,呼び出し名,モジュールパス[,引数n…]）\nsatori_conf.txt に書いていないSAORIを関数実行時にロードすることができます。\n引数はsatori_conf.txt に記載の順番で記述。\nロードするタイミングがロードするかどうかを制御したい場合に。\n一度ロードしたSAORIは、satori_conf.txt に書かれているSAORIと同じタイミングでアンロードされます。\n↑",
       "url": "https://soliton.sub.jp/satori/?%E9%96%A2%E6%95%B0%E4%B8%80%E8%A6%A7#load_saori"
+    },
+    {
+      "id": "satori:関数一覧#get_property",
+      "title": "関数一覧 - get_property",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "get_property\n（get_property,プロパティ名,エラー時の戻り値）\nSSPのプロパティシステムを使い、SSPからの情報取得します。→https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html\n「エラー時の戻り値」は省略可能。無効なプロパティ名を指定した際などでもこれが返ります。\n大きな特徴として、これまでのプロパティシステムの取得は一度SSP上でスクリプト実行するため、そのまま表示する事はできてもそれをSHIORI側で処理することはできず、利用するためには一度別のイベントを介する必要がありました。\nしかしこの関数の登場で、少ない記述で取得した値を使うことができるようになりました。\n従来の取得方法の例\n＊\n\\![get,property,メモリ使用率取得,system.memory.load]\n\n＊メモリ使用率取得\n＄空きメモリ＝１００－（Ｒ０）\n：メモリはあと（空きメモリ）％残ってるよ。\nこの関数を使った方法\n＊\n＄空きメモリ＝１００－（get_property,system.memory.load）\n：メモリはあと（空きメモリ）％残ってるよ。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E9%96%A2%E6%95%B0%E4%B8%80%E8%A6%A7#get_property"
+    },
+    {
+      "id": "satori:関数一覧#set_property",
+      "title": "関数一覧 - set_property",
+      "source": "satori_wiki",
+      "category": "satori_reference",
+      "content": "set_property\n（set_property,プロパティ名,値）\nSSPのプロパティシステムを使い、SSPに情報を入力します。→https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html",
+      "url": "https://soliton.sub.jp/satori/?%E9%96%A2%E6%95%B0%E4%B8%80%E8%A6%A7#set_property"
     },
     {
       "id": "satori:ファイル構成#f5ae23d2",
@@ -20843,6 +20875,94 @@
       "url": "https://soliton.sub.jp/satori/?%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E5%8F%8D%E5%BF%9C#w0f122e1"
     },
     {
+      "id": "satori:マルチキャラクタ・多重人格#u8259317",
+      "title": "マルチキャラクタ・多重人格 - 基本",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "基本\n具体的には、別の辞書フォルダをまるごと読み込むことによって実現する。\nghost/master/内に任意の名前のフォルダを用意し、変数を使って人格を切り替える。\n＊別人格\n：別人格に切り替えます。\n＄辞書フォルダ【タブ】another\nこれで、『another』フォルダ内の辞書が読み込まれる。\n『master』内の辞書は一旦破棄される。\nreplace.txtとsatori_savedeta.txtの内容は『another』フォルダへそのまま引継ぎされる。\n別人格の数に制限はない。\nまた、交代直後の文章は同じフォルダにテキストを書きます。\nこの場合、masterフォルダ内に書くってことです。\n＊別人格\n：別人格に切り替えます。\n＄辞書フォルダ【タブ】another\n＞別人格の朝【タブ】（現在時）＜９\n別人格に切り替わりました。\n\n＃同じフォルダ内 \n＊別人格の朝\n：朝から別人格にかわりました。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#u8259317"
+    },
+    {
+      "id": "satori:マルチキャラクタ・多重人格#e6327002",
+      "title": "マルチキャラクタ・多重人格 - デフォルトサーフェスを変える",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "デフォルトサーフェスを変える\n辞書と一緒にデフォルトサーフェスを切り替えたい場合がほとんどだろう。\nデフォルトサーフェスを同時に変更する場合は次のように書く。\n＊別人格\n：別人格に切り替えます。\n＄辞書フォルダ【タブ】another\n＄デフォルトサーフェス0【タブ】200\n＄デフォルトサーフェス1【タブ】300\nこれで、￥0側のデフォルトサーフェスが200に、￥1側のデフォルトサーフェスが300になる。\n『デフォルトサーフィス』ではないのでちゅうい。\n里々サンプルゴーストのポストも一緒に見てみよう。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#e6327002"
+    },
+    {
+      "id": "satori:マルチキャラクタ・多重人格#e10889eb",
+      "title": "マルチキャラクタ・多重人格 - サーフェス加算値",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "サーフェス加算値\n＄サーフェス加算値0【タブ】200\nとしてから（５）とすると、実際にはsurface205.pngが表示されます。\nさくら側とうにゅう側で個別に設定できます。\nうにゅう側はサーフェス加算値1で。\n『サーフェス』です。サーフィスと書くと動きません。\nサーフィス番号の割り当て方によっては、\n＄デフォルトサーフェス0【タブ】200　を使うよりも\nこちらを使う方が楽な場合があるので覚えておくと便利。\n通常サーフェスの衣装違いバージョンなどを同梱しておいて、\nサーフェス加算値によって衣装替えをしてみるという事もできます。\nサーフェス加算値を使うと、デフォルトサーフェスが\n加算した値、上記でいえば200に設定されてしまう模様。\n＊別人格\n：別人格に切り替えます。\n＄辞書フォルダ【タブ】another\n＄サーフェス加算値0【タブ】200\n＄サーフェス加算値1【タブ】200\n＄デフォルトサーフェス0【タブ】200\n＄デフォルトサーフェス1【タブ】210\nのように、サーフェス加算値を先に設定してあとからデフォルトサーフェスを設定すればOKです。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#e10889eb"
+    },
+    {
+      "id": "satori:マルチキャラクタ・多重人格#t38da2f7",
+      "title": "マルチキャラクタ・多重人格 - master人格に戻す",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "master人格に戻す\n人格を戻す場合、次のように記述する。\n＄辞書フォルダ【タブ】.\n＄辞書フォルダ【タブ】masterと書いても戻ってくれない。\n意味がわからない人は、とにかくこう書くと覚えておこう。\nデフォルトサーフェスとサーフェス加算値を変更している場合は、\n＄サーフェス加算値0【タブ】0\n＄サーフェス加算値1【タブ】0\n＄デフォルトサーフェス0【タブ】0\n＄デフォルトサーフェス1【タブ】10\nを記述する必要もある。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#t38da2f7"
+    },
+    {
+      "id": "satori:マルチキャラクタ・多重人格#t6302268",
+      "title": "マルチキャラクタ・多重人格 - 複数の辞書フォルダを読み込む",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "複数の辞書フォルダを読み込む\n＄辞書フォルダ【タブ】.,test1,test2\nと記述すれば「master」「test1」「test2」三つのフォルダの辞書が読み込まれる。\nifによる条件分岐と組み合わせたり用途はいろいろ。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#t6302268"
+    },
+    {
+      "id": "satori:マルチキャラクタ・多重人格#ee86d827",
+      "title": "マルチキャラクタ・多重人格 - 使用の際の注意",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "使用の際の注意\n■イベント\n　別人格においてもネットワーク更新、時計あわせ、ヘッドラインなどを行わせる場合は、別人格の辞書にも対応するイベントを書く必要がある。\n書かないとmasterフォルダが呼び出される\nヘッドライン\n書かないとできない\nネットワーク更新\n時計あわせ（空バルーンのみ表示される）\n書かなくても一応できる\nゴーストのインストール\n■satori_conf.txt\n　satori_conf.txt　の「＊初期化」で\n＄辞書フォルダ【タブ】\nの定義をしない。\n■サーフェス加算値とデフォルトサーフェス\n　サーフェス加算値を先に設定する。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#ee86d827"
+    },
+    {
+      "id": "satori:マルチキャラクタ・多重人格#r820a973",
+      "title": "マルチキャラクタ・多重人格 - TIPS",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "TIPS\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#r820a973"
+    },
+    {
+      "id": "satori:マルチキャラクタ・多重人格#v0c863ac",
+      "title": "マルチキャラクタ・多重人格 - satori_conf.txtに「＄辞書フォルダ」を定義するとどうなるか",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "satori_conf.txtに「＄辞書フォルダ」を定義するとどうなるか\n一言で言えば、定義した辞書フォルダに加え里々のルートフォルダも含めて常に読み込まれるようになる。\n起動中に辞書フォルダを読み込み直しても消すことはできない。\nその際、セーブデータには痕跡が残らないので混乱の元になる。\n参考リンク\nレゴキチ/里々まとめ\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#v0c863ac"
+    },
+    {
+      "id": "satori:マルチキャラクタ・多重人格#ea6cc5e4",
+      "title": "マルチキャラクタ・多重人格 - シェルによって語尾を変化させる",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "シェルによって語尾を変化させる\nmakoto.dllを使わず、ゴースト側から制御する方法。＊OnTranslateの応用。\n＊OnShellChanging\n＄現在のシェル【タブ】（Ｒ０）\n：シェル変更します。\n\n＊OnShellChanged\n＄りぷれいす【タブ】（現在のシェル）\n：シェル変更してきました。\nここで現在使われているシェルの名称を取得し、＊OnTranslateで分岐させる為の「＄りぷれいす」という変数に格納します。\n現在のシェルが「男の子シェル」という名前のシェルだった場合＊男の子モード　に飛び、指定した単語を置き換えます。それ以外のシェルだった場合はそのまましゃべります。\n＊OnTranslate\n＞男の子モード【タブ】（りぷれいす）==男の子シェル\n＊男の子モード\n＄話【タブ】（Ｒ０）\n＄話【タブ】（replace（sprintf,%c,3）（話）（sprintf,%c,3）あたし（sprintf,%c,3）僕）\n＄話【タブ】（replace（sprintf,%c,3）（話）（sprintf,%c,3）じゃないの（sprintf,%c,3）じゃないか）\n＄話【タブ】（replace（sprintf,%c,3）（話）（sprintf,%c,3）のよ（sprintf,%c,3）んだよ）\n（話）\n＊OnSatoriLoad\n＄引数区切り追加【タブ】（sprintf,%c,3）\n引数区切りの追加を ＊OnSatoriLoadに記述します。 引数区切りに関してはこちらを参照。\n＊OnTranslateの記述に関しては＊OnTranslateとssuのreplaceを参照。\nセーブデータに「＄りぷれいす」がないとエラーが出るので、それを防ぐ為に以下を記述しておきます。\n＊OnSatoriBoot\n＞りぷれいすげっと【タブ】（変数「現在のシェル」の存在）＝＝０\n＄りぷれいす【タブ】（現在のシェル）\n\n＊りぷれいすげっと\n＄りぷれいす【タブ】デフォルトシェル\n変数「現在のシェル」が存在しなかった場合、仮に「＄りぷれいす」に「デフォルトシェル」を格納します。\n変数の名前などは適当なので、適宜書き換えてください。\n↑\n記述をシンプルにしてみる†\n＊OnTranslate?の部分がごちゃごちゃしているので、見やすくしてみます。\n＊OnTranslate\n＞男の子モード【タブ】（りぷれいす）==男の子シェル\n＊男の子モード\n＄話【タブ】（Ｒ０）\n＄話【タブ】（replace（■）（話）（■）あたし（■）僕）\n＄話【タブ】（replace（■）（話）（■）じゃないの（■）じゃないか）\n＄話【タブ】（replace（■）（話）（■）のよ（■）んだよ）\n（話）\n\n＠■\n（sprintf,%c,3）\nこのように書き換えることで、見た目も簡単になってわかりやすく、書きやすくなります。\n↑\nさらにシンプルにしてみる†\n＊OnTranslate?\n＞男の子モード【タブ】（りぷれいす）==男の子シェル\n＊男の子モード\n＄話【タブ】（Ｒ０）\n＄話【タブ】（replace●（話）●あたし●僕）\n＄話【タブ】（replace●（話）●じゃないの●じゃないか）\n＄話【タブ】（replace●（話）●のよ●んだよ）\n（話）\n引数区切りを以下のように書き換えます。\n＊OnSatoriLoad\n＄引数区切り追加【タブ】●\n「●」は任意の記号ですが、必ずトーク中に使用していない記号を使用してください。\n見やすくする為だけに「●」を使っているので、（sprintf,%c,3）を使う場合と基本的には同じ。\n引数区切りに追加すれば「【×】」や「[◆]」などでも使えます。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#ea6cc5e4"
+    },
+    {
+      "id": "satori:マルチキャラクタ・多重人格#fca47971",
+      "title": "マルチキャラクタ・多重人格 - 起動する時複数人格から選んで起動",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "起動する時複数人格から選んで起動\n例えば起動した時ランダムで人格を変更、起動した時間帯や曜日によって人格を変更…など。\nここではメイン人格が「normal」フォルダ、別人格が「another」フォルダにあり、別人格のサーフェスが200番代で、起動時1/3の確率で別人格を出したい場合の例\n（サーフェスを変更しない場合＄デフォルトサーフェス～＄サーフェス加算値～は省略）\nもっといい方法があれば直してください。\nmasterフォルダ内dic～.txt\n＊OnBoot\n＞anotherモードへ【タブ】（乱数１～３）==1\n＞normalモードへ\n＊normalモードへ\n＄サーフェス加算値0【タブ】0\n＄サーフェス加算値1【タブ】0\n＄デフォルトサーフェス0【タブ】0\n＄デフォルトサーフェス1【タブ】10\n＄辞書フォルダ【タブ】.,normal\n：normal起動トーク\n＊anotherモードへ\n＄サーフェス加算値0【タブ】200\n＄サーフェス加算値0【タブ】200\n＄デフォルトサーフェス0【タブ】200\n＄デフォルトサーフェス1【タブ】210\n＄辞書フォルダ【タブ】.,another\n：another起動トーク\nmaster/normalフォルダ内に通常モード用の、master/anotherフォルダ内にアナザー用の辞書ファイルを置き、起動トーク以外を記述。 \n各モードのフォルダとmasterフォルダ（.）も同時に読み込ませる…という方法。\nmasterフォルダには各モードごとの起動トークと、どのモードの時も共通して使う辞書を置く。\nマルチキャラクタ・多重人格\n起動トークは起動時に読み込んだ辞書ではなく、前回起動時に読み込んだ辞書でされてしまうのは里々の仕様なんでしょうか…。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#fca47971"
+    },
+    {
+      "id": "satori:マルチキャラクタ・多重人格#q327cf1d",
+      "title": "マルチキャラクタ・多重人格 - 終了時にmaster人格に戻す",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "終了時にmaster人格に戻す\nメイン人格が「master」フォルダ、別人格が「another」フォルダ。の完全分離の場合。\n（動作確認はしましたが、まだバグがあるかもしれません）\nanotherフォルダからmasterフォルダに戻る場合\n他のゴーストへ変更\n終了\nanotherフォルダからmasterフォルダに戻らない場合\n＄辞書リロード＝実行\nゴーストメニューから自ゴーストへの交代（リロード）時\n！注意！\n【ポスト】を自ゴーストの\\0側の名前に書き換えてください。\nその時、【】は不要です。\nanotherフォルダ内dic～.txt\n＊OnSatoriClose\n＞OSC2【タブ】（変数「（Ｒ０）」の存在）==0\n＞リロード開始【タブ】（Ｒ０）==【ポスト】\n＄サーフェス加算値0【タブ】0\n＄サーフェス加算値1【タブ】0\n＄デフォルトサーフェス0【タブ】0\n＄デフォルトサーフェス1【タブ】10\n＄辞書フォルダ【タブ】.\n＊OSC2\n＄サーフェス加算値0【タブ】0\n＄サーフェス加算値1【タブ】0\n＄デフォルトサーフェス0【タブ】0\n＄デフォルトサーフェス1【タブ】10\n＄辞書フォルダ【タブ】.\n＃トーク時にmaster時のサーフェスに戻ってしまうので、\n＃トークの前にサーフェスを指定します。\n＊OnClose\n：（１００）\n：（２００）\n：さようなら。\n：バイバーイ。\n＃他のゴーストから変更\n＊OnGhostChanged\n＞リロード終了【タブ】（Ｒ０）==【ポスト】\n＞起動\n＃＊他のゴーストへ変更\n＊OnGhostChanging\n＞リロード開始【タブ】（Ｒ０）==【ポスト】\n：（１００）\n：（２００）\n：（Ｒ０）さんに代わるねー。\n：あとはよろしくー。\n＊リロード開始\n：リロードします。\n＊リロード終了\n：リロード終わりました。\n別人格（anotherフォルダ）の場合、交代や終了で元の人格（masterフォルダ）に戻ります。\nもっといい方法があれば直しをお願いします。",
+      "url": "https://soliton.sub.jp/satori/?%E3%83%9E%E3%83%AB%E3%83%81%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BB%E5%A4%9A%E9%87%8D%E4%BA%BA%E6%A0%BC#q327cf1d"
+    },
+    {
       "id": "satori:単語の追加#g0f644a8",
       "title": "単語の追加 - 単語の追加",
       "source": "satori_wiki",
@@ -22259,19 +22379,11 @@
       "url": "https://soliton.sub.jp/satori/?SAORI%2F%E8%8F%AF%E5%92%8C%E6%A2%A8#q08bf3f8"
     },
     {
-      "id": "satori:伝言板",
-      "title": "伝言板",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "FrontPage 海外からのスパム対策のため日本国外からのアクセス制限を行いました。しばらく様子見させて下さい。 -- 2022-03-17 (木) 10:13:13 ばぐとら と同様にベーシック認証作るとか「PukiWikiにBasic認証をつける」公式のユーザ認証プラグインを有効にするとか「PukiWiki/Authentication」 -- 2022-03-20 (日) 18:14:03 スパム対策のため、ページの新規作成、編集および伝言板への投稿に認証かけました。それに伴い日本国外からのアクセス制限を撤廃しました。以上、宜しくお願い致します。 -- 2022-05-17 (火) 21:28:10 好感度/call関数による好感度の調整のサンプルコピペすると動かなかったので見てみたら、setの内部で変数が（）で不必要にくくられてる…とおもいました 関数わかってないのでひとまずコメントにだけ… -- 2022-06-03 (金) 02:27:43 このサンプルだとマイナスになったときに変数がおかしくなりますね。修正しておきました。 -- 2022-06-05 (日) 06:45:17 5月のコメントでは海外からのアクセス制限は解除したとのことですが、海外のコミュニティの方からUSからはアクセスできない(403)ため管理者に聞いてほしいと質問されました。急ぎのものではないですが、確認していただけると嬉しいです -- 2022-11-25 (金) 17:55:25 ＞Naoさま ご報告ありがとうございます。設定ミスにより海外からのアクセスができない状態になっていました。修正が完了致しましたので、ご確認をお願い致します。 -- 2022-11-28 (月) 23:25:28 確認取れました！対応ありがとうございます -- 2022-12-04 (日) 10:01:41 「困ったときの対処法」ページの伺的なフォーラムへのリンク切れを直しました。 -- 2023-11-09 (木) 23:59:46 リンク集を修正。現状SSLに対応(HTTPS化)していないサイトのリンクも残してありますが、今後いずれ他のブラウザも表示しなくなる可能性が予想されます。ご注意。 -- 2023-11-10 (金) 18:05:56 「OnTranslate」の記事のサンプル、）が多かった点を修正しました。 -- 2023-11-30 (木) 09:39:00 「ファイル構成」のページに、「satori_bootconf.txt」について記述しました。 -- 2026-04-30 (木) 08:13:22 プロパティシステムのページに（get_property,プロパティ名）による取得をとりあえず書きました。 -- 2026-05-24 (日) 12:04:06",
-      "url": "https://soliton.sub.jp/satori/?%E4%BC%9D%E8%A8%80%E6%9D%BF"
-    },
-    {
       "id": "satori:プロパティシステム#y69659b8",
       "title": "プロパティシステム - 注意点",
       "source": "satori_wiki",
       "category": "satori_tips",
-      "content": "注意点\n環境変数やプロパティシステムは、さくらスクリプトと同じくSSP（ベースウェア）で処理される命令です。\n#ref(): File not found: \"event_ref2.png\" at page \"プロパティシステム\"\nイベントのレスポンスの図。\nここで重要なのは環境変数やプロパティシステムは里々の手を離れてから処理されるという事。\n図の矢印を逆流させる事はできないので、環境変数やプロパティシステムで得た情報を\n里々で扱うには、別のイベントを仕込んで里々に渡すなどの工夫が必要になります。\n以下、詳細。\n↑",
+      "content": "注意点\n環境変数やプロパティシステムは、さくらスクリプトと同じくSSP（ベースウェア）で処理される命令です。\nここで重要なのは環境変数やプロパティシステムは里々の手を離れてから処理されるという事。\n処理を逆流させる事はできないので、環境変数やプロパティシステムで得た情報を扱うには、基本的に別のイベントを仕込んだり埋め込んだりして里々に渡すなどの工夫が必要になります。\nしかし、Mc172-1で関数get_propertyが実装されたため、別のイベントを介する必要がなくなりました。\n↑",
       "url": "https://soliton.sub.jp/satori/?%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0#y69659b8"
     },
     {
@@ -22284,10 +22396,10 @@
     },
     {
       "id": "satori:プロパティシステム#y8741b6f",
-      "title": "プロパティシステム - さくらスクリプトによる拾得",
+      "title": "プロパティシステム - さくらスクリプトによる取得",
       "source": "satori_wiki",
       "category": "satori_tips",
-      "content": "さくらスクリプトによる拾得\n上記の環境変数では、バルーンに表示することしか出来ません。\n取得結果を使って、処理を変化するようにさせたい場合は\\![get,property,...]というさくらスクリプトを使用します。\n＊\n＃括弧は半角\n\\![get,property,ポストはいるかな,\"ghostlist(Ｒポストと狛犬).name\"]\n＃\\![get,property,ポストはいるかな,\"ghostlist(ポスト).name\"]でもOKだが\n＃\\0が同じ名前のことがあるので、ゴースト名の方が確実\n\n＊ポストはいるかな\n＞ポストはいないよ【タブ】（is_empty（バイト値、１）（Ｒ０））\n：ポストをちゃんとインストールしてるんだね。\nえらい！\n\n＊ポストはいないよ\n：そんな、ポストがインストールされていないなんて。\n一度に複数の情報を取得することも出来ます。\n＊\n＃ほしい情報を、半角カンマ区切りで順番に羅列する\n\\![get,property,ポスト起動時間,\"rateofuselist(Ｒポストと狛犬).boottime\",\"rateofuselist(Ｒポストと狛犬).bootminute\"]\n\n＊ポスト起動時間\n＃\\![get,property,...]で羅列した順に、１番目は（Ｒ０）、２番目は（Ｒ１）、３番目は（Ｒ２）...\n：ポストの起動は（Ｒ０）回で、合計（Ｒ１）分。\n＞ポストたくさん起動した【タブ】（Ｒ０）＞＝１０＆＆（Ｒ１）＞＝１２０\nまだまだだね！\n\n＊ポストたくさん起動した\n：そんなにたくさん起動してるなんて！\n長所\n取得した情報を里々で使うことが出来る。\n短所\n記述量が多くなるため、書くのが大変。\n↑",
+      "content": "さくらスクリプトによる取得\n上記の環境変数では、バルーンに表示することしか出来ません。\n取得結果を使って、処理を変化するようにさせたい場合は\\![get,property,...]というさくらスクリプトを使用します。\n＊\n＃括弧は半角\n\\![get,property,ポストはいるかな,\"ghostlist(Ｒポストと狛犬).name\"]\n＃\\![get,property,ポストはいるかな,\"ghostlist(ポスト).name\"]でもOKだが\n＃\\0が同じ名前のことがあるので、ゴースト名の方が確実\n\n＊ポストはいるかな\n＞ポストはいないよ【タブ】（is_empty（バイト値、１）（Ｒ０））\n：ポストをちゃんとインストールしてるんだね。\nえらい！\n\n＊ポストはいないよ\n：そんな、ポストがインストールされていないなんて。\n一度に複数の情報を取得することも出来ます。\n＊\n＃ほしい情報を、半角カンマ区切りで順番に羅列する\n\\![get,property,ポスト起動時間,\"rateofuselist(Ｒポストと狛犬).boottime\",\"rateofuselist(Ｒポストと狛犬).bootminute\"]\n\n＊ポスト起動時間\n＃\\![get,property,...]で羅列した順に、１番目は（Ｒ０）、２番目は（Ｒ１）、３番目は（Ｒ２）...\n：ポストの起動は（Ｒ０）回で、合計（Ｒ１）分。\n＞ポストたくさん起動した【タブ】（Ｒ０）＞＝１０＆＆（Ｒ１）＞＝１２０\nまだまだだね！\n\n＊ポストたくさん起動した\n：そんなにたくさん起動してるなんて！\n長所\n取得した情報を里々で使うことが出来る。\n短所\n記述量が多くなるため、書くのが大変。\n↑",
       "url": "https://soliton.sub.jp/satori/?%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0#y8741b6f"
     },
     {
@@ -22303,8 +22415,16 @@
       "title": "プロパティシステム - （get_property,プロパティ名）による取得",
       "source": "satori_wiki",
       "category": "satori_tips",
-      "content": "（get_property,プロパティ名）による取得\n（get_property,プロパティ名）で取得できるようです",
+      "content": "（get_property,プロパティ名）による取得\nMc172-1以降では関数get_propertyを利用し、これまでの別のイベントを発生しなくても取得できるようになりました。\n上例でいうと、\n＊\n＞ポストはいないよ【タブ】（is_empty（バイト値、１）（get_property（バイト値、１）ghostlist(Ｒポストと狛犬).name））\n：ポストをちゃんとインストールしてるんだね。\nえらい！\n\n＊ポストはいないよ\n：そんな、ポストがインストールされていないなんて。\nと記述を短縮できます。",
       "url": "https://soliton.sub.jp/satori/?%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0#t3eb3c56"
+    },
+    {
+      "id": "satori:伝言板",
+      "title": "伝言板",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "FrontPage 海外からのスパム対策のため日本国外からのアクセス制限を行いました。しばらく様子見させて下さい。 -- 2022-03-17 (木) 10:13:13 ばぐとら と同様にベーシック認証作るとか「PukiWikiにBasic認証をつける」公式のユーザ認証プラグインを有効にするとか「PukiWiki/Authentication」 -- 2022-03-20 (日) 18:14:03 スパム対策のため、ページの新規作成、編集および伝言板への投稿に認証かけました。それに伴い日本国外からのアクセス制限を撤廃しました。以上、宜しくお願い致します。 -- 2022-05-17 (火) 21:28:10 好感度/call関数による好感度の調整のサンプルコピペすると動かなかったので見てみたら、setの内部で変数が（）で不必要にくくられてる…とおもいました 関数わかってないのでひとまずコメントにだけ… -- 2022-06-03 (金) 02:27:43 このサンプルだとマイナスになったときに変数がおかしくなりますね。修正しておきました。 -- 2022-06-05 (日) 06:45:17 5月のコメントでは海外からのアクセス制限は解除したとのことですが、海外のコミュニティの方からUSからはアクセスできない(403)ため管理者に聞いてほしいと質問されました。急ぎのものではないですが、確認していただけると嬉しいです -- 2022-11-25 (金) 17:55:25 ＞Naoさま ご報告ありがとうございます。設定ミスにより海外からのアクセスができない状態になっていました。修正が完了致しましたので、ご確認をお願い致します。 -- 2022-11-28 (月) 23:25:28 確認取れました！対応ありがとうございます -- 2022-12-04 (日) 10:01:41 「困ったときの対処法」ページの伺的なフォーラムへのリンク切れを直しました。 -- 2023-11-09 (木) 23:59:46 リンク集を修正。現状SSLに対応(HTTPS化)していないサイトのリンクも残してありますが、今後いずれ他のブラウザも表示しなくなる可能性が予想されます。ご注意。 -- 2023-11-10 (金) 18:05:56 「OnTranslate」の記事のサンプル、）が多かった点を修正しました。 -- 2023-11-30 (木) 09:39:00 「ファイル構成」のページに、「satori_bootconf.txt」について記述しました。 -- 2026-04-30 (木) 08:13:22 プロパティシステムのページに（get_property,プロパティ名）による取得をとりあえず書きました。 -- 2026-05-24 (日) 12:04:06",
+      "url": "https://soliton.sub.jp/satori/?%E4%BC%9D%E8%A8%80%E6%9D%BF"
     },
     {
       "id": "satori:外部関数/yaya#d8554eb3",
