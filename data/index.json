@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-08T08:25:25.240Z",
+  "generatedAt": "2026-06-15T09:37:58.268Z",
   "entries": [
     {
       "id": "ukadoc:descript_balloon:charset_2c_6587_5b57_30b3_30fc_30c9:1",
@@ -4135,15 +4135,23 @@
       "title": "currentghost.scope(ID).surface.num",
       "source": "ukadoc",
       "category": "protocol",
-      "content": "currentghost.scope(ID).surface.num\n現在のゴーストのスコープIDのサーフェスID。",
+      "content": "currentghost.scope(ID).surface.num\n現在のゴーストのスコープIDのサーフェスID。設定も可能で\\s[]タグと同じ挙動になる。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#currentghost.scope_28ID_29.surface.num:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:currentghost.scope_28ID_29.animation.num:1",
+      "title": "currentghost.scope(ID).animation.num",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "currentghost.scope(ID).animation.num\n現在のゴーストのスコープIDのアニメーションID。\n\t\t\t\t\t取得時：現在実行中のアニメーションIDのカンマ区切りのリスト。あくまでも取得した瞬間の実行状態であり、結果を受け取って処理した後でなおアニメーションが実行中であるかは保証されない。\n\t\t\t\t\t設定時：指定したアニメーションIDを追加で実行する。指定されていないIDのアニメーションが停止するわけではなくあくまで追加。カンマ区切りで複数一括設定でき、\\i[]タグを複数連続指定した場合と同じ挙動になる。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.28",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#currentghost.scope_28ID_29.animation.num:1"
     },
     {
       "id": "ukadoc:list_propertysystem:currentghost.scope_28ID_29.seriko.defaultsurface:1",
       "title": "currentghost.scope(ID).seriko.defaultsurface",
       "source": "ukadoc",
       "category": "protocol",
-      "content": "currentghost.scope(ID).seriko.defaultsurface\n現在のゴーストのデフォルトサーフェス。",
+      "content": "currentghost.scope(ID).seriko.defaultsurface\n現在のゴーストのデフォルトサーフェス。設定も可能。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#currentghost.scope_28ID_29.seriko.defaultsurface:1"
     },
     {
@@ -5851,12 +5859,28 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_s_5bID1_2cID2_2cID3..._5d:1"
     },
     {
-      "id": "ukadoc:list_sakura_script:_5c_21_5bwait_2csyncobject_2c_540c_671f_30aa_30d6_30b8_30a7_30af_30c8_540d_2c_30bf_30a4_30e0_30a2_30a6_30c8_6642_9593_5d:1",
-      "title": "\\![wait,syncobject,同期オブジェクト名,タイムアウト時間]",
+      "id": "ukadoc:list_sakura_script:_5c_21_5bwait_2csyncobject_2c_540c_671f_30aa_30d6_30b8_30a7_30af_30c8_540d_2c_30aa_30d7_30b7_30e7_30f3_5d:1",
+      "title": "\\![wait,syncobject,同期オブジェクト名,オプション]",
       "source": "ukadoc",
       "category": "sakurascript",
-      "content": "\\![wait,syncobject,同期オブジェクト名,タイムアウト時間]\n指定した名前つき同期オブジェクト(Windows上の場合はMutex,Semaphore,Event)がシグナル状態になるまで待機する。\n\t\t\t\t\t\tMutexは待機後解放、Semaphoreは待機後1解放、Eventは取得後特に何も操作しない。\n\t\t\t\t\t\tタイムアウト時間は省略または0で(スクリプトブレークされるまで)無限待機、1以上を指定すると指定ミリ秒間待機。",
-      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bwait_2csyncobject_2c_540c_671f_30aa_30d6_30b8_30a7_30af_30c8_540d_2c_30bf_30a4_30e0_30a2_30a6_30c8_6642_9593_5d:1"
+      "content": "\\![wait,syncobject,同期オブジェクト名,オプション]\n指定した名前つき同期オブジェクト(Windows上の場合はMutex,Semaphore,Event,WaitableTimer(2.8.28から))がシグナル状態になるまで待機する。\n\t\t\t\t\t\tMutexは待機後解放、Semaphoreは待機後1解放、Event及びWaitableTimerは取得後特に何も操作しない。\n\t\t\t\t\t\n\t\t\t\t\t以下のオプションを指定できる。\n\t\t\t\t\t\n\t\t\t\t\t\t数値 もしくは --timeout=数値……タイムアウト時間。省略または0で(スクリプトブレークされるまで)無限待機、1以上を指定すると指定ミリ秒間待機。\n\t\t\t\t\t\t--reset=0 or 1……待機直後にmutexとsemaphoreをreleaseするかどうか。1でリリースする（デフォルト）、0でリリースしない。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bwait_2csyncobject_2c_540c_671f_30aa_30d6_30b8_30a7_30af_30c8_540d_2c_30aa_30d7_30b7_30e7_30f3_5d:1"
+    },
+    {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bset_2csyncobject_2c_540c_671f_30aa_30d6_30b8_30a7_30af_30c8_540d_5d:1",
+      "title": "\\![set,syncobject,同期オブジェクト名]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![set,syncobject,同期オブジェクト名]\n指定した名前つき同期オブジェクトをシグナル状態にする(活性化)。\n\t\t\t\t\t\tSemaphoreはReleaseSemaphoreで1加算、EventはSetEvent、WaitableTimerは即座にシグナル状態にする。\n\t\t\t\t\t\t所有していないMutexのsetは意味をなさないため無視される。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.28",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bset_2csyncobject_2c_540c_671f_30aa_30d6_30b8_30a7_30af_30c8_540d_5d:1"
+    },
+    {
+      "id": "ukadoc:list_sakura_script:_5c_21_5breset_2csyncobject_2c_540c_671f_30aa_30d6_30b8_30a7_30af_30c8_540d_5d:1",
+      "title": "\\![reset,syncobject,同期オブジェクト名]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![reset,syncobject,同期オブジェクト名]\n指定した名前つき同期オブジェクトを非シグナル状態にする(非活性化)。\n\t\t\t\t\t\tEventはResetEvent、WaitableTimerはCancelWaitableTimerで非シグナル状態にする。\n\t\t\t\t\t\tSemaphore及びMutexに対するresetは意味をなさないため無視される。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.28",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5breset_2csyncobject_2c_540c_671f_30aa_30d6_30b8_30a7_30af_30c8_540d_5d:1"
     },
     {
       "id": "ukadoc:list_sakura_script:_5cq_5b_30bf_30a4_30c8_30eb_2cID_5d:1",
@@ -21657,6 +21681,14 @@
       "category": "satori_tips",
       "content": "どのイベントを使うのか？\n…といってもシェル名の取得と違ってタイミングは少ないので、下記のようにしておくだけで困ることはないでしょう。\nすぐに値を更新したい時は上記のプロパティシステムがおすすめ。\n＊OnNotifyBalloonInfo\n＄現在のバルーン【タブ】（Ｒ０）\n\n＊OnBalloonChange\n＄現在のバルーン【タブ】（Ｒ０）",
       "url": "https://soliton.sub.jp/satori/?%E7%8F%BE%E5%9C%A8%E3%81%AE%E3%83%90%E3%83%AB%E3%83%BC%E3%83%B3%E5%90%8D%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B#j06ef900"
+    },
+    {
+      "id": "satori:月齢を計算する#vd8a3418",
+      "title": "月齢を計算する - 月齢",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "月齢\n月齢の計算式を里々に当てはめたもの。正確な月齢を得るには複雑な計算式が必要であるため、かなり簡素化されている。精度は劣るものの記述が簡単なのがメリット。\n使い方は（月齢）。実行時の年月日で算出される。\n＠月齢\n（calc,\n（（（（現在年）-11）%19）*11 +（nswitch,（現在月）,0,2,0,2,2,4,5,6,7,8,9,10）+（現在日））%30\n）\n特定の日付の月齢を得たい場合は関数化する。\n＠月齢\n（calc,\n（（（（Ａ０）-11）%19）*11 +（nswitch,（Ａ１）,0,2,0,2,2,4,5,6,7,8,9,10）+（Ａ２））%30\n）\n\n＊\n：２０１６年１月１日の月齢は（call,月齢,２０１６,１,１）だよ。",
+      "url": "https://soliton.sub.jp/satori/?%E6%9C%88%E9%BD%A2%E3%82%92%E8%A8%88%E7%AE%97%E3%81%99%E3%82%8B#vd8a3418"
     },
     {
       "id": "satori:スライダーもどき#v6253498",
