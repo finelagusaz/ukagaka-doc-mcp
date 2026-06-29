@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-22T09:25:14.417Z",
+  "generatedAt": "2026-06-29T04:57:45.923Z",
   "entries": [
     {
       "id": "ukadoc:descript_balloon:charset_2c_6587_5b57_30b3_30fc_30c9:1",
@@ -1179,12 +1179,12 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_balloon.html#paint_transparent_region_black_2c_6570_5024:1"
     },
     {
-      "id": "ukadoc:descript_balloon:use_self_alpha_2c_6570_5024:1",
-      "title": "use_self_alpha,数値",
+      "id": "ukadoc:descript_balloon:use_self_alpha_2c_5024:1",
+      "title": "use_self_alpha,値",
       "source": "ukadoc",
       "category": "descript",
-      "content": "use_self_alpha,数値\n数値が1だった場合はpnaでなくバルーンのサーフェス自体のアルファチャンネルを透明度として使用する。\n\t\t\t\t\tなお、1の場合でもアルファチャンネルを持たないサーフェスについてはpnaが有効。\n\t\t\t\t\t入力ボックス系のバルーンはuse_input_alphaも1にしないと半透明化できないため注意。\n\t\t\t\t\tこの設定はバルーン全体の一括設定のみで、オーバーライドはできない。\n\t\t\t\t\t0",
-      "url": "https://ssp.shillest.net/ukadoc/manual/descript_balloon.html#use_self_alpha_2c_6570_5024:1"
+      "content": "use_self_alpha,値\n1またはtrueを指定した場合は、透明度のある画像（アルファチャンネル付きPNG）および.pnaのあるサーフェスはアルファチャンネルを参照して透明度として使用する。アルファチャンネルも.pnaも存在しない場合は画像左上の色をキー色とする従来挙動になる。\n\t\t\t\t\tfullを指定した場合は上記に加え、アルファチャンネルのないサーフェスも全て不透明として扱う（左上のキー色透過を行わない）。\n\t\t\t\t\t入力ボックス系のバルーンはuse_input_alphaも1にしないと半透明化できないため注意。\n\t\t\t\t\tこの設定はバルーン全体の一括設定のみで、オーバーライドはできない。\n\t\t\t\t\t0",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_balloon.html#use_self_alpha_2c_5024:1"
     },
     {
       "id": "ukadoc:descript_balloon:use_input_alpha_2c_6570_5024:1",
@@ -2899,12 +2899,20 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell.html#seriko.paint_transparent_region_black_2c_6570_5024:1"
     },
     {
-      "id": "ukadoc:descript_shell:seriko.use_self_alpha_2c_6570_5024:1",
-      "title": "seriko.use_self_alpha,数値",
+      "id": "ukadoc:descript_shell:seriko.use_self_alpha_2c_5024:1",
+      "title": "seriko.use_self_alpha,値",
       "source": "ukadoc",
       "category": "descript",
-      "content": "seriko.use_self_alpha,数値\n数値が1だった場合はpnaでなく画像自体（32bitPNG）のアルファチャンネルを透明度として使用する。なお、1の場合でもアルファチャンネルを持たない画像についてはpnaが有効。\n\t\t\t\t\t0",
-      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell.html#seriko.use_self_alpha_2c_6570_5024:1"
+      "content": "seriko.use_self_alpha,値\n1またはtrueを指定した場合は、透明度のある画像（アルファチャンネル付きPNG）および.pnaのある画像はアルファチャンネルを参照して透明度として使用する。アルファチャンネルも.pnaも存在しない場合は画像左上の色をキー色とする従来挙動になる。fullを指定した場合は上記に加え、アルファチャンネルのない画像も全て不透明として扱う（左上のキー色透過を行わない）。\n\t\t\t\t\t0",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell.html#seriko.use_self_alpha_2c_5024:1"
+    },
+    {
+      "id": "ukadoc:descript_shell:seriko.force_disable_crossfade_2c_5024:1",
+      "title": "seriko.force_disable_crossfade,値",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "seriko.force_disable_crossfade,値\n1またはtrueを指定した場合は、サーフェス切り替え時のクロスフェード効果を強制的に無効化する。\n\t\t\t\t\t0\n\t\t\t\t\t\n\t\t\t\t\t\t2.8.43",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell.html#seriko.force_disable_crossfade_2c_5024:1"
     },
     {
       "id": "ukadoc:descript_shell_surfaces:charset_2c_6587_5b57_30b3_30fc_30c9:1",
@@ -2951,7 +2959,7 @@
       "title": "element*,描画メソッド,ファイル名,X座標,Y座標(,オプション...)",
       "source": "ukadoc",
       "category": "descript",
-      "content": "element*,描画メソッド,ファイル名,X座標,Y座標(,オプション...)\nベースサーフェスの合成。\n\t\t\t\t\t\t複数の画像を合成し、その合成結果をベースサーフェスとして一枚の画像のように扱う仕組み。\n\t\t\t\t\t\tサーフェスに対応するsurface*.pngという画像がある場合、element0が定義されていると元のsurface*.pngの内容が破棄されて、element0で置き換えられる\n\t\t\t\t\t\telement1以降は、その上に順次合成されていく。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\tSSP 2.3.53～\n\t\t\t\t\t\telement定義されたサーフェスをアニメーションパーツとして用いた場合も、一枚の画像のように振る舞う（以前は未定義）。\n\n\t\t\t\t\t\tSSP 2.7.38～\n\t\t\t\t\t\tsurface*.pngまたはelement定義にアニメGIF/APNG/WebPアニメを指定すると、SERIKO定義を書かなくても自動的にアニメーションする。\n\t\t\t\t\t\t*の部分（elementID）は同じsurface内で一貫した、0から始まる通し番号。\n\t\t\t\t\t\t描画メソッドは下記の描画メソッド参照。\n\n\t\t\t\t\t\tSSP 2.8.15～\n\t\t\t\t\t\t以下のオプション定義が使用できるようになった。\n\t\t\t\t\t\tclipping,左,上,右,下 : 左、上、右、下で指定された矩形部分のみを描画する。これを使用するとアニメーション読み込みは無効となる。\n\t\t\t\t\t\t例：element0,overlay,face.png,0,0,clipping,10,10,50,50\n\n\t\t\t\t\t\t(,オプション...)定義の書き方\n\t\t\t\t\t\t今のところclippingオプションのみが存在するが、複数指定が必要な場合は以下のように定義できるものとする。\n\t\t\t\t\t\telement0,overlay,face.png,0,0,clipping,10,10,50,50,option2,0,0,option3,1,1...\n\t\t\t\t\t\n\t\t\t\t\t挙動なし",
+      "content": "element*,描画メソッド,ファイル名,X座標,Y座標(,オプション...)\nベースサーフェスの合成。\n\t\t\t\t\t\t複数の画像を合成し、その合成結果をベースサーフェスとして一枚の画像のように扱う仕組み。\n\t\t\t\t\t\tサーフェスに対応するsurface*.pngという画像がある場合、element0が定義されていると元のsurface*.pngの内容が破棄されて、element0で置き換えられる\n\t\t\t\t\t\telement1以降は、その上に順次合成されていく。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\tSSP 2.3.53～\n\t\t\t\t\t\telement定義されたサーフェスをアニメーションパーツとして用いた場合も、一枚の画像のように振る舞う（以前は未定義）。\n\n\t\t\t\t\t\tSSP 2.7.38～\n\t\t\t\t\t\tsurface*.pngまたはelement定義にアニメGIF/APNG/WebPアニメを指定すると、SERIKO定義を書かなくても自動的にアニメーションする。\n\t\t\t\t\t\t*の部分（elementID）は同じsurface内で一貫した、0から始まる通し番号。\n\t\t\t\t\t\t描画メソッドは下記の描画メソッド参照。\n\n\t\t\t\t\t\tSSP 2.8.15～\n\t\t\t\t\t\t以下のオプション定義が使用できるようになった。\n\t\t\t\t\t\tclipping,左,上,右,下 : 左、上、右、下で指定された矩形部分のみを描画する。これを使用するとアニメーション読み込みは無効となる。\n\t\t\t\t\t\t例：element0,overlay,face.png,0,0,clipping,10,10,50,50\n\n\t\t\t\t\t\tSSP 2.8.37～\n\t\t\t\t\t\t以下のオプション定義が使用できるようになった。\n\t\t\t\t\t\talpha,値(0-255) : 描画する際の不透明度を指定する。0で完全透明、255で完全不透明。\n\t\t\t\t\t\t例：element0,overlay,face.png,0,0,alpha,128\n\n\t\t\t\t\t\tSSP 2.8.41～\n\t\t\t\t\t\t以下のオプション定義が使用できるようになった。\n\t\t\t\t\t\tsource,値 : \n\t\t\t\t\t\t複数の描画候補を持つ画像またはファイルから、実際に描画に用いる対象を指定する。\n\t\t\t\t\t\tマルチページTIFFの場合は0オリジンのページ番号、DLL/EXE内アイコンの場合は0オリジンのリソース番号、PSDなどの場合はレイヤー名を指定する。\n\t\t\t\t\t\tレイヤーグループの中にあるレイヤーを指定する場合は、::で区切ってグループ名を書く(グループのネスト対応)。\n\t\t\t\t\t\tPSDなどのレイヤー情報に描画方法の情報が含まれる仕様がある場合に限り、描画メソッドの指定をautoにすることができる。\n\t\t\t\t\t\tPSDなどの指定したレイヤーに不透明度設定がある場合、かつalphaオプションが指定されていない場合に、レイヤーの不透明度情報を自動的に使用する。\n\t\t\t\t\t\t例：element0,auto,face.png,0,0,source,顔::頭\n\n\t\t\t\t\t\t(,オプション...)定義の書き方\n\t\t\t\t\t\t複数指定が必要な場合は以下のように定義できるものとする。\n\t\t\t\t\t\telement0,overlay,face.png,0,0,clipping,10,10,50,50,alpha,128...\n\t\t\t\t\t\n\t\t\t\t\t挙動なし",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#element_2a_2c_63cf_753b_30e1_30bd_30c3_30c9_2c_30d5_30a1_30a4_30eb_540d_2cX_5ea7_6a19_2cY_5ea7_6a19_28_2c_30aa_30d7_30b7:1"
     },
     {
@@ -2963,12 +2971,12 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#animation_2a.interval_2c_30a4_30f3_30bf_30fc_30d0_30eb:1"
     },
     {
-      "id": "ukadoc:descript_shell_surfaces:animation_2a.pattern_2a_2c_63cf_753b_30e1_30bd_30c3_30c9_2c_30b5_30fc_30d5_30a7_30b9ID_2c_30a6_30a7_30a4_30c8_2cX_5ea7_6:1",
-      "title": "animation*.pattern*,描画メソッド,サーフェスID,ウェイト,X座標,Y座標",
+      "id": "ukadoc:descript_shell_surfaces:animation_2a.pattern_2a_2c_63cf_753b_30e1_30bd_30c3_30c9_2c_30b5_30fc_30d5_30a7_30b9_756a_53f7_2c_30a6_30a7_30a4_30c8_2c:1",
+      "title": "animation*.pattern*,描画メソッド,サーフェス番号,ウェイト,X座標,Y座標(,オプション...)",
       "source": "ukadoc",
       "category": "descript",
-      "content": "animation*.pattern*,描画メソッド,サーフェスID,ウェイト,X座標,Y座標\nアニメーションの各コマの定義。各コマは通常それ以前のコマをリセットして新たにベースサーフェスに合成される形で描画される（厳密には描画メソッドによる）。\n\t\t\t\t\t\tanimationに続く*の部分はanimationID（animation*.intervalの*と同一）。\n\t\t\t\t\t\tpatternに次ぐ*の部分（パターンID）は、一連のanimation*.pattern定義において0から始まる通し番号。materiaでは127が上限。番号の小さい方から積み重なる形で描画される。\n\t\t\t\t\t\t描画メソッドは下記の描画メソッド参照。\n\t\t\t\t\t\tウェイトはそのコマを描画するまでの待ち時間。単位はミリ秒。SSPのみ「最小ウェイト-最大ウェイト」とマイナス文字で区切った書き方もでき、その場合は最小～最大間でランダムに選択される。\n\t\t\t\t\t\tX座標、Y座標はそのコマをベース（そのコマまでの描画結果）に対してどれだけずらして表示するかの指定。\n\t\t\t\t\t\tサーフェスIDに-1でそのアニメーションの停止、-2で現在実行中の他の全てのアニメーションを停止する事ができる。いずれの場合も描画メソッドやX座標、Y座標は無視される。\n\t\t\t\t\t\tサーフェスIDにはname定義で指定したID以外の別名も指定できる。 (SSP 2.8.25～)\n\t\t\t\t\t\t旧定義：*pattern*,サーフェスID,ウェイト,描画メソッド,X座標,Y座標\n\t\t\t\t\t挙動なし",
-      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#animation_2a.pattern_2a_2c_63cf_753b_30e1_30bd_30c3_30c9_2c_30b5_30fc_30d5_30a7_30b9ID_2c_30a6_30a7_30a4_30c8_2cX_5ea7_6:1"
+      "content": "animation*.pattern*,描画メソッド,サーフェス番号,ウェイト,X座標,Y座標(,オプション...)\nアニメーションの各コマの定義。各コマは通常それ以前のコマをリセットして新たにベースサーフェスに合成される形で描画される（厳密には描画メソッドによる）。\n\t\t\t\t\t\tanimationに続く*の部分はanimationID（animation*.intervalの*と同一）。\n\t\t\t\t\t\tpatternに次ぐ*の部分（パターンID）は、一連のanimation*.pattern定義において0から始まる通し番号。materiaでは127が上限。番号の小さい方から積み重なる形で描画される。\n\t\t\t\t\t\t描画メソッドは下記の描画メソッド参照。\n\t\t\t\t\t\tウェイトはそのコマを描画するまでの待ち時間。単位はミリ秒。SSPのみ「最小ウェイト-最大ウェイト」とマイナス文字で区切った書き方もでき、その場合は最小～最大間でランダムに選択される。\n\t\t\t\t\t\tX座標、Y座標はそのコマをベース（そのコマまでの描画結果）に対してどれだけずらして表示するかの指定。\n\t\t\t\t\t\tサーフェス番号に-1でそのアニメーションの停止、-2で現在実行中の他の全てのアニメーションを停止する事ができる。いずれの場合も描画メソッドやX座標、Y座標は無視される。\n\t\t\t\t\t\tサーフェス番号にはname定義で指定したID以外の別名も指定できる。 (SSP 2.8.25～)\n\t\t\t\t\t\t旧定義：*pattern*,サーフェスID,ウェイト,描画メソッド,X座標,Y座標\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\tSSP 2.8.37～\n\t\t\t\t\t\t以下のオプション定義が使用できるようになった。\n\t\t\t\t\t\talpha,値(0-255) : 描画する際の不透明度を指定する。0で完全透明、255で完全不透明。\n\t\t\t\t\t\t例：animation0.pattern0,overlay,101,700,0,0,alpha,128\n\n\t\t\t\t\t\t(,オプション...)定義の書き方\n\t\t\t\t\t\t複数指定が必要な場合は以下のように定義できるものとする。\n\t\t\t\t\t\tanimation0.pattern0,overlay,101,700,0,0,alpha,128,option2,...\n\t\t\t\t\t\n\t\t\t\t\t挙動なし",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#animation_2a.pattern_2a_2c_63cf_753b_30e1_30bd_30c3_30c9_2c_30b5_30fc_30d5_30a7_30b9_756a_53f7_2c_30a6_30a7_30a4_30c8_2c:1"
     },
     {
       "id": "ukadoc:descript_shell_surfaces:animation_2a.option_2cexclusive:1",
@@ -3251,20 +3259,444 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#overlay:1"
     },
     {
+      "id": "ukadoc:descript_shell_surfaces:overlay-fast:1",
+      "title": "overlay-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "overlay-fast\nベースレイヤの不透明度に応じて、新規レイヤを重ねる。\n\t\t\t\t\t\t\tベースレイヤの半透明部分では、透明度が低い部分ほど濃く新規レイヤを合成し、不透明であれば完全に合成し、全透明であれば一切合成しない。\n\t\t\t\t\t\t\tinterpolateメソッドの対になるメソッド。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.36",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#overlay-fast:1"
+    },
+    {
       "id": "ukadoc:descript_shell_surfaces:overlayfast:1",
       "title": "overlayfast",
       "source": "ukadoc",
       "category": "descript",
-      "content": "overlayfast\nベースレイヤの不透明度に応じて、新規レイヤを重ねる。\n\t\t\t\t\t\t\tベースレイヤの半透明部分では、透明度が低い部分ほど濃く新規レイヤを合成し、不透明であれば完全に合成し、全透明であれば一切合成しない。\n\t\t\t\t\t\t\tinterpolateメソッドの対になるメソッド。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。",
+      "content": "overlayfast\noverlay-fastの旧称。互換性のために維持されている（廃止予定なし）。",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#overlayfast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-multiply:1",
+      "title": "blend-multiply",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-multiply\n新規レイヤを乗算合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトの乗算（Multiply）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.36",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-multiply:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-multiply-fast:1",
+      "title": "blend-multiply-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-multiply-fast\nベースレイヤの不透明度に応じて、新規レイヤを乗算合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対して乗算合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.36",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-multiply-fast:1"
     },
     {
       "id": "ukadoc:descript_shell_surfaces:overlaymultiply:1",
       "title": "overlaymultiply",
       "source": "ukadoc",
       "category": "descript",
-      "content": "overlaymultiply\nベースレイヤの不透明度に応じて、新規レイヤを乗算合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlayfastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対して乗算合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.5.91",
+      "content": "overlaymultiply\nblend-multiply-fastの旧称。互換性のために維持されている（廃止予定なし）。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.5.91",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#overlaymultiply:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-screen:1",
+      "title": "blend-screen",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-screen\n新規レイヤをスクリーン合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトのスクリーン（Screen）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.36",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-screen:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-screen-fast:1",
+      "title": "blend-screen-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-screen-fast\nベースレイヤの不透明度に応じて、新規レイヤをスクリーン合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対してスクリーン合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.36",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-screen-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:overlayscreen:1",
+      "title": "overlayscreen",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "overlayscreen\nblend-screen-fastの旧称。互換性のために維持されている（廃止予定なし）。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.35",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#overlayscreen:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-overlay:1",
+      "title": "blend-overlay",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-overlay\n新規レイヤをオーバーレイ合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトのオーバーレイ（Overlay）レイヤー合成に相当する。\n\t\t\t\t\t\t\toverlayメソッドとは無関係で、暗い部分は乗算、明るい部分はスクリーン合成となる。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.36",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-overlay:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-overlay-fast:1",
+      "title": "blend-overlay-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-overlay-fast\nベースレイヤの不透明度に応じて、新規レイヤをオーバーレイ合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対してオーバーレイ合成処理を行う。\n\t\t\t\t\t\t\toverlayメソッドとは無関係で、暗い部分は乗算、明るい部分はスクリーン合成となる。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.36",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-overlay-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-add:1",
+      "title": "blend-add",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-add\n新規レイヤを加算合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトの加算（Add）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.36",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-add:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-add-fast:1",
+      "title": "blend-add-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-add-fast\nベースレイヤの不透明度に応じて、新規レイヤを加算合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対して加算合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.36",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-add-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-soft-light:1",
+      "title": "blend-soft-light",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-soft-light\n新規レイヤをソフトライト合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトのソフトライト（Soft Light）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.39",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-soft-light:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-soft-light-fast:1",
+      "title": "blend-soft-light-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-soft-light-fast\nベースレイヤの不透明度に応じて、新規レイヤをソフトライト合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対してソフトライト合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.39",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-soft-light-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-hard-light:1",
+      "title": "blend-hard-light",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-hard-light\n新規レイヤをハードライト合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトのハードライト（Hard Light）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.39",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-hard-light:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-hard-light-fast:1",
+      "title": "blend-hard-light-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-hard-light-fast\nベースレイヤの不透明度に応じて、新規レイヤをハードライト合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対してハードライト合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.39",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-hard-light-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-color-dodge:1",
+      "title": "blend-color-dodge",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-color-dodge\n新規レイヤを覆い焼きカラー合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトの覆い焼きカラー（Color Dodge）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.39",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-color-dodge:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-color-dodge-fast:1",
+      "title": "blend-color-dodge-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-color-dodge-fast\nベースレイヤの不透明度に応じて、新規レイヤを覆い焼きカラー合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対して覆い焼きカラー合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.39",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-color-dodge-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-color:1",
+      "title": "blend-color",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-color\n新規レイヤをカラー合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトのカラー（Color）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.39",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-color:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-color-fast:1",
+      "title": "blend-color-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-color-fast\nベースレイヤの不透明度に応じて、新規レイヤをカラー合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対してカラー合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.39",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-color-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-luminosity:1",
+      "title": "blend-luminosity",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-luminosity\n新規レイヤを輝度合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトの輝度（Luminosity）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.39",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-luminosity:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-luminosity-fast:1",
+      "title": "blend-luminosity-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-luminosity-fast\nベースレイヤの不透明度に応じて、新規レイヤを輝度合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対して輝度合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.39",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-luminosity-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-hue:1",
+      "title": "blend-hue",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-hue\n新規レイヤを色相合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトの色相（Hue）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.39",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-hue:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-hue-fast:1",
+      "title": "blend-hue-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-hue-fast\nベースレイヤの不透明度に応じて、新規レイヤを色相合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対して色相合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.39",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-hue-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-saturation:1",
+      "title": "blend-saturation",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-saturation\n新規レイヤを彩度合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトの彩度（Saturation）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.39",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-saturation:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-saturation-fast:1",
+      "title": "blend-saturation-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-saturation-fast\nベースレイヤの不透明度に応じて、新規レイヤを彩度合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対して彩度合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.39",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-saturation-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-vivid-light:1",
+      "title": "blend-vivid-light",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-vivid-light\n新規レイヤをビビッドライト合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトのビビッドライト（Vivid Light）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-vivid-light:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-vivid-light-fast:1",
+      "title": "blend-vivid-light-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-vivid-light-fast\nベースレイヤの不透明度に応じて、新規レイヤをビビッドライト合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対してビビッドライト合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-vivid-light-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-linear-light:1",
+      "title": "blend-linear-light",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-linear-light\n新規レイヤをリニアライト合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトのリニアライト（Linear Light）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-linear-light:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-linear-light-fast:1",
+      "title": "blend-linear-light-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-linear-light-fast\nベースレイヤの不透明度に応じて、新規レイヤをリニアライト合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対してリニアライト合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-linear-light-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-pin-light:1",
+      "title": "blend-pin-light",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-pin-light\n新規レイヤをピンライト合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトのピンライト（Pin Light）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-pin-light:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-pin-light-fast:1",
+      "title": "blend-pin-light-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-pin-light-fast\nベースレイヤの不透明度に応じて、新規レイヤをピンライト合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対してピンライト合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-pin-light-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-hard-mix:1",
+      "title": "blend-hard-mix",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-hard-mix\n新規レイヤをハードミックス合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトのハードミックス（Hard Mix）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-hard-mix:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-hard-mix-fast:1",
+      "title": "blend-hard-mix-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-hard-mix-fast\nベースレイヤの不透明度に応じて、新規レイヤをハードミックス合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対してハードミックス合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-hard-mix-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-darken:1",
+      "title": "blend-darken",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-darken\n新規レイヤを比較（暗）合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトの比較（暗）（Darken）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-darken:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-darken-fast:1",
+      "title": "blend-darken-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-darken-fast\nベースレイヤの不透明度に応じて、新規レイヤを比較（暗）合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対して比較（暗）合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-darken-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-lighten:1",
+      "title": "blend-lighten",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-lighten\n新規レイヤを比較（明）合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトの比較（明）（Lighten）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-lighten:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-lighten-fast:1",
+      "title": "blend-lighten-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-lighten-fast\nベースレイヤの不透明度に応じて、新規レイヤを比較（明）合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対して比較（明）合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-lighten-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-darker-color:1",
+      "title": "blend-darker-color",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-darker-color\n新規レイヤをカラーが暗い方合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトのカラーが暗い方（Darker Color）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-darker-color:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-darker-color-fast:1",
+      "title": "blend-darker-color-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-darker-color-fast\nベースレイヤの不透明度に応じて、新規レイヤをカラーが暗い方合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対してカラーが暗い方合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-darker-color-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-lighter-color:1",
+      "title": "blend-lighter-color",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-lighter-color\n新規レイヤをカラーが明るい方合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトのカラーが明るい方（Lighter Color）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-lighter-color:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-lighter-color-fast:1",
+      "title": "blend-lighter-color-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-lighter-color-fast\nベースレイヤの不透明度に応じて、新規レイヤをカラーが明るい方合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対してカラーが明るい方合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-lighter-color-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-color-burn:1",
+      "title": "blend-color-burn",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-color-burn\n新規レイヤを焼き込みカラー合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトの焼き込みカラー（Color Burn）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-color-burn:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-color-burn-fast:1",
+      "title": "blend-color-burn-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-color-burn-fast\nベースレイヤの不透明度に応じて、新規レイヤを焼き込みカラー合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対して焼き込みカラー合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-color-burn-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-linear-burn:1",
+      "title": "blend-linear-burn",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-linear-burn\n新規レイヤを焼き込みリニア合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトの焼き込みリニア（Linear Burn）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-linear-burn:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-linear-burn-fast:1",
+      "title": "blend-linear-burn-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-linear-burn-fast\nベースレイヤの不透明度に応じて、新規レイヤを焼き込みリニア合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対して焼き込みリニア合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-linear-burn-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-difference:1",
+      "title": "blend-difference",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-difference\n新規レイヤを差の絶対値合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトの差の絶対値（Difference）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-difference:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-difference-fast:1",
+      "title": "blend-difference-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-difference-fast\nベースレイヤの不透明度に応じて、新規レイヤを差の絶対値合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対して差の絶対値合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-difference-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-exclusion:1",
+      "title": "blend-exclusion",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-exclusion\n新規レイヤを除外合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトの除外（Exclusion）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-exclusion:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-exclusion-fast:1",
+      "title": "blend-exclusion-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-exclusion-fast\nベースレイヤの不透明度に応じて、新規レイヤを除外合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対して除外合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-exclusion-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-subtract:1",
+      "title": "blend-subtract",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-subtract\n新規レイヤを減算合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトの減算（Subtract）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-subtract:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-subtract-fast:1",
+      "title": "blend-subtract-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-subtract-fast\nベースレイヤの不透明度に応じて、新規レイヤを減算合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対して減算合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-subtract-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-divide:1",
+      "title": "blend-divide",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-divide\n新規レイヤを除算合成で重ねる。\n\t\t\t\t\t\t\tPhotoshopなど画像編集ソフトの除算（Divide）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-divide:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-divide-fast:1",
+      "title": "blend-divide-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-divide-fast\nベースレイヤの不透明度に応じて、新規レイヤを除算合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対して除算合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-divide-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:auto:1",
+      "title": "auto",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "auto\nsourceオプションのあるelement定義で使用した場合のみ、レイヤー情報から描画メソッドを自動推定する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.41",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#auto:1"
     },
     {
       "id": "ukadoc:descript_shell_surfaces:replace:1",
@@ -4459,6 +4891,30 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#currentghost.balloon.scope_28ID_29.num:1"
     },
     {
+      "id": "ukadoc:list_propertysystem:currentghost.balloon.scope_28ID_29.x:1",
+      "title": "currentghost.balloon.scope(ID).x",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "currentghost.balloon.scope(ID).x\n現在のバルーンのX座標。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.39",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#currentghost.balloon.scope_28ID_29.x:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:currentghost.balloon.scope_28ID_29.y:1",
+      "title": "currentghost.balloon.scope(ID).y",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "currentghost.balloon.scope(ID).y\n現在のバルーンのY座標。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.39",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#currentghost.balloon.scope_28ID_29.y:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:currentghost.balloon.scope_28ID_29.rect:1",
+      "title": "currentghost.balloon.scope(ID).rect",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "currentghost.balloon.scope(ID).rect\n現在のバルーンの矩形領域。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.39",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#currentghost.balloon.scope_28ID_29.rect:1"
+    },
+    {
       "id": "ukadoc:list_propertysystem:currentghost.balloon.scope_28ID_29.validwidth:1",
       "title": "currentghost.balloon.scope(ID).validwidth",
       "source": "ukadoc",
@@ -5335,7 +5791,7 @@
       "title": "\\_b[ファイルパス,x,y,オプション,オプション...]",
       "source": "ukadoc",
       "category": "sakurascript",
-      "content": "\\_b[ファイルパス,x,y,オプション,オプション...]\n画像をバルーンのXY座標に貼り付ける。[実行したゴーストのフォルダ]/ghost/masterが基準のフォルダとなる。※ファイル名の代わりにbase64エンコードやexe/dllのリソースを画像として指定可能、※下記参照。\n\t\t\t\t\tオプション\n\t\t\t\t\t\n\t\t\t\t\t\t--option=opaque\n\t\t\t\t\t\t左上の色を透過しないで表示する。\n\t\t\t\t\t\t--option=use_self_alpha\n\t\t\t\t\t\tアルファチャンネル付きのPNGを透過して表示する。\n\t\t\t\t\t\t--clipping=左 上 右 下\n\t\t\t\t\t\t画像の一部分を矩形に切り抜いて表示する。切り抜く範囲は左上右下と数値で指定。\n\t\t\t\t\t\t--option=fixed\n\t\t\t\t\t\tスクロールした時に画像を動かさない。\n\t\t\t\t\t\t--option=background\n\t\t\t\t\t\t文字の下に画像を表示する。このオプションで、文字の背景として画像を使用することができる。\n\t\t\t\t\t\t画像よりもバルーンの透明度を優先して合成表示される。\n\t\t\t\t\t\t--option=foreground\n\t\t\t\t\t\t画像を前面に表示する。\n\t\t\t\t\t\tバルーンよりも画像の透明度を優先して合成表示される。[SSP 2.6.54～]\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\_b[test.png,10,20,--option=use_self_alpha,--clipping=100 30 150 90,--option=foreground]本体側バルーンに、[実行したゴーストのフォルダ]/ghost/masterフォルダにあるtest.pngを、バルーン内座標X:10,Y:20に、ファイルの透過情報付きpngとして、画像の横100～150pixel縦30～90pixelの範囲を、バルーンの文字の上に表示する。",
+      "content": "\\_b[ファイルパス,x,y,オプション,オプション...]\n画像をバルーンのXY座標に貼り付ける。[実行したゴーストのフォルダ]/ghost/masterが基準のフォルダとなる。※ファイル名の代わりにbase64エンコードやexe/dllのリソースを画像として指定可能、※下記参照。\n\t\t\t\t\tオプション\n\t\t\t\t\t\n\t\t\t\t\t\t--option=opaque\n\t\t\t\t\t\t左上の色を透過しないで表示する。\n\t\t\t\t\t\t--option=use_self_alpha\n\t\t\t\t\t\tアルファチャンネル付きのPNGを透過して表示する。\n\t\t\t\t\t\t--clipping=左 上 右 下\n\t\t\t\t\t\t画像の一部分を矩形に切り抜いて表示する。切り抜く範囲は左上右下と数値で指定。\n\t\t\t\t\t\t--option=fixed\n\t\t\t\t\t\tスクロールした時に画像を動かさない。\n\t\t\t\t\t\t--option=background\n\t\t\t\t\t\t文字の下に画像を表示する。このオプションで、文字の背景として画像を使用することができる。\n\t\t\t\t\t\t画像よりもバルーンの透明度を優先して合成表示される。\n\t\t\t\t\t\t--option=foreground\n\t\t\t\t\t\t画像を前面に表示する。\n\t\t\t\t\t\tバルーンよりも画像の透明度を優先して合成表示される。[SSP 2.6.54～]\n\t\t\t\t\t\t--source=値\n\t\t\t\t\t\t複数の描画候補を持つ画像またはファイルから、実際に描画に用いる対象を指定する。\n\t\t\t\t\t\tマルチページTIFFの場合は0オリジンのページ番号、DLL/EXE内アイコンの場合は0オリジンのリソース番号、\n\t\t\t\t\t\tPSDなどの場合はレイヤー名を指定する。\n\t\t\t\t\t\tレイヤーグループの中にあるレイヤーを指定する場合は、::で区切ってグループ名を書く(グループのネスト対応)。\n\t\t\t\t\t\t[SSP 2.8.41～]\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\_b[test.png,10,20,--option=use_self_alpha,--clipping=100 30 150 90,--option=foreground]本体側バルーンに、[実行したゴーストのフォルダ]/ghost/masterフォルダにあるtest.pngを、バルーン内座標X:10,Y:20に、ファイルの透過情報付きpngとして、画像の横100～150pixel縦30～90pixelの範囲を、バルーンの文字の上に表示する。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_b_5b_30d5_30a1_30a4_30eb_30d1_30b9_2cx_2cy_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3..._5d:1"
     },
     {
