@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-29T04:57:45.923Z",
+  "generatedAt": "2026-07-06T04:49:40.290Z",
   "entries": [
     {
       "id": "ukadoc:descript_balloon:charset_2c_6587_5b57_30b3_30fc_30c9:1",
@@ -3355,6 +3355,22 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-add-fast:1"
     },
     {
+      "id": "ukadoc:descript_shell_surfaces:blend-add-glow:1",
+      "title": "blend-add-glow",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-add-glow\n新規レイヤを加算(発光)合成で重ねる。\n\t\t\t\t\t\t\tCLIP STUDIO PAINTなど画像編集ソフトの加算(発光)（Add Glow）レイヤー合成に相当する。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.46",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-add-glow:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-add-glow-fast:1",
+      "title": "blend-add-glow-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-add-glow-fast\nベースレイヤの不透明度に応じて、新規レイヤを加算(発光)合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対して加算(発光)合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.46",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-add-glow-fast:1"
+    },
+    {
       "id": "ukadoc:descript_shell_surfaces:blend-soft-light:1",
       "title": "blend-soft-light",
       "source": "ukadoc",
@@ -3401,6 +3417,22 @@
       "category": "descript",
       "content": "blend-color-dodge-fast\nベースレイヤの不透明度に応じて、新規レイヤを覆い焼きカラー合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対して覆い焼きカラー合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.39",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-color-dodge-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-color-dodge-glow:1",
+      "title": "blend-color-dodge-glow",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-color-dodge-glow\n新規レイヤを覆い焼きカラー(発光)合成で重ねる。\n\t\t\t\t\t\t\tCLIP STUDIO PAINTなど画像編集ソフトの覆い焼き(発光)レイヤー合成に相当する（処理内容は覆い焼きカラー(発光)に準ずる）。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.46",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-color-dodge-glow:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-color-dodge-glow-fast:1",
+      "title": "blend-color-dodge-glow-fast",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-color-dodge-glow-fast\nベースレイヤの不透明度に応じて、新規レイヤを覆い焼きカラー(発光)合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対して覆い焼きカラー(発光)合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.46",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-color-dodge-glow-fast:1"
     },
     {
       "id": "ukadoc:descript_shell_surfaces:blend-color:1",
@@ -3689,6 +3721,14 @@
       "category": "descript",
       "content": "blend-divide-fast\nベースレイヤの不透明度に応じて、新規レイヤを除算合成で重ねる。\n\t\t\t\t\t\t\t挙動はoverlay-fastと同様で外形は変わらないが、上書きの代わりに現在のサーフェスに対して除算合成処理を行う。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\t名称中の「fast」は歴史的な経緯によるもので、処理速度が速いわけではない。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.40",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-divide-fast:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:blend-dither:1",
+      "title": "blend-dither",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "blend-dither\n新規レイヤをディザ合成で重ねる。\n\t\t\t\t\t\t\t着せ替え・elementでも使用できる。\n\t\t\t\t\t\t\tシェルのdescript.txtにseriko.use_self_alpha,fullを設定することを推奨する。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.44",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#blend-dither:1"
     },
     {
       "id": "ukadoc:descript_shell_surfaces:auto:1",
