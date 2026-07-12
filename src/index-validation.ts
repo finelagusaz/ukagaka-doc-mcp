@@ -1,8 +1,7 @@
 import { z } from 'zod';
-import { CATEGORIES, INDEX_SCHEMA_VERSION } from './constants.js';
+import { CATEGORIES, INDEX_SCHEMA_VERSION, SOURCE_VALUES } from './constants.js';
 import type { Category, DocEntry, IndexFile } from './types.js';
 
-const SOURCE_VALUES = ['ukadoc', 'yaya_wiki', 'satori_wiki'] as const;
 const KNOWN_CATEGORY_SET = new Set(Object.keys(CATEGORIES));
 
 const rawDocEntrySchema = z.object({

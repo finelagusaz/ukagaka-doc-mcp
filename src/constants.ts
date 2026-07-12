@@ -4,6 +4,9 @@
 
 import type { Source } from './types.js';
 
+/** 全ソース種別（単一ソース。types.ts の Source 型と各所の zod enum がここから派生） */
+export const SOURCE_VALUES = ['ukadoc', 'yaya_wiki', 'satori_wiki', 'aosora_wiki'] as const;
+
 /** インデックスが stale とみなされるまでの日数 */
 export const STALE_AFTER_DAYS = 7;
 
@@ -91,6 +94,24 @@ export const CATEGORIES = {
   satori_saori: {
     source: 'satori_wiki' as Source,
     label: '里々 SAORI連携',
+  },
+
+  // --- 蒼空 (aosora) Wiki ---
+  aosora_grammar: {
+    source: 'aosora_wiki' as Source,
+    label: '蒼空スクリプト文法（関数・トーク・データ型）',
+  },
+  aosora_builtin: {
+    source: 'aosora_wiki' as Source,
+    label: '蒼空組み込み機能・stdユニット',
+  },
+  aosora_advanced: {
+    source: 'aosora_wiki' as Source,
+    label: '蒼空発展的トピック（ユニット・クラス・例外）',
+  },
+  aosora_general: {
+    source: 'aosora_wiki' as Source,
+    label: '蒼空全般（導入・SHIORIイベント・プロジェクト設定 等）',
   },
 } as const;
 
