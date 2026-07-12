@@ -51,13 +51,13 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
     "cheerio": "^1.2.0",
-    "zod": "^4.3.6"
+    "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@types/node": "^22.19.17",
-    "tsx": "^4.21.0",
+    "@types/node": "^22.20.1",
+    "tsx": "^4.23.0",
     "typescript": "^6.0.3",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.7"
   },
   "engines": {
     "node": ">=20.0.0"
