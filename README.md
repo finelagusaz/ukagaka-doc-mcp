@@ -2,7 +2,7 @@
 
 伺か（Ukagaka）の技術ドキュメントを検索する MCP サーバーです。
 
-UKADOC・YAYA Wiki・里々Wiki のスナップショットを同梱しており、**ランタイムで外部ネットワークにアクセスしません**。
+UKADOC・YAYA Wiki・里々Wiki・蒼空 Wiki のスナップショットを同梱しており、**ランタイムで外部ネットワークにアクセスしません**。
 
 ## 使い方
 
@@ -63,6 +63,7 @@ ukagaka-doc-mcp
 | UKADOC | 伺か全般の仕様・リファレンス |
 | YAYA Wiki | YAYA スクリプトのリファレンス |
 | 里々Wiki | 里々スクリプトのリファレンス |
+| 蒼空(aosora) Wiki | 蒼空 shiori/GHOST 開発ガイド |
 
 `data/index.json` として同梱済みです。週1回 CI が自動更新します。
 
@@ -121,4 +122,4 @@ npm tarball に含まれるファイル：
 
 実装コードは **MIT License**（`LICENSE` 参照）。
 
-同梱の `data/index.json` は UKADOC・YAYA Wiki・里々Wiki を元に生成した外部由来データです。MIT License での再ライセンスは行っていません。利用・再配布時は上流の権利関係を別途確認してください（`NOTICE.md` 参照）。
+同梱の `data/index.json` は UKADOC・YAYA Wiki・里々Wiki・蒼空 Wiki を元に生成した外部由来データです。MIT License での再ライセンスは行っていません。利用・再配布時は上流の権利関係を別途確認してください（`NOTICE.md` 参照）。

@@ -15,6 +15,7 @@ documentation sources, including:
 - UKADOC
 - YAYA Wiki
 - 里々Wiki
+- 蒼空(aosora) Wiki
 
 This generated data is not re-licensed under the MIT License by this
 repository. It remains subject to the terms, permissions, and restrictions of

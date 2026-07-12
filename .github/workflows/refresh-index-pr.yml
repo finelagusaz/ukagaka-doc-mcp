@@ -36,7 +36,7 @@ jobs:
       - name: Detect snapshot changes
         id: snapshot
         run: |
-          if git diff --quiet --exit-code -- data/index.json docs/ukadoc; then
+          if git diff --quiet --exit-code -- data/index.json docs/ukadoc docs/aosora-wiki; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -64,7 +64,7 @@ jobs:
             Automated documentation snapshot refresh.
 
             This PR updates:
-            - `docs/ukadoc` submodule pointer
+            - `docs/ukadoc` / `docs/aosora-wiki` submodule pointers
             - `data/index.json`
             - package patch version for the release that follows merge
           branch: bot/refresh-index
@@ -73,6 +73,7 @@ jobs:
           add-paths: |
             data/index.json
             docs/ukadoc
+            docs/aosora-wiki
             package.json
             package-lock.json
 
