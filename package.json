@@ -40,7 +40,7 @@
     "build": "tsc",
     "build:index": "tsx src/build-index.ts",
     "dev": "tsx src/index.ts",
-    "refresh:index": "git submodule sync --recursive && git submodule update --init --remote docs/ukadoc && npm run build:index",
+    "refresh:index": "git submodule sync --recursive && git submodule update --init --remote docs/ukadoc docs/aosora-wiki && npm run build:index",
     "start": "node dist/index.js",
     "prepack": "npm run build",
     "prepublishOnly": "npm test",

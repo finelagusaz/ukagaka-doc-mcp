@@ -2,7 +2,7 @@
  * ビルドスクリプト
  *
  * npm run build:index で実行する。
- * 全ソース（UKADOC, YAYA Wiki, 里々Wiki）をパース・スクレイプして
+ * 全ソース（UKADOC, YAYA Wiki, 里々Wiki, 蒼空Wiki）をパース・スクレイプして
  * data/index.json を生成する。
  *
  * Usage:
@@ -15,6 +15,7 @@ import type { DocEntry } from './types.js';
 import { parseUkadocManual } from './parser/ukadoc-parser.js';
 import { scrapeYayaWiki } from './parser/yaya-scraper.js';
 import { scrapeSatoriWiki } from './parser/satori-scraper.js';
+import { parseAosoraWiki } from './parser/aosora-parser.js';
 import { buildIndexFile, writeIndexAtomically } from './index-builder.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -43,6 +44,13 @@ async function main(): Promise<void> {
   const satoriEntries = await scrapeSatoriWiki();
   entries.push(...satoriEntries);
   console.error(`[build-index] 里々Wiki: ${satoriEntries.length} entries`);
+
+  // --- Phase 4: 蒼空 Wiki ---
+  console.error('[build-index] Parsing aosora wiki...');
+  const aosoraManualDir = resolve(__dirname, '..', 'docs', 'aosora-wiki', 'manual');
+  const aosoraEntries = parseAosoraWiki(aosoraManualDir);
+  entries.push(...aosoraEntries);
+  console.error(`[build-index] aosora wiki: ${aosoraEntries.length} entries`);
 
   // --- 統合 ---
   const indexFile = buildIndexFile(entries);
