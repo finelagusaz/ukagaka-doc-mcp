@@ -1,3 +1,6 @@
 [submodule "docs/ukadoc"]
 	path = docs/ukadoc
 	url = https://github.com/ukatech/ukadoc.git
+[submodule "docs/aosora-wiki"]
+	path = docs/aosora-wiki
+	url = https://github.com/kanadelab/aosora-shiori.wiki.git

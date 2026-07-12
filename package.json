@@ -1,13 +1,14 @@
 {
   "name": "ukagaka-doc-mcp",
-  "version": "0.1.27",
-  "description": "MCP server for searching Ukagaka (伺か) technical documentation: UKADOC, YAYA Wiki, and 里々Wiki",
+  "version": "0.2.0",
+  "description": "MCP server for searching Ukagaka (伺か) technical documentation: UKADOC, YAYA Wiki, 里々Wiki, and 蒼空(aosora) Wiki",
   "keywords": [
     "mcp",
     "ukagaka",
     "ssp",
     "yaya",
     "satori",
+    "aosora",
     "documentation",
     "search"
   ],
@@ -40,7 +41,7 @@
     "build": "tsc",
     "build:index": "tsx src/build-index.ts",
     "dev": "tsx src/index.ts",
-    "refresh:index": "git submodule sync --recursive && git submodule update --init --remote docs/ukadoc && npm run build:index",
+    "refresh:index": "git submodule sync --recursive && git submodule update --init --remote docs/ukadoc docs/aosora-wiki && npm run build:index",
     "start": "node dist/index.js",
     "prepack": "npm run build",
     "prepublishOnly": "npm test",

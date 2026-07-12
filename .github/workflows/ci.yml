@@ -52,6 +52,7 @@ jobs:
             const allowedFiles = new Set([
               'data/index.json',
               'docs/ukadoc',
+              'docs/aosora-wiki',
               'package.json',
               'package-lock.json',
             ]);

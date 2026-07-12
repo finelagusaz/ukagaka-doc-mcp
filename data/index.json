@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-06T04:49:40.290Z",
+  "generatedAt": "2026-07-12T05:54:40.545Z",
   "entries": [
     {
       "id": "ukadoc:descript_balloon:charset_2c_6587_5b57_30b3_30fc_30c9:1",
@@ -2915,6 +2915,78 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell.html#seriko.force_disable_crossfade_2c_5024:1"
     },
     {
+      "id": "ukadoc:descript_shell:sakura.icon.frame.color.r_2c_6570_5024:1",
+      "title": "sakura.icon.frame.color.r,数値",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "sakura.icon.frame.color.r,数値\n本体側のアイコン(顔サムネイル)がバックログ(発言履歴)ウィンドウに表示される際の、枠の赤成分(0～255)。※注意\n\t\t\t\t\t値なし\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.53",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell.html#sakura.icon.frame.color.r_2c_6570_5024:1"
+    },
+    {
+      "id": "ukadoc:descript_shell:sakura.icon.frame.color.g_2c_6570_5024:1",
+      "title": "sakura.icon.frame.color.g,数値",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "sakura.icon.frame.color.g,数値\n本体側のアイコン(顔サムネイル)がバックログ(発言履歴)ウィンドウに表示される際の、枠の緑成分(0～255)。※注意\n\t\t\t\t\t値なし\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.53",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell.html#sakura.icon.frame.color.g_2c_6570_5024:1"
+    },
+    {
+      "id": "ukadoc:descript_shell:sakura.icon.frame.color.b_2c_6570_5024:1",
+      "title": "sakura.icon.frame.color.b,数値",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "sakura.icon.frame.color.b,数値\n本体側のアイコン(顔サムネイル)がバックログ(発言履歴)ウィンドウに表示される際の、枠の青成分(0～255)。※注意\n\t\t\t\t\t値なし\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.53",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell.html#sakura.icon.frame.color.b_2c_6570_5024:1"
+    },
+    {
+      "id": "ukadoc:descript_shell:kero.icon.frame.color.r_2c_6570_5024:1",
+      "title": "kero.icon.frame.color.r,数値",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "kero.icon.frame.color.r,数値\n相方側のアイコン(顔サムネイル)がバックログ(発言履歴)ウィンドウに表示される際の、枠の赤成分(0～255)。※注意\n\t\t\t\t\t値なし\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.53",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell.html#kero.icon.frame.color.r_2c_6570_5024:1"
+    },
+    {
+      "id": "ukadoc:descript_shell:kero.icon.frame.color.g_2c_6570_5024:1",
+      "title": "kero.icon.frame.color.g,数値",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "kero.icon.frame.color.g,数値\n相方側のアイコン(顔サムネイル)がバックログ(発言履歴)ウィンドウに表示される際の、枠の緑成分(0～255)。※注意\n\t\t\t\t\t値なし\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.53",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell.html#kero.icon.frame.color.g_2c_6570_5024:1"
+    },
+    {
+      "id": "ukadoc:descript_shell:kero.icon.frame.color.b_2c_6570_5024:1",
+      "title": "kero.icon.frame.color.b,数値",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "kero.icon.frame.color.b,数値\n相方側のアイコン(顔サムネイル)がバックログ(発言履歴)ウィンドウに表示される際の、枠の青成分(0～255)。※注意\n\t\t\t\t\t値なし\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.53",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell.html#kero.icon.frame.color.b_2c_6570_5024:1"
+    },
+    {
+      "id": "ukadoc:descript_shell:char_2a.icon.frame.color.r_2c_6570_5024:1",
+      "title": "char*.icon.frame.color.r,数値",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "char*.icon.frame.color.r,数値\n2人目以降の相方側のアイコン(顔サムネイル)がバックログ(発言履歴)ウィンドウに表示される際の、枠の赤成分(0～255)。※注意\n\t\t\t\t\t値なし\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.53",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell.html#char_2a.icon.frame.color.r_2c_6570_5024:1"
+    },
+    {
+      "id": "ukadoc:descript_shell:char_2a.icon.frame.color.g_2c_6570_5024:1",
+      "title": "char*.icon.frame.color.g,数値",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "char*.icon.frame.color.g,数値\n2人目以降の相方側のアイコン(顔サムネイル)がバックログ(発言履歴)ウィンドウに表示される際の、枠の緑成分(0～255)。※注意\n\t\t\t\t\t値なし\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.53",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell.html#char_2a.icon.frame.color.g_2c_6570_5024:1"
+    },
+    {
+      "id": "ukadoc:descript_shell:char_2a.icon.frame.color.b_2c_6570_5024:1",
+      "title": "char*.icon.frame.color.b,数値",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "char*.icon.frame.color.b,数値\n2人目以降の相方側のアイコン(顔サムネイル)がバックログ(発言履歴)ウィンドウに表示される際の、枠の青成分(0～255)。※注意\n\t\t\t\t\t値なし\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.53",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell.html#char_2a.icon.frame.color.b_2c_6570_5024:1"
+    },
+    {
       "id": "ukadoc:descript_shell_surfaces:charset_2c_6587_5b57_30b3_30fc_30c9:1",
       "title": "charset,文字コード",
       "source": "ukadoc",
@@ -3137,6 +3209,14 @@
       "category": "descript",
       "content": "point.basepos.y,座標\nウインドウを初期配置・位置保存する際の基準位置のY座標です。\n\t\t\t\t\t異なるサーフェスサイズの画像に切り替えた際の位置ずれなどを調整することができる。\n\t\t\t\t\tサーフェスの下端",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#point.basepos.y_2c_5ea7_6a19:1"
+    },
+    {
+      "id": "ukadoc:descript_shell_surfaces:icon.rect_2c_59cb_70b9X_2c_59cb_70b9Y_2c_7d42_70b9X_2c_7d42_70b9Y:1",
+      "title": "icon.rect,始点X,始点Y,終点X,終点Y",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "icon.rect,始点X,始点Y,終点X,終点Y\n顔サムネイル(バックログ／発言履歴ウィンドウなどで使用される、キャラクターの顔部分を切り出した縮小画像)の切り出し矩形を明示指定する。\n\t\t\t\t\t指定した場合、当たり判定のface/顔やhead/頭を用いた自動検出（collision参照）より優先される。\n\t\t\t\t\tface/headの自動検出と異なり、指定した矩形はそのまま採用され、余白を持たせる拡大処理は行われない。\n\t\t\t\t\tただし出力は正方形になるため、指定矩形の縦横のうち長い方の辺を基準に、矩形の中心を基準として正方形に整形される。\n\t\t\t\t\t未指定(collisionのface/顔・head/頭から自動検出)\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.52",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#icon.rect_2c_59cb_70b9X_2c_59cb_70b9Y_2c_7d42_70b9X_2c_7d42_70b9Y:1"
     },
     {
       "id": "ukadoc:descript_shell_surfaces:name_2c_5b9a_7fa9_540d:1",
@@ -5267,12 +5347,60 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#rateofuselist_28_540d_524d_29.bootminute:1"
     },
     {
+      "id": "ukadoc:list_propertysystem:rateofuselist_28_540d_524d_29.boottimeweekly:1",
+      "title": "rateofuselist(名前).boottimeweekly",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "rateofuselist(名前).boottimeweekly\nそのゴーストの起動回数。(週報版、今日から7日前までの集計)\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.54",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#rateofuselist_28_540d_524d_29.boottimeweekly:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:rateofuselist_28_540d_524d_29.bootminuteweekly:1",
+      "title": "rateofuselist(名前).bootminuteweekly",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "rateofuselist(名前).bootminuteweekly\nそのゴーストの起動時間。(分単位、週報版、今日から7日前までの集計)\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.54",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#rateofuselist_28_540d_524d_29.bootminuteweekly:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:rateofuselist_28_540d_524d_29.boottimemonthly:1",
+      "title": "rateofuselist(名前).boottimemonthly",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "rateofuselist(名前).boottimemonthly\nそのゴーストの起動回数。(月報版、今日から30日前までの集計)\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.54",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#rateofuselist_28_540d_524d_29.boottimemonthly:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:rateofuselist_28_540d_524d_29.bootminutemonthly:1",
+      "title": "rateofuselist(名前).bootminutemonthly",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "rateofuselist(名前).bootminutemonthly\nそのゴーストの起動時間。(分単位、月報版、今日から30日前までの集計)\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.54",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#rateofuselist_28_540d_524d_29.bootminutemonthly:1"
+    },
+    {
       "id": "ukadoc:list_propertysystem:rateofuselist_28_540d_524d_29.percent:1",
       "title": "rateofuselist(名前).percent",
       "source": "ukadoc",
       "category": "protocol",
       "content": "rateofuselist(名前).percent\nそのゴーストの起動時間割合。(パーセント、小数)",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#rateofuselist_28_540d_524d_29.percent:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:rateofuselist_28_540d_524d_29.percentweekly:1",
+      "title": "rateofuselist(名前).percentweekly",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "rateofuselist(名前).percentweekly\nそのゴーストの起動時間割合。(パーセント、小数、週報版、今日から7日前までの集計)\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.54",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#rateofuselist_28_540d_524d_29.percentweekly:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:rateofuselist_28_540d_524d_29.percentmonthly:1",
+      "title": "rateofuselist(名前).percentmonthly",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "rateofuselist(名前).percentmonthly\nそのゴーストの起動時間割合。(パーセント、小数、月報版、今日から30日前までの集計)\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.54",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#rateofuselist_28_540d_524d_29.percentmonthly:1"
     },
     {
       "id": "ukadoc:list_propertysystem:rateofuselist.index_28_9806_4f4d_29.name:1",
@@ -5315,12 +5443,60 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#rateofuselist.index_28_9806_4f4d_29.bootminute:1"
     },
     {
+      "id": "ukadoc:list_propertysystem:rateofuselist.index_28_9806_4f4d_29.boottimeweekly:1",
+      "title": "rateofuselist.index(順位).boottimeweekly",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "rateofuselist.index(順位).boottimeweekly\n使用率のその順位のゴーストの起動回数。(週報版、今日から7日前までの集計)\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.54",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#rateofuselist.index_28_9806_4f4d_29.boottimeweekly:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:rateofuselist.index_28_9806_4f4d_29.bootminuteweekly:1",
+      "title": "rateofuselist.index(順位).bootminuteweekly",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "rateofuselist.index(順位).bootminuteweekly\n使用率のその順位のゴーストの起動時間。(分単位、週報版、今日から7日前までの集計)\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.54",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#rateofuselist.index_28_9806_4f4d_29.bootminuteweekly:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:rateofuselist.index_28_9806_4f4d_29.boottimemonthly:1",
+      "title": "rateofuselist.index(順位).boottimemonthly",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "rateofuselist.index(順位).boottimemonthly\n使用率のその順位のゴーストの起動回数。(月報版、今日から30日前までの集計)\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.54",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#rateofuselist.index_28_9806_4f4d_29.boottimemonthly:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:rateofuselist.index_28_9806_4f4d_29.bootminutemonthly:1",
+      "title": "rateofuselist.index(順位).bootminutemonthly",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "rateofuselist.index(順位).bootminutemonthly\n使用率のその順位のゴーストの起動時間。(分単位、月報版、今日から30日前までの集計)\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.54",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#rateofuselist.index_28_9806_4f4d_29.bootminutemonthly:1"
+    },
+    {
       "id": "ukadoc:list_propertysystem:rateofuselist.index_28_9806_4f4d_29.percent:1",
       "title": "rateofuselist.index(順位).percent",
       "source": "ukadoc",
       "category": "protocol",
       "content": "rateofuselist.index(順位).percent\n使用率のその順位のゴーストの起動時間割合。(パーセント、小数)",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#rateofuselist.index_28_9806_4f4d_29.percent:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:rateofuselist.index_28_9806_4f4d_29.percentweekly:1",
+      "title": "rateofuselist.index(順位).percentweekly",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "rateofuselist.index(順位).percentweekly\n使用率のその順位のゴーストの起動時間割合。(パーセント、小数、週報版、今日から7日前までの集計)\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.54",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#rateofuselist.index_28_9806_4f4d_29.percentweekly:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:rateofuselist.index_28_9806_4f4d_29.percentmonthly:1",
+      "title": "rateofuselist.index(順位).percentmonthly",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "rateofuselist.index(順位).percentmonthly\n使用率のその順位のゴーストの起動時間割合。(パーセント、小数、月報版、今日から30日前までの集計)\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.54",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#rateofuselist.index_28_9806_4f4d_29.percentmonthly:1"
     },
     {
       "id": "ukadoc:list_propertysystem:name:1",
@@ -6111,7 +6287,7 @@
       "title": "\\__v[オプション]",
       "source": "ukadoc",
       "category": "sakurascript",
-      "content": "\\__v[オプション]\n次の\\__vまでの文字列に対して、音声合成機能の発声内容を調整する。\n\t\t\t\t\t\\__v[disable]：音声合成無効\n\t\t\t\t\t\\__v[alternate,文字列]：読み方の違う単語に対して、正しい発声文字列を指定する。文字列は誤認識されないようひらがなが望ましい。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.4\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\1\\__v[disable]この文章は音声合成機能でしゃべらない。\\__v",
+      "content": "\\__v[オプション]\n次の\\__vまでの文字列に対して、音声合成機能の発声内容を調整する。\n\t\t\t\t\t\\__v[disable]：音声合成無効\n\t\t\t\t\t\\__v[alternate,文字列]：読み方の違う単語に対して、正しい発声文字列を指定する。文字列は誤認識されないようひらがなが望ましい。\n\t\t\t\t\t[SSPのみ]この効果はバックログ(発言履歴)への記録にも及ぶ。\n\t\t\t\t\t\\__v[disable]の区間は音声合成だけでなくバックログへの記録も行われなくなる。\n\t\t\t\t\t\\__v[alternate,文字列]の区間は、音声合成の可否に関わらず、通常のテキストの代わりに指定した文字列がバックログへ記録される。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.4\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\1\\__v[disable]この文章は音声合成機能でしゃべらない。\\__v",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c__v_5b_30aa_30d7_30b7_30e7_30f3_5d:1"
     },
     {
@@ -7489,6 +7665,14 @@
       "category": "sakurascript",
       "content": "\\![open,pictureviewer,(ファイル名)]\n画像ビューアを開く。(ファイル名)を指定すると、そのファイルを自動的に表示する(オプション)\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.33",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bopen_2cpictureviewer_2c_28_30d5_30a1_30a4_30eb_540d_29_5d:1"
+    },
+    {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bopen_2cbacklogviewer_5d:1",
+      "title": "\\![open,backlogviewer]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![open,backlogviewer]\nバックログ(発言履歴)ウィンドウを開く。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.52",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bopen_2cbacklogviewer_5d:1"
     },
     {
       "id": "ukadoc:list_sakura_script:_5c_21_5bset_2cproperty_2c_30d7_30ed_30d1_30c6_30a3_540d_2c_5024_5d:1",
@@ -9003,6 +9187,14 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnFileDrop:1"
     },
     {
+      "id": "ukadoc:list_shiori_event:OnFileDropEx:1",
+      "title": "OnFileDropEx",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnFileDropEx\n[旧仕様]ファイルがDnDされた際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tドロップされたファイルパス。複数ファイル/ディレクトリがあればbyte値1で区切る。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tドロップされたキャラクターのスコープ番号。本体側0、相方1、3人目以降は2以降。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tドロップされたファイルのMIMEタイプ(SSP 2.7.98以降)。複数ファイル/ディレクトリがあればbyte値1で区切る。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnFileDropEx:1"
+    },
+    {
       "id": "ukadoc:list_shiori_event:OnFileDrop2:1",
       "title": "OnFileDrop2",
       "source": "ukadoc",
@@ -9011,12 +9203,20 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnFileDrop2:1"
     },
     {
-      "id": "ukadoc:list_shiori_event:OnFileDropEx:1",
-      "title": "OnFileDropEx",
+      "id": "ukadoc:list_shiori_event:OnMediaPlayerOpen:1",
+      "title": "OnMediaPlayerOpen",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnFileDropEx\n[旧仕様]ファイルがDnDされた際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tドロップされたファイルパス。複数ファイル/ディレクトリがあればbyte値1で区切る。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tドロップされたキャラクターのスコープ番号。本体側0、相方1、3人目以降は2以降。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tドロップされたファイルのMIMEタイプ(SSP 2.7.98以降)。複数ファイル/ディレクトリがあればbyte値1で区切る。",
-      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnFileDropEx:1"
+      "content": "OnMediaPlayerOpen\nファイルがDnDされて、OnFileDrop2にゴーストが応答せず、かつメディアプレーヤーが開かれた際に発生。ReferenceはOnFileDrop2と同一。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tドロップされたファイルパス。複数ファイル/ディレクトリがあればbyte値1で区切る。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tドロップされたキャラクターのスコープ番号。本体側0、相方1、3人目以降は2以降。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tドロップされたファイルのMIMEタイプ。複数ファイル/ディレクトリがあればbyte値1で区切る。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.51",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnMediaPlayerOpen:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnPictureViewerOpen:1",
+      "title": "OnPictureViewerOpen",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnPictureViewerOpen\nファイルがDnDされて、OnFileDrop2にゴーストが応答せず、かつ画僧ビューアーが開かれた際に発生。ReferenceはOnFileDrop2と同一。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tドロップされたファイルパス。複数ファイル/ディレクトリがあればbyte値1で区切る。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tドロップされたキャラクターのスコープ番号。本体側0、相方1、3人目以降は2以降。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tドロップされたファイルのMIMEタイプ。複数ファイル/ディレクトリがあればbyte値1で区切る。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.51",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnPictureViewerOpen:1"
     },
     {
       "id": "ukadoc:list_shiori_event:OnOtherObjectDropping:1",
@@ -10391,7 +10591,7 @@
       "title": "rateofusegraph",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "rateofusegraph\n使ってるぞグラフの情報を通知。[NOTIFY]\n\t\t\t\t\t\n\t\t\t\t\t\tReference*\n\t\t\t\t\t\t\n\t\t\t\t\t\t\tバイト値1区切りにされたゴースト名、sakura名、kero名、起動回数、起動時間(分)、起動時間％、(boot install vanish)。\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tboot\n\t\t\t\t\t\t\t\t起動中の時。\n\t\t\t\t\t\t\t\tinstall\n\t\t\t\t\t\t\t\tインストールされている時。\n\t\t\t\t\t\t\t\tvanish\n\t\t\t\t\t\t\t\tアンインストールした情報が残ってる時。",
+      "content": "rateofusegraph\n使ってるぞグラフの情報を通知。[NOTIFY]\n\t\t\t\t\t\n\t\t\t\t\t\tReference*\n\t\t\t\t\t\tバイト値1区切りにされた以下の情報。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t1番目\n\t\t\t\t\t\tゴースト名。\n\t\t\t\t\t\t2番目\n\t\t\t\t\t\tsakura名。\n\t\t\t\t\t\t3番目\n\t\t\t\t\t\tkero名。\n\t\t\t\t\t\t4番目\n\t\t\t\t\t\t起動回数。\n\t\t\t\t\t\t5番目\n\t\t\t\t\t\t起動時間。(分)\n\t\t\t\t\t\t6番目\n\t\t\t\t\t\t起動時間割合。(％)\n\t\t\t\t\t\t7番目\n\t\t\t\t\t\t状態。boot(起動中)install(インストールされている)vanish(アンインストールした情報が残ってる)のいずれか。\n\t\t\t\t\t\t8番目\n\t\t\t\t\t\t起動回数。(週報、今日から7日前までの集計) [以下SSP 2.8.54～]\n\t\t\t\t\t\t9番目\n\t\t\t\t\t\t起動時間。(週報、分)\n\t\t\t\t\t\t10番目\n\t\t\t\t\t\t起動時間割合。(週報、％)\n\t\t\t\t\t\t11番目\n\t\t\t\t\t\t起動回数。(月報、今日から30日前までの集計)\n\t\t\t\t\t\t12番目\n\t\t\t\t\t\t起動時間。(月報、分)\n\t\t\t\t\t\t13番目\n\t\t\t\t\t\t起動時間割合。(月報、％)",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#rateofusegraph:1"
     },
     {
@@ -18719,7 +18919,7 @@
       "title": "関数一覧 - is_empty",
       "source": "satori_wiki",
       "category": "satori_reference",
-      "content": "is_empty\n（is_empty,文字列）\n文字列が空文字列であるかを判定。空文字列なら1（真）、そうでないなら0（偽）を返します。\nたぶん想定される使い方は下。\n（変数「○○」の存在）と同じ？\n（is_empty,（確認したい変数名））\n↑",
+      "content": "is_empty\n（is_empty,文字列）\n文字列が空文字列であるかを判定。空文字列なら1（真）、そうでないなら0（偽）を返します。\nたぶん想定される使い方はシステム変数の中身の確認。\n（is_empty,（Ｒ０））\nこれが普通の変数だと、中身がない時は文字列として出力されて空文字にならないので、常に0が返ります。\n普通の変数の中身の確認は（変数「○○」の存在）を使いましょう。\n↑",
       "url": "https://soliton.sub.jp/satori/?%E9%96%A2%E6%95%B0%E4%B8%80%E8%A6%A7#is_empty"
     },
     {
@@ -23305,6 +23505,334 @@
       "category": "satori_tips",
       "content": "タブ文字ってなに？\nキーボード上の左側にある（はず）の、『Tab』って書いてあるキーのこと。\n例文とかでしょっちゅう使われている【タブ】は反転させてＴａｂキー押しとけばおｋ。",
       "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#i278fade"
+    },
+    {
+      "id": "aosora:01_はじめに",
+      "title": "はじめに",
+      "source": "aosora_wiki",
+      "category": "aosora_general",
+      "content": "はじめに\nこれは伺かゴースト用のSHIORI「蒼空」(aosora, aosora-shiori)の説明ドキュメントです。  \n初めての場合は、別冊のチュートリアルからはじめるか、順を追って読んでいくといいでしょう。\n\nある程度プログラミング言語に親しみのある方は、気になったところから読んでいっても十分理解できると思います。\n\nどんなSHIORIなの？\n蒼空は、処理とトークの両方をかんたんに書けることを目指したSHIORIです。  \n処理向けの関数ブロック記法とトーク向けのトークブロック記法が存在していて、相互に呼び出しあうことでそれぞれの利点を生かしたゴースト開発ができます。\n\n使うツールは？\nゴーストを起動できる環境があれば、あとはテキストエディタがあれば開発できます。  \nおすすめは VisualStudio Code です。\n[[VSCode拡張|14VisualStudioCode拡張]]があるので、便利に開発できます。  \nもちろん、好きなテキストエディタがあればそれを選んでも構いません。\n\n加筆のご協力のお願い\n一人で理解できるドキュメントをまとめるのはとても大変なので、編集してくださる方はぜひご協力をお願いします。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/01_%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB"
+    },
+    {
+      "id": "aosora:02_最低限必要なファイル",
+      "title": "最低限必要なファイル",
+      "source": "aosora_wiki",
+      "category": "aosora_general",
+      "content": "最低限必要なファイル\n\n蒼空を起動するために必要なファイル、設定群です。  \nこれらは、ghost/master以下に配置します。これ以外に、ゴーストのための descript.txt などはほかのSHIORI同様に用意します。\n\naosora.dll\n\nSHIORI本体のファイルです。  \nsatori.dll などと同じ立ち位置のファイルです。dllを配置したうえで、ゴーストのdescript.txt でSHIORIとして使用するように設定します。\n\ngithubのReleaseページから、最新版をもってくるといいです。\n\nghost.asproj\n\n蒼空の設定ファイルです。aosora.dllと同じフォルダに、この名前で配置します。  \n読み込むスクリプトファイルの相対パスを１行に１つ書くほか、設定を記載します。\n\n例 main.as を読み込む場合:  \nmain.as\n\n読み込むスクリプトはここに書かれていないと、ghost/masterにスクリプトファイルがあっても読み込まれないため注意してください。  \n逆に、ネットワーク更新で ghost.asproj を更新して使用するファイルを変更すれば、ベースウェア側で delete.txt 設定によってスクリプトファイルを削除しなくてもゴーストに読み込まれないようにできます。\n\nこのドキュメントのスクリプトを実際に使う場合は、次のように任意のスクリプトファイルの名前を ghost.asproj に書いたうえで、そのスクリプトファイルにドキュメントの内容を書いてゴーストを起動します。\n\nデバッグ用設定をかきこむための debug.asproj もあれば読み込まれます。  \n詳しくは「[[プロジェクトファイル設定|10_プロジェクトファイル設定]]」の項目をご覧ください。\n\nスクリプトファイル\nゴーストの処理やトーク内容を書くファイルです。ほかのSHIORIでは辞書ファイルとよばれることがあります。\n\nghost.asproj で指定されていれば拡張子は問いませんが、エディタの拡張機能を使うために *.as の形にすることを推奨しています。  \n文字コードはUTF-8にする必要があります。\n\n実際に蒼空で書ける内容は各章で紹介しています。\n\n記述例\ntalk OnBoot {\n    \\s[0]こんにちは！\n}\nこのように書くと、OnBoot(起動時)でゴーストが喋ります。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/02_%E6%9C%80%E4%BD%8E%E9%99%90%E5%BF%85%E8%A6%81%E3%81%AA%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"
+    },
+    {
+      "id": "aosora:03_スクリプトの書き方",
+      "title": "スクリプトの書き方",
+      "source": "aosora_wiki",
+      "category": "aosora_grammar",
+      "content": "スクリプトの書き方\nスクリプトは、プログラミング言語的な関数の記法と、里々的なトークの記法とをそれぞれ同じファイルで書けるようにしています。  \nそのため、それぞれ functionからはじめる関数ブロック、 talkから始めるトークブロックとして区切って、その中でそれぞれの記法をつかう形になっています。\n\nざっくりと、  \ntalk トーク名 {\n    ここにトーク\n}\n\nfunction 関数名 {\n    ここに処理\n}  \n...こういう感じです。\n\nもう少し具体的に、こんな感じです。\n* トークブロックでは喋らせる内容をそのまま書くことができます。\n* 関数ブロックでは処理を書くことができます。\n  * 関数ブロックでは一部例外を除いて文末にセミコロンをつけます。\n* いずれもSHIORI Eventが発生したときには一致する名前のものが呼び出され、結果をベースウェアに返します。\ntalk OnMouseDoubleClick {\n    \\s[0]つつかれたよー。\n    つつくなよー。\n}\n\nfunction OnBoot {\n    local colors = [\"赤\", \"青\", \"緑\"];\n    local lucky = Random.Select(colors);\n    return \"\\0\\s[0]こんにちは！\\n今日のラッキーカラーは{lucky}だよ！\";\n}\n\nそれぞれの詳しい説明は、各章をごらんください。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/03_%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9"
+    },
+    {
+      "id": "aosora:04_00_関数ブロック",
+      "title": "関数(function)ブロック",
+      "source": "aosora_wiki",
+      "category": "aosora_grammar",
+      "content": "関数(function)ブロック\n\n関数ブロックでは、一般的なスクリプトのようにプログラムコードを書くためのブロックです。関数定義内部のほか、スクリプトの一番外側のブロックが関数ブロックとして扱われます。\n\n// ここは関数ブロック\n\nfunction OnBoot {\n\t// ここも関数ブロック\n}\n\ntalk {\n\tここはトークブロック\n}\n\nコメント\nコメントはスクリプトに好きなようにメモを書くための記法です。存在する処理を一時的に無効化しておくためにも使えます。\n\nコメントは // で行コメント、 /* */ で範囲コメントです。  \nC#やJavascriptと同じと考えていいと思います。多分。関数ブロック専用なのでトークブロックでは使えません。\n\n// つつかれたときの処理\nfunction OnMouseDoubleClick {\n\t/* あとで処理をつくっておくこと */\n\t// return \"\";\n}",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/04_00_%E9%96%A2%E6%95%B0%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF"
+    },
+    {
+      "id": "aosora:04_01_関数を書く",
+      "title": "関数を書く",
+      "source": "aosora_wiki",
+      "category": "aosora_grammar",
+      "content": "関数を書く\n関数とは、一連の処理を書けるものです。書いた処理は別な関数から使えますし、SHIORI Eventによって呼び出されることもあります。\n\nこれはあたらしい関数を用意する記法です。  \nこの記法で関数を用意することで、同名のSHIORI Eventが発生したときに呼び出され、戻り値（return 文で指定した値）をレスポンスとして返します。\n\n試してみましょう。\n// ゴースト起動時にトークする\nfunction OnBoot {\n    return \"\\0\\s[0]Hello!\";\n}\n通常、この記法はスクリプトファイルのもっとも外側（別のfunctionの中ではない場所）で書くようにします。  \nそうすることで広く呼び出せるユニット変数として関数が作られます。\n\n関数内で書いた場合、その関数内でだけ使えるローカル変数として関数が用意されます。もし、関数内で何度も使う処理を用意したい場合があれば使うことは可能です。\n// 引数をとらない関数\nfunction OnBoot {\n    return \"\\0\\s[0]Hello!\";\n}\n\n// 引数をとる関数\nfunction HelloWorld(name) {\n  return \"\\0\\s[0]Hello, \" + name + \"!\";\n}\n \n// 呼び出し条件付き関数\nfunction HelloWorld if(Time.GetNowHour() > 16) {\n  return \"\\0\\s[0]Good evening, World!\";\n}\n\nまず関数ということを示すために function を書き、次に関数名、仮引数リスト、呼び出し条件が続きます。最後に中括弧 { } で関数全体をくくります。\n\n* 関数名はカンマ区切りで複数の名前を指定できます。\n  * 例: function OnBoot, OnGhostChanged() { }\n* 完全な動的型付けのため、仮引数リストには名前だけをつけます。\n  * 例: function Func(arg1) { }\n* 引数はカンマ区切りで複数渡せます。\n  * 例: function Func(arg1,arg2) { }\n* 引数がない場合は仮引数リスト全体を省略できます。\n  * 例: function OnBoot { }\n* 仮引数リストの位置のあとに if(…) で呼び出し条件を指定できます。\n  * 例: function OnBoot if(Time.GetNowHour() > 16 ) { }\n  * 制御文としての if ブロックと似ていますが、動作は全く違います。たとえば、elseブロックを書くことはできません。\n* function を talk に置き換えることで、トーク定義になります。トークは文字列を返す関数として扱われるので呼び出し方や定義の仕方は同じです。詳しくはトークブロックの章をよんでみてください。\n\n引数\n引数というのは、関数にデータを渡す方法の１つです。  \nこのように書くと、Testの呼び出しで渡した 10 が Test関数内では arg1 に入ります。\n\n* 関数側に用意された引数よりも少ない引数で関数を呼び出した場合、足りないところにはnullが渡されます。\n* 関数側に用意された引数よりも多い引数で関数を呼び出した場合、多すぎる部分は無視されます。\nfunction Test(arg1, arg2){\n  //何かする\n}\n\nTest(10, 20);\n\nランダムオーバーロード\n蒼空では同じ関数名（トーク名）を複数用意することができます。これをオーバーロードといいます。    \n同じ名前のなかからランダムで１つが呼び出されます。同じ名前同士では重複回避が働くので、１周するまで同じ関数は呼び出されません。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/04_01_%E9%96%A2%E6%95%B0%E3%82%92%E6%9B%B8%E3%81%8F"
+    },
+    {
+      "id": "aosora:04_02_リテラル",
+      "title": "リテラル",
+      "source": "aosora_wiki",
+      "category": "aosora_grammar",
+      "content": "リテラル\n3, \"item\", 1.9, true などは、ある決まった値を示す「リテラル」とプログラミング的には言います。\n\n蒼空で使えるリテラルは次の通りです。\n数値\n8, 1.6 など、直接スクリプト上に数値を書き込んで計算に使えます。  \n蒼空では整数と小数点数に明確な区別はありません。1を2で割ると0.5です。1と1.0は同じ意味です。\nfunction Test {\n    // 自由に計算できます\n    local v = 1.2 + 1.8;\n    return v + 15;\n}\n文字列\n文字列は\" \"で囲んだ任意の内容です。\n\n文字列への埋め込み\n文字列内に { }で囲んだ式を書くと、計算結果が文字列内に埋め込まれます。  \nトークブロック内でも同じように埋め込みを使えます。\nlocal a = 123;\nlocal str = \"数値は{a + 27}\";   // 数値は150\n\nブロックの埋め込み\nパーセントつきの中括弧 %{ } で囲むと、文字列内にコードブロックを入れることができます。ただし、こちらは結果を返しても文字列化はされません。主にトークブロック内で処理を行いたいときに使用します。\ntalk Talk {\n  %{\n    local a = 1234;\n  }\n  今月のお小遣いは{a}円だよ！\n}\n\n生文字列\n' 'で囲んだ範囲の文字列は、埋め込みを行いません。\n\nエスケープ\nプログラミング言語によっては\\をエスケープ文字として特殊な効果をもつようにしたものがありますが、蒼空ではさくらスクリプトとして使うためエスケープの効果が無いです。  \nエスケープ文字自体が存在していません。\n\nバッククォート\n    は \" \"と同じ機能をもつ代替です。  \nエスケープ文字がないので、どちらかでかこんだ中でどちらかを使いたい場合はもう片方を使うようにします。\n\n真偽値\nそうかそうでないか、yesかnoか、ありかなしか、などの２つを示すのがtrueとfalseです。\nif文などの分岐でよく使います。\n\nnull\n値が無いことを示します。たとえばlocal文でローカル変数をつくっても中に何もいれていなければ、このnullが入っていることになります。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/04_02_%E3%83%AA%E3%83%86%E3%83%A9%E3%83%AB"
+    },
+    {
+      "id": "aosora:04_03_シンボル名とキーワード",
+      "title": "シンボル名とキーワード",
+      "source": "aosora_wiki",
+      "category": "aosora_grammar",
+      "content": "シンボル名とキーワード\nシンボル名とは、変数や関数など、スクリプトを書くときに使える名前のことです。\nキーワードは local や if など、蒼空が使うと決めている特別な単語で、これらと同じシンボル名はつかえません。\n\nシンボル名に使用可能な文字\n* 半角英数（ただし数値から開始は不可）\n* _ @\n* その他日本語などマルチバイト文字\n\n_と@以外の殆どのASCII記号類を明示的に使用不可としている形です。\n\nキーワードはプログラム的に認識されるワードなので、同じ名前のシンボルは使えません。予約オブジェクトはあらかじめ存在するグローバル変数といえます。こちらも上書きしてはいけません。（メンバは操作可能）\n\nキーワード\n\n実際には動作しないものや、使用できてしまうものもありますが、現在はこれらをキーワードとして予約しています。色々変わるかもしれません。\ntalk function word for while if else break continue\nreturn local const true false try catch finally throw class member\ninit new print",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/04_03_%E3%82%B7%E3%83%B3%E3%83%9C%E3%83%AB%E5%90%8D%E3%81%A8%E3%82%AD%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%89"
+    },
+    {
+      "id": "aosora:04_04_変数",
+      "title": "変数",
+      "source": "aosora_wiki",
+      "category": "aosora_grammar",
+      "content": "変数\n関数ブロックでは変数を宣言（用意）して使うことができます。  \n変数は、計算途中の数値や文字列を置いておくのに使えます。\n\nローカル変数\nlocal から始まる文はローカル変数宣言文です。  \nローカル変数は、その処理でだけ使うものに使います。ほかの関数などと名前がかぶっても良いので、こまりにくいです。\n\n代入式はなくてもいいですが、その場合は null を代入したことにされます。\nlocal name = 10.0;\n\nローカル変数のスコープ\n変数はブロックスコープといって、宣言したブロックでだけ使うことができます。\nこれによって関係ない場所同士のローカル変数は内容が被らないので名前被りにこまりにくいです。\n\n変数はデータのいれものであって数字自体ではないので、return などでスコープ外に値を渡しても値がつかえなくなるわけではないです。\n\nif(a) {\n    local b = 10;\n}\n\n// ここには b は無い\n\nif(c) {\n    local b = 20;   // 上の b とは別物。\n    return b;\n}\n\nスコープは関数をまたいで有効なので、そのファイルでしか使わない変数があれば一番外側のスコープでローカル変数を用意することもできます。\n\nlocal test = \"test\";\n\nfunction Test {\n    return test;\n}\n\nユニット変数\nlocal 指定していない名前の変数に内容を書き込むと、ユニット変数というものとして扱われます。  \nユニットについては後の章で説明しますが、グローバル変数といわれるものに近く、好きなところからアクセスできます。\n\nA = 123;\n\nfunction Test {\n    return A;   // ユニット変数の A をつかう\n}",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/04_04_%E5%A4%89%E6%95%B0"
+    },
+    {
+      "id": "aosora:04_05_式と計算",
+      "title": "式と計算",
+      "source": "aosora_wiki",
+      "category": "aosora_grammar",
+      "content": "式と計算\n「式」は蒼空のいろんなところで使うことができます。ほとんど全部です。  \nリテラルをかけるところは全部式が使えますし、リテラル自体が式とも言えます。\n\n一番シンプルな式の使いどころは変数でしょうか。\nlocal a = 式;\n式を使って計算できます。計算しなくても式です。\nlocal a = 30;               // 式\nlocal b = 12 + 18 + a;      // 式\n\n四則演算\n数値同士を足したり引いたりします。足し算だけは文字列同士をくっつけるのにも使います。\n足し算 +\n  * 値同士を足します。\n  * 数値同士は数値として足し算します。\n  * 文字列同士は文字列をくっつけます。片方が文字列ならもう片方を文字列に変換してくっつけます。\n\n引き算 -, 掛け算 *, 割り算 /, 剰余 %\n  * 数値同士はそれぞれ計算します。それ以外は存在しえない数値という意味の NaN という特殊な数値が返されます。\n\n関係演算子 ==, !=, >, <, >=, <=\n左右２値を比較して成立する場合に true, しない場合に false になります。\nif文やループの条件としてよく使います。\n* == 等しい場合\n* != 等しくない場合\n* \\> 左の方が大きい場合\n* \\< 右のほうが大きい場合\n* \\>= 左のほうが大きいか、右と等しい場合\n* \\<= 右の方が大きいか、左と等しい場合\n\n論理演算子 &&,||,!\nand条件、or条件と、true/falseの反転です。\n\nオブジェクトメンバ演算子 .\n  * Obj.Key の形で連想配列などのオブジェクトの中身を参照します。\n  * キーに数値を使う場合は対応してないのでインデックス参照のほうを使います。\nインデックス参照 [ ]\n  * Obj[\"Key\"] の形で連想配列などのオブジェクトの中身を参照します。\n\n計算順序指定\nカッコ ( ) による計算順序の指定もできます。\nlocal a = 2 + 3 * 2;    // 8\nlocal b = (2 + 3) * 2;  // 10\n\n関数呼び出し式\n* 関数に続けて()で関数を呼び出せます。\n* ()の中に,区切りで引数を書いて渡せます。\n* 必ずしも式は、「何かに結果を渡す」必要はないので、単体でつかってもいいです。\nfunction TestFunc1 {\n    return \"a\";\n}\n\nfunction TestFunc2(v) {\n    return v + 9;\n}\n\nfunction OnBoot {\n    local result1 = TestFunc1();\n    local result2 = TestFunc2(15);\n    TestFunc1();\n\n    return \"\\0\\s[0]{result1} と {result2}\";\n}\n\nnull合体演算子\n?? は null合体演算子といいます。a ?? b の式の場合、aがnullでなければaを、aがnullならbを結果として返します。  \na が null でなかった場合はその時点で結果が決まるため、bは評価しません。\n\n値がnullだった場合に限り、別の値を割り当てたいときに使えます。\nlocal A = null;\nlocal B = \"test\";\n\nlocal a = A ?? B; // \"test\"\n\n??= は += のように代入をかねた式です。  \n現在値がnullであれば右の値を、現在値がnullでなければ現在値を再代入します。  \n\n連想配列初期化式 { }\n{ } でくくった中を、「名前:値」の記法で記述したものが連想配列の初期化式です。\nカンマ区切りで複数記入できます。\n名前はシンボル名のみが使用できますが、値には各種の式を使うこともできます。\nlocal a = {\n  b: 12,\n  c: \"12345\"\n};\n\nif文などと似ていますがコードブロックではなく式の１つなので中括弧 { } で終わる場合でもセミコロン ; が必要です。\n\n線形配列初期化式 [ ]\n[ ]でくくった中をカンマ区切りで値を列挙できます。順番に、0から始まる内容の配列がつくられます。\nlocal a = [0,1,2,3,4,5];\nバージョン demo4 以前はインデックスをキーにした連想配列を生成していましたが、線形配列オブジェクトを生成するようになりました。添字 [ index ] で要素を取得できるほか、「組み込みオブジェクト」の欄に使用できるメソッドを挙げています。\n\n関数式 function\nfunctionから始まる関数初期化式は、関数オブジェクトを返します。関数式も{ } で終わりますが、式の一部なので中括弧で終わってもセミコロンが必要です。\nlocal a = function(){ return 1; };\na();\n関数式は関数を作るという意味では同じですが、違いもあります。関数式は関数そのものを作りますが、関数定義は関数の集合オブジェクトに関数を追加します。そのため関数式は関数名や、呼び出し条件部がありません。\n\n関数式の省略記法\n仮引数リストを | | で囲む形で、 function() の代わりにできる省略記法です。中身に式１つしかない場合、returnも省略できます。\nlocal a = || { 1; };\na();\n \nlocal b = |n| { \"1234\" + n; }\nb(\"5678\");",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/04_05_%E5%BC%8F%E3%81%A8%E8%A8%88%E7%AE%97"
+    },
+    {
+      "id": "aosora:04_06_制御文",
+      "title": "制御文",
+      "source": "aosora_wiki",
+      "category": "aosora_grammar",
+      "content": "制御文\n制御文は、関数ブロックで使うループや分岐などの構造です。\n\nif、else\n\n条件分岐を設定できます。  \n式がtrue（正）だった場合はifブロックに、false(否定)だった場合はelseブロックにすすみます。\nlocal a = 19;\nlocal b = 29;\n\nif( a == 10 )\n  a += 5;\n \nif(a < b){\n  return a;\n}\nelse {\n  return b;\n}\n* 条件部はかならず括弧 ( ) でくくります。\n* if, else の後は中括弧 { } によるコードブロックか、単体の文であれば中括弧を省略してそのまま記載できます。\n* if - else if - else の多段分岐がつかえます。\n\ntrue か false か\n== などの比較・関係演算子を使った場合や、true か false を返す関数呼び出しを式につかった場合はそれに従って分岐しますが、if にはすべての値を入力することができます。値によってtrue/falseが決まるので、知っておいてください。\n\n* false 扱いされるもの\n  * null\n  * 数値の 0\n    * 数値の 0.0, 0.00 も同じですが、文字列の \"0\" \"0.0\" は true と評価されることに注意してください\n  * 空の文字列 \"\"\n    * 空白ではなく、１文字もないものだけです。\n* true 扱いされるもの\n  * false 扱いされるもの以外全部\n\nfor\n\n範囲ループの作成に便利なforループ文です。\n// 数値の合計を示す例\nlocal result = 0;\nfor(local i = 0; i < 10; i++){\n  result += i;\n}\n\nforのカッコの中に、初期化式、条件式、インクリメント式の３つをセミコロン ; で区切る形で記入します。初期化式には例外として local 文も使えます。\n\n1. 初期化式を実行します\n2. 条件式を実行します\n3. 条件式の結果が false として評価されたらforの処理は終了、つぎの文へすすみます。\n4. for文の本文ブロックを実行します\n5. インクリメント式を実行します\n6. 2に戻り、再度条件式を評価します\n\nwhile\n\nwhileは一般的な条件付きループを実装します。  \n文を処理しようとするたびに、条件部を評価して、trueである限り何度でも実行します。falseになると次に進みます。\nlocal a = 0;\n// while の基本例: 条件が true の間ループが実行されます。\n// ここでは a < 3 にして実行される例にしています。\nwhile(a < 3) {\n  a += 3;\n}\n\nforeach\n配列・連想配列ループのための新機能です。  \nforeach(local 変数名 in 対象) { } の形式で書くと、対象の配列の要素の中身を変数に代入して配列の要素ぶんループします。  \n\nforeach は、いまのところ配列と連想配列にだけ使うことができます。  \n連想配列に使った場合、内容の追加順とループ順が一致するとは限りません。\n\nlocal items = [1,2,3];\nlocal result = 0;\nforeach(local a in items) {\n   result += a;\n}\n\nカンマで２つ目の変数名を指定すると、２つ目の変数には配列のインデックス・連想配列のキーが格納されます。  \nキーだけがほしい場合でも１つ目は省略できないので、適当に何かを指定して下さい。\nlocal items = [1,2,3];\nlocal result = 0;\nforeach(local value, key in items) {\n  result += value;\n}\n\n* local キーワードを省略した場合、外側スコープの変数に書き込まれます。\n* foreachでループさせている対象は、その間要素数が変動する操作をすることができません。\n  * 操作を行おうとするとエラーが発生します。\n\n \n\nbreak\n\n実行中のループを１つ離脱します。\nwhile(true) {\n\n //ループを離脱\n break;\n\n //ここは実行されない\n\n}\ncontinue\n\n実行中のループを１つ、次の周回にすすめます。\nfor(local i = 0; i < 10; i++ ){\n\n  if(i < 5){\n    continue;\n  }\n\n  //continueを実行した場合はここは実行されない\n}\nreturn\n\nreturn文は、関数に戻り値をつけたり途中で終了したりするときに使います。\nfunction Func {\n  return 2;\n}",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/04_06_%E5%88%B6%E5%BE%A1%E6%96%87"
+    },
+    {
+      "id": "aosora:05_00_トークブロック",
+      "title": "トーク(talk)ブロック",
+      "source": "aosora_wiki",
+      "category": "aosora_grammar",
+      "content": "トーク(talk)ブロック\nトークブロックはトーク本文を書くのに適した記法構造です。  \nトークブロックでは関数ブロックと異なる記法を使用しているため、分けて考える必要があります。\n\n起動時のトークを書こうとすると、関数を使う場合このように書きます。\nfunction OnBoot {\n    return \"\\0\\s[0]おはよう！\";\n}\n\n一般的なプログラミング言語で文字列を返そうとすると、だいたいこうなりますが、ゴースト開発ではちょっと使いづらいのでトークを書くのに適した専用の記法を用意しました。\n\n里々というSHIORIを参考にしているので、里々のわかる方は扱いやすいかもしれません。\n\ntalk OnBoot {\n    \\s[0]おはよう！\n}\n\n* talk から書き始めて、名前などはfunction と同じように書きます。\n  * function 同様に引数や呼び出し条件が使えます。\n* トークブロック専用の記法もあるので、次のページ以降で紹介します。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/05_00_%E3%83%88%E3%83%BC%E3%82%AF%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF"
+    },
+    {
+      "id": "aosora:05_01_行頭指示",
+      "title": "行頭指示",
+      "source": "aosora_wiki",
+      "category": "aosora_grammar",
+      "content": "行頭指示\nこのように書くと、関数のように字下げ（インデント）して見やすく書けますが、トーク内容としては字下げ部分は無視されて「こんにちは！」とだけ喋ります。\ntalk Talk() {\n  こんにちは！\n}\nトークブロックでは、ブロック内の各行の行頭にある特殊文字でどのような動作になるかが決まります。  \n行頭の半角スペースやタブは、インデントができるように行頭の文字が来るまで無視されます。\n\n行頭指示なし\n\n行頭の指示がなく、直接本文を書いている場合はその行末までの記述が直接トークの本文として扱われます。その本文が2行目以降だった場合は、\\n タグが自動的に挿入されます。本文内では文字列リテラル内で使用できるような { } による変数展開が使えます。\ntalk Test {\n  おはよ！\n}\nジャンプ >\n\n大なり記号 > によって始まる行は、ジャンプ指示行です。トークの実行をそこで中断して、ジャンプ先の関数を呼び出します。\ntalk Test {\n  >NightTalk: Time.GetNowHour() > 19\n  >Talk(40)\n}\n大なり記号 > の後にジャンプ先のシンボルを記入します。括弧 ( ) で任意の引数をつけることもできます。さらに続けて任意でコロン : を付けた後条件式を書くことができます。条件式がある場合、trueと評価された場合に限りジャンプ指示を実行しようとします。\n\nジャンプ先シンボルが関数など呼び出し可能なオブジェクトではなかった場合、ジャンプせずに次の行に処理が続きます。ジャンプ先側に呼び出し条件がついていて、ジャンプできる先がなかった場合も同様です。\n\nジャンプの注意点\n「指定された関数（トーク）にジャンプする」原則に注意が必要で問題となるのが、「関数の返した関数にジャンプする」場合です。\n\nこの例でGetFunc()の返した結果にジャンプしたいとします。\nその場合、>GetFuncまたは>GetFunc()のジャンプ指定だと、「GetFuncへジャンプ」と解釈されてしまい狙い通りになりません。\n\n>GetFunc()()として、GetFuncの呼び出し先をさらに呼び出すように書く必要があります。\n\nfunction GetFunc {\n  return なにかしらの関数;\n}\n\ntalk JumpTest {\n  >GetFunc()()\n}\n\n話者指定 1:, ::\n\nコロン・数値+コロンの形式で始まる行は話者(スコープ)指定です。\n\n* 0: \\0 に喋らせる\n* 1: \\1 に喋らせる\n* 2: \\p[2] に喋らせる\n* : \\0が喋る状態なら\\1に、それ以外なら\\0に切り替える\n* talk ブロックの喋り初めにこの話者指定がない場合は、\\0から喋り始めます。\n\ntalk 使用例1 {\n  : sakura側が喋るよ。\n  : kero側が喋るよ。\n  0: sakura側が喋るよ。\n  1: kero側が喋るよ。\n  : sakura側が喋るよ。\n}\n \ntalk 使用例2 {\n  sakura側が喋るよ。\n  : kero側が喋るよ。\n}\n: の右側のインデントも無視しますが、空白から始めたい場合は : を２つ重ねて :: とすると右側のインデントを無視しません。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/05_01_%E8%A1%8C%E9%A0%AD%E6%8C%87%E7%A4%BA"
+    },
+    {
+      "id": "aosora:06_データ型",
+      "title": "データ型",
+      "source": "aosora_wiki",
+      "category": "aosora_grammar",
+      "content": "データ型\n蒼空には数値や文字列など基本的なデータタイプや、連想配列や線形配列のような構造、様々な動きをする機能群などのオブジェクトがあります。\n\n基本型\n数値\n数値リテラル 5 9.7 など、一般的な数値のデータの種類。\n\n文字列\n文字列リテラル \"abc\" などで用意した文字列のデータ型です。\n\n真偽値(bool)\ntrue か false です。  \n直接 true/false を書くか、関係演算子 >= などを計算した結果でつくられます。\n\nnull\n値が無いことを示します。  \nnull型の値は唯一 null だけです。\n\nオブジェクト型\nこれ以外の、連想配列や線形配列、その他いろいろは全部「オブジェクト型」というくくりになります。  \nオブジェクト型のなかで、様々な種類があるという形です。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/06_%E3%83%87%E3%83%BC%E3%82%BF%E5%9E%8B"
+    },
+    {
+      "id": "aosora:07_00_組み込み機能群",
+      "title": "組み込み機能群",
+      "source": "aosora_wiki",
+      "category": "aosora_builtin",
+      "content": "組み込み機能群\nSHIORI Event の Reference を取得する機能や、文字列を処理する機能、セーブデータなど一般的なゴースト開発で使われる機能は、特別な準備なしに使うことができます。\n\nこれらをこの章の各ページで紹介しています。\n\n* [[基本的なデータ型の機能|0701基本的なデータ型の機能]]\n  * 文字列や数値、線形配列、連想配列で使える機能です。\n* [[Save|0702Save]]\n  * セーブデータとしてデータを読み書きできる機能です。\n* [[Time|0703Time]]\n  * 現在の時間などを取得できる機能です。\n* [[TalkTimer|0704TalkTimer]]\n  * ランダムトークやなでられイベントを自動的に呼び出してくれる機能です。\n* [[Shiori|0705Shiori]]\n  * SHIORI Event の Reference などを取得できる機能です。\n* [[Random|0706Random]]\n  * ランダム機能です。乱数や配列要素のランダム選択ができます。\n* [[Reflection|0707Reflection]]\n  * 名前から変数や関数にアクセスできる機能です。\n* [[Saori|0708Saori]]\n  * Saori-universal をロードして呼び出せる機能です。\n* [[TalkBuilder|0709TalkBuilder]]\n  * トークブロックの挙動を設定・制御する機能です。\n* [[Debug|0710Debug]]\n  * ゴースト開発のためのデバッグで使える機能です。\n* [[OverloadedFunctionList|0711OverloadedFunctionList]]\n  * talk Name {...} や function Name {...} 構文で作成されるランダム呼び出しオブジェクトです。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/07_00_%E7%B5%84%E3%81%BF%E8%BE%BC%E3%81%BF%E6%A9%9F%E8%83%BD%E7%BE%A4"
+    },
+    {
+      "id": "aosora:07_01_基本的なデータ型の機能",
+      "title": "基本データ型の機能",
+      "source": "aosora_wiki",
+      "category": "aosora_builtin",
+      "content": "基本データ型の機能\n数値や文字列、連想配列・線形配列などの基礎的なデータ型のメンバとして呼び出せる機能を紹介します。\n\n数値型\n\n数値型にはメンバとして呼び出せる機能があります。\nlocal val = 10.3;\n \nlocal r = val.Round();  //小数部の四捨五入\nlocal f = val.Floor();  //小数部の切り捨て\nlocal c = val.Ceil();   //小数部の切り上げ\n\n//カッコで囲めば変数化しなくても呼び出し可能(カッコをつけないと小数点と混同する為エラー)\nlocal a = (65).ToAscii(); // \"A\" -> 1~127 の値をASCII文字に変換。バイト値1の取出などに。\n文字列\n\n文字列にはメンバとして呼び出せる機能があります。インデックスを指定させる箇所では、バイト数ではなく文字数で指定します。\nlocal a = \"12345,6,789\";\n \nlocal st = a.StartsWith(\"123\"); // true -> \"123\" から始まる文字列かどうか\nlocal en = a.EndsWith(\"789\"); // true -> \"789\" で終わる文字列かどうか\nlocal ct = a.Contains(\"34\"); // true -> 文字列に含むかどうか\nlocal sp1 = a.Split(\",\"); // [\"12345\", \"6\", \"789\"] -> \",\" で分割\nlocal sp2 = a.Split(\",\", 2);  // [\"12345\", \"6,789\"] -> \",\" で分割 最大２個\nlocal idx = a.IndexOf(\"3\"); // 2 -> \"3\" のインデックスを取得\nlocal su1 = a.Substring(idx, 0); // \"345,6,789\" -> 指定バイト数から指定バイト切り出し\nlocal su2 = a.Substring(idx); // \"345,6,789\" -> Substring() 文字数省略可\nlocal re = a.Replace(\"12345\", \"あ\"); // \"あ,6,789\" -> 文字列置換\nlocal ta = a.AddTalk(\"\\0ああああ\"); // -> 「トーク結合ルール」による結合(トークブロックを参照)\nlocal len = a.length; // -> 文字列の長さを取得\n\nlocal text = \"abcDEF\";\nlocal up = text.ToUpper(); // \"ABCDEF\" -> 半角英字を大文字に変換\nlocal lw = text.ToLower(); // \"abcdef\" -> 半角英字を小文字に変換\n連想配列\n\n連想配列の中に、これらと一致するキーが存在している場合、下記の連想配列側の機能へのアクセスが優先されます。  \n\nたとえば連想配列にすでに \"length\" というキーがある場合に items.length と呼び出すと \"length\" の中身ではなく要素数を取得します。  \nGet()を使うことで、たとえばlengthというキーがある場合でも長さではなくlengthに対応する中身の情報を得ることができます。ユーザーが入力した値をキーにする場合など、どのような内容が来るかわからない場合はGet()で取得するようにするといいでしょう。\n\n書き込み時はキーがなんであっても書き込めますが、Get() と対になる形でSet()を用意しています。\nlocal items = {key: \"value\"};\nlocal len = items.length;  //要素数\nitems.Clear(); //全削除\nitems.Remove(\"key\"); //キー指定で削除\nitems.Add(\"key2\", \"value2\"); //追加（重複の場合は無視）\nitems.Contains(\"key2\"); // 存在判定\nitems.Get(\"key2\"); // 内容の取得\nitems.Set(\"key2\", 500); //内容の設定\nlocal keys = items.Keys(); // キーだけを取り出した線形配列を取得\n線形配列\nlocal items = [1,2,3];\nitems.Add(4); // 要素の末尾追加\nitems.AddRange([5,6,7]); //配列要素をまとめて末尾に追加\nitems.Insert(1, 1.5); // items[1] の位置に要素を追加して残りを後ろにずらす\nitems.Remove(2); // 要素の削除（間をつめる）\nitems.Clear(); // 全削除\nlocal len = items.length; //要素数\nすべてのデータ型\n\nすべてのデータ型に共通して存在する機能。\nnullには内容がないため中身を参照してはいけないというルールのプログラミング言語もありますが、蒼空ではnullにもこれらの機能が存在しています。\n\n連想配列の中に、これらと一致するキーが存在している場合、下記の機能へのアクセスが優先されます。  \nlocal num = 1234;\nlocal str = \"456\";\n \nlocal a = num.ToString(); // 文字列に変換\nlocal b = str.ToNumber(); // 数値に変換\nlocal c = str.ToBoolean(); // 真偽値に変換\n \n// 判定系は、変換が可能かどうかではなく、現在の型が何かで判断します\nlocal d = str.IsString(); // 文字列かどうか\nlocal e = str.IsBoolean(); // 真偽値かどうか\nlocal f = num.IsNumber(); // 数値かどうか\nlocal g = num.IsObject(); // オブジェクトかどうか\nlocal h = num.IsNan();  // NaNかどうか(数値型でないなら常にfalse)\nlocal i = num.IsNull(); // nullかどうか\nlocal j = num.InstanceOf(Map); // 連想配列かどうか",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/07_01_%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E3%83%87%E3%83%BC%E3%82%BF%E5%9E%8B%E3%81%AE%E6%A9%9F%E8%83%BD"
+    },
+    {
+      "id": "aosora:07_02_Save",
+      "title": "Save",
+      "source": "aosora_wiki",
+      "category": "aosora_builtin",
+      "content": "Save\nセーブデータのオブジェクトです。Save.Data に任意の内容を書き込むと保存できます。セーブデータは savedata.asv に保存されます。このファイルはネットワーク更新から外したほうがいいでしょう。\n\nセーブデータ読み込み前に OnAosoraDefaultSaveData という内部イベントが発生するので、そのときにデフォルトセーブデータを Save.Data に書き込んでおくとセーブデータを読み込んだときに、上書きしてくれます。\n\nいまのところ、Saveが蒼空で唯一保存される情報を管理するオブジェクトなので、ベースウェア側が保存しない情報はここで保存するようにします。\nfunction OnAosoraDefaultSaveData {\n  Save.Data.UserName = \"お兄ちゃん\";\n}\n \ntalk OnBoot {\n  おはよう！ {Save.Data.UserName}！\n}\n数値、true, false、null、文字列、連想配列、線形配列がセーブできますが、その他のオブジェクト類（関数や組み込みのオブジェクト）は保存できず、保存時にSave.Dataに格納されていても無視されます。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/07_02_Save"
+    },
+    {
+      "id": "aosora:07_03_Time",
+      "title": "Time",
+      "source": "aosora_wiki",
+      "category": "aosora_builtin",
+      "content": "Time\n\n日付と時刻取得関係です。\n\nTime.GetNowHour()\n現在時を24時間単位で取得します。\nlocal hour = Time.GetNowHour(); // 現在時\n\nTime.GetGetNowMinute()\n現在分を取得します。\nlocal minute = Time.GetNowMinute(); // 現在分\n\nTime.GetNowYear()\n現在年を取得します。\nlocal year = Time.GetNowYear(); // 現在年\n\nTime.GetNowMonth()\n現在月を取得します。\nlocal month = Time.GetNowMonth(); // 現在月\n\nTime.GetNowDate()\n現在日を取得します。\nlocal date = Time.GetNowDate(); // 現在日\n\nTime.GetNowDayOfWeek()\n現在の曜日を示す数値を取得します。  \n0が日曜日、6が土曜日とした順番の整数です。\n\nTime.GetNowUnixEpoch()\nUnixエポックというルールで時刻を示す数値を取得します。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/07_03_Time"
+    },
+    {
+      "id": "aosora:07_04_TalkTimer",
+      "title": "TalkTimer",
+      "source": "aosora_wiki",
+      "category": "aosora_builtin",
+      "content": "TalkTimer\n\nトーク起動用のタイマー。SHIORI Eventとして直接定義されてない なでられ反応とランダムトークを起動するために使います。\n// セーブデータ読み込み後に実行されるイベント\n// 特段理由がなければこのタイミングでTalkTimerを設定するのがおすすめ\nfunction OnAosoraLoad {\n  TalkTimer.RandomTalk = RandomTalk;\n  TalkTimer.KeyRandomTalkIntervalSeconds = 120;\n\n  TalkTimer.NadenadeTalk = OnNadenade;\n}\n \ntalk RandomTalk {\n  ランダムトークだよ。\n}\n \ntalk OnNadenade {\n  なでられたー。\n}\n\nTalkTimer.RandomTalk\nランダムトークとして呼び出す関数。\n\nTalkTimer.KeyRandomTalkIntervalSeconds\n\nランダムトーク間隔秒。  \n0を指定するとランダムトークなし。\n\nTalkTimer.RandomTalkElapsedSeconds\n\n前回ランダムトークしてからの経過秒。  \nこれがKeyRandomTalkIntervalSeconds を超えるとランダムトークを発生させます。\n\nKeyRandomTalkIntervalSeconds を更新するときなど、任意で0を設定してリセットするなども可能です。  \n\nTalkTimer.NadenadeTalk\n\nなでられトークとして呼び出す関数。\n\nTalkTimer.NadenadeMoveThreshold\n\n同じ触り反応に対して OnMouseMove イベントが発生し続けたとき、その回数がこの値を超えるとなでられトークが発生します。  \n\n要するになでられの敏感度合い。デフォルトは50。  \n\nOnMouseLeave, OnMouseHover, 他の判定のOnMouseMoveが来ると0から数え直します。  \n\nTalkTimer.NadenadeActiveCollision\n\nなでられ反応を呼び出す判定中の判定識別子。\n\nスクリプトから書き込むのは非推奨。\n\nTalkTimer.NadenadeMoveCount  \n\nNadenadeMoveThreshold に対して比較する、OnMouseMoveの発生回数。\n\nスクリプトから書き込むのは非推奨。\n\nTalkTimer.RandomTalkQueue\n配列になっていて、要素がある場合はランダムトーク時、RandomTalkの代わりに最初の要素を取り除いて喋る。  \n次以降のトークを予約したい場合に使う。\ntalk FirstTalk{\n  %{ TalkTimer.RandomTalkQueue = [SecondTalk, ThirdTalk]; }\n  1st talk\n}\n\ntalk SecondTalk {\n  2nd talk\n}\n\ntalk ThirdTalk {\n  3rd talk\n}\n\nTalkTimer.CallRandomTalk()\nランダムトークを呼び出して結果を返します。  \nタイマーによるトーク発生時と同じようにRandomTalkQueueがあれば使用し、ランダムトークタイマーをリセットします。  \nメニューなどからランダムトークをさせるときに、時間経過で発生するランダムトークと同じことをしたい場合に使えます。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/07_04_TalkTimer"
+    },
+    {
+      "id": "aosora:07_05_Shiori",
+      "title": "Shiori",
+      "source": "aosora_wiki",
+      "category": "aosora_builtin",
+      "content": "Shiori\nSHIORI EventのReference情報にアクセスするためのオブジェクトです。  \n代表的な使い方として、Shiori.Reference[0] で イベントのReference0 をもってこれます。\n\nShiori.Reference\nSHIORI Event の Reference 値が線形配列として格納されています。\nlocal r = Shiori.Reference[0];\n\nShiori.Headers\nSHIORI Event の汎用的なヘッダ情報が連想配列で格納されています。\n\nShiori.SaoriValues\n線形配列が格納されています。  \nSAORI として蒼空が使用されている場合に、呼び出し側のSHIORIにValuesとして内容を返します。\n\nShiori.ResponseReference\n線形配列が格納されています。  \nここに任意の要素を設定することで、SHIORI Event の Response に Reference 値を返すことができます。\n\nゴースト間コミュニケートの仕様で、Reference0 に宛先のゴースト名を設定することで同時に起動しているほかのゴーストに話しかけられます。\n\n線形配列で最初は空なので、最初に書き込むときは \nShiori.ResponseReference[0] = \"ghost\";\nではなく\nShiori.ResponseReference.Add(\"ghost\");\nなどとする必要があります。\n\nステータス情報\nSHIORI Event の Status ヘッダに存在するステータスをキーとして、trueが入っています。  \nたとえばトーク中かどうかの分岐には次のように使えます:\nif(Shiori.talking){\n    //処理\n}",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/07_05_Shiori"
+    },
+    {
+      "id": "aosora:07_06_Random",
+      "title": "Random",
+      "source": "aosora_wiki",
+      "category": "aosora_builtin",
+      "content": "Random\n\nランダム選択の機能。いまのところ機能は少ないですが、必要に応じて足すことになるかと思います。\n\nRandom.Select()\n線形配列からランダムで１つ取り出します。\nlocal word = Random.Select([\"ういーっす\", \"うーっす\", \"おーす\"]);\n\nRandom.CreateSelector()\nセレクタオブジェクトの作成。  \n関数として呼び出せるオブジェクトが返り、呼び出すと渡した線形配列から１つランダムに返します。  \n\nこの関数で取得できるオブジェクトは function Name {...} や talk Name {...} 構文で関数を作成したときに作成されるものと同じで、重複回避を使って内部のオブジェクトを抽選するものです。\n* 注意: この機能に要素として関数を入力した場合は、function Name {...} 構文で作成した場合と同じように、ランダムで選択されたあと関数呼び出しを行い、その結果を返します。 →[[OverloadedFunctionList|0711OverloadedFunctionList]]\n* 引数なしで呼び出すと、空のセレクタオブジェクトを作成します。この方法は特殊な用途にむけたものです。\nlocal selector = Random.CreateSelector([\"ういーっす\", \"うーっす\", \"おーす\"]);\nlocal word = selector();\nRandom.CreateSelector() は使うたびにあたらしい重複判定をもったオブジェクトをつくるので、ランダム選択しようとするたびに Random.CreateSelector() を使うとうまく重複回避できません。ユニット変数や関数の外側のローカル変数として作って使うといいです。\n\nRandom.GetIndex()\n2値間の0以上の整数でランダムをとります。  \n線形配列のインデックスをランダムに決めたい場合などにも使えます。\nlocal idx = Random.GetIndex(0, 10); // -> 0 ~ 9 の整数でランダム\n \nRandom.GetNumber()\n実数によるランダム。  \n0.0 ~ 1.0 のうちのランダムな小数点数をとります。\nlocal n = Random.GetNumber(); // 0.0 ~ 1.0 のランダム",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/07_06_Random"
+    },
+    {
+      "id": "aosora:07_07_Reflection",
+      "title": "Reflection",
+      "source": "aosora_wiki",
+      "category": "aosora_builtin",
+      "content": "Reflection\n\nシンプルなリフレクション機構を提供しています。蒼空では変数名などのシンボル名や関数名ははっきり別物なので、里々のようにイベントのReferenceと文字列をつなげて「Headつつかれ」にジャンプさせることができませんが、Reflectionを使うと文字列ベースでデータをもってくることができるので、同じようなことができます。\nlocal a = 0;\n\n//同じ情報をもってくる\nlocal b = a;\nlocal c = Reflection.Get(\"a\");\n\n//同じ情報にセット\na = 20;\nReflection.Set(\"a\", 20);\n\n//里々のように\nlocal col = \"Head\";\nlocal func = Reflection.Get( col + \"つつかれ\");\nreturn func();\n\nReflection.Get()\n名前で変数を取得します。\n\nReflection.Set()\n名前で変数に値を設定します。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/07_07_Reflection"
+    },
+    {
+      "id": "aosora:07_08_Saori",
+      "title": "Saori",
+      "source": "aosora_wiki",
+      "category": "aosora_builtin",
+      "content": "Saori\n\nSAORI-universal(dll形式のSAORI) を読み込むことができます。SAORI-basic(exe形式)は対応していません。代わりにProxy DLLを使うと動くかもしれません。\n\nSaori.Load() \nSAORIをロードします。  \n返ってきたオブジェクトにRequest()でSAORIを呼び出せます。  \n\nRequestの戻り値は連想配列で、Resultに実行結果が含まれます。また、エラーを返した場合はErrorにエラー内容が含まれます。ロード時にエラーが返った場合は、実行時エラーになります。\n//Satori as SAORIを呼んでみる例\nlocal saori = Saori.Load(\"satori.dll\");\nfunction OnSaoriTest {\n  return saori.Request(\"OnSaoriTest\").Result;\n}",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/07_08_Saori"
+    },
+    {
+      "id": "aosora:07_09_TalkBuilder",
+      "title": "TalkBuilder",
+      "source": "aosora_wiki",
+      "category": "aosora_builtin",
+      "content": "TalkBuilder\n\ntalkブロックの戻り値を組み立てる仕組みを制御します。\n\nTalkBuilder.Current.AutoLineBreak\n改行時に挿入する文字列。デフォルトは \"\\n\" が設定されています。\nTalkBuilder.Current.AutoLineBreak = \"\\n\";\n\nTalkBuilder.Current.ScopeChangeLineBreak\nスコープ切替時の改行として挿入する文字列。  \nデフォルトは \"\\n\\n[half]\" が設定されています。\nTalkBuilder.Current.ScopeChangeLineBreak = \"\\n\\n[half]\";\n\nTalkBuilder.Current.Head\n(試験的) talk ブロックの先頭につける内容を指定します。  \nこの挙動は試験的のため、頂いたご意見によって変更する可能性があります。\n\nデフォルト値\nTalkBuilder.Current の中身はイベント処理ごとにデフォルト値にリセットされます。  \nTalkBuilder.Default.～ で同じ値を書き換えることで、デフォルト値を変更できます。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/07_09_TalkBuilder"
+    },
+    {
+      "id": "aosora:07_10_Debug",
+      "title": "Debug",
+      "source": "aosora_wiki",
+      "category": "aosora_builtin",
+      "content": "Debug\n\nデバッグ関係の機能を使用することができます。  \nプロジェクトファイル(ghost.asproj, debug.asproj)でデバッグ設定を有効にしないと機能しないものもあります。\n\nプログラミング言語によっては、デバッグモードでない場合にこういった機能に入力された引数式は評価しない場合もありますが、蒼空では今のところデバッグ機能が無効であっても引数を評価します。\n\nDebug.isEnabled\nデバッグモードが有効になっていたらtrue、そうでないならfalseを返します。  \nこのデバッグモードは asproj 設定が有効な場合や、VSCodeからデバッグ起動された場合を示していて、ベースウェア側のSHIORIデバッグモードとは関係しません。\n\nDebug.WriteLine()\nデバッグログの出力を行います。  \nVSCode デバッガに接続している場合、VSCode側にログを出力します。  \nasproj でログファイルを有効にしている場合にはそのログファイルにも出力します。\nDebug.WriteLine(\"log...\");\n\nDebug.Assert()\nデバッグモードやVSCodeに接続している場合に限り、「アサート」を処理します。  \n\n引数がない場合または、最初の引数が false と評価された場合に、tryブロックを無視するエラーを発生させて強制的にエラーを表示します。\n\nこれはプログラミングで、正常時こうなるはずという条件を設定しておいて、そうでない状況が発生したら直ちにエラーにすることで不具合を調べるのに役立つ手法を提供するものです。\n\n２番目の引数にはエラーの説明を設定できます。省略しても構いません。\n\nlocal test = Test();    //true を返してほしかった処理\nDebug.Assert(test, \"何か間違ってる！\");",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/07_10_Debug"
+    },
+    {
+      "id": "aosora:07_11_OverloadedFunctionList",
+      "title": "OverloadedFunctionList",
+      "source": "aosora_wiki",
+      "category": "aosora_builtin",
+      "content": "OverloadedFunctionList\nfunction Name {...} 構文や talk Name {...} 構文によって生成される特殊なオブジェクトで、グループ内の要素から重複回避ありでランダムに１つを選択する機能です。\n\nRandom.CreateSelector() でも作成できます。\n\n関数として呼び出された場合、内部の要素を１つ選択して、それを関数呼び出しします。関数でなければそれを返します。\n\nlength\n要素数を取得します。\nfunction FuncA {\n    return 1;\n}\n\nfunction FuncA {\n    return 2;\n}\n\nlocal num = FuncA.length;   // 2\n\nUseNoOverwrappedRandom()\nアイテムを選択する手法に重複回避ありのランダムを使うように指定します。  \nこの設定はデフォルトで有効です。\nfunction FuncA {\n    return 1;\n}\n\n//重複回避\nFuncA.UseNoOverwrappedRandom();\n\nUseOverwrappedRandom()\nアイテムを選択する手法に重複回避なしのランダムを使うように指定します。  \n\nIsNoOverwrappedRandom()\n重複回避ありのランダムを使っている場合にtrue、そうでない場合はfalseを返します。\n\nIsOverwrappedRandom()\n重複回避なしのランダムを使っている場合にtrue、そうでない場合はfalseを返します。\n\nShuffleOverwrap()\n重複回避の状態をリセットし、抽選済みの要素が再度抽選されるようにします。  \nこれを使用しなくても、重複回避した結果要素が１つもなくなってしまった場合は自動的に重複回避をリセットしてランダム抽選を行っているので、任意でリセットしたいときにだけ使います。\n\nClear()\n内部の要素を全部消してからっぽにします。\n\nAdd()\n引数に指定した要素を追加します。\n２つ目の引数に発生条件として関数を渡すこともできます。\n\nAddRange()\n引数に線形配列を指定して、まとめて要素を追加します。  \n２つ目の引数に発生条件として関数を渡すことができます。（発生条件は１つで、まとめて追加する要素にすべて設定されます）\n* AddRangeの引数として使えるのは線形配列だけです。OverloadedFunctionList は使えません。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/07_11_OverloadedFunctionList"
+    },
+    {
+      "id": "aosora:08_SHIORI_Eventの受け方",
+      "title": "SHIORI Eventの受け方",
+      "source": "aosora_wiki",
+      "category": "aosora_general",
+      "content": "SHIORI Eventの受け方\nこれまで度々紹介していますが、あらためて SHIORI Eventへの反応について説明します。\n\nSHIORI Event が発生すると、ユニット変数として存在する同じ名前のトークまたは関数を引数なしで呼び出します。\n\n呼び出された関数が文字列を返せばそれがそのまま結果として使われます。関数を返した場合は、それをさらに引数なしで呼び出してその結果を使います。それ以外を返した場合は文字列に変換した結果を使います。\n\n最終的に文字列が空であれば 204 No Contentを、中身があれば 200 OK をベースウェアに返します。\n\nただし、ピリオド . の含まれるイベントはピリオドをアットマーク @ に変換して呼び出します。蒼空がピリオドを演算子として使用するため、関数名などに使用することができないための対策です。@は名前に使えます。\n\n例: OnUpdate.OnDownloadBegin -> OnUpdate@OnDownloadBegin\n// これが呼ばれる\nfunction OnUpdate@OnDownloadBegin {\n    return \"\\0talk\";\n}",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/08_SHIORI_Event%E3%81%AE%E5%8F%97%E3%81%91%E6%96%B9"
+    },
+    {
+      "id": "aosora:09_蒼空の起動終了処理",
+      "title": "蒼空の起動終了処理",
+      "source": "aosora_wiki",
+      "category": "aosora_general",
+      "content": "蒼空の起動終了処理\nSHIORIがゴーストに読み込まれてゴーストが起動するとき、ゴーストが終了してSHIORIを終えるときの挙動説明です。\n\n起動処理\n蒼空はまず ghost.asproj をロードして、スクリプトファイルのリストアップや設定情報を収集します。  \n次に debug.asproj があれば、ghost.asproj の続きとみなして同じように読み込みます。\n\nスクリプトがエラーなくロードできたら、内部的に OnAosoraDefaultSaveDataイベントを発生させます。このときにデフォルトセーブデータを Save.Data に書き込むことができます。\n\n次に savedata.asv からセーブデータを読み込んで、Save.Data に上書きします。  \nセーブデータを読み込んだ後に内部的に OnAosoraLoad イベントを発生させます。このときにAosoraの初期設定を行うことを勧めます。\n\n読み込み時にエラーが発生した場合は、セーブデータの読み込みなどは行いません。ベースウェアに対してエラーを報告するのと同時に、ゴースト上にエラーガイダンスを表示します。\n\n終了処理\naosora のアンロード時、セーブデータ保存の直前に OnAosoraUnload イベントを発生させるようになりました。  \n終了時に何らかの処理を行うときにいいでしょう。  \n\nただし、変数を別な場所に持っておいて OnAosoraUnload 内で Save.Data にそれらを反映する…というつくりは慎重になるべきです。  \nここでエラーが発生してもそのままゴーストを終了するほかないのですが、そうなると OnAosoraUnload の処理が途中で終了してセーブデータを書き込むことになり、データが意図せず中途半端な状態になってしまうことがあるかもしれません。\nゴースト起動中の必要な場面で Save.Data をこまめに更新するほうが確実です。\n\n起動処理でエラーが出ている場合は終了処理をスキップするので、意図せずセーブデータがクリアされたりすることはないようになっています。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/09_%E8%92%BC%E7%A9%BA%E3%81%AE%E8%B5%B7%E5%8B%95%E7%B5%82%E4%BA%86%E5%87%A6%E7%90%86"
+    },
+    {
+      "id": "aosora:10_プロジェクトファイル設定",
+      "title": "プロジェクトファイル設定",
+      "source": "aosora_wiki",
+      "category": "aosora_general",
+      "content": "プロジェクトファイル設定\nghost.asproj, debug.asproj で設定できる項目は以下のとおりです。  \n* カンマがある行は設定として下記に該当するものがあれば適用します。  \n* そうでない場合はファイル名と解釈して読み込みます。\n* // で行コメントができます。（/* */ によるブロックコメントはサポートしていません）\n\ndebug.asproj は、開発時のみ用意しておいてデバッグ設定を書き込み、配布時に除外することで開発時だけデバッグ機能を有効にできることを想定して用意しています。\n\nlimitscriptsteps,[数値]\n1回のイベントで処理できるスクリプトの内部的な処理量。スクリプト上で無限ループが発生するとゴーストが停止してしまうので、それを防止するために処理量が一定を超えると無限ループとみなして強制的に実行を中断することでSSPを巻き込んで停止することを避けるための設定。  \nデフォルトで十分大きな値(100万)が入っていますが、特に必要があれば変更することもできます。  \n0を指定すると無制限にできますが、推奨しません。\n\ndebug,[数値]\nデバッグモード。debug.～ と名前のある設定は、これが有効になっていないと機能しません。  \n0で無効、1で有効。デフォルトは無効。\n\nVSCode 拡張からデバッグ起動した場合は自動的に有効になります。\n\ndebug.logfile.enable,[数値]\nこれが有効かつデバッグモードなら、debug.logfile.nameとしてログファイルを作成します。  \n\nログファイルには Debug.WriteLine() などで書き込むことができます。\n0で無効、1で有効。デフォルトで無効です。\n\ndebug.logfile.name,[ファイル名]\n指定したファイル名でログファイルを生成します。  \nデフォルトは aosora.log です\n\ndebug.debugger.runtime,[asproj からの相対パスまたは絶対パス]\nvscode拡張機能からゴーストをデバッグ起動する場合に使用するssp.exeを指定します。\n\nデフォルト値は ../../../../ssp.exe です。  \nこれはSSPのデフォルトゴーストのEmilyがインストールされている場所と同じ、<sspのフォルダ>/ghost/<ゴーストフォルダ>/ghost/master からSSPを相対的に参照できるパスで、デフォルトのゴーストインストールフォルダの ghost/master に 蒼空 が配置されていれば、無設定でデバッグ起動ができるようになっています。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/10_%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E8%A8%AD%E5%AE%9A"
+    },
+    {
+      "id": "aosora:11_Aosora_as_SAORI",
+      "title": "Aosora as SAORI",
+      "source": "aosora_wiki",
+      "category": "aosora_general",
+      "content": "Aosora as SAORI\n\n蒼空をSAORIとしてロードできるようにしました。  \n\nその場合、リクエストの最初の引数がSHIORI EventのID、それ以降の引数が SHIORI の Reference として蒼空に渡されます。尚、Aosora側の使用上、最初の引数にピリオドが含まれる場合は呼び出し時にアットマークに変換されます。\n\n戻り値は関数の戻り値をSAORIの戻り値にします。「Shiori.SaoriValues」の線形配列に値をセットすることでValueを返すこともできます。\n\n里々の場合\n\naosora.dll を aosora という名前で satori_conf.txt で読み込むように指定し、main.as を ghost.asproj で読み込むようにしている場合です。\n：（１）はろー、蒼空！\n（aosora,AosoraTest,里々）（Ｓ０）\n ```\n\nfunction AosoraTest() {\n  Shiori.SaoriValues = [\"こんにちは！\"];\n  return \"\\s[1]はろー、{Shiori.Reference[0]}！\";\n}\n\n## エラーハンドリング\n\n下記２つのイベントを呼び出したときは、蒼空側で処理をして、エラーの情報を返します。\n\n* HasLoadError\n  * SAORI読み込み時にエラーが発生した場合に1, そうでなければ0が帰ります。\n  * スクリプトのパースエラーや、起動イベントでエラーが発生した場合に起動失敗扱いになり、通常のイベントの呼び出しができなくなります。\n\n* GetLastError\n  * GetError, HasLoadError 以外で、最後に呼び出したときに発生したエラー情報を返します。\n  * エラーがなければ0、エラーがあればエラーの数を返します。通常エラー情報は1つですが、スクリプトパースエラーの場合は複数返ります。\n  * GetLastErrorが0ではない場合で、HasLoadErrorが1なら読み込みエラー、HasLoadErrorが0なら実行時のエラーといえます。\n\n## その他\n作者は SHIORI as SAORI は使ったことがないので、間違いとかあったら教えて下さい。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/11_Aosora_as_SAORI"
+    },
+    {
+      "id": "aosora:12_00_発展的なトピック",
+      "title": "発展的なトピック",
+      "source": "aosora_wiki",
+      "category": "aosora_advanced",
+      "content": "# 発展的なトピック\n\nこの章は現在準備中です。今後、ユニット設計の高度なテクニック、パフォーマンス最適化、運用上の注意点、設計パターンの事例などを追加する予定です。\n\n寄稿や提案を歓迎します。トピックの提案があれば issue または PR を作成してください。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/12_00_%E7%99%BA%E5%B1%95%E7%9A%84%E3%81%AA%E3%83%88%E3%83%94%E3%83%83%E3%82%AF"
+    },
+    {
+      "id": "aosora:12_01_ユニット",
+      "title": "ユニット",
+      "source": "aosora_wiki",
+      "category": "aosora_advanced",
+      "content": "ユニット\nユニットはほかのプログラミング言語でいう名前空間やパッケージに該当する機能です。aosoraはパッケージ管理のような概念がなく、動的な言語のため名前空間というのも違う気がしたので独自に unit というキーワードを定義しています。\n\n里々はすべての辞書の単語群や文が同等に扱われるため、他人の辞書を借りて何か作るときには必ずそれと自分の辞書と名前が被る箇所がないか確認しないといけませんでした。\naosora はファイルごとに「ユニット」を指定しておおきく種類分けをすることができるので、誰かに貸せるようなコードは自分のオリジナルの「ユニット」名をつけることでほかの人と関数名などが被ることを最小限におさえることができます。\n\nunit myunit;\n\nfunction MyFunc {\n  return \"Hello\";\n}\n\nunit キーワードに続けてユニット名、セミコロンでユニット名を指定します。\nユニットを指定できるのはファイルごとに１回だけで、ファイルのもっとも外側の部分でないといけません。\n\n上記のように書くことで、MyFunc関数は「myunitユニットのMyFunc関数」ということになります。\nここで別ファイルを用意してみます。\n\ntalk OnMouseDoubleClick {\n  \\s[0]{MyFunc()}\n}\n\nfunction MyFunc() {\n  return \"Hi!\";\n}\n\n今度は別ファイルにさきほどと同じ名前の MyFunc関数があります。  \nただし、OnMouseDoubleClick から呼び出されるのはこのファイルのMyFunc関数になります。  \n「myunitユニットのMyFunc関数」はmyunit というユニット（区分け）の中にあるので、このMyFuncとは明確に区別されます。\n\nmyunitのMyFuncを呼び出す場合、このように書きます。\n\ntalk OnMouseDoubleClick {\n  \\s[0]{unit.myunit.MyFunc()}\n}\n\nunit.myunit で myunit というユニットを示し、その中のMyFuncを呼び出しています。  \nこのように「別のユニットの何かを触る」ために unitキーワード経由で触らないといけないために名前かぶりのリスクを減らすことができます。\n\n暗黙のmainユニット\n上記のコードや、aosora 0.1世代のコードも unit は指定していませんでした。  \nこの場合、暗黙のうちに main ユニットに配置されることになります。つまり、先ほどのコードは下記のコードと同じです。\n\nunit main; // かかなくてもいい\n\ntalk OnMouseDoubleClick {\n  \\s[0]{MyFunc()}\n}\n\nfunction MyFunc() {\n  return \"Hi!\";\n}\n\nここでは MyFunc を unit.main.MyFunc() と呼び出すこともできます。（mainユニット外からはこの呼び出し方を使います）\n\nmain ユニットには重要な特徴が２つあるので、ユニットを使う場合は覚えておいてください。\n* ユニット名を指定しないスクリプトは main ユニットに配置される\n* SHIORI Event は main ユニットの関数またはトークを呼び出す\n\n２番目の特徴も重要です。誰かに貸すコードが SHIORI Event を受信しないといけないとして、借りるゴーストが同じSHIORI Event を使っていると困ったことになります。\nそうならないように、main ユニット以外ではSHIORI Event を受けられないようにしています。\n\nそうはいっても、選択肢 \\q[] タグを使うような場合など、SHIORI Eventを受信しないと困る場合がありますが… その場合はmainユニットに展開すれば良いです。\nunit myunit;\nfunction OnMouseDoubleClick {\n //何かする\n}\n\n//mainユニットの変数に書き込む\nunit.main.OnMouseDoubleClick = OnMouseDoubleClick;\n\nこのようにすれば、main ユニットのOnMouseDoubleClickに別ユニットの任意の変数を書き込むことができます。こうすると独自のイベント名なら問題ないかもしれませんが、OnMouseDoubleClick のようなよく使うイベントを勝手に書き換えられては使う側は困るかもしれません。\n\n下記のように、Setup 関数を呼び出した場合だけmainユニットを上書きするなど、上書きするしないを使う側が制御できると良いかもしれません。  \nまた、この場合、使う側が上書きしたくないと考えるなら unit.myunit.OnMouseDoubleClick を別途適切なタイミングで呼び出してもらうことも選択肢になりそうです。\nunit myunit;\n\nfunction OnMouseDoubleClick {\n //何かする\n}\n\nfunction Setup {\n  //mainユニットの変数に書き込む\n  unit.main.OnMouseDoubleClick = OnMouseDoubleClick;\n}\n\n最後に、自作のユニット名には system, std は避けてください。  \nこれらは aosora 側の機能が配置されているので、それらとは競合しないようにしたほうがいいためです。\n\nuse 指定によるユニット名省略\nほかのユニットの機能を呼び出すために毎回 unit.myunit.～ と書くのはちょっと面倒なので、省略できる手段があります。\nuse に続けてユニット名を書けば、unitキーワードを省略して直接 myunit からアクセスできます。\nuse myunit;\n\nmyunit.Setup();\n\nuseでは「ユニット」のほかに「ユニット内の何か」までを指定できるので、myunit.Setup と指定すれば Setup 関数をそれまでの unit.myunit を省略することができます。  \nただしuseが使える範囲は「ユニット内の何か」までで、「ユニット内の連想配列のある要素」といった指定はできません。\nuse myunit.Setup;\n\nSetup();\n\nアスタリスクを使えば指定ユニット内のすべての要素をそのまま呼び出せるようになります。\nuse myunit.*;\n\nSetup();\n\n省略すればするほど、記述の量を減らすことができますが、どのユニットの機能を呼び出しているか自分でよくわからなくなることは避けたほうがいいです。\nよく使うものに絞って省略するようにするといいでしょう。\n\nその他注意点\n* use が使えるのはunit指定と同様にファイルの一番外側だけです。\n  * use はそのファイルで全体に影響します。\n* main ユニットで use myunit.*; などと記載した場合でも、SHIORI Eventによって myunit ユニットの関数が直接呼び出されるわけではありません。\n  * そのファイル内の記述を簡略化するだけのためです。\n* すべてのスクリプトで暗黙のうちに use system.*; 相当の指定が入っています。\n  * Shiori.Reference[0] などで使う Shiori は、正確には system ユニットに属し unit.system.Shiori で呼び出せますが、これによってaosora0.1と同様に使用できます。\n* すべてのスクリプトで暗黙のうちに use (そのファイルのユニット名).* 相当の指定が入っています。\n  * 自分自身のユニットに対して unit.～ と長々と書く必要はないのはこのためです。\n* use によって、ほかのユニットと関数の呼び出し名が被ってしまった場合、先に use されているほうが優先されます。\n  * 順番によらずアスタリスクを使わない指定はアスタリスクを使った指定よりも優先度が高いです。\n    * このあたりの優先ルールはわかりにくく、見直す可能性もあるので、名前が被る可能性のある運用は避けるようにしてください。\n  * 同じ呼び出し名になるといっても、このようにどれかを選んで呼び出すので、「統合された上でその中からランダム」という呼び出し方にはなりません。\n\n階層化ユニット\nユニットはピリオドで階層化（ユニットのなかに別なユニットをもつ）ができます。\n\nこのようなユニット指定をすると、「myunitユニットの中のinternalユニット」という指定になります。  \n階層ユニットのスクリプト内では、myunit.internal ユニット以外にも親階層の myunit ユニットも暗黙の use 設定が入ります。\nunit myunit.internal;\n外から使う機能、内部でだけ使う機能の分離などにいいかもしれません。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/12_01_%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88"
+    },
+    {
+      "id": "aosora:12_02_ユニットファイル",
+      "title": "ユニットファイル",
+      "source": "aosora_wiki",
+      "category": "aosora_advanced",
+      "content": "ユニットファイル\nユニットを使ってスクリプトを別機能としてまとめても、それが複数あれば使うときに ghost.asproj にそれだけ書かないといけないのは煩雑です。  \nそんなときはユニットファイルを使いましょう。\n\nユニットファイルは .asunit 拡張子で用意して、別のファイルに ghost.asproj の内容を切り分けられます。  \nたとえば file.asunit を用意して、こんなふうにスクリプトを列挙してみます。\nfile1.as\nfile2.as\nfile3.as\n\nghost.asproj では unit を使ってユニットファイルを指定します。\nunit,file.asunit\n\nこうすることで、ghost.asproj に file.asunit に書いた内容が取り込まれるので、file ユニットを他のゴーストに適用するときは asprojに書く内容が少なくてすみます。\n\n* unit,ファイル名 で指定したユニットファイル内では、ファイル名を書いてスクリプトをロードする指定をするほか、unit,ファイル名でさらに別のユニットを指定できますが、それ以外の設定はできません。\n  * ユニットファイルが asproj側の特殊な設定を書き換えられないように保護するためです。\n* ユニットファイル内に記載するファイルパスは、ユニットファイルがあるフォルダからの相対パスになります。\n  * ユニットをフォルダわけするときに便利かもしれません。\n* 機能自体はファイルの読み込み指定なので、直接的にはユニットとは関係していません。\n  * 異なるユニットを１つのユニットファイルをまとめたり、main ユニットをユニットファイルに書いたりしても支障はありません。\n* 同じスクリプト・ユニットファイルを全体で複数回指定された場合でも多重ロードはしません。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/12_02_%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"
+    },
+    {
+      "id": "aosora:12_03_クラス",
+      "title": "クラス",
+      "source": "aosora_wiki",
+      "category": "aosora_advanced",
+      "content": "クラス\n一般的なオブジェクト指向言語に搭載されている、クラス機能をちょっとかじった程度の機能があります。\nそういった言語を触ったことがある人には理解しやすいかもしれませんが、少しこみいった機能になっています。\n\nクラスは簡単に言えば連想配列と関数を組み合わせたもので、処理とデータをセットにすることができます。\nclass MyClass {\n  init {\n    this.count = 0;\n  }\n\n  function AddCount {\n    this.count += 1;\n  }\n}\n\nまず、クラスの記述は class キーワードとそのクラスの名前に続けて、中括弧で囲んだ中で行います。\ninit { } は関数によく似ていますがコンストラクタといって、newキーワードでクラスの実体を作ったときに呼び出されます。関数と同じで引数をつけることもできます。何もしたくない場合は書かなくても構いませんが、たいていの場合クラスの最初の状態（数字をゼロにしておくとか）のために使うことが多いです。\n\nそのほか関数やトークを書けます。\n\n使うときは、new MyClass() のようにnewキーワードを使って、クラス名を関数のように呼び出します。ここでさきほどの init が呼ばれるので、必要であれば引数を書くことができます。これでクラスの実体（インスタンス）ができるので、連想配列と同じように中身を参照して変数を取得したり関数を呼び出したりすることができます。\nfunction TestFunc {\n  local obj = new MyClass();\n  obj.AddCount();\n  return obj.count;\n}\n\nthisキーワード\nたびたび登場していた this は、キーワードです。クラスの実体を示すものです。\n\n下記の例では２個のMyClass() をつくりました。それぞれ別物の中身を有しています。\nobjAでAddCount()を使っていますが、このとき AddCount 関数の this には objA が割り当てられます。\nlocal objA = new MyClass();\nlocal objB = new MyClass();\n\nobjA.AddCount();\n\nプログラミングに詳しい方は、言語によってthisキーワードを省略できるものがあることを知っているかもしれません。\naosora はthisキーワードを省略できないタイプの言語です。\n継承とオーバーライド\nクラスは継承によって拡張できます。\nクラスを用意するときに、クラス名に続けてコロンと継承元のクラスを指定することで継承ができます。継承すると機能の追加と上書きができます。\n\nclass MyClass2 : MyClass {\n  function AddCount() {\n    this.count += 10;\n  }\n}\n\nMyClass2 では MyClass を拡張しているため、MyClassのコンストラクタは自動的に実行されて this.count を 0 にします。\nただし AddCount() は MyClass と同じ関数で用意しているので上書き扱いなり、MyClass の AddCount() ではなくこちらが呼ばれて10増えます。\n\n関数は上書きしますがコンストラクタは上書きせず、継承元→継承先の順でそれぞれが呼ばれます。\n継承元のコンストラクタが引数を必要としている場合は、init の後に: base(...) という感じでbase と引数リストを書けばその内容で親クラスのコンストラクタが呼び出されます。\n: base(...) を書かない場合や、コンストラクタ自体を省略すると、親クラスのコンストラクタには何も渡されません。\nclass MyClass3 : OtherClass{\n  init(arg) : base(arg) {\n    this.count = 5;\n  }\n}\n\nクラス使用の注意点\nクラス実体はセーブデータに格納できないため注意して下さい。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/12_03_%E3%82%AF%E3%83%A9%E3%82%B9"
+    },
+    {
+      "id": "aosora:12_04_例外機構",
+      "title": "例外",
+      "source": "aosora_wiki",
+      "category": "aosora_advanced",
+      "content": "例外\n例外は一般的なプログラミング言語に存在するエラー処理のシステムを参考にした仕組みです。  \naosora 上でゴースト起動後になんらかの問題が発生したとき（構文エラーなどによる読み込み失敗以外で）「例外」を発生させ、「実行時エラー」をゴーストのバルーンに表示します。\n\n例外を正しく処理することで、必要に応じて処理を続行したりユーザに「実行時エラー」を見せずに済ませたり、スクリプト上で任意に「例外」を発生させることができます。\n\n例外・エラーの原則について\naosora は原則として、プログラミングの知識が豊富ではない方でも使いやすいように作っています。  \n「処理に失敗した」場合は原則として例外ではなく、戻り値で情報を返す関数ではnullを返したり、戻り値でその成否を返したりするようにしてあります。  \n引数の内容を明らかに誤っていたり、数が不足しているような「使い方の間違い」では例外を送出しています。\n\nこれは機能を正しく使っている限りは極力例外を発生させないことで、本節の知識がなくてもひととおりの処理を書けるよう配慮しているためです。\n\n例外を発生させる\n\nプログラムから例外を発生させたい場合、throw文のあとに例外オブジェクトを書きます。  \n値を渡すところはreturn文と似ています。  \nただしここで渡せるのは Errorクラスとその継承クラスの実体だけです。下記の例では Error クラスを new で作成しています。（クラス、new はクラスの説明をどうぞ）\nfunction Test {\n  throw new Error();\n}\nこのようにすると、throw 文が実行されたタイミングで処理を中断して「実行時エラー」を発生させます。\n\nなんらかのエラーメッセージをつけることもできます。  \nところで下記は悪い例です。何が問題かを通常は示すといいでしょう。\nthrow new Error(\"エラーです！\");\n\nまた、例外はクラスなので継承によってオリジナルの例外をつくることもできます。  \nError クラスの詳しい中身は末尾の追加機能群にまとめています。\nclass MyError : Error {\n  init : base(\"エラーです\") {\n  }\n}\n\n例外を処理する\n発出された例外は、適切に処理することで実行時エラーの表示を出すことなく秘密裏に処理することができます。  \n下記のように `try - catch' 構文を使います。\n\ntry と catch はセットでつかいます。  \ntry ブロックのなかで例外が発生すると、実行時エラーと同様にその場で処理をやめるのですが、実行時エラーにするかわりに catch ブロックの処理を行います。  \ntry ブロックのなかで呼び出された関数で例外が発生しても同様で、最も内側にあるtryブロックに対応するcatchブロックの処理だけを行います。\n例外が発生しなかったら、catch ブロックの処理は行われません。\ntry {\n  local isError = true;\n  if(isError){\n    throw new Error();\n  }\n  return \"エラーは起きませんでした\";\n}\ncatch (err) {\n  return \"{err.ToString()} というエラーがおきました。\";\n}\n\nこの例では isError 変数をかえるとエラーではない場合の try ブロックの return を使ったり、エラーで処理を中断して catchブロックの return を使ったりします。 \ncatch (err) { } は err の箇所は指定した名前でローカル変数を作って、そこにエラーの内容を書き込んでくれます。いらなければ　catch { }とすることもできます。\nいずれにしても、「実行時エラー」にはなりません。\n\nもし例外があってもなくてもやりたい処理があるかもしれません。その場合は finally ブロックを使います。  \ntry ブロックを例外なく終えた場合、もしくは例外があって catch ブロックを実行終えたときに実行します。  \n特殊な点として、いずれかのブロックで return 文を使ったときでも、finally ブロックを実行してから関数を離脱します。\ntry {\n}\ncatch(err) {\n}\nfinally {\n  // ここでなにかする\n}\n\nその他のポイント\n* catch ブロックで例外を再スローすることもできます。throw err; とすればいいです。\n  * この場合、更に上位の try - catch によって処理されるか、処理されなければ実行時エラーになります。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/12_04_%E4%BE%8B%E5%A4%96%E6%A9%9F%E6%A7%8B"
+    },
+    {
+      "id": "aosora:13_00_stdユニット",
+      "title": "std ユニット",
+      "source": "aosora_wiki",
+      "category": "aosora_builtin",
+      "content": "std ユニット\nstd ユニットを新規追加して、system ユニット（従来からある TalkTimer などが所属する）よりもゴースト開発的に優先度が下がる機能群を配置するようにしてあります。  \nsystem ユニットと違って暗黙のuse指定が入らないのでunitキーワード経由で使うか、使うファイルでuseを書くと良いです。\n\nこの記事の子階層にあるサンプルコードでは、それぞれの機能を use で直接使用可能にしている前提で記載してあります。\n\n* [[File|1301File]]\n  * テキストファイルを読み書きする機能です。\n* [[JsonSerializer|1302JsonSerializer]]\n  * jsonという形式の文字列を処理する機能です。\n* [[Regex|1303Regex]]\n  * 正規表現によって文字列を検索する機能です。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/13_00_std%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88"
+    },
+    {
+      "id": "aosora:13_01_File",
+      "title": "unit.std.File",
+      "source": "aosora_wiki",
+      "category": "aosora_builtin",
+      "content": "unit.std.File\nファイルシステムアクセスの機能です。  \nセキュリティの観点からSecurityLevelがLocalではないSHIORIリクエストではすべて失敗します。  \nパスは空文字ではない文字列を入力して下さい。そうでない場合は例外をスローします。\n\nlocal str1 = File.ReadAllText(\"test.txt\");\nlocal str2 = File.ReadAllText(\"test.txt\", \"Shift_JIS\");\nFile.ReadAllText() はテキストファイルを読み込んでその内容を文字列で返します。失敗するとnullが返ります。  \n読み込むファイルがUTF-8ではない場合は文字コードの指定が必要です。（現状Shift_JISのみ）\n\nFile.WriteAllText(\"test.txt\", \"てすと\");\nFile.WriteAllText(\"test.txt\", \"てすと\", \"Shift_JIS\");\nFile.WriteAllText() はテキストファイルを書き込む関数です。成否がtrue/falseで返ります。  \n同名のファイルは上書きするので注意してください。  \nShift_JIS で書き込みたい場合は文字コードを指定します。\n\nFile.Move(\"test.txt\", \"test2.txt\");\nFile.Copy(\"test.txt\", \"test2.txt\");\nFile.Move(), File.Copy() はファイルを移動/リネームまたはコピーする関数です。移動元、移動先の順で書きます。成否がtrue/falseで返ります。  \n移動先ではファイルを上書きするので注意してください。\n\nFile.Exists(\"test.txt\");  // 存在するか\nFile.IsFile(\"test.txt\");  // ファイルか\nFile.IsDirectory(\"test.txt\"); // フォルダか\nこれらの関数は指定したパスがフォルダ(ディレクトリ)もしくはファイルか、そもそも存在するかをtrue/falseで返します。\n\nFile.CreateDirectory(\"test/test\");\nFile.CreateDirectory() はフォルダを作ります。成否がtrue/falseで返ります。  \n指定したフォルダに親フォルダがない場合は、親フォルダも自動的につくります。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/13_01_File"
+    },
+    {
+      "id": "aosora:13_02_JsonSerializer",
+      "title": "unit.std.JsonSerializer",
+      "source": "aosora_wiki",
+      "category": "aosora_builtin",
+      "content": "unit.std.JsonSerializer\naosora のデータをjson文字列と相互に変換します。  \nセーブデータと同じ仕組みを使っているので、変換・復元できるかどうかはセーブデータと同じルールになります。\n\nlocal str = JsonSerializer.Serialize(obj);\nJsonSerializer.Serialize() は json文字列にaosoraのデータを変換します。  \njavascriptの JSON.stringify() に似ています。\n\nlocal obj = JsonSerializer.Deserialize(str);\nJsonSerializer.Deserialize() は json文字列をaosoraのデータに変換します。失敗するとnullを返します。  \njavascriptの JSON.parse() に似ています。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/13_02_JsonSerializer"
+    },
+    {
+      "id": "aosora:13_03_Regex",
+      "title": "unit.std.Regex",
+      "source": "aosora_wiki",
+      "category": "aosora_builtin",
+      "content": "unit.std.Regex\n「正規表現」によって文字列検索をする機能です。  \n\nRegex.IsMatch()\n最初の引数に検索対象の文字列を、２番目の引数に正規表現文字列を入力すると、検索対象の文字列内に正規表現にマッチする部分があるかどうかを判定して、一致が見つかった場合にtrue,しない場合はfalseを返します。  \n正規表現に完全一致をチェックしたい場合は、^と$の記号を使用して全体が先頭と末尾の条件をつけて使います。\n\nif(Regex.IsMatch(\"あいうえお\", \"^あいう\")){\n    // OK\n}\n\nRegex.Match()\n最初の引数に検索対象の文字列を、２番目の引数に正規表現文字列を入力すると、検索対象の文字列内に正規表現にマッチする部分があるかどうかを判定して、最初に見つかった一致に対応する「マッチ結果オブジェクト（下部参照）」連想配列を返します。  \n一致が１つも見つからなかった場合、null が返ります。\n\nlocal result = Regex.IsMatch(\"あいうえお\", \"^あいう\");\n見つかった場合に連想配列、見つからなかった場合はnullになるので、if文にいれて IsMatch() と同じ使い方も可能ですが、 IsMatch() は連想配列を返さない分ちょっとだけ環境にやさしいです。\n\nRegex.Matches()\nRegex.Match() の、結果を複数返す版です。  \n見つかったすべての一致に対して「マッチ結果オブジェクト(下部参照)」を作成し、それらを含めた線形配列を返します。\n\n一致が１つも見つからなかった場合は、空の配列が返ります。\n\nRegex.Replace()\n最初の引数に検索対象の文字列を、２番目の引数に正規表現文字列、３番目の引数に置換先の文字列を入力します。  \n検索対象内で正規表現にマッチした部分を、置換先の文字列ですべて置き換えます。\nlocal result = Regex.Replace(\"あいうえお\", \"^あいう\", \"aiu\");　// \"aiuえお\"\n\nRegex.ReplaceCapture()\n番号付きキャプチャグループの置換をします。\n最初の引数に検索対象の文字列を、２番目の引数に正規表現文字列、３番目の引数に置換先の文字列を入力します。  \nRegex.Replace() と異なり $1 などキャプチャグループを示す制御文字を使用してより複雑な置換ができます。\nlocal result = Regex.ReplaceCapture(\"あいうえお\", \"^(あ)(い)(う)\", \"$3$2$1\"); // \"ういあえお\"\n\nRegex.IsValid()\n引数に入力したパターン文字列が正規表現として適切かどうかを判定します。  \n適切な場合にtrue, そうでない場合はfalseが返ります。  \nこの関数以外の、引数に正規表現パターンを入力する関数では、パターンとして不適切な文字列が入力された場合エラーを発生させるので、必要に応じてこの関数で事前にチェックすることができます。\nRegex.IsValid(\"^abc\");  // true\n\nマッチ結果オブジェクト\n正規表現の判定結果のオブジェクトは、連想配列で、それぞれ次のような情報が格納されています。\n\nindex\n検索対象文字列内の、マッチした部分のインデックス。\n\nlength\nマッチした文字列の長さ。body.length と同じです。\n\nbody\nマッチした文字列。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/13_03_Regex"
+    },
+    {
+      "id": "aosora:14_VisualStudio_Code拡張",
+      "title": "VisualStudio Code 拡張",
+      "source": "aosora_wiki",
+      "category": "aosora_general",
+      "content": "VisualStudio Code 拡張\nVisualStudio Code(以下vscode)用の拡張機能も公開しています。あわせてどうぞ。  \nReleaseの \"vscode-extension.vsix\" をダウンロードして、vscodeの「拡張機能」サイドバーの上の方にある「･･･」をクリックし「VSIX からのインストール」からインストールできます。  \n今のところまだvscodeのmarketplaceでは公開していませんが、そのうち公開するかもしれません。\n\nできること\n* シンタックスハイライト(色分け）\n* エディタ上でのエラー検出\n* トークをゴーストに送信\n* デバッグ\n  * ゴーストのフォルダをvscodeで開いた状態で、.asファイルの編集画面で F5 を押し、 Aosora Debugger を選択すると起動します。\n\nバージョンについて\n原則としてvscode拡張と aosora.dll はできるだけバージョンをそろえて使うようにしてください。  \nvscode拡張にも aosora.dll 相当のものが組み込まれていて、いくつかの機能で使われているので挙動をあわせるためです。  \n\nある程度言語仕様がかたまってきているので多少バージョンが違っても動くと思いますが、うまくいかない場合はバージョンをあわせてみてください。\n\nシンタックスハイライト\n蒼空のキーワードなどを色分けして、見やすく表示します。  \n特に設定する必要はありません。\n\nエディタ上でのエラー検出\naosoraの構文エラーを、vscode上でゴーストを起動せずとも確認することができます。  \nエラー箇所は赤い波線で表示しています。\n\naosoraはファイルにエラーがあったらその時点でファイル解析が続行できなくなるので、表示されるエラーは1ファイルあたり最初の1つだけになります。  \nそのためエラーが表示されたらその場で修正した方が効率が良いです。\n\n処理できるのは構文エラーだけで、実行時エラーは実行するまでわからないので、ここでエラーが出てないからと言ってゴーストがエラーを起こさないわけではないことは注意。\n\nトークをゴーストに送信\nファイルスコープでfunctionまたはtalkが定義されている場合、「ゴーストに送信」と表示されるようになります。  \nクリックするとトークを送信できます。  \n\n右クリックメニューにもでてきます。\n\n引数なしで実行して、結果をゴーストに送信しています。  \n仕組み的には、里々の「さとりて」と同じです。\n\nデバッグ\nvscodeで蒼空のスクリプトをデバッグできます。  \nvscodeの機能はいろいろあるので詳しくは割愛しますが…\n\n* vscodeのエクスプローラービューでゴーストのフォルダが開かれている状態\n* SSPを起動してない状態\n* asファイルの編集画面\n\nで F5 を押し、出てきたリストで「Aosora Debugger」を選択するとゴーストを起動できます。\nasファイルの行番号の左をクリックすると赤い「ブレークポイント」を置けて、そこに処理が来るとその時点で処理を一旦停止して内部の状態を確認することができます。  \n（一時停止中、F5で再開）\n\nデフォルトのSSPのゴーストフォルダに入れてない場合や、ghost/master直下にaosora.dll を入れてない場合や、asproj側でSSPの場所を指定する必要があります。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/14_VisualStudio_Code%E6%8B%A1%E5%BC%B5"
+    },
+    {
+      "id": "aosora:15_エラーへの対処",
+      "title": "エラーが発生したときは",
+      "source": "aosora_wiki",
+      "category": "aosora_general",
+      "content": "エラーが発生したときは\n\nエラーが発生したときは、まずは、ゴースト上にエラーの説明が出る場合は、そちらで修正を試みてください。１ファイルに対して同時に発生するエラーは１個だけで、エラーが起きると解析がとまるので、１つずつ解消しては起動できるか確認する流れになります。\n\n蒼空は、スクリプトがすべて解釈できるかチェックしてから起動するので、呼び出されていないトークなどでエラーが起きることもあります。事前にできるだけ問題点を洗い出しておくことをよしとする考え方です。\n\nただ、あんまり細かくテストしているわけではないので\n\n* 正しいのにエラーになる\n* エラーなのにそのまま読み込まれた結果他の場所がおかしくなる\n* エラーの内容が間違っている\n* 本来と違うエラーが出る\n\nこういうことも起きると思います。そのときは、ぜひご相談ください。\n\n自分で調べてみるときには、vscodeの拡張機能によるデバッグが有効かもしれません。\n\nSSPが落ちたときは\n\nSSPがクラッシュした場合、原因は蒼空側にあると思って大丈夫です。スクリプトの記述に問題がある場合も一応クラッシュだけはしないようにするつもりなので、蒼空側で落ちないようにしたいところだと思ってください。\n\n変な動きをする、使いにくい\n\n普通にゴーストのトークを書いてるはずなのに、おかしな記法でなんとかしないといけないとか、仕様的におかしいのではといった点にお気付きの場合は、ぜひお知らせください。\n\nまた、御存知の通り発展途上のSHIORIなので、ちゃんと対応できていない箇所も多々あります。お困りなものなどあればご相談ください。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/15_%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%B8%E3%81%AE%E5%AF%BE%E5%87%A6"
+    },
+    {
+      "id": "aosora:16_試験的_非SAORIプラグイン",
+      "title": "非SAORI プラグイン",
+      "source": "aosora_wiki",
+      "category": "aosora_general",
+      "content": "非SAORI プラグイン\n> [!WARNING]\n> 現在この機能は試験実装で、意見募集中です。  \n> バージョンチェック機構が不完全かつ、互換性のない変更も予定されているため、十分注意して使ってください。  \n> バグ報告やご意見などは issue や直接ご連絡いただけると嬉しいです。\n\n蒼空には「SAORIではない」機能拡張(以下プラグイン)を提供する準備があります。  \n現在は試験実装であり、意見募集の段階ですが、試験実装を利用して動かすことが可能です。\n\n「非SAORI」とは\nSAORIではないことによる違いと恩恵について、下記のとおりです。  \n特に蒼空専用にしたことで蒼空のデータに幅広くアクセスすることができるメリットがあります。\n\n* 蒼空専用、ほかのSHIORIでは使用不可\n* 相互呼び出しが可能\n  * 蒼空の関数をプラグインから呼び出せる\n* ネイティブなデータ交換\n  * SAORIのようにいちど平文に変換されず、そのままのデータ型で扱える\n  * 連想配列や線形配列にもアクセス可能\n* テンプレートとラッパーライブラリがあってうれしい\n  * C++, Rust の実装があるので、すぐに作り始められます\n\nプラグインの使用方法\nPluginManager を使って相対パスでゴーストにプラグインDLLをロードできます。  \nロード関数は、プラグイン側の実装によってさまざまな結果を返すので、プラグインごとの使い方を参照します。\nplugin = PluginManager.Load(\"plugin_sample.dll\");\nplugin.TestFunction();\n\n実装方法\nC++ と Rust にラッパーライブラリとサンプルを用意しているので、サンプルとラッパーライブラリのコメントを参考に、さわってみてください。 \n\n共通の注意点\n* (SAORI同様ですが) SSPを巻き込んで落ちるため、キャッチしてないC++例外、Rustのパニック、その他メモリ違反などが呼び出し側に影響しないようにしてください\n* 文字列データはUTF-8で扱われます\n  * Rustはそのままでよく、C++はコンパイラオプションに /utf8 を指定する形で対応しています\n* 非同期処理には対応していません\n  * プラグインがスレッドを作ることを妨げるわけではないですが、蒼空との通信は、蒼空からプラグイン関数が呼び出されてから帰る前の間にそのスレッドでだけ行ってください\n\nC++ で作る\naosora-shiori.sln の aosora-plugin-sample プロジェクトが最小構成のサンプルです。  \n変更してビルドすることで、プラグインが作れます。\nビルドすると ssp/ghost/test/ghost/master に plugin_sample.dll が配置されるようになっています。\n\naosora-plugin-wrapper-cpp はプラグインをつくるためのラッパーライブラリで、プラグインプロジェクトはこれを参照しています。\n\naosorapluginget_version()\nこれはバージョンチェック関数で、プラグインを読み込むときに実行されます。必須の実装です。  \n実装通り、CheckBinaryCompatibility() が true を返したなら、VersionCheckOk() を呼び出してください。  \nif (!versionInfo.CheckBinaryCompatibility()) {\n    return;\n}\nversionInfo.VersionCheckOk();\n本来、versionInfoに蒼空のバージョンが通知されるので、CheckBinaryCompatibility() によるラッパーライブラリのチェックのあと、作者が任意にバージョンチェックを行うことを想定しています。\n\nVersionCheckOk() を呼び出さなければ蒼空はプラグインが非対応バージョンであると認識してプラグインのロードをとりやめます。\n\naosorapluginload()\nプラグインのバージョンチェックに成功し、蒼空がプラグインに起動を指示したときに呼び出されます。必須の実装です。  \nここで必要な情報を準備するとともに、プラグイン実体を示すオブジェクトを返すようにします。  \n\nサンプルではこのような処理を行っています。\nauto m = accessor.CreateMap(); // 1.\nm.MapSetValue(\"TestFunction\", accessor.CreateFunction(TestFunction)); // 2.\naccessor.SetReturnValue(m); // 3.\n\n1. 連想配列を作成します\n2. C++ 側で実装した関数から蒼空で呼び出せる関数オブジェクトを作成し、\"TestFunction\" というキーで連想配列に格納します。\n3. aosorapluginload() の実行結果として返すオブジェクトを SetReturnValue() で指定します。\n\n蒼空から見るとプラグインはこのように使います。\nplugin = PluginManager.Load(\"plugin_sample.dll\");\nplugin.TestFunction();\nTestFunction はプラグインが用意したC++側の関数につながっていて、呼び出すとプラグイン側の関数が呼び出されています。\n\nプラグインと蒼空のやりとりはすべて aosora::AosoraAccessor クラスで行います。  \nできることはこのクラスのコメントにまとめて書いてあるので、見てみてください。  \nまた、AosoraAccessor で作成した蒼空上のデータ（例だと関数や連想配列）は、明示的な破棄は必要ありません。  \n(スマートポインタとガベージコレクションによって自動的に破棄されます。)\n\nスマートポインタを抜いた raw実装も存在しています（AosoraAccessorはraw実装のラッパーという位置づけ）が、難易度は高いくメリットも微妙なので説明は省略します。\n\naosorapluginunload()\nサンプルに実装していなかったですが、プラグインが解放されるタイミングでこの関数があれば呼び出されます。  \n引数はありません。実装していなくても構いません。\n\nRust で作る\n> [!NOTE]\n> 開発者は Rust の初心者です。むずかしいね！\n\naosora-plugin-rust-sample フォルダが、最小構成のプラグインサンプルです。  \nbuild.bat を実行するとビルドできます。(Cargo でビルドして、サンプルゴーストのフォルダにコピーしています)\n\naosorapluginget_version()\nこれはバージョンチェック関数で、プラグインを読み込むときに実行されます。必須の実装です。  \n実装通り、checkbinarycompatibility() が true を返したなら、versioncheckok() を呼び出してください。  \n\n// aosora plugin バージョンチェック\n#[no_mangle]\npub extern \"C\" fn aosora_plugin_get_version(version_info: aosora::PluginVersionInfo) {\n\tif version_info.check_binary_compatibility() {\n\t\tversion_info.version_check_ok();\n\t}\n}\n本来、versioninfoに蒼空のバージョンが通知されるので、checkbinary_compatibility() によるラッパーライブラリのチェックのあと、作者が任意にバージョンチェックを行うことを想定しています。\n\nversioncheckok() を呼び出さなければ蒼空はプラグインが非対応バージョンであると認識してプラグインのロードをとりやめます。\n\naosorapluginload()\nプラグインのバージョンチェックに成功し、蒼空がプラグインに起動を指示したときに呼び出されます。必須の実装です。  \nここで必要な情報を準備するとともに、プラグイン実体を示すオブジェクトを返すようにします。  \n\nサンプルではこのような処理を行っています。\naccessor.proc(|| {  // 1.\n\t\tlet map = accessor.create_map();    // 2. \n\t\tmap.set_value_with_string_key(\"TestFunction\", &accessor.create_function(None, test_function))?; // 3.\n\n\t\treturn Ok(Some(map));   // 4/\n\t});\n\n1. proc() で処理をラップします。Result&lt;T&gt;で返した結果を蒼空に渡すラッパーです。中身を見ればわかりますが、無理に使わない方法もあります\n2. 連想配列を作成します\n2. Rust 側で実装した関数から蒼空で呼び出せる関数オブジェクトを作成し、\"TestFunction\" というキーで連想配列に格納します。\n3. aosorapluginload() の実行結果として返すオブジェクトをResult形式で返却します。\n\n蒼空から見るとプラグインはこのように使います。\nplugin = PluginManager.Load(\"plugin_sample.dll\");\nplugin.TestFunction();\nTestFunction はプラグインが用意したRust側の関数につながっていて、呼び出すとプラグイン側の関数が呼び出されています。\n\nプラグインと蒼空のやりとりはすべて aosora::AosoraAccessor クラスで行います。  \nできることはこのクラスのコメントにまとめて書いてあるので、見てみてください。  \nまた、AosoraAccessor で作成した蒼空上のデータ（例だと関数や連想配列）は、明示的な破棄は必要ありません。  \n(Rustのオブジェクト管理と蒼空のガベージコレクションによって自動的に破棄されます。)\n\nスマートポインタを抜いた raw実装も存在しています（AosoraAccessorはraw実装のラッパーという位置づけ）が、難易度は高いくメリットも微妙なので説明は省略します。",
+      "url": "https://github.com/kanadelab/aosora-shiori/wiki/16_%E8%A9%A6%E9%A8%93%E7%9A%84_%E9%9D%9ESAORI%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3"
     }
   ]
 }

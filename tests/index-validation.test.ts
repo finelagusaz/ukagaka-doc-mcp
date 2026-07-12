@@ -75,4 +75,23 @@ describe('index-validation', () => {
     expect(result.indexFile.entries).toHaveLength(1);
     expect(result.indexFile.entries[0].id).toBe('known');
   });
+
+  it('aosora_wiki ソースのエントリを受理する', () => {
+    const { indexFile } = parseAndValidateIndexFile(JSON.stringify({
+      version: 1,
+      generatedAt: '2026-07-12T00:00:00.000Z',
+      entries: [
+        {
+          id: 'aosora:04_04_変数',
+          title: '変数',
+          source: 'aosora_wiki',
+          category: 'aosora_grammar',
+          content: 'ローカル変数とグローバル変数',
+          url: 'https://github.com/kanadelab/aosora-shiori/wiki/04_04_%E5%A4%89%E6%95%B0',
+        },
+      ],
+    }));
+    expect(indexFile.entries).toHaveLength(1);
+    expect(indexFile.entries[0].source).toBe('aosora_wiki');
+  });
 });

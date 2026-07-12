@@ -18,11 +18,12 @@
 
 ### 3.1 対象ソース
 
-本サーバーは以下の3ソースのみを対象とする。
+本サーバーは以下の4ソースのみを対象とする。
 
 1. UKADOC (`docs/ukadoc/manual/`)
 2. YAYA Wiki (`https://emily.shillest.net/ayaya/`)
 3. 里々Wiki (`https://soliton.sub.jp/satori/`)
+4. 蒼空 Wiki (`https://github.com/kanadelab/aosora-shiori/wiki`)
 
 ### 3.2 非スコープ
 
@@ -42,7 +43,8 @@
 1. UKADOC をローカルHTMLからパースする
 2. YAYA Wiki をHTTP取得してパースする
 3. 里々Wiki をHTTP取得してパースする
-4. 3ソースを統合して `data/index.json` を生成する
+4. 蒼空 Wiki をGitHub Wiki取得してパースする
+5. 4ソースを統合して `data/index.json` を生成する
 
 ### 4.2 ランタイム
 
@@ -58,7 +60,7 @@
 ### 5.1 Source
 
 ```ts
-type Source = 'ukadoc' | 'yaya_wiki' | 'satori_wiki';
+type Source = 'ukadoc' | 'yaya_wiki' | 'satori_wiki' | 'aosora_wiki';
 ```
 
 ### 5.2 Category
@@ -268,7 +270,7 @@ Wikiリンクは取得前に正規化しなければならない。
 
 `npm run build:index` は、以下をすべて満たしたときのみ成功してよい。
 
-- 必須3ソースの取得・パースが完了している
+- 必須4ソースの取得・パースが完了している
 - 重複 `id` が存在しない
 - 無効ページが含まれていない
 - 各ソースが空でない
@@ -292,7 +294,7 @@ Wikiリンクは取得前に正規化しなければならない。
 
 ### 9.4 部分成功の禁止
 
-- UKADOC だけ成功、YAYA/里々失敗のような部分成功を正規成果物として出力してはならない
+- UKADOC だけ成功、YAYA/里々/蒼空失敗のような部分成功を正規成果物として出力してはならない
 - ビルドは fail-open ではなく fail-closed でなければならない
 
 ## 10. ランタイム仕様

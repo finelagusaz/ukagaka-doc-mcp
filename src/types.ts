@@ -2,10 +2,10 @@
 // 共通型定義
 // ============================================================
 
-import type { CATEGORIES } from './constants.js';
+import type { CATEGORIES, SOURCE_VALUES } from './constants.js';
 
-// ソース種別
-export type Source = 'ukadoc' | 'yaya_wiki' | 'satori_wiki';
+// ソース種別（constants.ts の SOURCE_VALUES から派生）
+export type Source = (typeof SOURCE_VALUES)[number];
 
 // カテゴリID（CATEGORIES定数のキー）
 export type Category = keyof typeof CATEGORIES;
@@ -23,6 +23,7 @@ export interface DocEntry {
    * - ukadoc: `ukadoc:{filename}:{section_anchor}`
    * - yaya_wiki: `yaya:{page_path}` (URLデコード済み日本語パス)
    * - satori_wiki: `satori:{page_name}` (URLデコード済み)
+   * - aosora_wiki: `aosora:{ファイルstem}` (例: aosora:04_04_変数)
    */
   id: string;
   title: string;
