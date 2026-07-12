@@ -35,11 +35,23 @@ const validEntries: DocEntry[] = [
     content: 'c',
     url: 'https://example.com/c',
   },
+  {
+    id: 'aosora:04_04_変数',
+    title: '変数',
+    source: 'aosora_wiki',
+    category: 'aosora_grammar',
+    content: 'd',
+    url: 'https://example.com/d',
+  },
 ];
 
 describe('index-builder', () => {
   it('必須ソースが欠けるとビルド失敗する', () => {
     expect(() => buildIndexFile(validEntries.slice(0, 2))).toThrow(/Missing entries for required source: satori_wiki/);
+  });
+
+  it('aosora_wiki が欠けるとビルド失敗する', () => {
+    expect(() => buildIndexFile(validEntries.slice(0, 3))).toThrow(/Missing entries for required source: aosora_wiki/);
   });
 
   it('重複 id があるとビルド失敗する', () => {
@@ -82,7 +94,7 @@ describe('index-builder', () => {
     writeIndexAtomically(outputPath, indexFile);
 
     const written = JSON.parse(readFileSync(outputPath, 'utf-8'));
-    expect(written.entries).toHaveLength(3);
+    expect(written.entries).toHaveLength(4);
     expect(written.generatedAt).toBe('2026-04-03T00:00:00.000Z');
   });
 });
