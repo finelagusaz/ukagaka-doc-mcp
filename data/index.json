@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-27T04:32:40.913Z",
+  "generatedAt": "2026-08-03T04:30:50.595Z",
   "entries": [
     {
       "id": "ukadoc:descript_balloon:charset_2c_6587_5b57_30b3_30fc_30c9:1",
@@ -13319,7 +13319,7 @@
       "title": "UKADOC Project 全体の構成",
       "source": "ukadoc",
       "category": "file_structure",
-      "content": "全体の構成 ゴーストとシェル ゴーストの構成ファイルは、ベースウェア(SSP,materiaなど)のゴースト格納フォルダに配置される。 全てのゴーストは必ずひとつのmasterゴーストとmasterシェルを持つ必要がある。 シェルの立場から見ると、全てのシェルは必ずいずれか一つのゴーストに所属している。 従って両者のファイル構成は、下記のようにシェルがゴーストに含まれる形になる。 +-(myghost) +-ghost +-master +-descript.txt +-shiori.dll +-makoto.dll +-updates2.dau +-*.ico +-*.cur +-shell +-master +-descript.txt +-surface*.png +-surface*.pna +-(element).png +-(element).pna +-surfaces.txt +-makoto.dll (必要な時のみ) +-menu_background.png +-menu_foreground.png +-menu_sidebar.png +-readme.txt (必要な時のみ) +-thumbnail.png +-surfaces**.txt (SSPのみ） +-surfacetable.txt (必要な時のみ)(SSPのみ) +-alias.txt (必要な時のみ)(旧仕様） +-(additional_shell) +-delete.txt (必要な時のみ) +-delete1.txt (delete[数字].txtも追加で認識できる) +-developer_options.txt (必要な時のみ)(SSPのみ) +-.narignore (必要な時のみ)(SSPのみ) +-.updateignore (必要な時のみ)(SSPのみ) +-.narinclude (必要な時のみ)(SSPのみ) +-.updateinclude (必要な時のみ)(SSPのみ) +-readme.txt (必要な時のみ) +-terms.txt (必要な時のみ) +-thumbnail.png バルーン バルーンはゴーストごとでなく、一つのベースウェアの元に統括的に管理され、全ゴーストで共有される。 各バルーン構成ファイルはベースウェアのバルーン格納フォルダ以下に、下記のような形で配置される。 +-(myballoon) +-descript.txt +-balloons*s.txt +-balloonk*s.txt +-readme.txt (必要な時のみ) +-terms.txt (必要な時のみ) +-balloons*.png +-balloonk*.png +-balloons*.pna （MATERIA不可） +-balloonk*.pna （MATERIA不可） +-balloonc*.png +-online*.png +-sstp.png +-arrow*.png +-thumbnail.png +-ok_down.png/ok_up.png （SSPのみ） +-cancel_down.png/cancel_up.png （SSPのみ） +-mode_down.png/mode_up.png （SSPのみ） +-sstp_new.png （SSPのみ） +-marker.png （SSPのみ） +-delete.txt (SSPのみ・必要な時のみ) +-delete1.txt (delete[数字].txtも追加で認識できる) (myghost)\\ 各ゴーストホームディレクトリ（ルートフォルダ）。 フォルダ名称は英数推奨。 (myghost)\\ghost\\ ゴーストの内部動作用ファイルのフォルダ。 (myghost)\\ghost\\master\\ ゴーストのデフォルトで使用されるフォルダ。 現在はmasterしか使用されない（過去の設計の名残）。 ゴーストフォルダ内のファイル構成の詳細は「ゴースト」のページへ。 makoto.dllについては「トランスレータ」のページへ。 (myghost)\\shell\\ ゴーストのシェル（グラフィック表示用ファイル群）のフォルダを格納するフォルダ。 (myghost)\\shell\\master\\ デフォルトシェルのフォルダ。必須。 (myghost)\\shell\\(additional_shell)\\ 追加シェルのフォルダ。任意名（英数字推奨）。ファイル構成はmasterと同じ。 いくつでも存在できる。存在するとオーナードローメニューなどから切替選択できる。 シェルフォルダ内のファイル構成の詳細は「シェル」のページへ。 menu_background.png、menu_foreground.png、menu_sidebar.pngについては「オーナードローメニュー」のページへ。 makoto.dllについては「トランスレータ」のページへ。 (myghost)\\delete.txt ファイルの削除設定ファイル。 詳細はリンク先を参照。 省略可能。 (myghost)\\developer_options.txt SSP専用。narおよび更新ファイル作成機能の設定ファイル。 詳細はリンク先を参照。 省略可能。 (myghost)\\readme.txt ゴースト全体のreadme。 配布者や配布元など明記するのが一般的。 1行目にcharset,UTF-8と書いておくか、BOMを含んでおけばShift JIS以外も使える。 インストール時に開かれるほか、オーナードローメニューなどからも開ける。 省略可能だが存在するのが望ましい。 (myghost)\\terms.txt 利用条件表示。NAR/ZIPファイルのインストール前にこの内容を表示するダイアログが出る。 インストールを中断してダイアログ表示するので、どうしても必要な場合のみ入れること。 readmeと同じく、1行目にcharset,UTF-8と書いておくか、BOMを含んでおけばShift JIS以外も使える。 省略可能、かつ不要なら省略することが望ましい。 (myghost)\\thumbnail.png メニューツリーでゴーストの選択時に表示されるサムネイル。 使用可能な画像形式はpngもしくはjpg。 pngをpnrにリネームすると画像左上の1ドット(座標0,0)と同色が透過される。 省略可能。 (myballoon)\\ 各バルーンホームディレクトリ（ルートフォルダ）。 フォルダ名称は英数推奨。 バルーンフォルダ内のファイル構成の詳細は「バルーン」のページへ。 管理者 : UKADOC Project",
+      "content": "全体の構成 ゴーストとシェル ゴーストの構成ファイルは、ベースウェア(SSP,materiaなど)のゴースト格納フォルダに配置される。 全てのゴーストは必ずひとつのmasterゴーストとmasterシェルを持つ必要がある。 シェルの立場から見ると、全てのシェルは必ずいずれか一つのゴーストに所属している。 従って両者のファイル構成は、下記のようにシェルがゴーストに含まれる形になる。 +-(myghost) +-ghost +-master +-descript.txt +-shiori.dll +-makoto.dll +-updates2.dau +-*.ico +-*.cur +-shell +-master +-descript.txt +-surface*.png +-surface*.pna +-(element).png +-(element).pna +-surfaces.txt +-makoto.dll (必要な時のみ) +-menu_background.png +-menu_foreground.png +-menu_sidebar.png +-readme.txt (必要な時のみ) +-thumbnail.png +-surfaces**.txt (SSPのみ） +-surfacetable.txt (必要な時のみ)(SSPのみ) +-alias.txt (必要な時のみ)(旧仕様） +-(additional_shell) +-delete.txt (必要な時のみ) +-delete1.txt (delete[数字].txtも追加で認識できる) +-developer_options.txt (必要な時のみ)(SSPのみ) +-.narignore (必要な時のみ)(SSPのみ) +-.updateignore (必要な時のみ)(SSPのみ) +-.narinclude (必要な時のみ)(SSPのみ) +-.updateinclude (必要な時のみ)(SSPのみ) +-readme.txt または readme.md (必要な時のみ) +-terms.txt または terms.md (必要な時のみ) +-thumbnail.png バルーン バルーンはゴーストごとでなく、一つのベースウェアの元に統括的に管理され、全ゴーストで共有される。 各バルーン構成ファイルはベースウェアのバルーン格納フォルダ以下に、下記のような形で配置される。 +-(myballoon) +-descript.txt +-balloons*s.txt +-balloonk*s.txt +-readme.txt または readme.md (必要な時のみ) +-terms.txt または terms.md (必要な時のみ) +-balloons*.png +-balloonk*.png +-balloons*.pna （MATERIA不可） +-balloonk*.pna （MATERIA不可） +-balloonc*.png +-online*.png +-sstp.png +-arrow*.png +-thumbnail.png +-ok_down.png/ok_up.png （SSPのみ） +-cancel_down.png/cancel_up.png （SSPのみ） +-mode_down.png/mode_up.png （SSPのみ） +-sstp_new.png （SSPのみ） +-marker.png （SSPのみ） +-delete.txt (SSPのみ・必要な時のみ) +-delete1.txt (delete[数字].txtも追加で認識できる) (myghost)\\ 各ゴーストホームディレクトリ（ルートフォルダ）。 フォルダ名称は英数推奨。 (myghost)\\ghost\\ ゴーストの内部動作用ファイルのフォルダ。 (myghost)\\ghost\\master\\ ゴーストのデフォルトで使用されるフォルダ。 現在はmasterしか使用されない（過去の設計の名残）。 ゴーストフォルダ内のファイル構成の詳細は「ゴースト」のページへ。 makoto.dllについては「トランスレータ」のページへ。 (myghost)\\shell\\ ゴーストのシェル（グラフィック表示用ファイル群）のフォルダを格納するフォルダ。 (myghost)\\shell\\master\\ デフォルトシェルのフォルダ。必須。 (myghost)\\shell\\(additional_shell)\\ 追加シェルのフォルダ。任意名（英数字推奨）。ファイル構成はmasterと同じ。 いくつでも存在できる。存在するとオーナードローメニューなどから切替選択できる。 シェルフォルダ内のファイル構成の詳細は「シェル」のページへ。 menu_background.png、menu_foreground.png、menu_sidebar.pngについては「オーナードローメニュー」のページへ。 makoto.dllについては「トランスレータ」のページへ。 (myghost)\\delete.txt ファイルの削除設定ファイル。 詳細はリンク先を参照。 省略可能。 (myghost)\\developer_options.txt SSP専用。narおよび更新ファイル作成機能の設定ファイル。 詳細はリンク先を参照。 省略可能。 (myghost)\\readme.txt または readme.md ゴースト全体のreadme。 配布者や配布元など明記するのが一般的。 1行目にcharset,UTF-8と書いておくか、BOMを含んでおけばShift JIS以外も使える。 インストール時に開かれるほか、オーナードローメニューなどからも開ける。 省略可能だが存在するのが望ましい。 readme.txtの代わりにreadme.mdを使用することができ、その場合はMarkdown形式を解釈して文字サイズや表などの装飾つきで表示される。 画像埋込 \\![画像説明](画像パス) も解釈できるが、画像パスが相対パスで、ゴーストの中に実際にファイルが存在し、かつPNGかJPEGの場合のみ利用可能となる。 (myghost)\\terms.txt または terms.md 利用条件表示。NAR/ZIPファイルのインストール前にこの内容を表示するダイアログが出る。 インストールを中断してダイアログ表示するので、どうしても必要な場合のみ入れること。 readmeと同じく、1行目にcharset,UTF-8と書いておくか、BOMを含んでおけばShift JIS以外も使える。 省略可能、かつ不要なら省略することが望ましい。 readme.mdと同じ条件でterms.mdも利用可能。 (myghost)\\thumbnail.png メニューツリーでゴーストの選択時に表示されるサムネイル。 使用可能な画像形式はpngもしくはjpg。 pngをpnrにリネームすると画像左上の1ドット(座標0,0)と同色が透過される。 省略可能。 (myballoon)\\ 各バルーンホームディレクトリ（ルートフォルダ）。 フォルダ名称は英数推奨。 バルーンフォルダ内のファイル構成の詳細は「バルーン」のページへ。 管理者 : UKADOC Project",
       "url": "https://ssp.shillest.net/ukadoc/manual/manual_directory.html"
     },
     {
@@ -21103,8 +21103,16 @@
       "title": "ランダムトーク - 次に喋るトークを予約する",
       "source": "satori_wiki",
       "category": "satori_tips",
-      "content": "次に喋るトークを予約する\n変数『＄次のトーク』を使うことにより、次に喋るトークを予約することができます。\n＊\n：トラックにかぼちゃ、なす、トマトが乗っています。\n急カーブで落ちたのはどれ？\n：えーと……。\n＄次のトーク【タブ】答え\n＊答え\nうーむ、わからん。\n：答えは「スピード」でした。\nざんねーん。\nジャンプ先が複数指定してある場合、ランダムにどれか一つが選ばれます。\n予約トーク（【タブ】の後ろの文字）は、数字のみでの指定は避けた方が無難です。\nランダムトークを連鎖させるだけではなく、初回起動後のチュートリアルトークを喋らせたり、新しく追加されたトークを優先して喋らせたりなど、応用範囲の広い技です。\n＊\n：あの歌手の名前、なんだっけなー。\n：どんな歌手だ？\n：えーと、変な顔。\n：それだけじゃわからん・・・\n＄次から３回目のトーク【タブ】歌手の名前\n＊歌手の名前\n：あ、さっきの思い出したよ！\n（変な顔の歌手）だ！\n：よかったな。\nしばらくたってから思い出したようにしゃべります。\n＄次から（乱数２～５）回目のトーク【タブ】歌手の名前\nとすれば、2回目から5回目の間のいつかしゃべります。\n同じ回に重ねて指定したときは、後から指定した方が次に持ち越されます。\nタイマ同様、途中であった場合はセーブデータに保存され、次回起動時に連なります。\n持ち越したくない場合は↓を使ってくらはい。\n一つずつ消す場合。\n＄トーク予約のキャンセル【タブ】犬を拾った話の続き\n全部消す場合。\n＄トーク予約のキャンセル【タブ】＊\n予約トーク関連の情報取得。\n（予約トーク数）\nそのまま。予約されているトーク数を返します。\n（次からｎ回目のトーク）\nｎに数値。その回に予約されたトークがあればトーク名を返します。無ければ何も返しません。\n（トーク「～～」の予約有無）\n「～～」という名前のトークが予約されていれば1を、さもなくば0を返します。",
+      "content": "次に喋るトークを予約する\n変数『＄次のトーク』を使うことにより、次に喋るトークを予約することができます。\n＊\n：トラックにかぼちゃ、なす、トマトが乗っています。\n急カーブで落ちたのはどれ？\n：えーと……。\n＄次のトーク【タブ】答え\n＊答え\nうーむ、わからん。\n：答えは「スピード」でした。\nざんねーん。\nジャンプ先が複数指定してある場合、ランダムにどれか一つが選ばれます。\n予約トーク（【タブ】の後ろの文字）は、数字のみでの指定は避けた方が無難です。\nランダムトークを連鎖させるだけではなく、初回起動後のチュートリアルトークを喋らせたり、新しく追加されたトークを優先して喋らせたりなど、応用範囲の広い技です。\n＊\n：あの歌手の名前、なんだっけなー。\n：どんな歌手だ？\n：えーと、変な顔。\n：それだけじゃわからん・・・\n＄次から３回目のトーク【タブ】歌手の名前\n＊歌手の名前\n：あ、さっきの思い出したよ！\n（変な顔の歌手）だ！\n：よかったな。\nしばらくたってから思い出したようにしゃべります。\n＄次から（乱数２～５）回目のトーク【タブ】歌手の名前\nとすれば、2回目から5回目の間のいつかしゃべります。\n同じ回に重ねて指定したときは、後から指定した方が次に持ち越されます。\nタイマ同様、途中であった場合はセーブデータに保存され、次回起動時に連なります。\n持ち越したくない場合は↓を使ってくらはい。\n一つずつ消す場合。\n＄トーク予約のキャンセル【タブ】犬を拾った話の続き\n全部消す場合。\n＄トーク予約のキャンセル【タブ】＊\n予約トーク関連の情報取得。\n（予約トーク数）\nそのまま。予約されているトーク数を返します。\n（次からｎ回目のトーク）\nｎに数値。その回に予約されたトークがあればトーク名を返します。無ければ何も返しません。\n（トーク「～～」の予約有無）\n「～～」という名前のトークが予約されていれば1を、さもなくば0を返します。\n↑",
       "url": "https://soliton.sub.jp/satori/?%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E3%83%88%E3%83%BC%E3%82%AF#na636332"
+    },
+    {
+      "id": "satori:ランダムトーク#i37004dc",
+      "title": "ランダムトーク - ランダムトークの処理を自作する",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "ランダムトークの処理を自作する\n里々は基本システムとしてランダムトークを実装しており、しかもその仕様が優秀なため、ふつうはわざわざ小難しいロジックを自分で組む必要はありません。\nここではなんらかの都合で、自力で組みたい人向けのスクリプトを紹介します。\nSSP専用のSHIORIヘッダの（Status）を使います。\nロジックそのものは非常に簡素です。\n実現のために OnSecondChange イベントを使います。\n＠トーク間隔\n60\n＊OnSecondChange\n＄ＴＣ＝（ＴＣ）＋１\n＞トーク発話【タブ】（count、（Status）、talking）==0&&（count、（Status）、balloon）==0&&（トーク間隔）>0&&（ＴＣ）>=（トーク間隔）\n\n＊トーク発話\n＄ＴＣ【タブ】０\n＞\nジャンプ条件の前提として、（Status）にtalkingまたはballoonがあるかどうかをチェックしています。\nこれは、「現在トークをしている最中か」「バルーンが表示されている状態か」を判定します。\n使用している変数の解説\nＴＣ\n1秒毎に1ずつ加算されます。\nトーク間隔\n里々が搭載しているランダムトークの喋り間隔の代用に用いる変数です。この変数を使ってトークの頻度を制御するのですから、当然、喋り間隔は常に０秒に設定し無効化しておきます。\n注意点としては、この変数は「○○秒」のように指定せず、「数値だけ」を入力する必要があります。\n1秒に1ずつ加算されていく（ＴＣ）が、（トーク間隔）超えたとき、ランダムトークを実行します。（ＴＣ）も0に戻ります。\nさらに高度に設計する場合、トーク間隔の誤差を追加した閾値を組み込むといった方法も考えられます。",
+      "url": "https://soliton.sub.jp/satori/?%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E3%83%88%E3%83%BC%E3%82%AF#i37004dc"
     },
     {
       "id": "satori:マウス反応#ga59f12c",
@@ -23123,6 +23131,14 @@
       "url": "https://soliton.sub.jp/satori/?SAORI%2F%E8%8F%AF%E5%92%8C%E6%A2%A8#q08bf3f8"
     },
     {
+      "id": "satori:ランダムトークを自分で組む#l865584f",
+      "title": "ランダムトークを自分で組む - ランダムトークを自分で組む",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "ランダムトークを自分で組む\n内容の修正を行いランダムトークのページに移設しました。",
+      "url": "https://soliton.sub.jp/satori/?%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E3%83%88%E3%83%BC%E3%82%AF%E3%82%92%E8%87%AA%E5%88%86%E3%81%A7%E7%B5%84%E3%82%80#l865584f"
+    },
+    {
       "id": "satori:プロパティシステム#y69659b8",
       "title": "プロパティシステム - 注意点",
       "source": "satori_wiki",
@@ -23387,142 +23403,6 @@
       "url": "https://soliton.sub.jp/satori/?%E5%A4%96%E9%83%A8%E9%96%A2%E6%95%B0%2FSAORI#u7dc7b4e"
     },
     {
-      "id": "satori:初めての人へ#r7d6ee67",
-      "title": "初めての人へ - 里々とは",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "里々とは\n櫛ケ浜やぎ氏が開発した栞(SHIORI)の一つで、辞書の記述のシンプルさが特徴です。\n本体は以下のサイトで配布されています。\n里々改修用プロジェクト（整備班）\n里々ダウンロードリスト\nまた、本wikiではこの里々を搭載したテンプレートゴーストRポストと狛犬が公開されています。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#r7d6ee67"
-    },
-    {
-      "id": "satori:初めての人へ#r0b6b192",
-      "title": "初めての人へ - ページ案内",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "ページ案内\n↑\n初めてゴーストを作る場合†\n簡単な作り方はゴースト３分クッキングへ。\n上記のページではテンプレートを改造しての作り方で説明されている。\nまずはテンプレートゴースト「Rポストと狛犬」を動かしながら、辞書を覗いて書き方を参考にしてみよう。\nファイル構成、特殊記号一覧のページが基本のマニュアルに近い。\nあとはTIPS総合のページ内にある基礎TIPSや応用TIPSに進むといいだろう。\n↑\nゴーストを作った経験がある場合†\n仕様をある程度把握していて、「里々って一体何？他の栞とどう違うの？」という方は、栞としての里々へ。\n続いて、ファイル構成、特殊記号一覧といった資料系のページ、里々の内部処理についてなど里々独自の挙動が記されたページへ進むのがおすすめ。\n↑\n必要な情報を探したい†\nこのwikiではほとんど全てのページが左メニューか、TIPS総合に収められているので、そこから探そう。\n探したいキーワードがある場合、単語検索を使おう。\n外部にある情報も探したい場合、ukatec（外部サイト）を見てみよう。\nこのwikiでは一部しか扱わない「さくらスクリプト」や「SHIORIイベント」については、\nukadoc（外部サイト、SSP仕様書）に一覧がまとまっている。\nさくらスクリプト\nSSPの開発者機能にある「スクリプト入力」で出現するsendboxに、ukadocの「記述例」をコピペして動作を見てみよう。\n開発者機能は初期状態では使えない。\nゴースト上で右クリック→設定→本体設定→「設定」タブ→「開発者用機能を有効にする」で使えるようになる。\n上記有効後、右クリック→機能→開発用パレット→「スクリプト入力」ボタンでsendbox表示。\nSHIORIイベント\nイベントとリファレンスのページを読んでみよう。\n↑\nバグった時は†\n困ったときの対処法に該当するものがあれば読もう。\nなければ単語検索をかけてみよう。\nそれで見つからなければ「伺的なフォーラム」の「里々での開発相談」に質問をしてみよう。\nリンク先上部に記述されている共有アカウントでログインしないと書き込めない点に注意。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#r0b6b192"
-    },
-    {
-      "id": "satori:初めての人へ#r4bb0868",
-      "title": "初めての人へ - 左側メニューのページの概説",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "左側メニューのページの概説\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#r4bb0868"
-    },
-    {
-      "id": "satori:初めての人へ#pe1585e0",
-      "title": "初めての人へ - 初心者向け",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "初心者向け\n初めての人へ\nこのページ。\nゴースト３分クッキング\nゴーストの作り方、流れをざっくりと説明しています。\n少し詳しい調理方法\n↑に続く、少しだけ詳しく踏み込んだページ。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#pe1585e0"
-    },
-    {
-      "id": "satori:初めての人へ#m524bdcb",
-      "title": "初めての人へ - 里々テンプレート",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "里々テンプレート\nRポストと狛犬\n里々のテンプレートゴーストを配布している場所です。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#m524bdcb"
-    },
-    {
-      "id": "satori:初めての人へ#t5ea0250",
-      "title": "初めての人へ - 基本事項",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "基本事項\nTIPS総合\nメニューにあるもの以外は全てこのページに収められています。\nまた、新規に記事を書いたら、この中に適宜追加して下さい。\n困ったときの対処法\nよくある問題への対処法をまとめています。トラブルシューティング。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#t5ea0250"
-    },
-    {
-      "id": "satori:初めての人へ#ma1808d6",
-      "title": "初めての人へ - 各種資料",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "各種資料\nファイル構成\n里々のファイル構成についてのページです。\n里々だけでなく、ゴーストとして配布するのに必要なファイルも含めて解説しています。\n特殊記号一覧\n記号は、里々のゴーストの中核となる辞書を書く上での基本ルールです。\nこのページでは特殊記号の種類とその特性を解説しています。\n演算子一覧\n使用可能な演算子の解説です。\n里々ではよくある四則演算から比較演算まで使えます。\n独自イベント\nベースウェアの通知する一般的なイベントとは異なる、里々が独自に実装している特殊なイベントについて解説しています。\n変数・関数の手引き\n変数\n変数の基礎知識についてのページです。\n情報取得変数\n現在時刻など、辞書上で記述することで参照できる情報を一覧化しています。\n特殊変数\n変数と同じように扱いますが、変数とは実体の異なるものをまとめています。\n内部設定の変更や、特殊な命令を実行させるタイプの二通りで構成されます。\n関数\n関数の基礎知識についてのページです。\n内部関数\n里々が基本実装している関数の一覧です。\n外部関数/ssu\n里々が標準で同梱しているssuについてのページです。\nssuは計算や条件分岐、比較や文字列切り出しなどの機能を里々に提供します。\nユーザー関数\ncall関数を用いたユーザ関数の作り方・使い方のページです。\n統合関数一覧\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#ma1808d6"
-    },
-    {
-      "id": "satori:初めての人へ#m6d3f5d3",
-      "title": "初めての人へ - 伺か本体関連仕様",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "伺か本体関連仕様\n栞としての里々\n里々を栞の側面から見た場合の解説です。\nある程度の仕様を把握している人向けのページです。\n里々の内部処理について\n里々が内部で行っている特殊な処理についてのページです。\n里々で複雑な動作をさせる際、注意が必要になります。\nイベント\nゴーストの基本となる、ベースウェアとのイベントのやり取りについて解説しています。\nリファレンス\nイベントに付随する情報の一つであるリファレンスについての解説です。\nSAORI\n里々でSAORIを使いたい時の解説ページです。\nプロパティシステム\nベースウェア「SSP」に実装された、スクリプトによる情報取得方法についてのページです。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#m6d3f5d3"
-    },
-    {
-      "id": "satori:初めての人へ#m73e980f",
-      "title": "初めての人へ - 里々とは？",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "里々とは？\nSHIORIの一つ。簡単で使いやすいのが特徴。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#m73e980f"
-    },
-    {
-      "id": "satori:初めての人へ#j5bbf885",
-      "title": "初めての人へ - SHIORI（栞, しおり）ってなに？",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "SHIORI（栞, しおり）ってなに？\n伺かゴーストの心臓部。\n主に辞書ファイルを読み込んで、ベースウェアとゴーストを仲介するdllのこと。*1\n里々は satori.dll が本体。\n代表的なSHIORIでは、他に「文」や「華和梨」がある。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#j5bbf885"
-    },
-    {
-      "id": "satori:初めての人へ#p2af3a1f",
-      "title": "初めての人へ - 伺かってなに？",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "伺かってなに？\nデスクトップマスコットの一つ、ベースウェア「materia」のこと。\n現在では、これを元に派生したコミュニティ全体を指す用語になっている。\n以下のサイトが詳しい。\nWikipedia https://ja.wikipedia.org/wiki/%E4%BC%BA%E3%81%8B\nニコニコ大百科 http://dic.nicovideo.jp/a/%E4%BC%BA%E3%81%8B\nPixiv百科事典 http://dic.pixiv.net/a/%E4%BC%BA%E3%81%8B\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#p2af3a1f"
-    },
-    {
-      "id": "satori:初めての人へ#e80bdf93",
-      "title": "初めての人へ - ゴーストってなに？",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "ゴーストってなに？\nキャラクターのこと。中身はゴースト（喋りとか）とシェル（見かけ）に分かれる。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#e80bdf93"
-    },
-    {
-      "id": "satori:初めての人へ#bf4de2dc",
-      "title": "初めての人へ - ベースウェアってなに？",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "ベースウェアってなに？\nゴーストを使うソフトウェアのこと。\nゴーストが音楽ファイル、ベースウェアが再生プレイヤーのような関係。\n現在は、動作の改善や、複数キャラクターの同時起動がなされた高機能な SSP ( http://ssp.shillest.net/ )が最も広く使われている。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#bf4de2dc"
-    },
-    {
-      "id": "satori:初めての人へ#ebf4b359",
-      "title": "初めての人へ - どうやって作るの？",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "どうやって作るの？\nまず、ゴースト３分クッキングを読もう。\n催眠術にかけられたように、その気になれる。\n出来そうだ、という気になるのが結構大切だったりする。\nそして次に、このページを読もう。\nさああとはゴースト「ポストと狛犬」を書き換えていけばゴーストが作れる。\n難しいことはおいおい勉強していけばいい。\nわからなかったら調べてみて、それでもわからなかったら掲示板とかで質問してみよう。\n（Ｒポストと狛犬をダウンロードしたらまずここで配布されている最新版の里々で上書きするのをおすすめ。）\n※ゴースト「ポストと狛犬」は「電気で動くうにゅう・廃屋の夏」で開発・公開されていた「里々」とサンプルゴーストのセットで現在開発終了してます（入手は可能）、「里々」は整備班によりこちらで公開中、ゴーストはWiz★氏によりバグ修正等のうえ「Ｒポストと狛犬」としてこちらで公開中となっています。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#ebf4b359"
-    },
-    {
-      "id": "satori:初めての人へ#m9cc88f3",
-      "title": "初めての人へ - 辞書ってなに？",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "辞書ってなに？\n喋りとか、サーフェス切り替え指示とかが書いてあるもの。テキストファイル。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#m9cc88f3"
-    },
-    {
-      "id": "satori:初めての人へ#id905e6c",
-      "title": "初めての人へ - サーフェスってなに？",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "サーフェスってなに？\n絵の一枚一枚。pngファイル。\nSSPに限り、透過pngやjpgファイルも使用可能。\n↑",
-      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#id905e6c"
-    },
-    {
-      "id": "satori:初めての人へ#i278fade",
-      "title": "初めての人へ - タブ文字ってなに？",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "タブ文字ってなに？\nキーボード上の左側にある（はず）の、『Tab』って書いてあるキーのこと。\n例文とかでしょっちゅう使われている【タブ】は反転させてＴａｂキー押しとけばおｋ。",
-      "url": "https://soliton.sub.jp/satori/?%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%B8#i278fade"
-    },
-    {
       "id": "aosora:01_はじめに",
       "title": "はじめに",
       "source": "aosora_wiki",
@@ -23663,7 +23543,7 @@
       "title": "TalkTimer",
       "source": "aosora_wiki",
       "category": "aosora_builtin",
-      "content": "TalkTimer\n\nトーク起動用のタイマー。SHIORI Eventとして直接定義されてない なでられ反応とランダムトークを起動するために使います。\n// セーブデータ読み込み後に実行されるイベント\n// 特段理由がなければこのタイミングでTalkTimerを設定するのがおすすめ\nfunction OnAosoraLoad {\n  TalkTimer.RandomTalk = RandomTalk;\n  TalkTimer.KeyRandomTalkIntervalSeconds = 120;\n\n  TalkTimer.NadenadeTalk = OnNadenade;\n}\n \ntalk RandomTalk {\n  ランダムトークだよ。\n}\n \ntalk OnNadenade {\n  なでられたー。\n}\n\nTalkTimer.RandomTalk\nランダムトークとして呼び出す関数。\n\nTalkTimer.KeyRandomTalkIntervalSeconds\n\nランダムトーク間隔秒。  \n0を指定するとランダムトークなし。\n\nTalkTimer.RandomTalkElapsedSeconds\n\n前回ランダムトークしてからの経過秒。  \nこれがKeyRandomTalkIntervalSeconds を超えるとランダムトークを発生させます。\n\nKeyRandomTalkIntervalSeconds を更新するときなど、任意で0を設定してリセットするなども可能です。  \n\nTalkTimer.NadenadeTalk\n\nなでられトークとして呼び出す関数。\n\nTalkTimer.NadenadeMoveThreshold\n\n同じ触り反応に対して OnMouseMove イベントが発生し続けたとき、その回数がこの値を超えるとなでられトークが発生します。  \n\n要するになでられの敏感度合い。デフォルトは50。  \n\nOnMouseLeave, OnMouseHover, 他の判定のOnMouseMoveが来ると0から数え直します。  \n\nTalkTimer.NadenadeActiveCollision\n\nなでられ反応を呼び出す判定中の判定識別子。\n\nスクリプトから書き込むのは非推奨。\n\nTalkTimer.NadenadeMoveCount  \n\nNadenadeMoveThreshold に対して比較する、OnMouseMoveの発生回数。\n\nスクリプトから書き込むのは非推奨。\n\nTalkTimer.RandomTalkQueue\n配列になっていて、要素がある場合はランダムトーク時、RandomTalkの代わりに最初の要素を取り除いて喋る。  \n次以降のトークを予約したい場合に使う。\ntalk FirstTalk{\n  %{ TalkTimer.RandomTalkQueue = [SecondTalk, ThirdTalk]; }\n  1st talk\n}\n\ntalk SecondTalk {\n  2nd talk\n}\n\ntalk ThirdTalk {\n  3rd talk\n}\n\nTalkTimer.CallRandomTalk()\nランダムトークを呼び出して結果を返します。  \nタイマーによるトーク発生時と同じようにRandomTalkQueueがあれば使用し、ランダムトークタイマーをリセットします。  \nメニューなどからランダムトークをさせるときに、時間経過で発生するランダムトークと同じことをしたい場合に使えます。",
+      "content": "TalkTimer\n\nトーク起動用のタイマー。SHIORI Eventとして直接定義されてない なでられ反応とランダムトークを起動するために使います。\n// セーブデータ読み込み後に実行されるイベント\n// 特段理由がなければこのタイミングでTalkTimerを設定するのがおすすめ\nfunction OnAosoraLoad {\n  TalkTimer.RandomTalk = RandomTalk;\n  TalkTimer.KeyRandomTalkIntervalSeconds = 120;\n\n  TalkTimer.NadenadeTalk = OnNadenade;\n}\n \ntalk RandomTalk {\n  ランダムトークだよ。\n}\n \ntalk OnNadenade {\n  なでられたー。\n}\n\nTalkTimer.RandomTalk\nランダムトークとして呼び出す関数を設定できます。\n\nTalkTimer.RandomTalkHandler\nランダムトークを発生させるときに呼び出す関数を設定できます。  \n設定してないか null の場合は、TalkTimer.CallRandomTalk() を使用してランダムトークを発生させます。\n\nこれは通常設定する必要はありませんが、TalkTimer がランダムトークを発生させるタイミングで任意の処理を行いたいときに使うことができます。  \n戻り値がランダムトークになるので、たとえば下記のように、何か任意の処理を行った後でランダムトークを行うといった処理ができます。\nTalkTimer.RandomTalkHandler = function {\n\n  // 何らかの処理....\n\n  return TalkTimer.CallRandomTalk();\n};\nTalkTimer.CallRandomTalk() を使用せずに、任意の内容を喋らせることもできます。  \nただし、TalkTimer.CallRandomTalk() には TalkTimer.RandomTalkElapsedSeconds をリセットする作用もあるので、使用しない場合は自分でリセットしてください。そうしないと連続で RandomTalkHandler が呼び出されてしまいます。\n\nTalkTimer.KeyRandomTalkIntervalSeconds\n\nランダムトーク間隔秒。  \n0を指定するとランダムトークなし。\n\nTalkTimer.RandomTalkElapsedSeconds\n\n前回ランダムトークしてからの経過秒。  \nこれがKeyRandomTalkIntervalSeconds を超えるとランダムトークを発生させます。\n\nKeyRandomTalkIntervalSeconds を更新するときなど、任意で0を設定してリセットするなども可能です。  \n\nTalkTimer.NadenadeTalk\n\nなでられトークとして呼び出す関数。\n\nTalkTimer.NadenadeMoveThreshold\n\n同じ触り反応に対して OnMouseMove イベントが発生し続けたとき、その回数がこの値を超えるとなでられトークが発生します。  \n\n要するになでられの敏感度合い。デフォルトは50。  \n\nOnMouseLeave, OnMouseHover, 他の判定のOnMouseMoveが来ると0から数え直します。  \n\nTalkTimer.NadenadeActiveCollision\n\nなでられ反応を呼び出す判定中の判定識別子。\n\nスクリプトから書き込むのは非推奨。\n\nTalkTimer.NadenadeMoveCount  \n\nNadenadeMoveThreshold に対して比較する、OnMouseMoveの発生回数。\n\nスクリプトから書き込むのは非推奨。\n\nTalkTimer.RandomTalkQueue\n配列になっていて、要素がある場合はランダムトーク時、RandomTalkの代わりに最初の要素を取り除いて喋る。  \n次以降のトークを予約したい場合に使う。\ntalk FirstTalk{\n  %{ TalkTimer.RandomTalkQueue = [SecondTalk, ThirdTalk]; }\n  1st talk\n}\n\ntalk SecondTalk {\n  2nd talk\n}\n\ntalk ThirdTalk {\n  3rd talk\n}\n\nTalkTimer.CallRandomTalk()\nランダムトークを呼び出して結果を返します。  \nタイマーによるトーク発生時と同じようにRandomTalkQueueがあれば使用し、ランダムトークタイマーをリセットします。  \nメニューなどからランダムトークをさせるときに、時間経過で発生するランダムトークと同じことをしたい場合に使えます。",
       "url": "https://github.com/kanadelab/aosora-shiori/wiki/07_04_TalkTimer"
     },
     {
