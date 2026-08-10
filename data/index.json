@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-03T04:30:50.595Z",
+  "generatedAt": "2026-08-10T03:59:58.646Z",
   "entries": [
     {
       "id": "ukadoc:descript_balloon:charset_2c_6587_5b57_30b3_30fc_30c9:1",
@@ -7673,6 +7673,14 @@
       "category": "sakurascript",
       "content": "\\![open,pictureviewer,(ファイル名)]\n画像ビューアを開く。(ファイル名)を指定すると、そのファイルを自動的に表示する(オプション)\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.33",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bopen_2cpictureviewer_2c_28_30d5_30a1_30a4_30eb_540d_29_5d:1"
+    },
+    {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bopen_2carchiveviewer_2c_28_30d5_30a1_30a4_30eb_540d_29_5d:1",
+      "title": "\\![open,archiveviewer,(ファイル名)]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![open,archiveviewer,(ファイル名)]\nアーカイブビューアを開く。(ファイル名)を指定すると、そのファイルを自動的に表示する(オプション)\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.66",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bopen_2carchiveviewer_2c_28_30d5_30a1_30a4_30eb_540d_29_5d:1"
     },
     {
       "id": "ukadoc:list_sakura_script:_5c_21_5bopen_2cbacklogviewer_5d:1",
