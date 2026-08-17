@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-10T03:59:58.646Z",
+  "generatedAt": "2026-08-17T04:05:59.609Z",
   "entries": [
     {
       "id": "ukadoc:descript_balloon:charset_2c_6587_5b57_30b3_30fc_30c9:1",
@@ -3031,7 +3031,7 @@
       "title": "element*,描画メソッド,ファイル名,X座標,Y座標(,オプション...)",
       "source": "ukadoc",
       "category": "descript",
-      "content": "element*,描画メソッド,ファイル名,X座標,Y座標(,オプション...)\nベースサーフェスの合成。\n\t\t\t\t\t\t複数の画像を合成し、その合成結果をベースサーフェスとして一枚の画像のように扱う仕組み。\n\t\t\t\t\t\tサーフェスに対応するsurface*.pngという画像がある場合、element0が定義されていると元のsurface*.pngの内容が破棄されて、element0で置き換えられる\n\t\t\t\t\t\telement1以降は、その上に順次合成されていく。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\tSSP 2.3.53～\n\t\t\t\t\t\telement定義されたサーフェスをアニメーションパーツとして用いた場合も、一枚の画像のように振る舞う（以前は未定義）。\n\n\t\t\t\t\t\tSSP 2.7.38～\n\t\t\t\t\t\tsurface*.pngまたはelement定義にアニメGIF/APNG/WebPアニメを指定すると、SERIKO定義を書かなくても自動的にアニメーションする。\n\t\t\t\t\t\t*の部分（elementID）は同じsurface内で一貫した、0から始まる通し番号。\n\t\t\t\t\t\t描画メソッドは下記の描画メソッド参照。\n\n\t\t\t\t\t\tSSP 2.8.15～\n\t\t\t\t\t\t以下のオプション定義が使用できるようになった。\n\t\t\t\t\t\tclipping,左,上,右,下 : 左、上、右、下で指定された矩形部分のみを描画する。これを使用するとアニメーション読み込みは無効となる。\n\t\t\t\t\t\t例：element0,overlay,face.png,0,0,clipping,10,10,50,50\n\n\t\t\t\t\t\tSSP 2.8.37～\n\t\t\t\t\t\t以下のオプション定義が使用できるようになった。\n\t\t\t\t\t\talpha,値(0-255) : 描画する際の不透明度を指定する。0で完全透明、255で完全不透明。\n\t\t\t\t\t\t例：element0,overlay,face.png,0,0,alpha,128\n\n\t\t\t\t\t\tSSP 2.8.41～\n\t\t\t\t\t\t以下のオプション定義が使用できるようになった。\n\t\t\t\t\t\tsource,値 : \n\t\t\t\t\t\t複数の描画候補を持つ画像またはファイルから、実際に描画に用いる対象を指定する。\n\t\t\t\t\t\tマルチページTIFFの場合は0オリジンのページ番号、DLL/EXE内アイコンの場合は0オリジンのリソース番号、PSDなどの場合はレイヤー名を指定する。\n\t\t\t\t\t\tレイヤーグループの中にあるレイヤーを指定する場合は、::で区切ってグループ名を書く(グループのネスト対応)。\n\t\t\t\t\t\tPSDなどのレイヤー情報に描画方法の情報が含まれる仕様がある場合に限り、描画メソッドの指定をautoにすることができる。\n\t\t\t\t\t\tPSDなどの指定したレイヤーに不透明度設定がある場合、かつalphaオプションが指定されていない場合に、レイヤーの不透明度情報を自動的に使用する。\n\t\t\t\t\t\t例：element0,auto,face.png,0,0,source,顔::頭\n\n\t\t\t\t\t\t(,オプション...)定義の書き方\n\t\t\t\t\t\t複数指定が必要な場合は以下のように定義できるものとする。\n\t\t\t\t\t\telement0,overlay,face.png,0,0,clipping,10,10,50,50,alpha,128...\n\t\t\t\t\t\n\t\t\t\t\t挙動なし",
+      "content": "element*,描画メソッド,ファイル名,X座標,Y座標(,オプション...)\nベースサーフェスの合成。\n\t\t\t\t\t\t複数の画像を合成し、その合成結果をベースサーフェスとして一枚の画像のように扱う仕組み。\n\t\t\t\t\t\tサーフェスに対応するsurface*.pngという画像がある場合、element0が定義されていると元のsurface*.pngの内容が破棄されて、element0で置き換えられる\n\t\t\t\t\t\telement1以降は、その上に順次合成されていく。\n\t\t\t\t\t\t*の部分（elementID）は同じsurface内で一貫した、0から始まる通し番号。\n\t\t\t\t\t\t描画メソッドは下記の描画メソッド参照。\n\t\t\t\t\t\tsurface*.pngまたはelement定義にアニメGIF/APNG/WebPアニメを指定すると、SERIKO定義を書かなくても自動的にアニメーションする(SSP 2.7.38～)。\n\t\t\t\t\t\telement定義されたサーフェスをアニメーションパーツとして用いた場合も、一枚の画像のように振る舞う(SSP 2.3.53～。それ以前は未定義)。\n\t\t\t\t\t\n\t\t\t\t\tオプションは以下の通り。複数指定する場合は「element0,overlay,face.png,0,0,--clipping,10,10,50,50,--alpha,128」のように続けて記述できる。\n\t\t\t\t\t\n\t\t\t\t\t\t--clipping,左,上,右,下\n\t\t\t\t\t\t[SSP 2.8.15～]左、上、右、下で指定された矩形部分のみを描画する。これを使用するとアニメーション読み込みは無効となる。\n\t\t\t\t\t\t例：element0,overlay,face.png,0,0,--clipping,10,10,50,50\n\n\t\t\t\t\t\t--alpha,値(0-255)\n\t\t\t\t\t\t[SSP 2.8.37～]描画する際の不透明度を指定する。0で完全透明、255で完全不透明。\n\t\t\t\t\t\t例：element0,overlay,face.png,0,0,--alpha,128\n\n\t\t\t\t\t\t--source,値\n\t\t\t\t\t\t[SSP 2.8.41～]複数の描画候補を持つ画像またはファイルから、実際に描画に用いる対象を指定する。\n\t\t\t\t\t\tマルチページTIFFの場合は0オリジンのページ番号、DLL/EXE内アイコンの場合は0オリジンのリソース番号、PSDなどの場合はレイヤー名を指定する。\n\t\t\t\t\t\tレイヤーグループの中にあるレイヤーを指定する場合は、::で区切ってグループ名を書く(グループのネスト対応)。\n\t\t\t\t\t\tPSDなどのレイヤー情報に描画方法の情報が含まれる仕様がある場合に限り、描画メソッドの指定をautoにすることができる。\n\t\t\t\t\t\tPSDなどの指定したレイヤーに不透明度設定がある場合、かつalphaオプションが指定されていない場合に、レイヤーの不透明度情報を自動的に使用する。\n\t\t\t\t\t\t例：element0,auto,face.png,0,0,--source,顔::頭\n\n\t\t\t\t\t\t--scaling,横,縦\n\t\t\t\t\t\t[SSP 2.8.73～]画像を指定サイズに拡大縮小して合成する。clippingと併用した場合は切り抜いた範囲に対して拡大縮小する。\n\t\t\t\t\t\t横・縦の数値は末尾に%を付けると（clipping後の）元画像に対する百分率、無指定または末尾にpxを付けるとピクセル数として扱われる。\n\t\t\t\t\t\t数値を負数にすると、絶対値のサイズで左右または上下を反転して表示する。\n\t\t\t\t\t\t指定できるサイズは1～4096pxの範囲に制限される。\n\t\t\t\t\t\t例：element0,overlay,face.png,0,0,--scaling,50%,50%\n\t\t\t\t\t\n\t\t\t\t\t挙動なし",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#element_2a_2c_63cf_753b_30e1_30bd_30c3_30c9_2c_30d5_30a1_30a4_30eb_540d_2cX_5ea7_6a19_2cY_5ea7_6a19_28_2c_30aa_30d7_30b7:1"
     },
     {
@@ -3047,7 +3047,7 @@
       "title": "animation*.pattern*,描画メソッド,サーフェス番号,ウェイト,X座標,Y座標(,オプション...)",
       "source": "ukadoc",
       "category": "descript",
-      "content": "animation*.pattern*,描画メソッド,サーフェス番号,ウェイト,X座標,Y座標(,オプション...)\nアニメーションの各コマの定義。各コマは通常それ以前のコマをリセットして新たにベースサーフェスに合成される形で描画される（厳密には描画メソッドによる）。\n\t\t\t\t\t\tanimationに続く*の部分はanimationID（animation*.intervalの*と同一）。\n\t\t\t\t\t\tpatternに次ぐ*の部分（パターンID）は、一連のanimation*.pattern定義において0から始まる通し番号。materiaでは127が上限。番号の小さい方から積み重なる形で描画される。\n\t\t\t\t\t\t描画メソッドは下記の描画メソッド参照。\n\t\t\t\t\t\tウェイトはそのコマを描画するまでの待ち時間。単位はミリ秒。SSPのみ「最小ウェイト-最大ウェイト」とマイナス文字で区切った書き方もでき、その場合は最小～最大間でランダムに選択される。\n\t\t\t\t\t\tX座標、Y座標はそのコマをベース（そのコマまでの描画結果）に対してどれだけずらして表示するかの指定。\n\t\t\t\t\t\tサーフェス番号に-1でそのアニメーションの停止、-2で現在実行中の他の全てのアニメーションを停止する事ができる。いずれの場合も描画メソッドやX座標、Y座標は無視される。\n\t\t\t\t\t\tサーフェス番号にはname定義で指定したID以外の別名も指定できる。 (SSP 2.8.25～)\n\t\t\t\t\t\t旧定義：*pattern*,サーフェスID,ウェイト,描画メソッド,X座標,Y座標\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\tSSP 2.8.37～\n\t\t\t\t\t\t以下のオプション定義が使用できるようになった。\n\t\t\t\t\t\talpha,値(0-255) : 描画する際の不透明度を指定する。0で完全透明、255で完全不透明。\n\t\t\t\t\t\t例：animation0.pattern0,overlay,101,700,0,0,alpha,128\n\n\t\t\t\t\t\t(,オプション...)定義の書き方\n\t\t\t\t\t\t複数指定が必要な場合は以下のように定義できるものとする。\n\t\t\t\t\t\tanimation0.pattern0,overlay,101,700,0,0,alpha,128,option2,...\n\t\t\t\t\t\n\t\t\t\t\t挙動なし",
+      "content": "animation*.pattern*,描画メソッド,サーフェス番号,ウェイト,X座標,Y座標(,オプション...)\nアニメーションの各コマの定義。各コマは通常それ以前のコマをリセットして新たにベースサーフェスに合成される形で描画される（厳密には描画メソッドによる）。\n\t\t\t\t\t\tanimationに続く*の部分はanimationID（animation*.intervalの*と同一）。\n\t\t\t\t\t\tpatternに次ぐ*の部分（パターンID）は、一連のanimation*.pattern定義において0から始まる通し番号。materiaでは127が上限。番号の小さい方から積み重なる形で描画される。\n\t\t\t\t\t\t描画メソッドは下記の描画メソッド参照。\n\t\t\t\t\t\tウェイトはそのコマを描画するまでの待ち時間。単位はミリ秒。SSPのみ「最小ウェイト-最大ウェイト」とマイナス文字で区切った書き方もでき、その場合は最小～最大間でランダムに選択される。\n\t\t\t\t\t\tX座標、Y座標はそのコマをベース（そのコマまでの描画結果）に対してどれだけずらして表示するかの指定。\n\t\t\t\t\t\tサーフェス番号に-1でそのアニメーションの停止、-2で現在実行中の他の全てのアニメーションを停止する事ができる。いずれの場合も描画メソッドやX座標、Y座標は無視される。\n\t\t\t\t\t\tサーフェス番号にはname定義で指定したID以外の別名も指定できる。 (SSP 2.8.25～)\n\t\t\t\t\t\t旧定義：*pattern*,サーフェスID,ウェイト,描画メソッド,X座標,Y座標\n\t\t\t\t\t\n\t\t\t\t\tオプションは以下の通り。複数指定する場合は「animation0.pattern0,overlay,101,700,0,0,--alpha,128,--option2,...」のように続けて記述できる。\n\t\t\t\t\t\n\t\t\t\t\t\t--alpha,値(0-255)\n\t\t\t\t\t\t[SSP 2.8.37～]描画する際の不透明度を指定する。0で完全透明、255で完全不透明。\n\t\t\t\t\t\t例：animation0.pattern0,overlay,101,700,0,0,--alpha,128\n\t\t\t\t\t\n\t\t\t\t\t挙動なし",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#animation_2a.pattern_2a_2c_63cf_753b_30e1_30bd_30c3_30c9_2c_30b5_30fc_30d5_30a7_30b9_756a_53f7_2c_30a6_30a7_30a4_30c8_2c:1"
     },
     {
@@ -5131,6 +5131,30 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#currentghost.balloon.scope_28ID_29.scaling:1"
     },
     {
+      "id": "ukadoc:list_propertysystem:currentghost.sound.count:1",
+      "title": "currentghost.sound.count",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "currentghost.sound.count\n現在のゴーストが管理しているメディアの数。\n\t\t\t\t\t\\![sound,play]・\\![sound,loop]・\\![sound,preload]などで開かれ、まだ閉じられていないものすべてが対象。再生中のものだけではないことに注意。\n\t\t\t\t\t個々のメディアが再生中かどうかはplayingで判別する。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.72",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#currentghost.sound.count:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:currentghost.sound.index_28ID_29._30b5_30a6_30f3_30c9_30d7_30ed_30d1_30c6_30a3_540d:1",
+      "title": "currentghost.sound.index(ID).サウンドプロパティ名",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "currentghost.sound.index(ID).サウンドプロパティ名\n現在のゴーストが管理しているメディアのうち、ID番目のものから情報を取得。\n\t\t\t\t\tIDは新しく開かれたものから順に0,1,2...となる。範囲外のIDを指定した場合は取得失敗となる。\n\t\t\t\t\tサウンドプロパティ名は後述。書き込みが可能なものと、その際の注意点についてはこちら。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.72",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#currentghost.sound.index_28ID_29._30b5_30a6_30f3_30c9_30d7_30ed_30d1_30c6_30a3_540d:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:currentghost.sound_28_8981_7d20_540d_29._30b5_30a6_30f3_30c9_30d7_30ed_30d1_30c6_30a3_540d:1",
+      "title": "currentghost.sound(要素名).サウンドプロパティ名",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "currentghost.sound(要素名).サウンドプロパティ名\n現在のゴーストが管理しているメディアのうち、要素名が一致する最も新しいものから情報を取得。\n\t\t\t\t\t要素名は\\![sound,play,～]などで指定したファイル名/パス/URLそのもの。\n\t\t\t\t\tドットを挟まず括弧を直接続けることに注意（currentghost.sound(～)であってcurrentghost.sound.(～)ではない）。\n\t\t\t\t\tサウンドプロパティ名は後述。書き込みが可能なものと、その際の注意点についてはこちら。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.72",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#currentghost.sound_28_8981_7d20_540d_29._30b5_30a6_30f3_30c9_30d7_30ed_30d1_30c6_30a3_540d:1"
+    },
+    {
       "id": "ukadoc:list_propertysystem:balloonlist_28_30d0_30eb_30fc_30f3_540d_2f_30d1_30b9_29._6c4e_7528_30d7_30ed_30d1_30c6_30a3_540d:1",
       "title": "balloonlist(バルーン名/パス).汎用プロパティ名",
       "source": "ukadoc",
@@ -5643,6 +5667,150 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#char_2a.bind.menu:1"
     },
     {
+      "id": "ukadoc:list_propertysystem:name:2",
+      "title": "name",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "name\n対象のメディアの要素名。\\![sound,play,～]などで指定したファイル名/パス/URLそのもの。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.72",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#name:2"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:path:2",
+      "title": "path",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "path\n対象のメディアの解決後のフルパス。URL指定の場合はURLそのもの。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.72",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#path:2"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:id:1",
+      "title": "id",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "id\n対象のメディアに割り当てられたプロセス内で一意の識別番号。同じメディアを指し続けているかどうかの確認に使える。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.72",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#id:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:position:1",
+      "title": "position",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "position\n対象のメディアの現在の再生位置。ミリ秒。位置を取得できない実装・フォーマットの場合は-1。\n\t\t\t\t\t\t\t[SET有効]SETすると\\![sound,option,～]の--seektime=と同じ効果。\n\t\t\t\t\t\t\t値の書式も--seektime=と同じで、「:」を含まない場合はミリ秒単位の整数、「:」を含む場合は[[時:]分:]秒[.ミリ秒]として解釈する。頭に@をつけると現在の再生位置からの相対指定となり、負の値も指定できる（例：@-5000で5秒巻き戻し）。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.72",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#position:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:duration:1",
+      "title": "duration",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "duration\n対象のメディア全体の長さ。ミリ秒。長さを取得できない実装・フォーマットの場合は-1。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.72",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#duration:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:playing:1",
+      "title": "playing",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "playing\n対象のメディアが再生中なら1、さもなくば0。一時停止中も1のままなので、必要ならpauseと併用する。\n\t\t\t\t\t\t\t[SET有効]1をSETすると\\![sound,play,～]、0をSETすると\\![sound,stop,～]と同じ効果。\n\t\t\t\t\t\t\t1をSETして再生を開始する場合、対象のメディアの現在のループ指定などはそのまま維持される。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.72",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#playing:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:pause:1",
+      "title": "pause",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "pause\n対象のメディアが一時停止中なら1、さもなくば0。\n\t\t\t\t\t\t\t[SET有効]1をSETすると\\![sound,pause,～]、0をSETすると\\![sound,resume,～]と同じ効果。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.72",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#pause:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:preload:1",
+      "title": "preload",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "preload\n対象のメディアが\\![sound,preload]で開かれたものなら1、さもなくば0。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.72",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#preload:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:loop:1",
+      "title": "loop",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "loop\n対象のメディアがループ再生指定（\\![sound,loop]）なら1、さもなくば0。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.72",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#loop:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:error:1",
+      "title": "error",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "error\n対象のメディアで直近に発生したエラーメッセージ。エラーがなければ空文字列。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.72",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#error:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:meta.title:1",
+      "title": "meta.title",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "meta.title\n対象のメディアのタグに記録された曲名（タイトル）。タグが無い場合や取得できない場合の挙動はこちら。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.73",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#meta.title:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:meta.artist:1",
+      "title": "meta.artist",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "meta.artist\n対象のメディアのタグに記録されたアーティスト名。複数記録されている場合は「; 」（セミコロンと半角空白）区切りで連結される。タグが無い場合や取得できない場合の挙動はこちら。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.73",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#meta.artist:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:meta.albumartist:1",
+      "title": "meta.albumartist",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "meta.albumartist\n対象のメディアのタグに記録されたアルバムアーティスト名。複数記録されている場合は「; 」（セミコロンと半角空白）区切りで連結される。タグが無い場合や取得できない場合の挙動はこちら。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.73",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#meta.albumartist:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:meta.album:1",
+      "title": "meta.album",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "meta.album\n対象のメディアのタグに記録されたアルバム名。タグが無い場合や取得できない場合の挙動はこちら。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.73",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#meta.album:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:meta.genre:1",
+      "title": "meta.genre",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "meta.genre\n対象のメディアのタグに記録されたジャンル。複数記録されている場合は「; 」（セミコロンと半角空白）区切りで連結される。タグが無い場合や取得できない場合の挙動はこちら。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.73",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#meta.genre:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:meta.year:1",
+      "title": "meta.year",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "meta.year\n対象のメディアのタグに記録された年（西暦）。タグが無い場合や取得できない場合の挙動はこちら。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.73",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#meta.year:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:meta.track:1",
+      "title": "meta.track",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "meta.track\n対象のメディアのタグに記録されたトラック番号。タグが無い場合や取得できない場合の挙動はこちら。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.73",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#meta.track:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:meta.artwork:1",
+      "title": "meta.artwork",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "meta.artwork\n対象のメディアのアルバムアートワークの画像ファイルパス。タグが無い場合や取得できない場合の挙動はこちら。\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t 2.8.73",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#meta.artwork:1"
+    },
+    {
       "id": "ukadoc:list_sakura_script:_5c0_3082_3057_304f_306f_5ch:1",
       "title": "\\0もしくは\\h",
       "source": "ukadoc",
@@ -6015,7 +6183,7 @@
       "title": "\\_b[ファイルパス,x,y,オプション,オプション...]",
       "source": "ukadoc",
       "category": "sakurascript",
-      "content": "\\_b[ファイルパス,x,y,オプション,オプション...]\n画像をバルーンのXY座標に貼り付ける。[実行したゴーストのフォルダ]/ghost/masterが基準のフォルダとなる。※ファイル名の代わりにbase64エンコードやexe/dllのリソースを画像として指定可能、※下記参照。\n\t\t\t\t\tオプション\n\t\t\t\t\t\n\t\t\t\t\t\t--option=opaque\n\t\t\t\t\t\t左上の色を透過しないで表示する。\n\t\t\t\t\t\t--option=use_self_alpha\n\t\t\t\t\t\tアルファチャンネル付きのPNGを透過して表示する。\n\t\t\t\t\t\t--clipping=左 上 右 下\n\t\t\t\t\t\t画像の一部分を矩形に切り抜いて表示する。切り抜く範囲は左上右下と数値で指定。\n\t\t\t\t\t\t--option=fixed\n\t\t\t\t\t\tスクロールした時に画像を動かさない。\n\t\t\t\t\t\t--option=background\n\t\t\t\t\t\t文字の下に画像を表示する。このオプションで、文字の背景として画像を使用することができる。\n\t\t\t\t\t\t画像よりもバルーンの透明度を優先して合成表示される。\n\t\t\t\t\t\t--option=foreground\n\t\t\t\t\t\t画像を前面に表示する。\n\t\t\t\t\t\tバルーンよりも画像の透明度を優先して合成表示される。[SSP 2.6.54～]\n\t\t\t\t\t\t--source=値\n\t\t\t\t\t\t複数の描画候補を持つ画像またはファイルから、実際に描画に用いる対象を指定する。\n\t\t\t\t\t\tマルチページTIFFの場合は0オリジンのページ番号、DLL/EXE内アイコンの場合は0オリジンのリソース番号、\n\t\t\t\t\t\tPSDなどの場合はレイヤー名を指定する。\n\t\t\t\t\t\tレイヤーグループの中にあるレイヤーを指定する場合は、::で区切ってグループ名を書く(グループのネスト対応)。\n\t\t\t\t\t\t[SSP 2.8.41～]\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\_b[test.png,10,20,--option=use_self_alpha,--clipping=100 30 150 90,--option=foreground]本体側バルーンに、[実行したゴーストのフォルダ]/ghost/masterフォルダにあるtest.pngを、バルーン内座標X:10,Y:20に、ファイルの透過情報付きpngとして、画像の横100～150pixel縦30～90pixelの範囲を、バルーンの文字の上に表示する。",
+      "content": "\\_b[ファイルパス,x,y,オプション,オプション...]\n画像をバルーンのXY座標に貼り付ける。[実行したゴーストのフォルダ]/ghost/masterが基準のフォルダとなる。※ファイル名の代わりにbase64エンコードやexe/dllのリソースを画像として指定可能、※下記参照。\n\t\t\t\t\tオプション\n\t\t\t\t\t\n\t\t\t\t\t\t--option=opaque\n\t\t\t\t\t\t左上の色を透過しないで表示する。\n\t\t\t\t\t\t--option=use_self_alpha\n\t\t\t\t\t\tアルファチャンネル付きのPNGを透過して表示する。\n\t\t\t\t\t\t--clipping=左 上 右 下\n\t\t\t\t\t\t画像の一部分を矩形に切り抜いて表示する。切り抜く範囲は左上右下と数値で指定。\n\t\t\t\t\t\t--scaling=横,縦\n\t\t\t\t\t\t画像を指定サイズに拡大縮小して表示する。数値は末尾に%を付けると（--clippingで切り抜いた後の）元画像に対する百分率、無指定または末尾にpxを付けるとピクセル数として扱われる。数値を負数にすると、絶対値のサイズで左右または上下を反転して表示する。指定できるサイズは1～4096pxの範囲に制限される。[SSP 2.8.73～]\n\t\t\t\t\t\t--option=fixed\n\t\t\t\t\t\tスクロールした時に画像を動かさない。\n\t\t\t\t\t\t--option=background\n\t\t\t\t\t\t文字の下に画像を表示する。このオプションで、文字の背景として画像を使用することができる。\n\t\t\t\t\t\t画像よりもバルーンの透明度を優先して合成表示される。\n\t\t\t\t\t\t--option=foreground\n\t\t\t\t\t\t画像を前面に表示する。\n\t\t\t\t\t\tバルーンよりも画像の透明度を優先して合成表示される。[SSP 2.6.54～]\n\t\t\t\t\t\t--source=値\n\t\t\t\t\t\t複数の描画候補を持つ画像またはファイルから、実際に描画に用いる対象を指定する。\n\t\t\t\t\t\tマルチページTIFFの場合は0オリジンのページ番号、DLL/EXE内アイコンの場合は0オリジンのリソース番号、\n\t\t\t\t\t\tPSDなどの場合はレイヤー名を指定する。\n\t\t\t\t\t\tレイヤーグループの中にあるレイヤーを指定する場合は、::で区切ってグループ名を書く(グループのネスト対応)。\n\t\t\t\t\t\t[SSP 2.8.41～]\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\_b[test.png,10,20,--option=use_self_alpha,--clipping=100 30 150 90,--option=foreground]本体側バルーンに、[実行したゴーストのフォルダ]/ghost/masterフォルダにあるtest.pngを、バルーン内座標X:10,Y:20に、ファイルの透過情報付きpngとして、画像の横100～150pixel縦30～90pixelの範囲を、バルーンの文字の上に表示する。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_b_5b_30d5_30a1_30a4_30eb_30d1_30b9_2cx_2cy_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3..._5d:1"
     },
     {
@@ -6039,7 +6207,7 @@
       "title": "\\_b[ファイルパス,inline,オプション,オプション...]",
       "source": "ukadoc",
       "category": "sakurascript",
-      "content": "\\_b[ファイルパス,inline,オプション,オプション...]\nバルーンのテキスト行内に1文字分扱いとして画像を貼り付ける。[実行したゴーストのフォルダ]/ghost/masterが基準のフォルダとなる。※ファイル名の代わりにbase64エンコードやexe/dllのリソースを画像として指定可能、※下記参照。\n\t\t\t\t\tオプション\n\t\t\t\t\t\n\t\t\t\t\t\t--option=opaque\n\t\t\t\t\t\t左上の色を透過しないで表示する。\n\t\t\t\t\t\t--option=use_self_alpha\n\t\t\t\t\t\tアルファチャンネル付きのPNGを透過して表示する。\n\t\t\t\t\t\t--clipping=左 上 右 下\n\t\t\t\t\t\t画像の一部分を矩形に切り抜いて表示する。切り抜く範囲は左上右下と数値で指定。\n\t\t\t\t\t\t--option=background\n\t\t\t\t\t\t画像よりもバルーンの透明度を優先して合成表示される。[未指定時の標準仕様]\n\t\t\t\t\t\t--option=foreground\n\t\t\t\t\t\tバルーンよりも画像の透明度を優先して合成表示される。[SSP 2.6.54～]\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t本体側バルーンに、[実行したゴーストのフォルダ]/ghost/masterフォルダにあるtest.png\\_b[test.png,inline,--option=use_self_alpha,--clipping=100 30 150 90]を、文字扱い、ファイルの透過情報付きpngとして、画像の横100～150pixel縦30～90pixelの範囲を表示する。",
+      "content": "\\_b[ファイルパス,inline,オプション,オプション...]\nバルーンのテキスト行内に1文字分扱いとして画像を貼り付ける。[実行したゴーストのフォルダ]/ghost/masterが基準のフォルダとなる。※ファイル名の代わりにbase64エンコードやexe/dllのリソースを画像として指定可能、※下記参照。\n\t\t\t\t\tオプション\n\t\t\t\t\t\n\t\t\t\t\t\t--option=opaque\n\t\t\t\t\t\t左上の色を透過しないで表示する。\n\t\t\t\t\t\t--option=use_self_alpha\n\t\t\t\t\t\tアルファチャンネル付きのPNGを透過して表示する。\n\t\t\t\t\t\t--clipping=左 上 右 下\n\t\t\t\t\t\t画像の一部分を矩形に切り抜いて表示する。切り抜く範囲は左上右下と数値で指定。\n\t\t\t\t\t\t--scaling=横,縦\n\t\t\t\t\t\t画像を指定サイズに拡大縮小して表示する。数値は末尾に%を付けると（--clippingで切り抜いた後の）元画像に対する百分率、無指定または末尾にpxを付けるとピクセル数として扱われる。数値を負数にすると、絶対値のサイズで左右または上下を反転して表示する。指定できるサイズは1～4096pxの範囲に制限される。[SSP 2.8.73～]\n\t\t\t\t\t\t--option=background\n\t\t\t\t\t\t画像よりもバルーンの透明度を優先して合成表示される。[未指定時の標準仕様]\n\t\t\t\t\t\t--option=foreground\n\t\t\t\t\t\tバルーンよりも画像の透明度を優先して合成表示される。[SSP 2.6.54～]\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t本体側バルーンに、[実行したゴーストのフォルダ]/ghost/masterフォルダにあるtest.png\\_b[test.png,inline,--option=use_self_alpha,--clipping=100 30 150 90]を、文字扱い、ファイルの透過情報付きpngとして、画像の横100～150pixel縦30～90pixelの範囲を表示する。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_b_5b_30d5_30a1_30a4_30eb_30d1_30b9_2cinline_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3..._5d:1"
     },
     {
