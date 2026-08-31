@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-24T04:08:57.881Z",
+  "generatedAt": "2026-08-31T09:48:51.964Z",
   "entries": [
     {
       "id": "ukadoc:descript_balloon:charset_2c_6587_5b57_30b3_30fc_30c9:1",
@@ -191,7 +191,7 @@
       "title": "vertical,0/1",
       "source": "ukadoc",
       "category": "descript",
-      "content": "vertical,0/1\n1を指定すると、このバルーンのテキストを日本語縦書き（上から下へ字を送り、右から左へ行を送る）で表示する。\n\t\t\t\t\t縦書きにすると、descript.txtの座標指定の意味が以下のように変わる。座標自体は今までどおりバルーン画像の左上を原点として書けばよい。\n\t\t\t\t\t\n\t\t\t\t\t\torigin.x … 1列目の右端。ここから左へ向かって列が進む。通常は指定せずvalidrectの定義に任せる場合が多い。\n\t\t\t\t\t\torigin.y … 字送りの開始位置（1文字目の上端）。通常は指定せずvalidrectの定義に任せる場合が多い。\n\t\t\t\t\t\tvalidrect … 変更なし。テキストを描画してよい範囲。\n\t\t\t\t\t\t折り返しはwordwrappoint.yで指定する。wordwrappoint.xは無視される。\n\t\t\t\t\t\n\t\t\t\t\tフォントは指定されたフォント名の縦書き用異体（フォント名の頭に@が付いたもの）が自動的に使われる。\n\t\t\t\t\t指定されたフォントに縦書き用異体が存在しない場合（バルーンフォルダに置いたフォントファイルや欧文フォントなど）は、環境の標準ゴシックの縦書き用異体に自動的に差し替わる。\n\t\t\t\t\tまた、以下の項目は「画面上の向き」ではなく「文字の送り方向を基準にした向き」で働くようになるので注意すること。\n\t\t\t\t\t\n\t\t\t\t\t\t\\f[align,～]は列内での字寄せ（left＝上寄せ、right＝下寄せ）、\\f[valign,～]は行の厚み方向の寄せ（top＝右寄せ、bottom＝左寄せ）になる。\n\t\t\t\t\t\tarrow0（スクロール上）・arrow1（スクロール下）は、意味としてはそれぞれ右・左へのスクロールになる。画像と位置はバルーン側で用意すること。\n\t\t\t\t\t\t下線（font.underlineや\\f[underline,true]、アンカーの下線）は列の右側に引かれる。\n\t\t\t\t\t\n\t\t\t\t\t制限として、SSTPマーカーの送信元表示とネットワーク更新の進捗表示も縦書きで描画される。入力ボックス（communicatebox）は横書きのまま。\n\t\t\t\t\tバルーンの各サーフェスごとのballoon(s/k)*s.txtでも指定できるが、同一バルーン内でサーフェスごとに縦書き・横書きを切り替えると、切り替え前に表示していた文章のレイアウトが崩れる。\n\t\t\t\t\t0（横書き）\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.80",
+      "content": "vertical,0/1\n1を指定すると、このバルーンのテキストを日本語縦書き（上から下へ字を送り、右から左へ行を送る）で表示する。\n\t\t\t\t\t縦書きにすると、descript.txtの座標指定の意味が以下のように変わる。座標自体は今までどおりバルーン画像の左上を原点として書けばよい。\n\t\t\t\t\t\n\t\t\t\t\t\torigin.x … 1列目の右端。ここから左へ向かって列が進む。通常は指定せずvalidrectの定義に任せる場合が多い。\n\t\t\t\t\t\torigin.y … 字送りの開始位置（1文字目の上端）。通常は指定せずvalidrectの定義に任せる場合が多い。\n\t\t\t\t\t\tvalidrect … 変更なし。テキストを描画してよい範囲。\n\t\t\t\t\t\t折り返しはwordwrappoint.yで指定する。wordwrappoint.xは無視される。\n\t\t\t\t\t\tSSTPメッセージの表示終了位置はsstpmessage.ybで指定する。sstpmessage.xrは無視される。\n\t\t\t\t\t\tnumber.y（＝number.yb） … カウンタ数値の下端。ここから上へ向かって数値が伸びる。number.x（＝number.xr）は数値が置かれる列の位置になる。\n\t\t\t\t\t\n\t\t\t\t\torigin.xやnumber.xのように右端を基準にしたい座標は、*1のルールどおりマイナス値で書ける（例：origin.x,-14 ならバルーン画像の右端から14ピクセル）。\n\t\t\t\t\tフォントは指定されたフォント名の縦書き用異体（フォント名の頭に@が付いたもの）が自動的に使われる。\n\t\t\t\t\t指定されたフォントに縦書き用異体が存在しない場合（バルーンフォルダに置いたフォントファイルや欧文フォントなど）は、環境の標準ゴシックの縦書き用異体に自動的に差し替わる。\n\t\t\t\t\tまた、以下の項目は「画面上の向き」ではなく「文字の送り方向を基準にした向き」で働くようになるので注意すること。\n\t\t\t\t\t\n\t\t\t\t\t\t\\f[align,～]は列内での字寄せ（left＝上寄せ、right＝下寄せ）、\\f[valign,～]は行の厚み方向の寄せ（top＝右寄せ、bottom＝左寄せ）になる。\n\t\t\t\t\t\tarrow0（スクロール上）・arrow1（スクロール下）は、意味としてはそれぞれ右・左へのスクロールになる。画像と位置はバルーン側で用意すること。\n\t\t\t\t\t\t下線（font.underlineや\\f[underline,true]、アンカーの下線）は列の右側に引かれる。\n\t\t\t\t\t\n\t\t\t\t\t制限として、SSTPマーカーの送信元表示とネットワーク更新の進捗表示も縦書きで描画される。入力ボックス（communicatebox）は横書きのまま。\n\t\t\t\t\tバルーンの各サーフェスごとのballoon(s/k)*s.txtでも指定できるが、同一バルーン内でサーフェスごとに縦書き・横書きを切り替えると、切り替え前に表示していた文章のレイアウトが崩れる。\n\t\t\t\t\t0（横書き）\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.80",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_balloon.html#vertical_2c0_2f1:1"
     },
     {
@@ -943,8 +943,16 @@
       "title": "sstpmessage.xr,座標 *1",
       "source": "ukadoc",
       "category": "descript",
-      "content": "sstpmessage.xr,座標 *1\nSSTPメッセージの表示終了位置X座標。左起点。（※負値を指定すると右起点）\n\t\t\t\t\t不明",
+      "content": "sstpmessage.xr,座標 *1\nSSTPメッセージの表示終了位置X座標。左起点。（※負値を指定すると右起点）\n\t\t\t\t\t横書き（verticalが0）のときのみ使用される。縦書きではsstpmessage.ybを使うこと。\n\t\t\t\t\t不明",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_balloon.html#sstpmessage.xr_2c_5ea7_6a19_20_2a1:1"
+    },
+    {
+      "id": "ukadoc:descript_balloon:sstpmessage.yb_2c_5ea7_6a19_20_2a1:1",
+      "title": "sstpmessage.yb,座標 *1",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "sstpmessage.yb,座標 *1\nSSTPメッセージの表示終了位置Y座標。上起点。（※負値を指定すると下起点）\n\t\t\t\t\t縦書き（verticalが1）のときのみ使用され、横書きでは無視される。縦書きでは文字が上から下へ送られるため、表示終了位置はsstpmessage.xrのX座標ではなくY座標で指定する。\n\t\t\t\t\t不明\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.83",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_balloon.html#sstpmessage.yb_2c_5ea7_6a19_20_2a1:1"
     },
     {
       "id": "ukadoc:descript_balloon:onlinemarker.interval_2c_5f85_6a5f_6642_9593:1",
@@ -1051,11 +1059,19 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_balloon.html#number.font.color.b_2c_6570_5024:1"
     },
     {
+      "id": "ukadoc:descript_balloon:number.x_2c_5ea7_6a19_20_2a1:1",
+      "title": "number.x,座標 *1",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "number.x,座標 *1\nカウンタ数値のX座標。number.xrと同じもので、左起点で書きたい場合のための別名。\n\t\t\t\t\t横書き（verticalが0）では数値の右端（＝数値が伸びていく先の端）を指す。縦書きでは数値が置かれる列の位置になり、数値が伸びていく先の端を決めるのはnumber.ybのほうになる。\n\t\t\t\t\t不明\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.83",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_balloon.html#number.x_2c_5ea7_6a19_20_2a1:1"
+    },
+    {
       "id": "ukadoc:descript_balloon:number.xr_2c_5ea7_6a19_20_2a1:1",
       "title": "number.xr,座標 *1",
       "source": "ukadoc",
       "category": "descript",
-      "content": "number.xr,座標 *1\nカウンタ数値のX座標。右起点。\n\t\t\t\t\t不明",
+      "content": "number.xr,座標 *1\nカウンタ数値のX座標。右起点。number.xと同じもの。\n\t\t\t\t\t不明",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_balloon.html#number.xr_2c_5ea7_6a19_20_2a1:1"
     },
     {
@@ -1063,8 +1079,16 @@
       "title": "number.y,座標 *1",
       "source": "ukadoc",
       "category": "descript",
-      "content": "number.y,座標 *1\nカウンタ数値のY座標。\n\t\t\t\t\t不明",
+      "content": "number.y,座標 *1\nカウンタ数値のY座標。\n\t\t\t\t\t横書き（verticalが0）では数値の上端を指す。縦書きでは数値の下端になる（縦書きの数値は下端を基準に上へ向かって伸びる）。\n\t\t\t\t\t不明",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_balloon.html#number.y_2c_5ea7_6a19_20_2a1:1"
+    },
+    {
+      "id": "ukadoc:descript_balloon:number.yb_2c_5ea7_6a19_20_2a1:1",
+      "title": "number.yb,座標 *1",
+      "source": "ukadoc",
+      "category": "descript",
+      "content": "number.yb,座標 *1\nカウンタ数値のY座標。下起点。number.yと同じもので、縦書きで下端が基準になることを明示したい場合のための別名。\n\t\t\t\t\t不明\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.83",
+      "url": "https://ssp.shillest.net/ukadoc/manual/descript_balloon.html#number.yb_2c_5ea7_6a19_20_2a1:1"
     },
     {
       "id": "ukadoc:descript_balloon:arrow0.x_2c_5ea7_6a19_20_2a1:1",
@@ -5079,7 +5103,7 @@
       "title": "currentghost.balloon.scope(ID).validwidth",
       "source": "ukadoc",
       "category": "protocol",
-      "content": "currentghost.balloon.scope(ID).validwidth\n現在のバルーンの文字描画に使える幅。baseposに関係なく描画範囲全てを示す。",
+      "content": "currentghost.balloon.scope(ID).validwidth\n現在のバルーンの文字描画に使える幅。baseposに関係なく描画範囲全てを示す。\n\t\t\t\t\t縦書きの場合は列が並ぶ方向（右から左）に使える幅で、スクロール後の描画幅と一致する。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#currentghost.balloon.scope_28ID_29.validwidth:1"
     },
     {
@@ -5087,7 +5111,7 @@
       "title": "currentghost.balloon.scope(ID).validwidth.initial",
       "source": "ukadoc",
       "category": "protocol",
-      "content": "currentghost.balloon.scope(ID).validwidth.initial\n現在のバルーンの文字描画に使える幅（basepos.x＝文字開始点を考慮したもの）\n\t\t\t\t\t\n\t\t\t\t\t\t(2.3.72)",
+      "content": "currentghost.balloon.scope(ID).validwidth.initial\n現在のバルーンの文字描画に使える幅（basepos.x＝文字開始点を考慮したもの）\n\t\t\t\t\t縦書きの場合は列が並ぶ方向に使える幅で、1列目の開始位置（basepos）を考慮したもの。\n\t\t\t\t\t\n\t\t\t\t\t\t(2.3.72)",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#currentghost.balloon.scope_28ID_29.validwidth.initial:1"
     },
     {
@@ -5095,7 +5119,7 @@
       "title": "currentghost.balloon.scope(ID).validheight",
       "source": "ukadoc",
       "category": "protocol",
-      "content": "currentghost.balloon.scope(ID).validheight\n現在のバルーンの文字描画に使える高さ。baseposに関係なく描画範囲全てを示す。スクロール後の描画高さと一致。",
+      "content": "currentghost.balloon.scope(ID).validheight\n現在のバルーンの文字描画に使える高さ。baseposに関係なく描画範囲全てを示す。スクロール後の描画高さと一致。\n\t\t\t\t\t縦書きの場合は1列の長さ（＝1列に書ける字送りの長さ）で、スクロールしても変化しない。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#currentghost.balloon.scope_28ID_29.validheight:1"
     },
     {
@@ -5103,7 +5127,7 @@
       "title": "currentghost.balloon.scope(ID).validheight.initial",
       "source": "ukadoc",
       "category": "protocol",
-      "content": "currentghost.balloon.scope(ID).validheight.initial\n現在のバルーンの文字描画に使える高さ。basepos.y＝文字開始点を考慮したもの。スクロール前の描画高さと一致。\n\t\t\t\t\t\n\t\t\t\t\t\t(2.3.72)",
+      "content": "currentghost.balloon.scope(ID).validheight.initial\n現在のバルーンの文字描画に使える高さ。basepos.y＝文字開始点を考慮したもの。スクロール前の描画高さと一致。\n\t\t\t\t\t縦書きの場合は1列の長さで、字送りの開始位置（basepos）を考慮したもの。\n\t\t\t\t\t\n\t\t\t\t\t\t(2.3.72)",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#currentghost.balloon.scope_28ID_29.validheight.initial:1"
     },
     {
@@ -5111,7 +5135,7 @@
       "title": "currentghost.balloon.scope(ID).lines",
       "source": "ukadoc",
       "category": "protocol",
-      "content": "currentghost.balloon.scope(ID).lines\n現在のバルーンのおさまる行数の最大値。baseposに関係なく描画範囲全てを示す。スクロール後の表示行数と一致。",
+      "content": "currentghost.balloon.scope(ID).lines\n現在のバルーンのおさまる行数の最大値。baseposに関係なく描画範囲全てを示す。スクロール後の表示行数と一致。\n\t\t\t\t\t縦書きの場合は「行」が「列」に読み替わり、おさまる列数になる。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#currentghost.balloon.scope_28ID_29.lines:1"
     },
     {
@@ -5119,7 +5143,7 @@
       "title": "currentghost.balloon.scope(ID).lines.initial",
       "source": "ukadoc",
       "category": "protocol",
-      "content": "currentghost.balloon.scope(ID).lines.initial\n現在のバルーンのおさまる行数の最大値。basepos.y＝文字開始点を考慮したもの。スクロール前の表示行数と一致。\n\t\t\t\t\t\n\t\t\t\t\t\t(2.3.72)",
+      "content": "currentghost.balloon.scope(ID).lines.initial\n現在のバルーンのおさまる行数の最大値。basepos.y＝文字開始点を考慮したもの。スクロール前の表示行数と一致。\n\t\t\t\t\t縦書きの場合は「行」が「列」に読み替わり、おさまる列数になる。\n\t\t\t\t\t\n\t\t\t\t\t\t(2.3.72)",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#currentghost.balloon.scope_28ID_29.lines.initial:1"
     },
     {
@@ -5127,7 +5151,7 @@
       "title": "currentghost.balloon.scope(ID).basepos.x",
       "source": "ukadoc",
       "category": "protocol",
-      "content": "currentghost.balloon.scope(ID).basepos.x\n現在のバルーンの文字描画開始点(X座標)。描画範囲の左端とは限らない。\n\t\t\t\t\t\n\t\t\t\t\t\t(2.3.72)",
+      "content": "currentghost.balloon.scope(ID).basepos.x\n現在のバルーンの文字描画開始点(X座標)。描画範囲の左端とは限らない。バルーン画像の左上を原点とした座標。\n\t\t\t\t\t縦書きの場合は1列目の右端（＝origin.x）を指す。\n\t\t\t\t\t\n\t\t\t\t\t\t(2.3.72)",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#currentghost.balloon.scope_28ID_29.basepos.x:1"
     },
     {
@@ -5135,7 +5159,7 @@
       "title": "currentghost.balloon.scope(ID).basepos.y",
       "source": "ukadoc",
       "category": "protocol",
-      "content": "currentghost.balloon.scope(ID).basepos.y\n現在のバルーンの文字描画開始点(Y座標)。描画範囲の上端とは限らない。\n\t\t\t\t\t\n\t\t\t\t\t\t(2.3.72)",
+      "content": "currentghost.balloon.scope(ID).basepos.y\n現在のバルーンの文字描画開始点(Y座標)。描画範囲の上端とは限らない。バルーン画像の左上を原点とした座標。\n\t\t\t\t\t縦書きの場合は字送りの開始位置（1文字目の上端。＝origin.y）を指す。\n\t\t\t\t\t\n\t\t\t\t\t\t(2.3.72)",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#currentghost.balloon.scope_28ID_29.basepos.y:1"
     },
     {
@@ -5167,7 +5191,7 @@
       "title": "currentghost.balloon.scope(ID).vertical",
       "source": "ukadoc",
       "category": "protocol",
-      "content": "currentghost.balloon.scope(ID).vertical\n現在のバルーンが縦書きかどうか。縦書きなら1、横書きなら0。\n\t\t\t\t\t縦書きの場合、validwidth・validheight・linesは「画面上の向き」ではなく「文字の送り方向を基準にした向き」の値になり、それぞれ「1列の長さ」「列が進む方向に使える幅」「収まる列数」を示す。\n\t\t\t\t\t文字数の計算などで縦書きと横書きを区別する必要がある場合に使う。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.80",
+      "content": "currentghost.balloon.scope(ID).vertical\n現在のバルーンが縦書きかどうか。縦書きなら1、横書きなら0。\n\t\t\t\t\tvalidwidth・validheightは縦書きでも名前どおり「画面上の向き」の値で、縦書きではvalidwidthが「列が進む方向に使える幅」、validheightが「1列の長さ」になる。linesは縦横どちらでも「収まる行数」（縦書きでは列数）を示す。\n\t\t\t\t\t1行（1列）に何文字入るかを計算したい場合は、縦書きならvalidheight、横書きならvalidwidthを見ること。この判別のためにこのプロパティを使う。\n\t\t\t\t\t※SSP 2.8.83で仕様変更。2.8.80では縦書き時のvalidwidth・validheightが「文字の送り方向を基準にした向き」の値だった。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.80",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#currentghost.balloon.scope_28ID_29.vertical:1"
     },
     {
@@ -6327,7 +6351,7 @@
       "title": "\\_l[x,y]",
       "source": "ukadoc",
       "category": "sakurascript",
-      "content": "\\_l[x,y]\n現スコープ側のカーソル位置をXYの座標に移動する。X,Yについては、以下の定義方法が可能である。\n\t\t\t\t\t\\_l実行直後には、トラブル防止のため行揃えが左揃えにリセットされる点に注意。必要に応じて再度指定しなおすこと。\n\t\t\t\t\t\n\t\t\t\t\t\t数値\n\t\t\t\t\t\tバルーンの文字描画範囲左上からのピクセル単位座標\n\t\t\t\t\t\t(省略)\n\t\t\t\t\t\t移動しない。X,Y両方ともに省略すると無効果。\n\t\t\t\t\t\tXXem\n\t\t\t\t\t\t後ろにemとつけると、文字高さを基準とした座標指定となる。1em＝タグを書いた時点での文字高さ。小数点指定可能。\n\t\t\t\t\t\tXXlh\n\t\t\t\t\t\t後ろにlhとつけると、行高さを基準とした座標指定となる。1lh＝1em＋行間 小数点指定可能。\n\t\t\t\t\t\tXX%\n\t\t\t\t\t\t後ろに%とつけると、文字高さを基準とした座標指定となる。100%＝タグを書いた時点での文字高さ。小数点指定可能。\n\t\t\t\t\t\t@XX\n\t\t\t\t\t\t現在の文字描画位置からの相対座標となる。Xがマイナス値だと左、Yがマイナス値だと上。emや%指定との共存可能。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\_l[30,5em]「座標X=30pixel、座標Y=5文字分高さ」に表示。\\_l[@-1650%,100]「座標X=最後の文字から文字高さ1650%分左、座標Y=100pixel」に表示。\\_l[,@-100]「座標X=変更なし、座標Y=最後の文字から100pixel上」に表示。",
+      "content": "\\_l[x,y]\n現スコープ側のカーソル位置をXYの座標に移動する。X,Yについては、以下の定義方法が可能である。\n\t\t\t\t\t\\_l実行直後には、トラブル防止のため行揃えが左揃えにリセットされる点に注意。必要に応じて再度指定しなおすこと。\n\t\t\t\t\t\n\t\t\t\t\t\t数値\n\t\t\t\t\t\tバルーンの文字描画開始点（originの位置。横書きでは文字描画範囲の左上）からのピクセル単位座標\n\t\t\t\t\t\t(省略)\n\t\t\t\t\t\t移動しない。X,Y両方ともに省略すると無効果。\n\t\t\t\t\t\tcenterx / centery\n\t\t\t\t\t\tXにcenterx、Yにcenteryと書くと、バルーン画像の中央（幅／高さの半分）に移動する。これだけは文字描画開始点ではなくバルーン画像そのものが基準。\n\t\t\t\t\t\tXXem\n\t\t\t\t\t\t後ろにemとつけると、文字高さを基準とした座標指定となる。1em＝タグを書いた時点での文字高さ。小数点指定可能。\n\t\t\t\t\t\tXXlh\n\t\t\t\t\t\t後ろにlhとつけると、行高さを基準とした座標指定となる。1lh＝1em＋行間 小数点指定可能。\n\t\t\t\t\t\tXX%\n\t\t\t\t\t\t後ろに%とつけると、文字高さを基準とした座標指定となる。100%＝タグを書いた時点での文字高さ。小数点指定可能。\n\t\t\t\t\t\t@XX\n\t\t\t\t\t\t現在の文字描画位置からの相対座標となる。Xがマイナス値だと左、Yがマイナス値だと上。emや%指定との共存可能。\n\t\t\t\t\t\n\t\t\t\t\t縦書きバルーンでも座標軸はバルーン画像そのままで、Xは右方向・Yは下方向が正。\n\t\t\t\t\tただし文字描画開始点が文字描画範囲の右上になり、そこから左へ向かって列が進むため、次の列へ移るにはXにマイナス値を指定することになる。Yは字送り方向（上から下）なので横書きと同じ感覚で使える。\n\t\t\t\t\t例えば\\_l[@-1lh,0]で「1列ぶん左の列の先頭へ」（横書きの\\_l[0,@1lh]にあたる）、\\_l[,@1em]で「字送りを1文字ぶん進める」となる。\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\_l[30,5em]「座標X=30pixel、座標Y=5文字分高さ」に表示。\\_l[@-1650%,100]「座標X=最後の文字から文字高さ1650%分左、座標Y=100pixel」に表示。\\_l[,@-100]「座標X=変更なし、座標Y=最後の文字から100pixel上」に表示。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_l_5bx_2cy_5d:1"
     },
     {
@@ -20315,6 +20339,86 @@
       "url": "https://soliton.sub.jp/satori/?%E3%83%9D%E3%82%B9%E3%83%88%E3%81%A8%E7%8B%9B%E7%8A%AC#qb3d230d"
     },
     {
+      "id": "satori:ゴースト３分クッキング#cf95671f",
+      "title": "ゴースト３分クッキング - ゴースト名・キャラクター名・インストールフォルダ名を考えておく",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "ゴースト名・キャラクター名・インストールフォルダ名を考えておく\nフォルダ名はキャラの名前とかでOK、半角英数推奨です。\n他のゴーストが既にその名前を使用しているかチェックするにはここのサイトが便利。\n被り負けチェッカー\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%82%B4%E3%83%BC%E3%82%B9%E3%83%88%EF%BC%93%E5%88%86%E3%82%AF%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0#cf95671f"
+    },
+    {
+      "id": "satori:ゴースト３分クッキング#de3c705b",
+      "title": "ゴースト３分クッキング - キャラの絵(サーフェス)を用意する",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "キャラの絵(サーフェス)を用意する\n最低２枚です、１キャラ構成でもサブキャラ側に１ドットの画像を用意します。\n絵を描いたらpngフォーマットで保存して下さい。\nファイル名はデフォルトでメインキャラがsurface0.pngとサブキャラがsurface10.pngです。\n（surface0000.png、surface0010.pngのように桁数を揃えても可）\nUKADOC シェルの作成  詳しい作成手順。公式仕様書。\n自分で絵を描く人は、↑の仕様書を読みながら作って下さい。一応クッキング法もあります。\n簡単なシェルの揚げ方\n自前で絵を用意できない人は、「フリーシェル」と呼ばれるキャラクターの絵を配布しているサイトを探す方法もあります。\nfreeshell Wiki*　配布しているサイトをまとめたwiki。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%82%B4%E3%83%BC%E3%82%B9%E3%83%88%EF%BC%93%E5%88%86%E3%82%AF%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0#de3c705b"
+    },
+    {
+      "id": "satori:ゴースト３分クッキング#s5da751c",
+      "title": "ゴースト３分クッキング - テンプレゴーストをインストール",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "テンプレゴーストをインストール\nテンプレゴーストとは、０からゴースト作るの面倒なので使えるとこはそのまま使っていいよって感じで改変自由って事で配布してるゴーストです。\nここではＲポストと狛犬をインストールします。\nポストと狛犬\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%82%B4%E3%83%BC%E3%82%B9%E3%83%88%EF%BC%93%E5%88%86%E3%82%AF%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0#s5da751c"
+    },
+    {
+      "id": "satori:ゴースト３分クッキング#ucccdf3b",
+      "title": "ゴースト３分クッキング - テンプレゴーストを変更する",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "テンプレゴーストを変更する\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%82%B4%E3%83%BC%E3%82%B9%E3%83%88%EF%BC%93%E5%88%86%E3%82%AF%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0#ucccdf3b"
+    },
+    {
+      "id": "satori:ゴースト３分クッキング#jb0834ff",
+      "title": "ゴースト３分クッキング - フォルダ名の変更",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "フォルダ名の変更\nフォルダ名を考えておいた名前にエクスプローラ等で変更します。\nC:\\Program Files\\ssp\\ghost\\R_POST_and_KOMAINU\n↓\nC:\\Program Files\\ssp\\ghost\\HogeHode\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%82%B4%E3%83%BC%E3%82%B9%E3%83%88%EF%BC%93%E5%88%86%E3%82%AF%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0#jb0834ff"
+    },
+    {
+      "id": "satori:ゴースト３分クッキング#qfbc9675",
+      "title": "ゴースト３分クッキング - 不要ファイルの削除",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "不要ファイルの削除\n不要って訳じゃないけど無くても動作するのは消しときます、あとで必要になればまたコピーすればよいです。下記のファイルを残しさくっと消します。\nC:\\Program Files\\ssp\\ghost\\HogeHode\n├─ghost\n│  └─master\n│      │  descript.txt\n│      │  replace.txt\n│      │  replace_after.txt\n│      │  satori.dll\n│      │  satori_conf.txt\n│      │  satori_license.txt\n│      └─saori\n│              fill_desktop.dll\n└─shell\n     └─master\n             surface0000.png\n             surface0010.png\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%82%B4%E3%83%BC%E3%82%B9%E3%83%88%EF%BC%93%E5%88%86%E3%82%AF%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0#qfbc9675"
+    },
+    {
+      "id": "satori:ゴースト３分クッキング#h59e689f",
+      "title": "ゴースト３分クッキング - サーフェスをコピー",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "サーフェスをコピー\n用意して置いた surface0000.png と surface0010.png を shell¥masterフォルダにコピーします。\n本当はshell¥master¥descript.txtを作らないといけませんが割愛します。\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%82%B4%E3%83%BC%E3%82%B9%E3%83%88%EF%BC%93%E5%88%86%E3%82%AF%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0#h59e689f"
+    },
+    {
+      "id": "satori:ゴースト３分クッキング#c4068b03",
+      "title": "ゴースト３分クッキング - ファイルの編集",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "ファイルの編集\ndescript.txt\n名前とか変更します、詳しく→UKADOC Ghost設定\ncharset,Shift_JIS\n\ncraftman,Hogeo\ncraftmanw,ほげ男\ncraftmanurl,\n\nname,ほげほげ\ntype,ghost\n\nsakura.name,ほげほげ\nkero.name,はげはげ\n\nshiori,satori.dll\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%82%B4%E3%83%BC%E3%82%B9%E3%83%88%EF%BC%93%E5%88%86%E3%82%AF%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0#c4068b03"
+    },
+    {
+      "id": "satori:ゴースト３分クッキング#z86c59f7",
+      "title": "ゴースト３分クッキング - フリートーク辞書の作成",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "フリートーク辞書の作成\n辞書ファイル名は dic<任意の名前>.txt で作成します、とりあえず dic_freetalk.txt とかとにします。\n中身はこんな感じで＊はトークの始まりを表し、：は喋るキャラの切り替えを表します。\n＊\n：隣の家に囲いが出来たってね\n：へー\n\n＊\n：隣の客は良く柿食う客だ\n：ほー\n↑",
+      "url": "https://soliton.sub.jp/satori/?%E3%82%B4%E3%83%BC%E3%82%B9%E3%83%88%EF%BC%93%E5%88%86%E3%82%AF%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0#z86c59f7"
+    },
+    {
+      "id": "satori:ゴースト３分クッキング#k011d0aa",
+      "title": "ゴースト３分クッキング - ゴースト作成完了",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "ゴースト作成完了\nSSPを再起動して変更した設定を読み込ませます。ゴーストを起動すればオリジナルゴーストの完成～～～って言うにはさびしすぎますがｗ\n後はトークやイベント対応などを追加して完成度を高めていきます。頑張れ～\nここからどうすればいいんだよ！→少し詳しい調理方法",
+      "url": "https://soliton.sub.jp/satori/?%E3%82%B4%E3%83%BC%E3%82%B9%E3%83%88%EF%BC%93%E5%88%86%E3%82%AF%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0#k011d0aa"
+    },
+    {
       "id": "satori:少し詳しい調理方法#gf7dd113",
       "title": "少し詳しい調理方法 - トーク",
       "source": "satori_wiki",
@@ -23679,7 +23783,7 @@
       "title": "TalkTimer",
       "source": "aosora_wiki",
       "category": "aosora_builtin",
-      "content": "TalkTimer\n\nトーク起動用のタイマー。SHIORI Eventとして直接定義されてない なでられ反応とランダムトークを起動するために使います。\n// セーブデータ読み込み後に実行されるイベント\n// 特段理由がなければこのタイミングでTalkTimerを設定するのがおすすめ\nfunction OnAosoraLoad {\n  TalkTimer.RandomTalk = RandomTalk;\n  TalkTimer.KeyRandomTalkIntervalSeconds = 120;\n\n  TalkTimer.NadenadeTalk = OnNadenade;\n}\n \ntalk RandomTalk {\n  ランダムトークだよ。\n}\n \ntalk OnNadenade {\n  なでられたー。\n}\n\nTalkTimer.RandomTalk\nランダムトークとして呼び出す関数を設定できます。\n\nTalkTimer.RandomTalkHandler\nランダムトークを発生させるときに呼び出す関数を設定できます。  \n設定してないか null の場合は、TalkTimer.CallRandomTalk() を使用してランダムトークを発生させます。\n\nこれは通常設定する必要はありませんが、TalkTimer がランダムトークを発生させるタイミングで任意の処理を行いたいときに使うことができます。  \n戻り値がランダムトークになるので、たとえば下記のように、何か任意の処理を行った後でランダムトークを行うといった処理ができます。\nTalkTimer.RandomTalkHandler = function {\n\n  // 何らかの処理....\n\n  return TalkTimer.CallRandomTalk();\n};\nTalkTimer.CallRandomTalk() を使用せずに、任意の内容を喋らせることもできます。  \nただし、TalkTimer.CallRandomTalk() には TalkTimer.RandomTalkElapsedSeconds をリセットする作用もあるので、使用しない場合は自分でリセットしてください。そうしないと連続で RandomTalkHandler が呼び出されてしまいます。\n\nTalkTimer.KeyRandomTalkIntervalSeconds\n\nランダムトーク間隔秒。  \n0を指定するとランダムトークなし。\n\nTalkTimer.RandomTalkElapsedSeconds\n\n前回ランダムトークしてからの経過秒。  \nこれがKeyRandomTalkIntervalSeconds を超えるとランダムトークを発生させます。\n\nKeyRandomTalkIntervalSeconds を更新するときなど、任意で0を設定してリセットするなども可能です。  \n\nTalkTimer.NadenadeTalk\n\nなでられトークとして呼び出す関数。\n\nTalkTimer.NadenadeMoveThreshold\n\n同じ触り反応に対して OnMouseMove イベントが発生し続けたとき、その回数がこの値を超えるとなでられトークが発生します。  \n\n要するになでられの敏感度合い。デフォルトは50。  \n\nOnMouseLeave, OnMouseHover, 他の判定のOnMouseMoveが来ると0から数え直します。  \n\nTalkTimer.NadenadeActiveCollision\n\nなでられ反応を呼び出す判定中の判定識別子。\n\nスクリプトから書き込むのは非推奨。\n\nTalkTimer.NadenadeMoveCount  \n\nNadenadeMoveThreshold に対して比較する、OnMouseMoveの発生回数。\n\nスクリプトから書き込むのは非推奨。\n\nTalkTimer.RandomTalkQueue\n配列になっていて、要素がある場合はランダムトーク時、RandomTalkの代わりに最初の要素を取り除いて喋る。  \n次以降のトークを予約したい場合に使う。\ntalk FirstTalk{\n  %{ TalkTimer.RandomTalkQueue = [SecondTalk, ThirdTalk]; }\n  1st talk\n}\n\ntalk SecondTalk {\n  2nd talk\n}\n\ntalk ThirdTalk {\n  3rd talk\n}\n\nTalkTimer.CallRandomTalk()\nランダムトークを呼び出して結果を返します。  \nタイマーによるトーク発生時と同じようにRandomTalkQueueがあれば使用し、ランダムトークタイマーをリセットします。  \nメニューなどからランダムトークをさせるときに、時間経過で発生するランダムトークと同じことをしたい場合に使えます。",
+      "content": "TalkTimer\n\nトーク起動用のタイマー。SHIORI Eventとして直接定義されてない なでられ反応とランダムトークを起動するために使います。\n// セーブデータ読み込み後に実行されるイベント\n// 特段理由がなければこのタイミングでTalkTimerを設定するのがおすすめ\nfunction OnAosoraLoad {\n  TalkTimer.RandomTalk = RandomTalk;\n  TalkTimer.KeyRandomTalkIntervalSeconds = 120;\n\n  TalkTimer.NadenadeTalk = OnNadenade;\n}\n \ntalk RandomTalk {\n  ランダムトークだよ。\n}\n \ntalk OnNadenade {\n  なでられたー。\n}\n\nTalkTimer.RandomTalk\nランダムトークとして呼び出す関数を設定できます。\n\nTalkTimer.RandomTalkHandler\nランダムトークを発生させるときに呼び出す関数を設定できます。  \n設定してないか null の場合は、TalkTimer.CallRandomTalk() を使用してランダムトークを発生させます。\n\nこれは通常設定する必要はありませんが、TalkTimer がランダムトークを発生させるタイミングで任意の処理を行いたいときに使うことができます。  \n戻り値がランダムトークになるので、たとえば下記のように、何か任意の処理を行った後でランダムトークを行うといった処理ができます。\nTalkTimer.RandomTalkHandler = function {\n\n  // 何らかの処理....\n\n  return TalkTimer.CallRandomTalk();\n};\nTalkTimer.CallRandomTalk() を使用せずに、任意の内容を喋らせることもできます。  \nただし、TalkTimer.CallRandomTalk() には TalkTimer.RandomTalkElapsedSeconds をリセットする作用もあるので、使用しない場合は自分でリセットしてください。そうしないと連続で RandomTalkHandler が呼び出されてしまいます。\n\nTalkTimer.RandomTalkIntervalSeconds\n\nランダムトーク間隔秒。  \n0を指定するとランダムトークなし。\n\nTalkTimer.RandomTalkElapsedSeconds\n\n前回ランダムトークしてからの経過秒。  \nこれがKeyRandomTalkIntervalSeconds を超えるとランダムトークを発生させます。\n\nKeyRandomTalkIntervalSeconds を更新するときなど、任意で0を設定してリセットするなども可能です。  \n\nTalkTimer.NadenadeTalk\n\nなでられトークとして呼び出す関数。\n\nTalkTimer.NadenadeMoveThreshold\n\n同じ触り反応に対して OnMouseMove イベントが発生し続けたとき、その回数がこの値を超えるとなでられトークが発生します。  \n\n要するになでられの敏感度合い。デフォルトは50。  \n\nOnMouseLeave, OnMouseHover, 他の判定のOnMouseMoveが来ると0から数え直します。  \n\nTalkTimer.NadenadeActiveCollision\n\nなでられ反応を呼び出す判定中の判定識別子。\n\nスクリプトから書き込むのは非推奨。\n\nTalkTimer.NadenadeMoveCount  \n\nNadenadeMoveThreshold に対して比較する、OnMouseMoveの発生回数。\n\nスクリプトから書き込むのは非推奨。\n\nTalkTimer.RandomTalkQueue\n配列になっていて、要素がある場合はランダムトーク時、RandomTalkの代わりに最初の要素を取り除いて喋る。  \n次以降のトークを予約したい場合に使う。\ntalk FirstTalk{\n  %{ TalkTimer.RandomTalkQueue = [SecondTalk, ThirdTalk]; }\n  1st talk\n}\n\ntalk SecondTalk {\n  2nd talk\n}\n\ntalk ThirdTalk {\n  3rd talk\n}\n\nTalkTimer.CallRandomTalk()\nランダムトークを呼び出して結果を返します。  \nタイマーによるトーク発生時と同じようにRandomTalkQueueがあれば使用し、ランダムトークタイマーをリセットします。  \nメニューなどからランダムトークをさせるときに、時間経過で発生するランダムトークと同じことをしたい場合に使えます。",
       "url": "https://github.com/kanadelab/aosora-shiori/wiki/07_04_TalkTimer"
     },
     {
