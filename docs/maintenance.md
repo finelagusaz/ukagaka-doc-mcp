@@ -168,7 +168,9 @@ git commit -m "chore(deps): npm audit fix for transitive vulnerabilities"
 ```bash
 # 事前に package.json の version を上げる（release.yml は自動 bump しない）
 npm version patch  # or minor / major
-git push origin main --follow-tags  # ※ tag は release.yml が後で打ち直すので push 必須ではない
+git push origin main  # ※ tag は push しないこと（--follow-tags 禁止）。
+                      #    Validate release state が「npm 未公開なのに tag が存在」として exit 1 になる。
+                      #    tag は release.yml が publish 後に打つ
 
 gh workflow run release.yml
 ```
