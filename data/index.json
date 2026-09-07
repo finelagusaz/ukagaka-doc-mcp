@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-31T09:48:51.964Z",
+  "generatedAt": "2026-09-07T10:07:24.191Z",
   "entries": [
     {
       "id": "ukadoc:descript_balloon:charset_2c_6587_5b57_30b3_30fc_30c9:1",
@@ -9503,7 +9503,7 @@
       "title": "OnWallpaperChange",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnWallpaperChange\n画像ファイルのDnDによって壁紙が変更された際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tドロップされたファイルパス。",
+      "content": "OnWallpaperChange\n画像ファイルのDnDによって壁紙が変更された際に発生。\n\t\t\t\t\tOS側で壁紙が変更されたことの通知はOnDesktopWallpaperChange。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tドロップされたファイルパス。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t※SSPのみ　ドロップされたキャラクターのスコープ番号。(本体側0,相方1...)",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnWallpaperChange:1"
     },
     {
@@ -10393,6 +10393,14 @@
       "category": "shiori_event",
       "content": "OnDarkTheme\nOSがダークテーマ(暗めの表示)に切り替えられた際に発生。\n\t\t\t\t\t起動直後にNOTIFY(喋れない)で通知され、切り替わった時にGET(喋れる)で通知される。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\t0/1：アプリ設定 1がダークテーマ、0が通常（明るい）テーマ\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t0/1：システム設定 1がダークテーマ、0が通常（明るい）テーマ (2.6.29)\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.5.02",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnDarkTheme:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnDesktopWallpaperChange:1",
+      "title": "OnDesktopWallpaperChange",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnDesktopWallpaperChange\nOS側でデスクトップの壁紙が変更された際に発生。[起動時NOTIFY/他GET]\n\t\t\t\t\t利用者が個人用設定などで壁紙を変えた場合のほか、スライドショーやWindowsスポットライトによる自動的な差し替え、テーマの切り替えでも発生する。\n\t\t\t\t\tスライドショーとスポットライトは最短1分間隔で自動的に切り替わるため、この2つがきっかけの場合は起動後であってもNOTIFY(喋れない)で通知される。\n\t\t\t\t\t画像ファイルのDnDによって壁紙を変更した際のOnWallpaperChangeとは別のイベントで、SSP自身が壁紙を変更した場合(Reference1がself)には両方が発生する。両方に反応する場合は二重にならないよう注意。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tinit (起動時通知) か update (起動後の変更)\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t変更のきっかけ。\n\t\t\t\t\t\tuser：利用者が変更した\n\t\t\t\t\t\tslideshow：スライドショーの自動送り\n\t\t\t\t\t\tspotlight：Windowsスポットライトの自動更新\n\t\t\t\t\t\ttheme：テーマの切り替えに伴うもの\n\t\t\t\t\t\tself：SSP自身が変更した(画像のDnD・プロファイルからの復元)\n\t\t\t\t\t\tunknown：変更されたことは確かだが、きっかけが判別できない\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t現在の壁紙画像のフルパス。単色背景の場合や取得できなかった場合は空。\n\t\t\t\t\t\tWindowsの仕様上、利用者が選んだ元の画像ファイルではなく、OSが作成したキャッシュ(TranscodedWallpaperやスポットライトのキャッシュ)のパスになることがある。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t直前の壁紙画像のフルパス。Reference0がinitの場合は空。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t表示スタイル。center / tile / stretch / fit / fill / span のいずれか。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\tデスクトップの背景色。壁紙の余白に出る色。R,G,B の半角カンマ区切り。\n\t\t\t\t\t\tReference6～\n\t\t\t\t\t\tモニタごとの壁紙情報が以下のフォーマットでモニタの数だけ後ろに続く。[\\1]はバイト値1。\n\t\t\t\t\t\tモニタ番号[\\1]壁紙画像のフルパス[\\1]表示スタイル\n\t\t\t\t\t\tモニタ番号はOnDisplayChangeExのReference1～の並び順と対応する(Reference1がモニタ番号0)。\n\t\t\t\t\t\t表示スタイルはOSがモニタごとに保持していないため、現状はすべて同じ値(Reference4と同一)になる。\n\t\t\t\t\t\tモニタごとの壁紙を扱えない環境(Windows 7以前)ではReference6以降は付かない。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.86",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnDesktopWallpaperChange:1"
     },
     {
       "id": "ukadoc:list_shiori_event:OnOSUpdateInfo:1",
@@ -22649,14 +22657,6 @@
       "category": "satori_tips",
       "content": "どのイベントを使うのか？\n…といってもシェル名の取得と違ってタイミングは少ないので、下記のようにしておくだけで困ることはないでしょう。\nすぐに値を更新したい時は上記のプロパティシステムがおすすめ。\n＊OnNotifyBalloonInfo\n＄現在のバルーン【タブ】（Ｒ０）\n\n＊OnBalloonChange\n＄現在のバルーン【タブ】（Ｒ０）",
       "url": "https://soliton.sub.jp/satori/?%E7%8F%BE%E5%9C%A8%E3%81%AE%E3%83%90%E3%83%AB%E3%83%BC%E3%83%B3%E5%90%8D%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B#j06ef900"
-    },
-    {
-      "id": "satori:月齢を計算する#vd8a3418",
-      "title": "月齢を計算する - 月齢",
-      "source": "satori_wiki",
-      "category": "satori_tips",
-      "content": "月齢\n月齢の計算式を里々に当てはめたもの。正確な月齢を得るには複雑な計算式が必要であるため、かなり簡素化されている。精度は劣るものの記述が簡単なのがメリット。\n使い方は（月齢）。実行時の年月日で算出される。\n＠月齢\n（calc,\n（（（（現在年）-11）%19）*11 +（nswitch,（現在月）,0,2,0,2,2,4,5,6,7,8,9,10）+（現在日））%30\n）\n特定の日付の月齢を得たい場合は関数化する。\n＠月齢\n（calc,\n（（（（Ａ０）-11）%19）*11 +（nswitch,（Ａ１）,0,2,0,2,2,4,5,6,7,8,9,10）+（Ａ２））%30\n）\n\n＊\n：２０１６年１月１日の月齢は（call,月齢,２０１６,１,１）だよ。",
-      "url": "https://soliton.sub.jp/satori/?%E6%9C%88%E9%BD%A2%E3%82%92%E8%A8%88%E7%AE%97%E3%81%99%E3%82%8B#vd8a3418"
     },
     {
       "id": "satori:スライダーもどき#v6253498",
