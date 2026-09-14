@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-07T10:07:24.191Z",
+  "generatedAt": "2026-09-14T09:00:06.853Z",
   "entries": [
     {
       "id": "ukadoc:descript_balloon:charset_2c_6587_5b57_30b3_30fc_30c9:1",
@@ -4587,6 +4587,14 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#baseware.name:1"
     },
     {
+      "id": "ukadoc:list_propertysystem:baseware.windowmode:1",
+      "title": "baseware.windowmode",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "baseware.windowmode\nSSPのウインドウモードの状態。normal（通常モード）、shared（ウインドウモード・全ゴーストで1枚のコンテナを共有）、perghost（ウインドウモード・ゴースト1体につき1枚のコンテナ）のいずれか。\n\t\t\t\t\t切り替えられた際にはOnWindowModeChangeが発生する。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.93",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#baseware.windowmode:1"
+    },
+    {
       "id": "ukadoc:list_propertysystem:ghostlist.count:1",
       "title": "ghostlist.count",
       "source": "ukadoc",
@@ -5593,6 +5601,38 @@
       "category": "protocol",
       "content": "rateofuselist.index(順位).percentmonthly\n使用率のその順位のゴーストの起動時間割合。(パーセント、小数、月報版、今日から30日前までの集計)\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.54",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#rateofuselist.index_28_9806_4f4d_29.percentmonthly:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:developer.log._30ed_30b0_7a2e_5225.count:1",
+      "title": "developer.log.ログ種別.count",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "developer.log.ログ種別.count\nSSPが記録しているログの現在の件数。ログ種別に入る文字列は以下の通り。\n\t\t\t\t\t\n\t\t\t\t\t\tscript\n\t\t\t\t\t\tスクリプトログ（ログウインドウの種別Script）。\n\t\t\t\t\t\terror\n\t\t\t\t\t\tエラーログ（同Error）。\n\t\t\t\t\t\tnetwork\n\t\t\t\t\t\tネットワークログ（同Network）。\n\t\t\t\t\t\tupdate\n\t\t\t\t\t\tアップデートログ（同Update）。\n\t\t\t\t\t\n\t\t\t\t\t各ログが保持する件数には上限があり（既定50件）、上限を超えると古いものから消えていく。\n\t\t\t\t\tdeveloper.log.～ はすべて読み取り専用で、開発者機能の設定に関わらず取得できる。\n\t\t\t\t\tエラーログでは、同じ内容のログが続くとtypeがSystemの要約1件にまとめられることがある。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#developer.log._30ed_30b0_7a2e_5225.count:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:developer.log._30ed_30b0_7a2e_5225.index_28ID_29._30ed_30b0_30d7_30ed_30d1_30c6_30a3_540d:1",
+      "title": "developer.log.ログ種別.index(ID).ログプロパティ名",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "developer.log.ログ種別.index(ID).ログプロパティ名\nログのうちID番目のものから情報を取得。\n\t\t\t\t\tIDは新しいものから順に0,1,2...となる。範囲外のIDを指定した場合は取得失敗となる。\n\t\t\t\t\tログ種別はdeveloper.log.ログ種別.countを参照。ログプロパティ名に入る文字列は以下の通り。\n\t\t\t\t\t\n\t\t\t\t\t\ttype\n\t\t\t\t\t\tログの種類。\n\t\t\t\t\t\tscriptではGhost(～)またはSSTP(～)の形式で、括弧内には該当する属性がカンマ区切りで入る（Ghost：External、Embed、SSF、Plugin　SSTP：LocalまたはRemote、TempGhost、Auth　共通：NoTranslate）。Ghostで該当する属性が無い場合は括弧ごと省略されGhostのみになる。付加情報がある場合は末尾に「:付加情報」が付く。\n\t\t\t\t\t\tその他のログ種別ではInfo、Notice、Warning、Error、Critical、Systemのいずれか。\n\t\t\t\t\t\tname\n\t\t\t\t\t\tログの発生元の名前（ゴースト名など）。発生元が無い場合は[SYSTEM]。\n\t\t\t\t\t\tvalue\n\t\t\t\t\t\tログの本文。長いものも省略されずに全文が返る。\n\t\t\t\t\t\ttime\n\t\t\t\t\t\tログが記録された日時。ローカル時刻で、OSの短い日付形式と24時間表記の時:分を半角スペースで区切ったもの。書式はOSの地域設定に依存する。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#developer.log._30ed_30b0_7a2e_5225.index_28ID_29._30ed_30b0_30d7_30ed_30d1_30c6_30a3_540d:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:developer.log._30ed_30b0_7a2e_5225_28_540d_524d_29.count:1",
+      "title": "developer.log.ログ種別(名前).count",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "developer.log.ログ種別(名前).count\nログのうち、nameが名前と一致するものの件数。大文字小文字は区別しない。\n\t\t\t\t\tドットを挟まず括弧を直接続けることに注意（developer.log.script(～)であってdeveloper.log.script.(～)ではない）。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#developer.log._30ed_30b0_7a2e_5225_28_540d_524d_29.count:1"
+    },
+    {
+      "id": "ukadoc:list_propertysystem:developer.log._30ed_30b0_7a2e_5225_28_540d_524d_29.index_28ID_29._30ed_30b0_30d7_30ed_30d1_30c6_30a3_540d:1",
+      "title": "developer.log.ログ種別(名前).index(ID).ログプロパティ名",
+      "source": "ukadoc",
+      "category": "protocol",
+      "content": "developer.log.ログ種別(名前).index(ID).ログプロパティ名\nログのうち、nameが名前と一致するものの中でID番目のものから情報を取得。\n\t\t\t\t\tIDは新しいものから順に0,1,2...となる。.index(ID)を省略した場合（developer.log.ログ種別(名前).ログプロパティ名）は最も新しいものが対象になる。\n\t\t\t\t\tドットを挟まず括弧を直接続けることに注意。ログプロパティ名はこちら。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_propertysystem.html#developer.log._30ed_30b0_7a2e_5225_28_540d_524d_29.index_28ID_29._30ed_30b0_30d7_30ed_30d1_30c6_30a3_540d:1"
     },
     {
       "id": "ukadoc:list_propertysystem:name:1",
@@ -7187,6 +7227,14 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bexecute_2cheadline_2c_30d8_30c3_30c9_30e9_30a4_30f3_540d_5d:1"
     },
     {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bexecute_2ccalendarplugin_2c_30ab_30ec_30f3_30c0_30fc_30d7_30e9_30b0_30a4_30f3_540d_5d:1",
+      "title": "\\![execute,calendarplugin,カレンダープラグイン名]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![execute,calendarplugin,カレンダープラグイン名]\nカレンダープラグイン(スケジュールセンサ)の予定取得を開始する。カレンダーのメニューからプラグインを選んだ場合と同じ。\n\t\t\t\t\tカレンダーを表示していない場合も実行される。\n\t\t\t\t\tカレンダープラグイン名をrandomにするとランダムに選択。\n\t\t\t\t\tlastinstalledにすると最後にインストールされたカレンダープラグインを実行。ただしSSPを一度終了した場合は無効。\n\t\t\t\t\t該当するカレンダープラグインがなかった場合は無視される。\n\t\t\t\t\tカレンダープラグイン名はinstalledcalendarpluginnameで通知される。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.93",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bexecute_2ccalendarplugin_2c_30ab_30ec_30f3_30c0_30fc_30d7_30e9_30b0_30a4_30f3_540d_5d:1"
+    },
+    {
       "id": "ukadoc:list_sakura_script:_5c_21_5bbiff_28_2c_30a2_30ab_30a6_30f3_30c8_540d_29_5d:1",
       "title": "\\![biff(,アカウント名)]",
       "source": "ukadoc",
@@ -7243,6 +7291,14 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bchange_2cballoon_2c_30d0_30eb_30fc_30f3_540d_5d:1"
     },
     {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bchange_2ccalendarskin_2c_30ab_30ec_30f3_30c0_30fc_30b9_30ad_30f3_540d_5d:1",
+      "title": "\\![change,calendarskin,カレンダースキン名]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![change,calendarskin,カレンダースキン名]\nカレンダーのスキンを切り替える。カレンダーのメニューからスキンを選んだ場合と同じ。\n\t\t\t\t\t該当するカレンダースキンがなかった場合は無視される。\n\t\t\t\t\tカレンダーを一度も開いていない場合は設定だけが変更され、次にカレンダーを開いたときに反映される。\n\n\t\t\t\t\tカレンダースキン名をlastinstalledにすると最後にインストールしたカレンダースキンに切り替え。ただしSSPを一度終了した場合は無効。\n\t\t\t\t\tカレンダースキン名をrandomにするとランダムに切り替え。\n\t\t\t\t\tカレンダースキン名はinstalledcalendarskinnameで通知される。\n\t\t\t\t\t\n\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.93",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bchange_2ccalendarskin_2c_30ab_30ec_30f3_30c0_30fc_30b9_30ad_30f3_540d_5d:1"
+    },
+    {
       "id": "ukadoc:list_sakura_script:_5c_21_5bcall_2cghost_2c_30b4_30fc_30b9_30c8_540d_28_2c--option_3draise-event_29_5d:1",
       "title": "\\![call,ghost,ゴースト名(,--option=raise-event)]",
       "source": "ukadoc",
@@ -7287,7 +7343,7 @@
       "title": "\\![save,wallpaper]",
       "source": "ukadoc",
       "category": "sakurascript",
-      "content": "\\![save,wallpaper]\n現在の壁紙をいったん保存し、restoreで復帰できるようにする。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.11",
+      "content": "\\![save,wallpaper]\n現在の壁紙をいったん保存し、restoreで復帰できるようにする。\n\t\t\t\t\t[2.8.93] ウインドウモード中は、OSの壁紙ではなくウインドウモードの背景（背景の種類・画像・配置・色）を保存する。通常モードで保存した内容とは別に保持される。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.11",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bsave_2cwallpaper_5d:1"
     },
     {
@@ -7295,7 +7351,7 @@
       "title": "\\![restore,wallpaper]",
       "source": "ukadoc",
       "category": "sakurascript",
-      "content": "\\![restore,wallpaper]\nsave,wallpaperで保存された壁紙を復帰する。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.11",
+      "content": "\\![restore,wallpaper]\nsave,wallpaperで保存された壁紙を復帰する。\n\t\t\t\t\t[2.8.93] ウインドウモード中は、ウインドウモード中にsave,wallpaperで保存した背景をウインドウモードの背景へ復帰する（OSの壁紙は変更しない）。ウインドウモードで保存したことがなければ何もしない。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.11",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5brestore_2cwallpaper_5d:1"
     },
     {
@@ -7303,7 +7359,7 @@
       "title": "\\![set,wallpaper,ファイル名,オプション]",
       "source": "ukadoc",
       "category": "sakurascript",
-      "content": "\\![set,wallpaper,ファイル名,オプション]\n指定したファイルを壁紙にする。\n\t\t\t\t\tファイル名には、絶対パスの他、ssp.exeからの相対パスが使用可能。\n\t\t\t\t\tファイル名を指定しないか空にすると壁紙設定が解除される(OSデフォルトの設定に戻る)。\n\t\t\t\t\tオプションは以下の通り。\n\t\t\t\t\t\n\t\t\t\t\t\tcenter\n\t\t\t\t\t\t中央表示（省略時デフォルト）\n\t\t\t\t\t\ttile\n\t\t\t\t\t\t並べて表示する（タイリング）\n\t\t\t\t\t\tstretch\n\t\t\t\t\t\t画像の縦横比を無視して、モニタいっぱいに拡大する。\n\t\t\t\t\t\tstretch-x\n\t\t\t\t\t\t画像の横幅をモニタ幅いっぱいに合わせるようにして、縦横比を考慮して拡大する。Windows 7以降のみ。\n\t\t\t\t\t\tstretch-y\n\t\t\t\t\t\t画像の高さをモニタ高さいっぱいに合わせるようにして、縦横比を考慮して拡大する。Windows 7以降のみ。\n\t\t\t\t\t\tspan\n\t\t\t\t\t\tマルチモニタ環境において、全モニタに渡るように拡大する。Windows 10以降のみ。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\tEmily/Phase4.5のサムネイルを壁紙にする。\\![set,wallpaper,ghost/emily4/thumbnail.png]",
+      "content": "\\![set,wallpaper,ファイル名,オプション]\n指定したファイルを壁紙にする。\n\t\t\t\t\tファイル名には、絶対パスの他、相対パスが使用可能。相対パスは[実行したゴーストのフォルダ]/ghost/master、[実行したゴーストのフォルダ]、SSPのフォルダの順に探す。\n\t\t\t\t\t先頭が!の場合はSSPのフォルダから、\\または/の場合はSSPのあるドライブのルートからの相対パスとみなす。\n\t\t\t\t\tファイル名を指定しないか空にすると壁紙設定が解除される(壁紙のない、背景色だけの状態になる)。\n\t\t\t\t\tオプションは以下の通り。\n\t\t\t\t\t\n\t\t\t\t\t\tcenter\n\t\t\t\t\t\t中央表示（省略時デフォルト）\n\t\t\t\t\t\ttile\n\t\t\t\t\t\t並べて表示する（タイリング）\n\t\t\t\t\t\tstretch\n\t\t\t\t\t\t画像の縦横比を無視して、モニタいっぱいに拡大する。\n\t\t\t\t\t\tstretch-x\n\t\t\t\t\t\t画像の横幅をモニタ幅いっぱいに合わせるようにして、縦横比を考慮して拡大する。Windows 7以降のみ。\n\t\t\t\t\t\tstretch-y\n\t\t\t\t\t\t画像の高さをモニタ高さいっぱいに合わせるようにして、縦横比を考慮して拡大する。Windows 7以降のみ。\n\t\t\t\t\t\tfit\n\t\t\t\t\t\t画像の縦横比を保ったまま、画像全体がモニタに収まるように拡大縮小する。余白には背景色が表示される。\n\t\t\t\t\t\tfill\n\t\t\t\t\t\t画像の縦横比を保ったまま、モニタ全体を覆うように拡大縮小する。はみ出した部分は表示されない。\n\t\t\t\t\t\tspan\n\t\t\t\t\t\tマルチモニタ環境において、全モニタに渡るように拡大する。Windows 10以降のみ。\n\t\t\t\t\t\n\t\t\t\t\t[2.8.93] 以下の形式でも指定できる。--で始まる引数は順不同で、上記のファイル名・オプションによる指定と混在してもよい（--で始まらない引数は、現れた順にファイル名・オプションとみなす）。\n\t\t\t\t\t\n\t\t\t\t\t\t--file=ファイル名\n\t\t\t\t\t\t壁紙にするファイル。上記のファイル名と同じ。\n\t\t\t\t\t\t--position=配置\n\t\t\t\t\t\t画像の配置。上記のオプションと同じ値を指定する。省略時はcenter。\n\t\t\t\t\t\t--color=色指定\n\t\t\t\t\t\t背景色（画像の余白や、画像を指定しない場合の単色背景に使われる色）。文字色指定の方法のうち、R,G,B・R%,G%,B%・16進数カラーコード・定義済みキーワードが使用可能。\n\t\t\t\t\t\tR,G,Bのようにカンマを含む書式は、\"--color=255,128,0\"のように引数全体をダブルクォートで囲むこと。\n\t\t\t\t\t\t色として解釈できない値を指定した場合、このタグは何もしない。\n\t\t\t\t\t\n\t\t\t\t\t[2.8.93] ファイル名と--colorの有無によって、以下のように動作する。\n\t\t\t\t\t\n\t\t\t\t\t\tファイル名のみ\n\t\t\t\t\t\t画像を壁紙にする。背景色は変更しない。\n\t\t\t\t\t\tファイル名と--color\n\t\t\t\t\t\t画像を壁紙にし、背景色も変更する。\n\t\t\t\t\t\t--colorのみ\n\t\t\t\t\t\t画像なしの、指定色の単色背景にする。\n\t\t\t\t\t\tどちらもなし\n\t\t\t\t\t\t壁紙設定を解除する（壁紙を外し、背景色だけの状態にする。背景色は変更しない）。\n\t\t\t\t\t\n\t\t\t\t\t[2.8.93] ウインドウモードで動作中は、OSの壁紙を変更せず、そのゴーストが表示されているウインドウモードのウインドウの背景を変更する（全ゴーストで1つのウインドウを共有している場合は、全ゴーストの背景が変わる）。\n\t\t\t\t\t背景の設定は「背景 - 画像」扱いになり、SSP終了後も保持される。\n\t\t\t\t\t配置はspanのみfillと同じ扱いになる。--colorを省略した場合、背景色は画像の主な色になる。\n\t\t\t\t\tファイル名も--colorも指定しない場合は、背景を「背景 - デスクトップ」（OSの壁紙を再現する設定）に戻す。\n\t\t\t\t\t画像ファイルのドラッグ＆ドロップによる壁紙変更も、同様にウインドウモードの背景を変更する。\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\tEmily/Phase4.5のサムネイルを壁紙にする。\\![set,wallpaper,ghost/emily4/thumbnail.png]\n\t\t\t\t\t\t\t画像全体が収まるように表示し、余白を紺色にする。\\![set,wallpaper,--file=ghost/emily4/thumbnail.png,--position=fit,--color=navy]\n\t\t\t\t\t\t\t画像なしの単色背景にする。\\![set,wallpaper,\"--color=32,64,96\"]",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bset_2cwallpaper_2c_30d5_30a1_30a4_30eb_540d_2c_30aa_30d7_30b7_30e7_30f3_5d:1"
     },
     {
@@ -7739,6 +7795,22 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bopen_2cpluginexplorer_5d:1"
     },
     {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bopen_2ccalendarskinexplorer_5d:1",
+      "title": "\\![open,calendarskinexplorer]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![open,calendarskinexplorer]\nカレンダースキンエクスプローラを開く。\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\![open,calendarskinexplorer]カレンダースキンエクスプローラを開く。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bopen_2ccalendarskinexplorer_5d:1"
+    },
+    {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bopen_2ccalendarpluginexplorer_5d:1",
+      "title": "\\![open,calendarpluginexplorer]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![open,calendarpluginexplorer]\nカレンダープラグイン(スケジュールセンサ)エクスプローラを開く。\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\![open,calendarpluginexplorer]カレンダープラグインエクスプローラを開く。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bopen_2ccalendarpluginexplorer_5d:1"
+    },
+    {
       "id": "ukadoc:list_sakura_script:_5c_21_5bopen_2crateofusegraph_5d:1",
       "title": "\\![open,rateofusegraph]",
       "source": "ukadoc",
@@ -7791,7 +7863,7 @@
       "title": "\\![open,readme]",
       "source": "ukadoc",
       "category": "sakurascript",
-      "content": "\\![open,readme]\nreadme.txtを開く。\n\t\t\t\t\t何も指定しな場合、起動中ゴーストの、[実行したゴーストのフォルダ]/ghost/master/descript.txtのreadmeに指定してあるファイルが開く。\n\t\t\t\t\t\\![open,readme,種類(ghost/shell/balloon/headline/plugin),名前] と指定すると、指定したreadmeが開く。例：\\![open,readme,ghost,Emily/Phase4]\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\![open,readme]readme.txtを開く。",
+      "content": "\\![open,readme]\nreadme.txtを開く。\n\t\t\t\t\t何も指定しな場合、起動中ゴーストの、[実行したゴーストのフォルダ]/ghost/master/descript.txtのreadmeに指定してあるファイルが開く。\n\t\t\t\t\t\\![open,readme,種類(ghost/shell/balloon/headline/plugin/calendar.skin/calendar.plugin),名前] と指定すると、指定したreadmeが開く。例：\\![open,readme,ghost,Emily/Phase4]\n\t\t\t\t\tcalendar.skinはカレンダースキン、calendar.pluginはカレンダープラグイン（スケジュールセンサ）。「calendar skin」「calendar plugin」のスペース区切り表記も受け付ける。\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\![open,readme]readme.txtを開く。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bopen_2creadme_5d:1"
     },
     {
@@ -8023,7 +8095,7 @@
       "title": "\\![execute,rss-get,URL,オプション,オプション,オプション...]",
       "source": "ukadoc",
       "category": "sakurascript",
-      "content": "\\![execute,rss-get,URL,オプション,オプション,オプション...]\n※オプション付きでhttp get リクエストを行い、レスポンスをRSS/Atomフィードとして解析したのち、解析結果をイベントとして通知する。パラメータ群の指定はhttp-postと同じ。",
+      "content": "\\![execute,rss-get,URL,オプション,オプション,オプション...]\n※オプション付きでhttp get リクエストを行い、レスポンスをRSS/Atomフィードとして解析したのち、解析結果をイベントとして通知する。パラメータ群の指定はhttp-postと同じ。\n\t\t\t\t\t取得した項目はOnExecuteRSSComplete、失敗時はOnExecuteRSSFailureで通知される。\n\t\t\t\t\t[2.8.92] どの項目をいくつ返すかはRSS絞り込みオプション（--from・--to・--limit）で指定できる。無指定の場合は全項目を返す。\n\t\t\t\t\t\n\t\t\t\t\t\t 絞り込み 2.8.92～\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\![execute,rss-get,https://example.com/feed.xml,--async=OnMyFeed,--limit=5]最新の5件をOnMyFeedで受け取る。\n\t\t\t\t\t\t\t\\![execute,rss-get,https://example.com/feed.xml,--async=OnMyFeed,--from=20261201,--to=20261207]2026年12月1日から7日までの項目だけを受け取る。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bexecute_2crss-get_2cURL_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3..._:1"
     },
     {
@@ -8031,8 +8103,48 @@
       "title": "\\![execute,rss-post,URL,オプション,オプション,オプション...]",
       "source": "ukadoc",
       "category": "sakurascript",
-      "content": "\\![execute,rss-post,URL,オプション,オプション,オプション...]\n※オプション付きでhttp post リクエストを行い、レスポンスをRSS/Atomフィードとして解析したのち、解析結果をイベントとして通知する。パラメータ群の指定はhttp-postと同じ。",
+      "content": "\\![execute,rss-post,URL,オプション,オプション,オプション...]\n※オプション付きでhttp post リクエストを行い、レスポンスをRSS/Atomフィードとして解析したのち、解析結果をイベントとして通知する。解析・通知・絞り込みの仕様はrss-getと同じ。パラメータ群の指定はhttp-postと同じ。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bexecute_2crss-post_2cURL_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3...:1"
+    },
+    {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bexecute_2cical-get_2cURL_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3...:1",
+      "title": "\\![execute,ical-get,URL,オプション,オプション,オプション...]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![execute,ical-get,URL,オプション,オプション,オプション...]\n※オプション付きでhttp get リクエストを行い、レスポンスをiCalendar(RFC 5545)のカレンダーとして解析したのち、解析結果をイベントとして通知する。パラメータ群の指定はhttp-postと同じ。\n\t\t\t\t\t取得したイベントはOnExecuteICalComplete、失敗時はOnExecuteICalFailureで通知される。\n\t\t\t\t\tどのイベントをいくつ返すかはiCal絞り込みオプション（--from・--to・--expand・--limit）で指定する。無指定の場合はファイルに書かれたVEVENTを先頭から全件返す。\n\t\t\t\t\t解析対象はVCALENDAR直下のX-WR-CALNAME・X-WR-TIMEZONE・CALSCALEと、VEVENT（およびその中のVALARM）。SUMMARYを持たないVEVENTは無効とみなして除外される。なお、--nofileを指定しても解析用の一時ファイルは作成される（指定は無視される）。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.90\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\![execute,ical-get,https://example.com/calendar.ics,--async=OnMyCalendar,--expand=7]今日から7日ぶんの予定を「発生」単位で展開し、OnMyCalendarで受け取る。\n\t\t\t\t\t\t\t\\![execute,ical-get,https://example.com/calendar.ics,--async=OnMyCalendar,--from=20261201,--to=20261231,--limit=50]2026年12月に発生する予定を最大50件、VEVENT単位で受け取る。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bexecute_2cical-get_2cURL_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3...:1"
+    },
+    {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bexecute_2cical-post_2cURL_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3..:1",
+      "title": "\\![execute,ical-post,URL,オプション,オプション,オプション...]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![execute,ical-post,URL,オプション,オプション,オプション...]\n※オプション付きでhttp post リクエストを行い、レスポンスをiCalendar(RFC 5545)のカレンダーとして解析したのち、解析結果をイベントとして通知する。解析・通知の仕様はical-getと同じ。パラメータ群の指定はhttp-postと同じ。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.90",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bexecute_2cical-post_2cURL_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3..:1"
+    },
+    {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bexecute_2cschedule-add_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3..._5:1",
+      "title": "\\![execute,schedule-add,オプション,オプション,オプション...]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![execute,schedule-add,オプション,オプション,オプション...]\nゴースト用の予定表に予定を1件登録する。登録した予定はSSPのカレンダーに表示され、ユーザーの予定と同じく今日の予定やOnSchedule5MinutesToGoの対象になる。\n\t\t\t\t\tゴースト用の予定表は、ユーザーの予定・スケジュールセンサとは別のファイル（data/schedule/ghost/schedule.ics）に保存され、すべてのゴーストで共有される。他のゴーストが登録した予定も上書き・削除できる。\n\t\t\t\t\tユーザーはカレンダー上で閲覧できるが編集はできない。カレンダーのメニュー「すべて削除」→「ゴーストが登録した予定」で一括削除できる。\n\t\t\t\t\t結果はOnExecuteScheduleComplete、失敗時はOnExecuteScheduleFailureで通知される。SSTPなど外部から送られたスクリプトでは実行できない。\n\t\t\t\t\tオプション（--summary と --start は必須）\n\t\t\t\t\t--summary=タイトル : 予定のタイトル(SUMMARY)。\n\t\t\t\t\t--start=日時 : 開始日時。yyyymmdd なら終日予定、yyyymmddThhmm または yyyymmddThhmmss なら時刻付き（ローカル時刻）。区切りの - と : は無視される。\n\t\t\t\t\t--end=日時 : 終了日時。書式は --start と同じ。省略時は開始日の1日だけの予定になる。\n\t\t\t\t\t--uid=UID : 予定の識別子。空白を含まない半角英数記号のみ。同じUIDの予定があれば置き換える。省略時はSSPが割り当て、OnExecuteScheduleCompleteで返す。\n\t\t\t\t\t--description=説明 : DESCRIPTION。\n\t\t\t\t\t--location=場所 : LOCATION。\n\t\t\t\t\t--url=URL : URL。\n\t\t\t\t\t--categories=分類 : CATEGORIES。複数ある場合はカンマ区切り（iCalのCATEGORIESの値としてそのまま保存される）。\n\t\t\t\t\t--status=状態 : STATUS（CONFIRMED / TENTATIVE / CANCELLED）。\n\t\t\t\t\t--type=種類 : 予定の種類。OnSchedule5MinutesToGo等のReference0に入る。\n\t\t\t\t\t--rrule=規則 : 繰り返し規則（RRULEの値部分。例 FREQ=WEEKLY;BYDAY=MO）。\n\t\t\t\t\t--exdate=日付 : 繰り返しから除外する日（yyyymmdd）。複数ある場合はカンマ区切り。\n\t\t\t\t\t--notify=分 : 何分前に通知するか。省略時はSSPの設定に従う。\n\t\t\t\t\t--script=スクリプト : 予定に添えるさくらスクリプト。通知時・予定を読むときに実行される。\n\t\t\t\t\t--event=イベントID : Onから始まるIDを指定すると、結果のイベント名がそのIDになる（失敗時はIDの後ろにFailureをつけた名前）。\n\t\t\t\t\tカンマを含む値（--rrule・--exdate・--categories など）を指定する場合は、引数全体を \" \" で囲むこと。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.91\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\![execute,schedule-add,--uid=myghost-meeting,--summary=打ち合わせ,--start=20261001T1000,--end=20261001T1100,\"--rrule=FREQ=WEEKLY;BYDAY=TH\",--notify=10,--event=OnMyScheduleAdded]2026年10月1日から毎週木曜10時の予定を登録し、10分前に通知させる。\n\t\t\t\t\t\t\t\\![execute,schedule-add,--summary=記念日,--start=20261224,--rrule=FREQ=YEARLY]毎年12月24日の終日予定を登録する。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bexecute_2cschedule-add_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3..._5:1"
+    },
+    {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bexecute_2cschedule-delete_2cUID_2c_30aa_30d7_30b7_30e7_30f3..._5d:1",
+      "title": "\\![execute,schedule-delete,UID,オプション...]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![execute,schedule-delete,UID,オプション...]\nゴースト用の予定表から、指定したUIDの予定を削除する。ユーザーの予定・スケジュールセンサの予定は削除できない。\n\t\t\t\t\t結果はOnExecuteScheduleComplete、失敗時（該当する予定が無い場合を含む）はOnExecuteScheduleFailureで通知される。SSTPなど外部から送られたスクリプトでは実行できない。\n\t\t\t\t\tオプションは --event=イベントID のみ。schedule-addと同じ。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.91",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bexecute_2cschedule-delete_2cUID_2c_30aa_30d7_30b7_30e7_30f3..._5d:1"
+    },
+    {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bexecute_2cschedule-get_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3..._5:1",
+      "title": "\\![execute,schedule-get,オプション,オプション,オプション...]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![execute,schedule-get,オプション,オプション,オプション...]\nゴースト用の予定表に登録されている予定を読み出し、OnExecuteScheduleGetCompleteで通知する。Referenceの形式はOnExecuteICalCompleteと同じ。\n\t\t\t\t\t対象はゴースト用の予定表だけで、ユーザーの予定・スケジュールセンサの予定は含まれない。\n\t\t\t\t\tどの予定をいくつ返すかはiCal絞り込みオプション（--from・--to・--expand・--limit）で指定する。ほかに --event=イベントID が使える。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.91\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\![execute,schedule-get,--expand=7,--event=OnMySchedule]今日から7日ぶんのゴースト用の予定を「発生」単位で展開し、OnMyScheduleで受け取る。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bexecute_2cschedule-get_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3..._5:1"
     },
     {
       "id": "ukadoc:list_sakura_script:_5c_21_5bexecute_2cwebsocket_2cURL_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3_2c_30aa_30d7_30b7_30e7_30f3..:1",
@@ -8083,6 +8195,14 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bcancel_2chttp_2cURL_5d:1"
     },
     {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bcancel_2cical_2cURL_5d:1",
+      "title": "\\![cancel,ical,URL]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![cancel,ical,URL]\n進行中のical-get/ical-postリクエストをキャンセルする。\n\t\t\t\t\t\n\t\t\t\t\t\tURL……取得開始時に使ったURLと同じ文字列。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.90",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bcancel_2cical_2cURL_5d:1"
+    },
+    {
       "id": "ukadoc:list_sakura_script:_5c_21_5bexecute_2cextractarchive_2c_30d5_30a1_30a4_30eb_540d_2c_30c7_30a3_30ec_30af_30c8_30ea_540d_2c_30aa_30d7_30b7_30:1",
       "title": "\\![execute,extractarchive,ファイル名,ディレクトリ名,オプション...]",
       "source": "ukadoc",
@@ -8115,12 +8235,12 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bexecute_2cinstall_2cpath_2c_30d5_30a1_30a4_30eb_540d_5d:1"
     },
     {
-      "id": "ukadoc:list_sakura_script:_5c_21_5bexecute_2cinstall_2curl_2cURL_2c_28feed_7cnar_7chomeurl_306e_3044_305a_308c_304b_29_5d:1",
-      "title": "\\![execute,install,url,URL,(feed|nar|homeurlのいずれか)]",
+      "id": "ukadoc:list_sakura_script:_5c_21_5bexecute_2cinstall_2curl_2cURL_2c_7a2e_5225_5d:1",
+      "title": "\\![execute,install,url,URL,種別]",
       "source": "ukadoc",
       "category": "sakurascript",
-      "content": "\\![execute,install,url,URL,(feed|nar|homeurlのいずれか)]\n指定したURLのnarファイルをインストールまたはRSSFeedを登録。\n\t\t\t\t\t(feed|nar|homeurl)は省略可能。\n\t\t\t\t\tファイルのダウンロードを一時ファイル用フォルダ内に自動的に行い、適宜インストール処理を行う。\n\t\t\t\t\tこのタグで実行されたダウンロード処理については、OnURLQueryは発生しない。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\![execute,install,url,http://ssp.shillest.net/ghost/emily4.nar,nar]Emily/Phase4.5のnarをダウンロードしてきてインストールする。",
-      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bexecute_2cinstall_2curl_2cURL_2c_28feed_7cnar_7chomeurl_306e_3044_305a_308c_304b_29_5d:1"
+      "content": "\\![execute,install,url,URL,種別]\n指定したURLのファイルをダウンロードし、種別に応じたインストール／登録処理を行う。\n\t\t\t\t\tファイルのダウンロードを一時ファイル用フォルダ内に自動的に行い、適宜インストール処理を行う。\n\t\t\t\t\tこのタグで実行されたダウンロード処理については、OnURLQueryは発生しない。\n\t\t\t\t\t種別は省略可能。省略した場合はContent-Typeとファイルの中身から自動判別される。\n\t\t\t\t\t\n\t\t\t\t\t\tnar……narファイルとしてインストールする\n\t\t\t\t\t\tfeed……ヘッドラインセンサ(RSSFeed)として登録する\n\t\t\t\t\t\thomeurl……そのURLをhomeurlとみなしてネットワーク更新を実行する\n\t\t\t\t\t\tical……iCal(.ics)を購読するスケジュールセンサとして登録する。カレンダー用フォルダ内にdescript.txtが自動生成され、以後カレンダーの表示やOnScheduleTodayNotifyの対象になる\n\t\t\t\t\t\tssf……SSFファイルとして取得し、トークを再生する\n\t\t\t\t\t\n\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\![execute,install,url,http://ssp.shillest.net/ghost/emily4.nar,nar]Emily/Phase4.5のnarをダウンロードしてきてインストールする。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bexecute_2cinstall_2curl_2cURL_2c_7a2e_5225_5d:1"
     },
     {
       "id": "ukadoc:list_sakura_script:_5c_21_5bexecute_2cping_2c_30d1_30e9_30e1_30fc_30bf1_2c_30d1_30e9_30e1_30fc_30bf2_2c..._5d:1",
@@ -8137,6 +8257,22 @@
       "category": "sakurascript",
       "content": "\\![execute,nslookup,パラメータ1,パラメータ2,...]\nホスト名を指定するとIP、IPを指定するとホスト名を調べる。IPv6対応。パラメータは以下の通り。\n\t\t\t\t\t\n\t\t\t\t\t\t--host=ホスト名またはIP\n\t\t\t\t\t\t--event=イベントまたは識別子……Onではじまる文字列を指定すると(後述のイベントの替わりに)そのイベントが起きる\n\t\t\t\t\t\n\t\t\t\t\t動作中・動作後のイベントに関する仕様はOnNSLookupComplete・OnNSLookupFailureを参照。\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\![execute,nslookup,--host=ssp.shillest.net,--event=nslookupテスト]ばぐとら研究所のホスト名指定でIPを調べる。調べた内容は成功時に通知されるOnNSLookupCompleteのReference3に入っている。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bexecute_2cnslookup_2c_30d1_30e9_30e1_30fc_30bf1_2c_30d1_30e9_30e1_30fc_30bf2_2c..._5d:1"
+    },
+    {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bexecute_2cfilewatch_2c_30d1_30b9_2c_30aa_30d7_30b7_30e7_30f3..._5d:1",
+      "title": "\\![execute,filewatch,パス,オプション...]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![execute,filewatch,パス,オプション...]\n指定したファイルまたはディレクトリの監視を始め、変化があるたびにOnExecuteFileWatchChangeで通知する。監視を始められなかった場合や、監視中に監視先のディレクトリが無くなった場合はOnExecuteFileWatchFailureで通知され、その監視は終わる。SSTPなど外部から送られたスクリプトでは実行できない。パラメータは以下の通り。\n\t\t\t\t\t\n\t\t\t\t\t\tパス……監視するファイルまたはディレクトリ。相対パス指定の場合はghost/master/以下の相対パスと解釈される。\n\t\t\t\t\t\t--async=イベントまたは識別子……Onではじまる文字列を指定すると(後述のイベントの替わりに)そのイベントが起きる\n\t\t\t\t\t\t--debounce=ミリ秒……変化の通知が止んでからこの時間だけ待ち、その間に次の変化が無ければ通知する。変化が続く間は待ち続けるので、書き込み途中の連続した変化は1回の通知にまとまる（書き込みが止まるまで通知されない）。省略時は500。0を指定すると待たずに通知する。\n\t\t\t\t\t\n\t\t\t\t\tファイルを指定した場合は、更新・作成・削除を通知する。まだ存在しないファイルも指定でき、作成されると通知される。ただし、そのファイルを置くディレクトリは存在している必要がある。\n\t\t\t\t\tディレクトリを指定した場合は、直下でファイルやディレクトリの作成・削除・名前変更・更新があったことだけを通知する。どのファイルが変わったかは通知されず、サブディレクトリの中の変化も通知されない。ディレクトリとして監視するには、実行時にそのディレクトリが存在している必要がある（存在しないパスはファイルとして監視される）。\n\t\t\t\t\t同じパスをもう一度指定すると、以前の指定は置き換えられる。監視はゴーストの終了時にすべて解除される。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.91\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\![execute,filewatch,config.json,--async=OnConfigChanged]ghost/master/config.jsonが変化するたびに、OnConfigChangedイベントが起きる。",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bexecute_2cfilewatch_2c_30d1_30b9_2c_30aa_30d7_30b7_30e7_30f3..._5d:1"
+    },
+    {
+      "id": "ukadoc:list_sakura_script:_5c_21_5bcancel_2cfilewatch_2c_30d1_30b9_5d:1",
+      "title": "\\![cancel,filewatch,パス]",
+      "source": "ukadoc",
+      "category": "sakurascript",
+      "content": "\\![cancel,filewatch,パス]\n\\![execute,filewatch]で始めた監視を解除する。パスは監視を始めたときと同じ場所を指すように指定する。該当する監視が無い場合は無視される。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.91",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bcancel_2cfilewatch_2c_30d1_30b9_5d:1"
     },
     {
       "id": "ukadoc:list_sakura_script:_5c_21_5bexecute_2ccreatenar_5d:1",
@@ -8247,7 +8383,7 @@
       "title": "\\![reload,descript,パラメータ]",
       "source": "ukadoc",
       "category": "sakurascript",
-      "content": "\\![reload,descript,パラメータ]\n指定したdescript.txtをリロードする。半角スペース区切りで複数指定可能。ghost shell balloon headline plugin\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\![reload,descript,shell balloon]シェルとバルーンのdescript.txtをリロードする。",
+      "content": "\\![reload,descript,パラメータ]\n指定したdescript.txtをリロードする。半角スペース区切りで複数指定可能。ghost shell balloon headline plugin language calendar.skin calendar.plugin\n\t\t\t\t\tcalendar.skinはカレンダースキン、calendar.pluginはスケジュールセンサ（install.txtのtypeと同じ区分）。\n\t\t\t\t\tinstall.txtと同じ「calendar skin」「calendar plugin」表記も受け付けるが、パラメータの区切りが半角スペースなので、ドット表記の方を推奨。\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\![reload,descript,shell balloon]シェルとバルーンのdescript.txtをリロードする。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5breload_2cdescript_2c_30d1_30e9_30e1_30fc_30bf_5d:1"
     },
     {
@@ -9915,6 +10051,14 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnRSSFailure:1"
     },
     {
+      "id": "ukadoc:list_shiori_event:OnScheduleTodayNotify:1",
+      "title": "OnScheduleTodayNotify",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnScheduleTodayNotify\n本体カレンダー機能の「今日の予定」の内容が変化した際に発生。[NOTIFY]\n\t\t\t\t\t日付が変わった時、予定を追加・削除した時、スケジュールセンサの取得結果が変わった時など。変化が無ければ発生しない。\n\t\t\t\t\t特定のゴーストではなく起動中の全ゴーストに通知される。\n\t\t\t\t\tReference0以降が更新後の「今日の予定」1件ずつ。各Referenceの中はバイト値1（以下[\\1]）で区切られている。\n\t\t\t\t\t予定が1件も無くなった場合はReferenceが1つも無い状態で発生する。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0～\n\t\t\t\t\t\tイベントのタイプ [\\1] イベントの内容(caption) [\\1] 追加データ(subtitle) [\\1] スクリプト(script) [\\1] 開始日時 [\\1] 終了日時 [\\1]\n\t\t\t\t\t\t予定の数だけReference0,1,2～と続く。末尾にも区切りの[\\1]が付く点に注意。\n\t\t\t\t\t\t開始日時・終了日時はカンマ区切りの「年,月,日,時,分,秒」形式。時刻を設定していない予定は時・分・秒が空になり「2026,9,10,,,」のようになる。\n\t\t\t\t\t\t終了日時は終了時刻を設定した予定にのみ入る。設定が無ければ空。\n\t\t\t\t\t\tcaption・subtitle・scriptは本体カレンダーに登録された文字列そのままで、さくらスクリプト用のエスケープは行われない。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.90",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnScheduleTodayNotify:1"
+    },
+    {
       "id": "ukadoc:list_shiori_event:OnSchedule5MinutesToGo:1",
       "title": "OnSchedule5MinutesToGo",
       "source": "ukadoc",
@@ -9935,7 +10079,7 @@
       "title": "OnSchedulesenseBegin",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnSchedulesenseBegin\nスケジュールセンサが接続開始する際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tスケジュールセンサの名前",
+      "content": "OnSchedulesenseBegin\nスケジュールセンサが接続開始する際に発生。特定のゴーストではなく起動中の全ゴーストに通知される。\n\t\t\t\t\t手動更新（カレンダーのメニューからセンサを選んで更新した場合）でのみ発生する。定期チェックでは後述の通り発生しない。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tスケジュールセンサの名前\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tスケジュールセンサの購読URL",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnSchedulesenseBegin:1"
     },
     {
@@ -9943,7 +10087,7 @@
       "title": "OnSchedulesenseComplete",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnSchedulesenseComplete\nスケジュールセンサの処理が完了した際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tスケジュールセンサの名前\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tスケジュールセンサの返したスケジュールデータの数",
+      "content": "OnSchedulesenseComplete\nスケジュールセンサの処理が完了した際に発生。特定のゴーストではなく起動中の全ゴーストに通知される。\n\t\t\t\t\t手動更新でのみ発生する。定期チェックでは後述の通り発生しない。\n\t\t\t\t\t取得はできたが更新が無かった場合（304 Not Modifiedや内容が同一だった場合）も、成功として本イベントが発生する。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tスケジュールセンサの名前\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tスケジュールセンサの返したスケジュールデータの数",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnSchedulesenseComplete:1"
     },
     {
@@ -9951,7 +10095,7 @@
       "title": "OnSchedulesenseFailure",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnSchedulesenseFailure\nスケジュールセンサの処理に失敗した場合に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\t失敗した理由（ヘッドラインセンサのものと共通）",
+      "content": "OnSchedulesenseFailure\nスケジュールセンサの処理に失敗した場合に発生。特定のゴーストではなく起動中の全ゴーストに通知される。\n\t\t\t\t\tBegin/Completeと違い、定期チェックでも発生する。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\t失敗した理由（ヘッドラインセンサのものと共通）。取得できなかった場合can't download、取得はできたがiCalとして解析できなかった場合can't analyze。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tスケジュールセンサの名前。定期チェックではBeginが無いため、これが無いとどのセンサが失敗したのか分からない",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnSchedulesenseFailure:1"
     },
     {
@@ -9959,7 +10103,7 @@
       "title": "OnSchedulepostBegin",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnSchedulepostBegin\nスケジュールセンサが投稿モードで接続開始する際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tスケジュールセンサの名前",
+      "content": "OnSchedulepostBegin\n[旧仕様]スケジュールセンサが投稿モードで接続開始する際に発生。\n\t\t\t\t\t投稿機能自体が廃止されているため、現在のSSPでは発生しない。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tスケジュールセンサの名前",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnSchedulepostBegin:1"
     },
     {
@@ -9967,7 +10111,7 @@
       "title": "OnSchedulepostComplete",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnSchedulepostComplete\nスケジュールセンサが投稿処理を完了した際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tスケジュールセンサの名前",
+      "content": "OnSchedulepostComplete\n[旧仕様]スケジュールセンサが投稿処理を完了した際に発生。\n\t\t\t\t\t投稿機能自体が廃止されているため、現在のSSPでは発生しない。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tスケジュールセンサの名前",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnSchedulepostComplete:1"
     },
     {
@@ -9999,7 +10143,7 @@
       "title": "OnExecuteHTTPFailure",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnExecuteHTTPFailure\nexecute-httpで取得エラーした際に発生。ReferenceはCompleteと同じ。",
+      "content": "OnExecuteHTTPFailure\nexecute-httpで取得エラーした際に発生。ReferenceはCompleteと同じ。\n\t\t\t\t\t[2.8.90] 同じURLの取得がすでに進行中の場合、後から出したリクエストは実行されずこのイベント(Reference4=downloading)が発生する。それ以前はタグが黙って無視されていた。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteHTTPFailure:1"
     },
     {
@@ -10023,15 +10167,47 @@
       "title": "OnExecuteHTTPSSLInfo",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnExecuteHTTPSSLInfo\n取得失敗(HTTPレスポンスが200以外)でも、SSL/TLSレベルでは接続に成功しているので通知される。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tasync ID (無ければからっぽ)\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t取得URL\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\thttpレスポンスコード (エラーでも通知される)\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t通信バージョン 今時はだいたい \"TLSv1/SSLv3\" (SSP内部でSSLv2は蹴るので実はこれだけしか来ない)\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t暗号化方法例：AES256-SHA\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t発行先 名前を確認したい場合は、/O=の後に続く文字列を抜き出すと良いプログラマさん向け：OpenSSLのX509_NAME_onelineに通した結果が入る例：/1.3.6.1.4.1.311.60.2.1.3=US/1.3.6.1.4.1.311.60.2.1.2=Delaware/businessCategory=Private Organization/serialNumber=4337446/C=US/postalCode=94107/ST=California/L=San Francisco/street=795 Folsom St, Suite 600/O=Twitter, Inc./OU=Twitter Operations/CN=twitter.com\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\t有効期限開始日時 年,月,日,時,分,秒例：2011,7,7,9,0,0\n\t\t\t\t\t\tReference7\n\t\t\t\t\t\t有効期限終了日時 年,月,日,時,分,秒例：2012,7,28,8,59,59\n\t\t\t\t\t\tReference8\n\t\t\t\t\t\t発行者 名前を確認したい場合は、/O=の後に続く文字列を抜き出すと良いプログラマさん向け：OpenSSLのX509_NAME_onelineに通した結果が入る例：/C=US/O=VeriSign, Inc./OU=VeriSign Trust Network/OU=Terms of use at https://www.verisign.com/rpa (c)06/CN=VeriSign Class 3 Extended Validation SSL CA\n\t\t\t\t\t\tReference9 (2.4.51～)\n\t\t\t\t\t\t証明書チェーン CommonName(CN)をカンマ区切りで順番に列挙",
+      "content": "OnExecuteHTTPSSLInfo\n取得失敗(HTTPレスポンスが200以外)でも、SSL/TLSレベルでは接続に成功しているので通知される。\n\t\t\t\t\t--async・--syncでOnから始まるIDを指定した場合でも、イベント名は置き換わらず常に本イベントで通知される。どのリクエストのものかはReference0で判別すること。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tasync ID (無ければからっぽ)\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t取得URL\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\thttpレスポンスコード (エラーでも通知される)\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t通信バージョン 今時はだいたい \"TLSv1/SSLv3\" (SSP内部でSSLv2は蹴るので実はこれだけしか来ない)\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t暗号化方法例：AES256-SHA\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\t発行先 名前を確認したい場合は、/O=の後に続く文字列を抜き出すと良いプログラマさん向け：OpenSSLのX509_NAME_onelineに通した結果が入る例：/1.3.6.1.4.1.311.60.2.1.3=US/1.3.6.1.4.1.311.60.2.1.2=Delaware/businessCategory=Private Organization/serialNumber=4337446/C=US/postalCode=94107/ST=California/L=San Francisco/street=795 Folsom St, Suite 600/O=Twitter, Inc./OU=Twitter Operations/CN=twitter.com\n\t\t\t\t\t\tReference6\n\t\t\t\t\t\t有効期限開始日時 年,月,日,時,分,秒例：2011,7,7,9,0,0\n\t\t\t\t\t\tReference7\n\t\t\t\t\t\t有効期限終了日時 年,月,日,時,分,秒例：2012,7,28,8,59,59\n\t\t\t\t\t\tReference8\n\t\t\t\t\t\t発行者 名前を確認したい場合は、/O=の後に続く文字列を抜き出すと良いプログラマさん向け：OpenSSLのX509_NAME_onelineに通した結果が入る例：/C=US/O=VeriSign, Inc./OU=VeriSign Trust Network/OU=Terms of use at https://www.verisign.com/rpa (c)06/CN=VeriSign Class 3 Extended Validation SSL CA\n\t\t\t\t\t\tReference9 (2.4.51～)\n\t\t\t\t\t\t証明書チェーン CommonName(CN)をカンマ区切りで順番に列挙",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteHTTPSSLInfo:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnExecuteICalComplete:1",
+      "title": "OnExecuteICalComplete",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnExecuteICalComplete\n\\![execute,ical-get/ical-post]で正常に取得・解析完了した際に発生。\n\t\t\t\t\tReference0がカレンダー全体の情報、Reference1以降が予定1件ずつ。各Referenceの中はバイト値1（以下[\\1]）で区切られている。どの予定がいくつ並ぶかはiCal絞り込みオプションで決まる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tカレンダー名(X-WR-CALNAME) [\\1] タイムゾーン(X-WR-TIMEZONE) [\\1] 暦法(CALSCALE。通常はGREGORIAN) [\\1] このイベントで返した予定の件数 [\\1] ファイル中の予定の総数 [\\1] 絞り込み期間の開始日 [\\1] 絞り込み期間の終了日\n\t\t\t\t\t\t期間の開始日・終了日は「年,月,日,,,」形式。--from・--to・--expand・--limitをいずれも指定しなかった場合は空。\n\t\t\t\t\t\tReference1～\n\t\t\t\t\t\tUID [\\1] 開始日時 [\\1] 終了日時 [\\1] タイトル(SUMMARY) [\\1] 説明(DESCRIPTION) [\\1] 場所(LOCATION) [\\1] URL [\\1] 状態(STATUS) [\\1] 分類(CATEGORIES) [\\1] 繰り返し規則(RRULEの原文) [\\1] 終日フラグ [\\1] 発生日\n\t\t\t\t\t\t予定の数だけReference1,2,3～と続く。\n\t\t\t\t\t\t開始日時・終了日時・発生日は、RSSと同じカンマ区切りの「年,月,日,時,分,秒」形式。終日予定は時・分・秒が空になり「2026,9,10,,,」のようになる。\n\t\t\t\t\t\t終了日時はその予定の最終日（DTENDの日付値は排他指定なので、1日戻した値が入る）。DTENDの代わりにDURATIONで長さを書いた予定は、開始日時に長さを足した値が入る（終日予定なら同様に1日戻す）。\n\t\t\t\t\t\t分類は複数ある場合カンマ区切り。分類名そのものに含まれるカンマと区切りのカンマは区別されない。\n\t\t\t\t\t\t終日フラグは終日予定なら1、時刻付きなら0。\n\t\t\t\t\t\t発生日は、--from・--to・--expandのいずれかを指定した場合のみ入る。--expandありなら展開した1回ぶんの発生日、--expandなしなら期間内で最初に発生する日。指定が無い場合は空。\n\t\t\t\t\t\tRRULEは原文のまま渡されるので、SSPの展開を使わず自前で解釈することもできる。\n\t\t\t\t\t\tタイトル・説明・場所・URL・分類・カレンダー名は、さくらスクリプトとして解釈されないようエスケープされている（\\→\\\\、%→\\%、改行とタブ→半角空白）。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.90",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteICalComplete:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnExecuteICalFailure:1",
+      "title": "OnExecuteICalFailure",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnExecuteICalFailure\n\\![execute,ical-get/ical-post]で取得エラーした際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0～\n\t\t\t\t\t\t解析失敗時はReference4=parse。同じURLの取得がすでに進行中だった場合はReference4=downloading。他はOnExecuteHTTPFailureと同じ（Completeとは並びが違う点に注意）。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.90",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteICalFailure:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnExecuteICalProgress:1",
+      "title": "OnExecuteICalProgress",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnExecuteICalProgress\n\\![execute,ical-get/ical-post]で--progress-notifyを指定した際に発生。解析前の通知なので、ReferenceはOnExecuteHTTPCompleteと同じ。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.90",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteICalProgress:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnExecuteICal_SSLInfo:1",
+      "title": "OnExecuteICal_SSLInfo",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnExecuteICal_SSLInfo\n取得失敗(HTTPレスポンスが200以外)でも、SSL/TLSレベルでは接続に成功しているので通知される。\n\t\t\t\t\t--async・--syncでOnから始まるIDを指定した場合でも、イベント名は置き換わらず常に本イベントで通知される。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0～\n\t\t\t\t\t\tOnExecuteHTTPSSLInfoと同じ\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.90",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteICal_SSLInfo:1"
     },
     {
       "id": "ukadoc:list_shiori_event:OnExecuteRSSComplete:1",
       "title": "OnExecuteRSSComplete",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnExecuteRSSComplete\n\\![execute,rss-get/post]で正常に取得完了した際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0～\n\t\t\t\t\t\tタイトル [\\1] URL [\\1] 更新日時（フォーマットはカンマ区切り：年,月,日,時,分,秒）[\\1] 作者名 [\\1] 内容または要約更新がある時はRSSの要素数分Reference0,1,2～と続く[\\1]はバイト値1\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 作者名・内容 2.4.10～",
+      "content": "OnExecuteRSSComplete\n\\![execute,rss-get/post]で正常に取得完了した際に発生。\n\t\t\t\t\t[2.8.92] どの項目がいくつ並ぶかはRSS絞り込みオプションで決まる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0～\n\t\t\t\t\t\tタイトル [\\1] URL [\\1] 更新日時（フォーマットはカンマ区切り：年,月,日,時,分,秒）[\\1] 作者名 [\\1] 内容または要約更新がある時はRSSの要素数分Reference0,1,2～と続く[\\1]はバイト値1\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 作者名・内容 2.4.10～",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteRSSComplete:1"
     },
     {
@@ -10039,7 +10215,7 @@
       "title": "OnExecuteRSSFailure",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnExecuteRSSFailure\n\\![execute,rss-get/post]で取得エラーした際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0～\n\t\t\t\t\t\t解析失敗時はReference4=parse。他はOnExecuteHTTPFailureと同じ",
+      "content": "OnExecuteRSSFailure\n\\![execute,rss-get/post]で取得エラーした際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0～\n\t\t\t\t\t\t解析失敗時はReference4=parse。同じURLの取得がすでに進行中だった場合はReference4=downloading [2.8.90]。他はOnExecuteHTTPFailureと同じ",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteRSSFailure:1"
     },
     {
@@ -10047,15 +10223,55 @@
       "title": "OnExecuteRSS_SSLInfo",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnExecuteRSS_SSLInfo\n取得失敗(HTTPレスポンスが200以外)でも、SSL/TLSレベルでは接続に成功しているので通知される。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0～\n\t\t\t\t\t\tOnExecuteHTTPSSLInfoと同じ",
+      "content": "OnExecuteRSS_SSLInfo\n取得失敗(HTTPレスポンスが200以外)でも、SSL/TLSレベルでは接続に成功しているので通知される。\n\t\t\t\t\t--async・--syncでOnから始まるIDを指定した場合でも、イベント名は置き換わらず常に本イベントで通知される。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0～\n\t\t\t\t\t\tOnExecuteHTTPSSLInfoと同じ",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteRSS_SSLInfo:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnExecuteScheduleComplete:1",
+      "title": "OnExecuteScheduleComplete",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnExecuteScheduleComplete\n\\![execute,schedule-add]・\\![execute,schedule-delete]で、ゴースト用の予定表への登録・削除が完了した際に発生。\n\t\t\t\t\t--eventでOnから始まるIDを指定した場合は、そのIDがイベント名になる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\t操作の種類。add または delete\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t対象の予定のUID。schedule-addでUIDを省略した場合は、SSPが割り当てたUIDが入る。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.91",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteScheduleComplete:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnExecuteScheduleFailure:1",
+      "title": "OnExecuteScheduleFailure",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnExecuteScheduleFailure\n\\![execute,schedule-add/schedule-delete]が失敗した際に発生。\n\t\t\t\t\t--eventでOnから始まるIDを指定した場合は、そのIDの後ろにFailureをつけたイベント名になる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\t操作の種類。add または delete\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t失敗の理由\n\t\t\t\t\t\tnotauthorized : SSTPなど外部から送られたスクリプトで登録・削除しようとした\n\t\t\t\t\t\tinvalid : --summary・--startが無い、日時の書式が正しくない、UIDに使えない文字が含まれている、schedule-deleteでUIDが無い\n\t\t\t\t\t\tnotfound : schedule-deleteで指定したUIDの予定が無い\n\t\t\t\t\t\tsave : ファイルへの保存に失敗した（登録・削除自体は反映されている）\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t指定されたUID（無ければ空）\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.91",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteScheduleFailure:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnExecuteScheduleGetComplete:1",
+      "title": "OnExecuteScheduleGetComplete",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnExecuteScheduleGetComplete\n\\![execute,schedule-get]で、ゴースト用の予定表を読み出した際に発生。\n\t\t\t\t\t--eventでOnから始まるIDを指定した場合は、そのIDがイベント名になる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0～\n\t\t\t\t\t\tOnExecuteICalCompleteと同じ。\n\t\t\t\t\t\t対象はゴースト用の予定表だけで、ユーザーが登録した予定やスケジュールセンサの予定は含まれない。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.91",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteScheduleGetComplete:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnExecuteFileWatchChange:1",
+      "title": "OnExecuteFileWatchChange",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnExecuteFileWatchChange\n\\![execute,filewatch]で監視しているファイルまたはディレクトリが変化した際に発生。\n\t\t\t\t\t--asyncでOnから始まるIDを指定した場合は、そのIDがイベント名になる。\n\t\t\t\t\tファイルへの書き込みは短い間に何度も起きることがあるため、変化が止んでから--debounceで指定した時間（省略時は500ミリ秒）だけ待ち、まとめて1回発生する。それより長い間隔を空けて書き込まれた場合は、1回の保存で複数回発生することがある。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\t--asyncで指定した文字列そのもの（無ければ空）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t指定したパスの文字列そのもの\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t変化の種類\n\t\t\t\t\t\tファイルの場合 : modified（更新）、created（作成）、deleted（削除）\n\t\t\t\t\t\tディレクトリの場合 : changed（直下で作成・削除・名前変更・更新のいずれかがあった）、deleted（ディレクトリ自体が無くなった）\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t監視しているファイルまたはディレクトリのフルパス\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.91",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteFileWatchChange:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnExecuteFileWatchFailure:1",
+      "title": "OnExecuteFileWatchFailure",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnExecuteFileWatchFailure\n\\![execute,filewatch]が失敗した際や、監視を続けられなくなった際に発生。この場合、その監視は解除される。\n\t\t\t\t\t--asyncでOnから始まるIDを指定した場合は、そのIDの後ろにFailureをつけたイベント名になる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\t--asyncで指定した文字列そのもの（無ければ空）\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t指定したパスの文字列そのもの\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t失敗の理由\n\t\t\t\t\t\tnotauthorized : SSTPなど外部から送られたスクリプトで監視しようとした\n\t\t\t\t\t\tinvalid : パスが指定されていない\n\t\t\t\t\t\tnotfound : 監視先のディレクトリ（ファイルの場合はそのファイルを置くディレクトリ）が無い、監視を始められない、または監視中に無くなった\n\t\t\t\t\t\tlimit : SSP全体で監視しているディレクトリの種類が上限（63）を超える\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.91",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteFileWatchFailure:1"
     },
     {
       "id": "ukadoc:list_shiori_event:OnExecuteWebSocketOpen:1",
       "title": "OnExecuteWebSocketOpen",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnExecuteWebSocketOpen\nWebSocket接続確立時（HTTP 101 Upgrade成功後）に発生。初回接続のみ発火し、再接続成功時はOnExecuteWebSocketReconnectが発生する。--eventオプションで指定したeventIDが \"On\" で始まる場合はeventID+\"Open\" がイベント名となる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tSakura Scriptの--eventオプションで指定されたイベント識別子。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t接続URL (ws:// または wss://)。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t\"200\"（固定）。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05",
+      "content": "OnExecuteWebSocketOpen\nWebSocket接続確立時（HTTP 101 Upgrade成功後）に発生。初回接続のみ発火し、再接続成功時はOnExecuteWebSocketReconnectが発生する。--asyncオプションで指定したeventIDが \"On\" で始まる場合はeventID+\"Open\" がイベント名となる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tSakura Scriptの--asyncオプションで指定されたイベント識別子。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t接続URL (ws:// または wss://)。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t\"200\"（固定）。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteWebSocketOpen:1"
     },
     {
@@ -10063,7 +10279,7 @@
       "title": "OnExecuteWebSocketReceive",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnExecuteWebSocketReceive\nWebSocket接続中にサーバーからデータフレームを受信するたびに発生。断片化フレームは自動的に再組み立てされてから発火する。Ping/Pong/Closeフレームでは発火しない。--eventオプションで指定したeventIDが \"On\" で始まる場合はeventIDそのままがイベント名となる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tSakura Scriptの--eventオプションで指定されたイベント識別子。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t接続URL。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\topcodeの種別。\"1\"=テキストフレーム (UTF-8)、\"2\"=バイナリフレーム。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t受信データ。テキストフレームの場合はUTF-8文字列そのまま(改行コードはバイト値1に変換)、バイナリフレームの場合はBase64エンコード文字列。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05",
+      "content": "OnExecuteWebSocketReceive\nWebSocket接続中にサーバーからデータフレームを受信するたびに発生。断片化フレームは自動的に再組み立てされてから発火する。Ping/Pong/Closeフレームでは発火しない。--asyncオプションで指定したeventIDが \"On\" で始まる場合はeventIDそのままがイベント名となる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tSakura Scriptの--asyncオプションで指定されたイベント識別子。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t接続URL。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\topcodeの種別。\"1\"=テキストフレーム (UTF-8)、\"2\"=バイナリフレーム。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t受信データ。テキストフレームの場合はUTF-8文字列そのまま(改行コードはバイト値1に変換)、バイナリフレームの場合はBase64エンコード文字列。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteWebSocketReceive:1"
     },
     {
@@ -10071,7 +10287,7 @@
       "title": "OnExecuteWebSocketReconnect",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnExecuteWebSocketReconnect\nエラー切断後の自動再接続が成功したときに発生。OnExecuteWebSocketOpenは発火せず、このイベントがOpenに相当する役割を担う。再接続後の受信は通常どおりOnExecuteWebSocketReceiveで通知される。--eventオプションで指定したeventIDが \"On\" で始まる場合はeventID+\"Reconnect\" がイベント名となる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tSakura Scriptの--eventオプションで指定されたイベント識別子。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t接続URL。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t\"200\"（固定）。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05",
+      "content": "OnExecuteWebSocketReconnect\nエラー切断後の自動再接続が成功したときに発生。OnExecuteWebSocketOpenは発火せず、このイベントがOpenに相当する役割を担う。再接続後の受信は通常どおりOnExecuteWebSocketReceiveで通知される。--asyncオプションで指定したeventIDが \"On\" で始まる場合はeventID+\"Reconnect\" がイベント名となる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tSakura Scriptの--asyncオプションで指定されたイベント識別子。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t接続URL。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t\"200\"（固定）。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteWebSocketReconnect:1"
     },
     {
@@ -10079,7 +10295,7 @@
       "title": "OnExecuteWebSocketClose",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnExecuteWebSocketClose\nWebSocket接続が最終的に切断されたときに発生。自動再接続を試みた場合はその後に発火する。Failure時は発火しない。--eventオプションで指定したeventIDが \"On\" で始まる場合はeventID+\"Close\" がイベント名となる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tSakura Scriptの--eventオプションで指定されたイベント識別子。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t接続URL。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t切断要因コード。\"1000\"=正常切断（サーバーまたは\\![close,websocket]による）、\"userbreak\"=\\![cancel,websocket]またはゴースト終了による強制中断。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05",
+      "content": "OnExecuteWebSocketClose\nWebSocket接続が最終的に切断されたときに発生。自動再接続を試みた場合はその後に発火する。Failure時は発火しない。--asyncオプションで指定したeventIDが \"On\" で始まる場合はeventID+\"Close\" がイベント名となる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tSakura Scriptの--asyncオプションで指定されたイベント識別子。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t接続URL。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t切断要因コード。\"1000\"=正常切断（サーバーまたは\\![close,websocket]による）、\"userbreak\"=\\![cancel,websocket]またはゴースト終了による強制中断。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteWebSocketClose:1"
     },
     {
@@ -10087,7 +10303,7 @@
       "title": "OnExecuteWebSocketFailure",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnExecuteWebSocketFailure\n初回接続でHTTP 101 Upgradeに失敗したとき、または接続中にエラー切断が発生し自動再接続を5回試みてもすべて失敗したときに発生。--eventオプションで指定したeventIDが \"On\" で始まる場合はeventID+\"Failure\" がイベント名となる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tSakura Scriptの--eventオプションで指定されたイベント識別子。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t接続URL。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tエラー内容文字列。初回接続失敗時はSPHttpのエラーテキスト、自動再接続全失敗時は\"reconnect failed\"（固定）。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05",
+      "content": "OnExecuteWebSocketFailure\n初回接続でHTTP 101 Upgradeに失敗したとき、または接続中にエラー切断が発生し自動再接続を5回試みてもすべて失敗したときに発生。--asyncオプションで指定したeventIDが \"On\" で始まる場合はeventID+\"Failure\" がイベント名となる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tSakura Scriptの--asyncオプションで指定されたイベント識別子。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t接続URL。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tエラー内容文字列。初回接続失敗時はSPHttpのエラーテキスト、自動再接続全失敗時は\"reconnect failed\"（固定）。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteWebSocketFailure:1"
     },
     {
@@ -10095,7 +10311,7 @@
       "title": "OnExecuteWebSocket_SSLInfo",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnExecuteWebSocket_SSLInfo\nwss://接続時にSSL/TLS接続が確立したときに発生。初回接続時のみ発火し、Upgradeの成否にかかわらず発火する。イベント名は常に固定で--eventオプションによる変更は不可。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tSakura Scriptの--eventオプションで指定されたイベント識別子。\n\t\t\t\t\t\tReference1～\n\t\t\t\t\t\tOnExecuteHTTPSSLInfoのReference1以降と同じ。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05",
+      "content": "OnExecuteWebSocket_SSLInfo\nwss://接続時にSSL/TLS接続が確立したときに発生。初回接続時のみ発火し、Upgradeの成否にかかわらず発火する。イベント名は常に固定で--asyncオプションによる変更は不可。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tSakura Scriptの--asyncオプションで指定されたイベント識別子。\n\t\t\t\t\t\tReference1～\n\t\t\t\t\t\tOnExecuteHTTPSSLInfoのReference1以降と同じ。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.05",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnExecuteWebSocket_SSLInfo:1"
     },
     {
@@ -10311,7 +10527,7 @@
       "title": "OnDisplayChangeEx",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnDisplayChangeEx\nスクリーンの解像度／色深度が変更された際に発生。マルチモニタ対応。[起動時NOTIFY/他GET]\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tinit (起動時通知) か update (起動後の更新)\n\t\t\t\t\t\tReference1～\n\t\t\t\t\t\t左,上,右,下,ビット深度,プライマリモニタかどうか(0/1),タスクバーの位置(left,top,right,bottom,unknown),タスクバーと作業領域の区切り座標\n\t\t\t\t\t\t例： 0,0,1600,900,32,1,bottom,1560\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.4.09/タスクバーは2.6.35",
+      "content": "OnDisplayChangeEx\nスクリーンの解像度／色深度が変更された際に発生。マルチモニタ対応。[起動時NOTIFY/他GET]\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tinit (起動時通知) か update (起動後の更新)\n\t\t\t\t\t\tReference1～\n\t\t\t\t\t\t左,上,右,下,ビット深度,プライマリモニタかどうか(0/1),タスクバーの位置(left,top,right,bottom,unknown),タスクバーと作業領域の区切り座標\n\t\t\t\t\t\t例： 0,0,1600,900,32,1,bottom,1560\n\t\t\t\t\t\tウインドウモードでは、コンテナのクライアント領域を1枚の画面とした1件だけになる(例： 0,0,1280,720,32,1,unknown,0)。実モニタの変更では発生せず、コンテナのサイズ変更やウインドウモードの切り替えで発生する。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.4.09/タスクバーは2.6.35",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnDisplayChangeEx:1"
     },
     {
@@ -10399,8 +10615,16 @@
       "title": "OnDesktopWallpaperChange",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnDesktopWallpaperChange\nOS側でデスクトップの壁紙が変更された際に発生。[起動時NOTIFY/他GET]\n\t\t\t\t\t利用者が個人用設定などで壁紙を変えた場合のほか、スライドショーやWindowsスポットライトによる自動的な差し替え、テーマの切り替えでも発生する。\n\t\t\t\t\tスライドショーとスポットライトは最短1分間隔で自動的に切り替わるため、この2つがきっかけの場合は起動後であってもNOTIFY(喋れない)で通知される。\n\t\t\t\t\t画像ファイルのDnDによって壁紙を変更した際のOnWallpaperChangeとは別のイベントで、SSP自身が壁紙を変更した場合(Reference1がself)には両方が発生する。両方に反応する場合は二重にならないよう注意。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tinit (起動時通知) か update (起動後の変更)\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t変更のきっかけ。\n\t\t\t\t\t\tuser：利用者が変更した\n\t\t\t\t\t\tslideshow：スライドショーの自動送り\n\t\t\t\t\t\tspotlight：Windowsスポットライトの自動更新\n\t\t\t\t\t\ttheme：テーマの切り替えに伴うもの\n\t\t\t\t\t\tself：SSP自身が変更した(画像のDnD・プロファイルからの復元)\n\t\t\t\t\t\tunknown：変更されたことは確かだが、きっかけが判別できない\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t現在の壁紙画像のフルパス。単色背景の場合や取得できなかった場合は空。\n\t\t\t\t\t\tWindowsの仕様上、利用者が選んだ元の画像ファイルではなく、OSが作成したキャッシュ(TranscodedWallpaperやスポットライトのキャッシュ)のパスになることがある。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t直前の壁紙画像のフルパス。Reference0がinitの場合は空。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t表示スタイル。center / tile / stretch / fit / fill / span のいずれか。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\tデスクトップの背景色。壁紙の余白に出る色。R,G,B の半角カンマ区切り。\n\t\t\t\t\t\tReference6～\n\t\t\t\t\t\tモニタごとの壁紙情報が以下のフォーマットでモニタの数だけ後ろに続く。[\\1]はバイト値1。\n\t\t\t\t\t\tモニタ番号[\\1]壁紙画像のフルパス[\\1]表示スタイル\n\t\t\t\t\t\tモニタ番号はOnDisplayChangeExのReference1～の並び順と対応する(Reference1がモニタ番号0)。\n\t\t\t\t\t\t表示スタイルはOSがモニタごとに保持していないため、現状はすべて同じ値(Reference4と同一)になる。\n\t\t\t\t\t\tモニタごとの壁紙を扱えない環境(Windows 7以前)ではReference6以降は付かない。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.86",
+      "content": "OnDesktopWallpaperChange\nOS側でデスクトップの壁紙が変更された際に発生。[起動時NOTIFY/他GET]\n\t\t\t\t\t利用者が個人用設定などで壁紙を変えた場合のほか、スライドショーやWindowsスポットライトによる自動的な差し替え、テーマの切り替えでも発生する。\n\t\t\t\t\tスライドショーとスポットライトは最短1分間隔で自動的に切り替わるため、この2つがきっかけの場合は起動後であってもNOTIFY(喋れない)で通知される。\n\t\t\t\t\t画像ファイルのDnDによって壁紙を変更した際のOnWallpaperChangeとは別のイベントで、SSP自身が壁紙を変更した場合(Reference1がself)には両方が発生する。両方に反応する場合は二重にならないよう注意。\n\t\t\t\t\tウインドウモードでは、ゴーストにとっての壁紙はコンテナの背景になる。OS側で壁紙が変更されて発生するのはコンテナの背景が「デスクトップ」の場合だけで、白・灰・黒・画像の場合は発生しない。代わりに、コンテナの背景が切り替わった時(コンテナのメニュー、\\![set,wallpaper]、\\![restore,wallpaper])と、ウインドウモードの切り替えによってゴーストから見える背景が変わった時に発生する。同じ背景を選び直しただけでは発生しない。\n\t\t\t\t\tperghost(ゴースト1体につき1枚のコンテナ)の場合は、自分が載っているコンテナの背景が変わった時だけ発生する。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tinit (起動時通知) か update (起動後の変更)\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t変更のきっかけ。\n\t\t\t\t\t\tuser：利用者が変更した\n\t\t\t\t\t\tslideshow：スライドショーの自動送り\n\t\t\t\t\t\tspotlight：Windowsスポットライトの自動更新\n\t\t\t\t\t\ttheme：テーマの切り替えに伴うもの\n\t\t\t\t\t\tself：SSP自身が変更した(画像のDnD・プロファイルからの復元)\n\t\t\t\t\t\tunknown：変更されたことは確かだが、きっかけが判別できない\n\t\t\t\t\t\tウインドウモードでは、コンテナのメニューやウインドウモードの切り替えによる変更はuser、\\![set,wallpaper]・\\![restore,wallpaper]による変更はselfになる。起動時通知(init)でコンテナの背景が「デスクトップ」以外の場合はunknown。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t現在の壁紙画像のフルパス。単色背景の場合や取得できなかった場合は空。\n\t\t\t\t\t\tWindowsの仕様上、利用者が選んだ元の画像ファイルではなく、OSが作成したキャッシュ(TranscodedWallpaperやスポットライトのキャッシュ)のパスになることがある。\n\t\t\t\t\t\tウインドウモードでは、コンテナの背景が「デスクトップ」ならOS側の壁紙、画像ならその画像のフルパス、白・灰・黒や画像なしの色指定なら空。\n\t\t\t\t\t\tReference3\n\t\t\t\t\t\t直前の壁紙画像のフルパス。Reference0がinitの場合は空。\n\t\t\t\t\t\tReference4\n\t\t\t\t\t\t表示スタイル。center / tile / stretch / fit / fill / span のいずれか。\n\t\t\t\t\t\tウインドウモードでコンテナの背景が画像の場合は stretch-x / stretch-y もあり得る。白・灰・黒の場合は center。\n\t\t\t\t\t\tReference5\n\t\t\t\t\t\tデスクトップの背景色。壁紙の余白に出る色。R,G,B の半角カンマ区切り。\n\t\t\t\t\t\tウインドウモードでは、コンテナの背景が画像ならその地色(色の指定があればその色、無ければ画像から求めた色)、白・灰・黒ならその色。\n\t\t\t\t\t\tReference6～\n\t\t\t\t\t\tモニタごとの壁紙情報が以下のフォーマットでモニタの数だけ後ろに続く。[\\1]はバイト値1。\n\t\t\t\t\t\tモニタ番号[\\1]壁紙画像のフルパス[\\1]表示スタイル\n\t\t\t\t\t\tモニタ番号はOnDisplayChangeExのReference1～の並び順と対応する(Reference1がモニタ番号0)。\n\t\t\t\t\t\t表示スタイルはOSがモニタごとに保持していないため、現状はすべて同じ値(Reference4と同一)になる。\n\t\t\t\t\t\tモニタごとの壁紙を扱えない環境(Windows 7以前)ではReference6以降は付かない。\n\t\t\t\t\t\tウインドウモードでは、コンテナの背景の種類によらず、コンテナを1枚の画面とした1件(モニタ番号0)だけが付く。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.86",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnDesktopWallpaperChange:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:OnWindowModeChange:1",
+      "title": "OnWindowModeChange",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "OnWindowModeChange\nSSPのウインドウモードが切り替えられた際に発生。[起動時NOTIFY/他GET]\n\t\t\t\t\tウインドウモードは、ゴーストをデスクトップ上ではなくSSPが用意したウインドウ(コンテナ)の中に表示するモード。コンテナの内側がゴーストにとっての画面になる。\n\t\t\t\t\t切り替えによってゴーストにとっての画面の大きさが変わるため、このイベントの後にOnDisplayChangeも発生する。\n\t\t\t\t\t現在のモードはbaseware.windowmodeでも取得できる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tinit (起動時通知) か update (起動後の切り替え)\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\t現在のモード。\n\t\t\t\t\t\tnormal：通常モード(ゴーストをデスクトップ上に表示する)\n\t\t\t\t\t\tshared：ウインドウモード。全ゴーストで1枚のコンテナを共有する\n\t\t\t\t\t\tperghost：ウインドウモード。ゴースト1体につき1枚のコンテナを使う\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\t直前のモード。値の種類はReference1と同じ。Reference0がinitの場合は空。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.93",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnWindowModeChange:1"
     },
     {
       "id": "ukadoc:list_shiori_event:OnOSUpdateInfo:1",
@@ -10785,6 +11009,22 @@
       "category": "shiori_event",
       "content": "installedheadlinename\nインストールされているRSS/ヘッドラインを通知。[NOTIFY]\n\t\t\t\t\t\n\t\t\t\t\t\tReference*\n\t\t\t\t\t\tインストールされているRSS/ヘッドライン名。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#installedheadlinename:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:installedcalendarskinname:1",
+      "title": "installedcalendarskinname",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "installedcalendarskinname\nインストールされているカレンダースキンを通知。[NOTIFY]\n\t\t\t\t\t\\![change,calendarskin,カレンダースキン名]で利用できる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference*\n\t\t\t\t\t\tインストールされているカレンダースキン名。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.93",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#installedcalendarskinname:1"
+    },
+    {
+      "id": "ukadoc:list_shiori_event:installedcalendarpluginname:1",
+      "title": "installedcalendarpluginname",
+      "source": "ukadoc",
+      "category": "shiori_event",
+      "content": "installedcalendarpluginname\nインストールされているカレンダープラグイン(スケジュールセンサ)を通知。[NOTIFY]\n\t\t\t\t\t\\![execute,calendarplugin,カレンダープラグイン名]で利用できる。\n\t\t\t\t\t\n\t\t\t\t\t\tReference*\n\t\t\t\t\t\tインストールされているカレンダープラグイン名。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.8.93",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#installedcalendarpluginname:1"
     },
     {
       "id": "ukadoc:list_shiori_event:installedplugin:1",
@@ -22657,6 +22897,14 @@
       "category": "satori_tips",
       "content": "どのイベントを使うのか？\n…といってもシェル名の取得と違ってタイミングは少ないので、下記のようにしておくだけで困ることはないでしょう。\nすぐに値を更新したい時は上記のプロパティシステムがおすすめ。\n＊OnNotifyBalloonInfo\n＄現在のバルーン【タブ】（Ｒ０）\n\n＊OnBalloonChange\n＄現在のバルーン【タブ】（Ｒ０）",
       "url": "https://soliton.sub.jp/satori/?%E7%8F%BE%E5%9C%A8%E3%81%AE%E3%83%90%E3%83%AB%E3%83%BC%E3%83%B3%E5%90%8D%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B#j06ef900"
+    },
+    {
+      "id": "satori:月齢を計算する#vd8a3418",
+      "title": "月齢を計算する - 月齢",
+      "source": "satori_wiki",
+      "category": "satori_tips",
+      "content": "月齢\n月齢の計算式を里々に当てはめたもの。正確な月齢を得るには複雑な計算式が必要であるため、かなり簡素化されている。精度は劣るものの記述が簡単なのがメリット。\n使い方は（月齢）。実行時の年月日で算出される。\n＠月齢\n（calc,\n（（（（現在年）-11）%19）*11 +（nswitch,（現在月）,0,2,0,2,2,4,5,6,7,8,9,10）+（現在日））%30\n）\n特定の日付の月齢を得たい場合は関数化する。\n＠月齢\n（calc,\n（（（（Ａ０）-11）%19）*11 +（nswitch,（Ａ１）,0,2,0,2,2,4,5,6,7,8,9,10）+（Ａ２））%30\n）\n\n＊\n：２０１６年１月１日の月齢は（call,月齢,２０１６,１,１）だよ。",
+      "url": "https://soliton.sub.jp/satori/?%E6%9C%88%E9%BD%A2%E3%82%92%E8%A8%88%E7%AE%97%E3%81%99%E3%82%8B#vd8a3418"
     },
     {
       "id": "satori:スライダーもどき#v6253498",
