@@ -36,11 +36,24 @@ export function getFreshnessWarning(generatedAt: string, now = Date.now()): stri
   return null;
 }
 
+export interface LoadedSearchEngine {
+  engine: SearchEngine;
+  /** ロードしたインデックスの generatedAt */
+  generatedAt: string;
+}
+
 /**
  * data/index.json を読み込み、SearchEngine を初期化して返す。
  * index.json が存在しない場合は Error を throw する。
  */
 export function initializeSearchEngine(indexPath = resolveDefaultIndexPath()): SearchEngine {
+  return loadSearchEngine(indexPath).engine;
+}
+
+/**
+ * initializeSearchEngine と同じだが、ロードしたインデックスの generatedAt も返す。
+ */
+export function loadSearchEngine(indexPath = resolveDefaultIndexPath()): LoadedSearchEngine {
 
   if (!existsSync(indexPath)) {
     throw new Error(
@@ -68,5 +81,5 @@ export function initializeSearchEngine(indexPath = resolveDefaultIndexPath()): S
     `[bootstrap] Loaded ${engine.size} entries from index (built: ${indexFile.generatedAt})`,
   );
 
-  return engine;
+  return { engine, generatedAt: indexFile.generatedAt };
 }

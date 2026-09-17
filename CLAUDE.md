@@ -1,7 +1,8 @@
 # ukagaka-doc-mcp
 
 伺か技術ドキュメント（UKADOC / YAYA Wiki / 里々Wiki / 蒼空 Wiki）を検索する MCP サーバー。
-ランタイムでは外部通信せず `data/index.json` のみを使用する。
+stdio モード（デフォルト）ではランタイムで外部通信せず `data/index.json` のみを使用する。
+`--http` モード（Streamable HTTP、ステートレス）のみ、起動直後と24時間ごとに GitHub raw の `data/index.json` を取得してメモリ上で差し替える。
 
 ## Commands
 
@@ -18,7 +19,10 @@ npm run refresh:index  # サブモジュール更新 + index.json 再生成
 
 ```
 src/
-  index.ts            # エントリポイント（stdio MCP サーバー起動）
+  index.ts            # エントリポイント（stdio / --http で MCP サーバー起動）
+  cli.ts              # コマンドライン引数の解釈
+  http-server.ts      # Streamable HTTP サーバー（ステートレス）
+  index-updater.ts    # HTTP モード用のリモート index.json 定期取得・再ロード
   server.ts           # MCP サーバー定義
   bootstrap.ts        # index.json 読み込み → SearchEngine 初期化
   search/engine.ts    # 全文検索エンジン

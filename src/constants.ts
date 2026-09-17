@@ -10,6 +10,22 @@ export const SOURCE_VALUES = ['ukadoc', 'yaya_wiki', 'satori_wiki', 'aosora_wiki
 /** インデックスが stale とみなされるまでの日数 */
 export const STALE_AFTER_DAYS = 7;
 
+/** HTTP モードのデフォルト listen ホスト */
+export const DEFAULT_HTTP_HOST = '127.0.0.1';
+
+/** HTTP モードのデフォルト listen ポート */
+export const DEFAULT_HTTP_PORT = 8951;
+
+/** HTTP モードでインデックスを取得する URL */
+export const REMOTE_INDEX_URL =
+  'https://github.com/finelagusaz/ukagaka-doc-mcp/raw/refs/heads/main/data/index.json';
+
+/** HTTP モードでのインデックス更新間隔 (ms) */
+export const INDEX_UPDATE_INTERVAL_MS = 24 * 60 * 60 * 1000;
+
+/** インデックス取得のタイムアウト (ms) */
+export const INDEX_FETCH_TIMEOUT_MS = 60 * 1000;
+
 /** インデックスファイルの現在のスキーマバージョン */
 export const INDEX_SCHEMA_VERSION = 1;
 
