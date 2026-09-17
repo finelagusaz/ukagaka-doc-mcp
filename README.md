@@ -2,7 +2,7 @@
 
 伺か（Ukagaka）の技術ドキュメントを検索する MCP サーバーです。
 
-UKADOC・YAYA Wiki・里々Wiki・蒼空 Wiki のスナップショットを同梱しており、**ランタイムで外部ネットワークにアクセスしません**。
+UKADOC・YAYA Wiki・里々Wiki・蒼空 Wiki のスナップショットを同梱しており、stdio モード（デフォルト）では**ランタイムで外部ネットワークにアクセスしません**。
 
 ## 使い方
 
@@ -47,6 +47,25 @@ ukagaka-doc-mcp
   }
 }
 ```
+
+## HTTP モード
+
+`--http` を付けると Streamable HTTP の MCP サーバーとして起動します（ステートレス・認証なし）。
+
+```bash
+npx ukagaka-doc-mcp --http                              # http://127.0.0.1:8951/mcp
+npx ukagaka-doc-mcp --http --host 0.0.0.0 --port 9000   # listen 先を変更
+```
+
+| オプション | 説明 | デフォルト |
+|------------|------|------------|
+| `--http` | HTTP モードで起動 | （なし＝stdio） |
+| `--host <host>` | listen するホスト | `127.0.0.1` |
+| `--port <port>` | listen するポート | `8951` |
+
+- エンドポイントは `POST /mcp` のみです。
+- `Host` / `Origin` ヘッダの検証は行いません。外部に公開する場合は nginx 等のリバースプロキシの背後に置いてください。
+- 起動直後と 24 時間ごとに [GitHub 上の最新 `data/index.json`](https://github.com/finelagusaz/ukagaka-doc-mcp/raw/refs/heads/main/data/index.json) を取得し、同梱版より新しければメモリ上で差し替えます（ファイルには書き込みません）。取得に失敗した場合は現在のインデックスのまま動作を続けます。
 
 ## 提供ツール
 
