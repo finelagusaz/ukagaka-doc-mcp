@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-14T09:00:06.853Z",
+  "generatedAt": "2026-09-21T09:00:57.560Z",
   "entries": [
     {
       "id": "ukadoc:descript_balloon:charset_2c_6587_5b57_30b3_30fc_30c9:1",
@@ -1247,7 +1247,7 @@
       "title": "windowposition.x,座標",
       "source": "ukadoc",
       "category": "descript",
-      "content": "windowposition.x,座標\nバルーンの基本位置からのx座標方向の位置調整。\n\t\t\t\t\t\tピクセル単位で数値で指定するか、キーワードで指定する。\n\t\t\t\t\t\t数値指定の場合シェル側が+、シェルから離れる側が-。\n\t\t\t\t\t\tcenter(SSPのみ top でも同じ)でシェルの中央上に固定。\n\t\t\t\t\t\tbottom (SSPのみ)でシェルの中央下に固定。\n\t\t\t\t\t\tまたSSPに限り、descript.txtにも書ける。\n\t\t\t\t\t\n\t\t\t\t\t0",
+      "content": "windowposition.x,座標\nバルーンの基本位置からのx座標方向の位置調整。\n\t\t\t\t\t\tピクセル単位で数値で指定するか、キーワードで指定する。\n\t\t\t\t\t\t数値指定の場合、バルーンを左右どちらに出していても常に右方向が+。シェルのballoon.offsetxと違い、右に出す時も符号が反転しないので注意。\n\t\t\t\t\t\tcenter(SSPのみ top でも同じ)でシェルの中央上に固定。\n\t\t\t\t\t\tbottom (SSPのみ)でシェルの中央下に固定。\n\t\t\t\t\t\t上記以外の文字列(left、right、free など)は受け付けず、0として扱われる。SSPではエラーログに警告を出す。\n\t\t\t\t\t\tまたSSPに限り、descript.txtにも書ける。\n\t\t\t\t\t\n\t\t\t\t\t0",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_balloon.html#windowposition.x_2c_5ea7_6a19:1"
     },
     {
@@ -2055,7 +2055,7 @@
       "title": "*.directory,ディレクトリ名",
       "source": "ukadoc",
       "category": "descript",
-      "content": "*.directory,ディレクトリ名\n同時インストールする内容のインストール後のディレクトリ名。半角英数推奨。\n\t\t\t\t\t*部分には同時インストールする内容のtype（balloon、headline、plugin、calendar.skin、calendar.pluginのいずれか）が入る。\n\t\t\t\t\t複数の同じ種類のものをインストールしたい時は、*部分を balloon0,balloon1,...のように、種類の後ろに数字をつけて複数書けば良い。\n\t\t\t\t\ttypeがghostかshellの場合にのみ設定可能。\n\t\t\t\t\t挙動なし",
+      "content": "*.directory,ディレクトリ名\n同時インストールする内容のインストール後のディレクトリ名。半角英数推奨。\n\t\t\t\t\t*部分の書き方と、同じ種別を複数同梱する場合の番号の付け方は「同時インストール」を参照。\n\t\t\t\t\tここに指定できるのは1階層のディレクトリ名だけで、パス区切りは使えない（「_」に置換される）。\n\t\t\t\t\tアーカイブ自身のtypeを問わず機能するが、実用上はtypeがghostかshellのアーカイブで用いる。\n\t\t\t\t\t挙動なし",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_install.html#_2a.directory_2c_30c7_30a3_30ec_30af_30c8_30ea_540d:1"
     },
     {
@@ -2063,7 +2063,7 @@
       "title": "*.source.directory,ディレクトリ名",
       "source": "ukadoc",
       "category": "descript",
-      "content": "*.source.directory,ディレクトリ名\n同時にインストールする内容のアーカイブ内でのディレクトリ名。半角英数推奨。\n\t\t\t\t\t同時にインストールする内容の、設置後のディレクトリ名とアーカイブ内でのディレクトリ名が一致しない場合に設定。\n\t\t\t\t\t*.directoryで設定したディレクトリ名",
+      "content": "*.source.directory,ディレクトリ名\n同時にインストールする内容のアーカイブ内でのディレクトリ名。半角英数推奨。\n\t\t\t\t\t同時にインストールする内容の、設置後のディレクトリ名とアーカイブ内でのディレクトリ名が一致しない場合に設定。\n\t\t\t\t\t番号付き（balloon0.source.directoryなど）も同様に指定できる。\n\t\t\t\t\tSSP 2.9.00以降は、extra\\bal1 のようにアーカイブ内の階層を辿る相対パスも指定できる。\n\t\t\t\t\t区切りは「\\」「/」のどちらでもよい。「..」による上位階層への参照はできない（取り除かれる）。\n\t\t\t\t\t2.9.00未満では区切りが「_」に置換されるため、1階層のディレクトリ名しか指定できない。\n\t\t\t\t\t*.directoryで設定したディレクトリ名",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_install.html#_2a.source.directory_2c_30c7_30a3_30ec_30af_30c8_30ea_540d:1"
     },
     {
@@ -2071,7 +2071,7 @@
       "title": "*.refresh,数値",
       "source": "ukadoc",
       "category": "descript",
-      "content": "*.refresh,数値\n同時にインストールする内容のrefresh設定。\n\t\t\t\t\t1以外の任意値（refresh無効）",
+      "content": "*.refresh,数値\n同時にインストールする内容のrefresh設定。番号付き（balloon0.refreshなど）も同様に指定できる。\n\t\t\t\t\t1以外の任意値（refresh無効）",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_install.html#_2a.refresh_2c_6570_5024:1"
     },
     {
@@ -2079,7 +2079,7 @@
       "title": "*.refreshundeletemask,ファイル名1:ファイル名2...",
       "source": "ukadoc",
       "category": "descript",
-      "content": "*.refreshundeletemask,ファイル名1:ファイル名2...\n同時にインストールする内容のrefreshundeletemask設定。\n\t\t\t\t\t挙動なし",
+      "content": "*.refreshundeletemask,ファイル名1:ファイル名2...\n同時にインストールする内容のrefreshundeletemask設定。番号付き（balloon0.refreshundeletemaskなど）も同様に指定できる。\n\t\t\t\t\t挙動なし",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_install.html#_2a.refreshundeletemask_2c_30d5_30a1_30a4_30eb_540d1_3a_30d5_30a1_30a4_30eb_540d2...:1"
     },
     {
@@ -2487,7 +2487,7 @@
       "title": "sakura.balloon.offsetx,座標",
       "source": "ukadoc",
       "category": "descript",
-      "content": "sakura.balloon.offsetx,座標\n本体側バルーン位置X座標。\n\t\t\t\t\t後ろにl,rをつける (例：offsetxr) と、バルーンを左右に表示する時のオフセットを個別に設定できる(SSP 2.4.58～)。\n\t\t\t\t\tただし、r(右)の時はX座標が逆になるので注意(通常と逆で左方向が＋)\n\t\t\t\t\tghostのdescript設定",
+      "content": "sakura.balloon.offsetx,座標\n本体側バルーン位置X座標。\n\t\t\t\t\toffsetx / offsety の後ろに方向を表す1文字を付けると、バルーンをどこに出すかによって違う値を使わせることができる(SSPのみ)。\n\t\t\t\t\t\n\t\t\t\t\t\toffsetx / offsety\n\t\t\t\t\t\t方向指定なし。下記が書かれていない時に使われる既定値。\n\t\t\t\t\t\toffsetxl / offsetyl\n\t\t\t\t\t\tバルーンをシェルの左に出す時。\n\t\t\t\t\t\toffsetxr / offsetyr\n\t\t\t\t\t\tバルーンをシェルの右に出す時。\n\t\t\t\t\t\toffsetxc / offsetyc\n\t\t\t\t\t\tバルーンをシェルの頭上・足元に出す時。中央寄せになる2通りで共通。\n\t\t\t\t\t\toffsetxb / offsetyb\n\t\t\t\t\t\tバルーンをシェルの足元に出す時。頭上と足元で違う値にしたい場合に使う。\n\t\t\t\t\t\n\t\t\t\t\t書かれていない時に何が使われるかは以下の通り。X座標とY座標はそれぞれ独立に決まる。\n\t\t\t\t\t\n\t\t\t\t\t\toffsetxb が無い時\n\t\t\t\t\t\toffsetxc → offsetx の順に探す。\n\t\t\t\t\t\toffsetxc / offsetxl / offsetxr が無い時\n\t\t\t\t\t\toffsetx を使う。\n\t\t\t\t\t\n\t\t\t\t\tどちらに出すかは、バルーンのdescript.txtのwindowposition.x、\n\t\t\t\t\tシェルのsakura.balloon.alignment、\n\t\t\t\t\tさくらスクリプトの\\![set,balloonalign,ID]で決まる。\n\t\t\t\t\t符号に注意。X座標の＋はどの場合もシェルに近づく向きで、左に出す時は右方向、右に出す時は左方向が＋になる\n\t\t\t\t\t(頭上・足元は右方向が＋)。Y座標の＋は常に下方向。\n\t\t\t\t\tただし0の位置(基準)が方向ごとに違う。左右はバルーンの上端とシェル画像の上端が揃う位置、頭上はバルーンの下端がシェル画像の上端に接する位置、足元はバルーンの上端がシェル画像の下端に接する位置。\n\t\t\t\t\tghostのdescript設定",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell.html#sakura.balloon.offsetx_2c_5ea7_6a19:1"
     },
     {
@@ -2495,7 +2495,7 @@
       "title": "sakura.balloon.offsety,座標",
       "source": "ukadoc",
       "category": "descript",
-      "content": "sakura.balloon.offsety,座標\n本体側バルーン位置Y座標。\n\t\t\t\t\t後ろにl,rをつける (例：offsetxr) と、バルーンを左右に表示する時のオフセットを個別に設定できる(SSP 2.4.58～)。\n\t\t\t\t\tただし、r(右)の時はX座標が逆になるので注意(通常と逆で左方向が＋)\n\t\t\t\t\tghostのdescript設定",
+      "content": "sakura.balloon.offsety,座標\n本体側バルーン位置Y座標。\n\t\t\t\t\t方向を表す1文字(l / r / c / b)を後ろに付ける書き方についてはsakura.balloon.offsetxを参照。\n\t\t\t\t\tghostのdescript設定",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell.html#sakura.balloon.offsety_2c_5ea7_6a19:1"
     },
     {
@@ -2503,7 +2503,7 @@
       "title": "kero.balloon.offsetx,座標",
       "source": "ukadoc",
       "category": "descript",
-      "content": "kero.balloon.offsetx,座標\n相方側バルーン位置X座標。\n\t\t\t\t\t後ろにl,rをつける (例：offsetxr) と、バルーンを左右に表示する時のオフセットを個別に設定できる(SSP 2.4.58～)。\n\t\t\t\t\tただし、r(右)の時はX座標が逆になるので注意(通常と逆で左方向が＋)\n\t\t\t\t\tghostのdescript設定",
+      "content": "kero.balloon.offsetx,座標\n相方側バルーン位置X座標。\n\t\t\t\t\t方向を表す1文字(l / r / c / b)を後ろに付ける書き方についてはsakura.balloon.offsetxを参照。\n\t\t\t\t\tghostのdescript設定",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell.html#kero.balloon.offsetx_2c_5ea7_6a19:1"
     },
     {
@@ -2511,7 +2511,7 @@
       "title": "kero.balloon.offsety,座標",
       "source": "ukadoc",
       "category": "descript",
-      "content": "kero.balloon.offsety,座標\n相方側バルーン位置Y座標。\n\t\t\t\t\t後ろにl,rをつける (例：offsetxr) と、バルーンを左右に表示する時のオフセットを個別に設定できる(SSP 2.4.58～)。\n\t\t\t\t\tただし、r(右)の時はX座標が逆になるので注意(通常と逆で左方向が＋)\n\t\t\t\t\tghostのdescript設定",
+      "content": "kero.balloon.offsety,座標\n相方側バルーン位置Y座標。\n\t\t\t\t\t方向を表す1文字(l / r / c / b)を後ろに付ける書き方についてはsakura.balloon.offsetxを参照。\n\t\t\t\t\tghostのdescript設定",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell.html#kero.balloon.offsety_2c_5ea7_6a19:1"
     },
     {
@@ -3159,7 +3159,7 @@
       "title": "sakura.balloon.offsetx,座標",
       "source": "ukadoc",
       "category": "descript",
-      "content": "sakura.balloon.offsetx,座標\nそのサーフェスでのみの本体側バルーン位置X座標。\n\t\t\t\t\t通常：バルーンの左右端と、サーフェスの右左端が揃う位置\n\t\t\t\t\talign=top/bottom：サーフェスの中央",
+      "content": "sakura.balloon.offsetx,座標\nそのサーフェスでのみの本体側バルーン位置X座標。\n\t\t\t\t\toffsetx / offsety の後ろに方向を表す1文字を付けると、バルーンをどこに出すかによって違う値を使わせることができる(SSPのみ)。\n\t\t\t\t\t\n\t\t\t\t\t\toffsetx / offsety\n\t\t\t\t\t\t方向指定なし。下記が書かれていない時に使われる既定値。\n\t\t\t\t\t\toffsetxl / offsetyl\n\t\t\t\t\t\tバルーンをシェルの左に出す時。\n\t\t\t\t\t\toffsetxr / offsetyr\n\t\t\t\t\t\tバルーンをシェルの右に出す時。\n\t\t\t\t\t\toffsetxc / offsetyc\n\t\t\t\t\t\tバルーンをシェルの頭上・足元に出す時。中央寄せになる2通りで共通。\n\t\t\t\t\t\toffsetxb / offsetyb\n\t\t\t\t\t\tバルーンをシェルの足元に出す時。頭上と足元で違う値にしたい場合に使う。\n\t\t\t\t\t\n\t\t\t\t\toffsetxb が無ければ offsetxc、それも無ければ offsetx が使われる。\n\t\t\t\t\toffsetxc / offsetxl / offsetxr が無い時は offsetx が使われる。X座標とY座標はそれぞれ独立に決まる。\n\t\t\t\t\tここで書いた値は、シェルのdescript.txtに書いた同名の値より優先される。\n\t\t\t\t\t符号の向きはdescript.txtのsakura.balloon.offsetxと同じ。\n\t\t\t\t\t左右に出す時：バルーンの左右端と、サーフェスの右左端が揃う位置\n\t\t\t\t\t頭上・足元に出す時：サーフェスの中央",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#sakura.balloon.offsetx_2c_5ea7_6a19:1"
     },
     {
@@ -3167,7 +3167,7 @@
       "title": "sakura.balloon.offsety,座標",
       "source": "ukadoc",
       "category": "descript",
-      "content": "sakura.balloon.offsety,座標\nそのサーフェスでのみの本体側バルーン位置Y座標。\n\t\t\t\t\t通常：バルーンの上端と、サーフェスの上端が揃う位置\n\t\t\t\t\talign=top/bottom：バルーンの上下端と、サーフェスの下上端が揃う位置",
+      "content": "sakura.balloon.offsety,座標\nそのサーフェスでのみの本体側バルーン位置Y座標。\n\t\t\t\t\t方向を表す1文字(l / r / c / b)を後ろに付ける書き方についてはsakura.balloon.offsetxを参照。\n\t\t\t\t\t左右に出す時：バルーンの上端と、サーフェスの上端が揃う位置\n\t\t\t\t\t頭上に出す時：バルーンの下端と、サーフェスの上端が揃う位置\n\t\t\t\t\t足元に出す時：バルーンの上端と、サーフェスの下端が揃う位置",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#sakura.balloon.offsety_2c_5ea7_6a19:1"
     },
     {
@@ -3175,7 +3175,7 @@
       "title": "kero.balloon.offsetx,座標",
       "source": "ukadoc",
       "category": "descript",
-      "content": "kero.balloon.offsetx,座標\nそのサーフェスでのみの相方側バルーン位置X座標。\n\t\t\t\t\t通常：バルーンの左右端と、サーフェスの右左端が揃う位置\n\t\t\t\t\talign=top/bottom：サーフェスの中央",
+      "content": "kero.balloon.offsetx,座標\nそのサーフェスでのみの相方側バルーン位置X座標。\n\t\t\t\t\t方向を表す1文字(l / r / c / b)を後ろに付ける書き方についてはsakura.balloon.offsetxを参照。\n\t\t\t\t\t左右に出す時：バルーンの左右端と、サーフェスの右左端が揃う位置\n\t\t\t\t\t頭上・足元に出す時：サーフェスの中央",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#kero.balloon.offsetx_2c_5ea7_6a19:1"
     },
     {
@@ -3183,7 +3183,7 @@
       "title": "kero.balloon.offsety,座標",
       "source": "ukadoc",
       "category": "descript",
-      "content": "kero.balloon.offsety,座標\nそのサーフェスでのみの相方側バルーン位置Y座標。\n\t\t\t\t\t通常：バルーンの上端と、サーフェスの上端が揃う位置\n\t\t\t\t\talign=top/bottom：バルーンの上下端と、サーフェスの下上端が揃う位置",
+      "content": "kero.balloon.offsety,座標\nそのサーフェスでのみの相方側バルーン位置Y座標。\n\t\t\t\t\t方向を表す1文字(l / r / c / b)を後ろに付ける書き方についてはsakura.balloon.offsetxを参照。\n\t\t\t\t\t左右に出す時：バルーンの上端と、サーフェスの上端が揃う位置\n\t\t\t\t\t頭上に出す時：バルーンの下端と、サーフェスの上端が揃う位置\n\t\t\t\t\t足元に出す時：バルーンの上端と、サーフェスの下端が揃う位置",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#kero.balloon.offsety_2c_5ea7_6a19:1"
     },
     {
@@ -3191,7 +3191,7 @@
       "title": "balloon.offsetx,座標",
       "source": "ukadoc",
       "category": "descript",
-      "content": "balloon.offsetx,座標\nそのサーフェスでのみのバルーン位置X座標(本体・相方問わず)。\n\t\t\t\t\toffset.xとも記述可能。\n\t\t\t\t\t通常：バルーンの左右端と、サーフェスの右左端が揃う位置\n\t\t\t\t\talign=top/bottom：サーフェスの中央",
+      "content": "balloon.offsetx,座標\nそのサーフェスでのみのバルーン位置X座標(本体・相方問わず)。\n\t\t\t\t\toffset.xとも記述可能。\n\t\t\t\t\t方向を表す1文字(l / r / c / b)を後ろに付ける書き方についてはsakura.balloon.offsetxを参照。\n\t\t\t\t\t左右に出す時：バルーンの左右端と、サーフェスの右左端が揃う位置\n\t\t\t\t\t頭上・足元に出す時：サーフェスの中央",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#balloon.offsetx_2c_5ea7_6a19:1"
     },
     {
@@ -3199,7 +3199,7 @@
       "title": "balloon.offsety,座標",
       "source": "ukadoc",
       "category": "descript",
-      "content": "balloon.offsety,座標\nそのサーフェスでのみのバルーン位置Y座標(本体・相方問わず)。\n\t\t\t\t\toffset.yとも記述可能。\n\t\t\t\t\t通常：バルーンの上端と、サーフェスの上端が揃う位置\n\t\t\t\t\talign=top/bottom：バルーンの上下端と、サーフェスの下上端が揃う位置",
+      "content": "balloon.offsety,座標\nそのサーフェスでのみのバルーン位置Y座標(本体・相方問わず)。\n\t\t\t\t\toffset.yとも記述可能。\n\t\t\t\t\t方向を表す1文字(l / r / c / b)を後ろに付ける書き方についてはsakura.balloon.offsetxを参照。\n\t\t\t\t\t左右に出す時：バルーンの上端と、サーフェスの上端が揃う位置\n\t\t\t\t\t頭上に出す時：バルーンの下端と、サーフェスの上端が揃う位置\n\t\t\t\t\t足元に出す時：バルーンの上端と、サーフェスの下端が揃う位置",
       "url": "https://ssp.shillest.net/ukadoc/manual/descript_shell_surfaces.html#balloon.offsety_2c_5ea7_6a19:1"
     },
     {
@@ -6431,7 +6431,7 @@
       "title": "\\![set,balloonalign,ID]",
       "source": "ukadoc",
       "category": "sakurascript",
-      "content": "\\![set,balloonalign,ID]\nバルーンを下記IDの表示方向へ切り替える。IDは以下の方法が定義可能である。下記の位置を基準に、シェルのdescript.txtのballoon.offsetx及びballoon.offsetyの値、surfaces.txtのballoon.offsetx及びballoon.offsetyの値が反映される。初期値none。\n\t\t\t\t\tゴースト終了まで有効。\n\t\t\t\t\t\n\t\t\t\t\t\tleft\n\t\t\t\t\t\tシェルの左上座標に、バルーンの右上座標が接する。\n\t\t\t\t\t\tcenter\n\t\t\t\t\t\tシェルの中央上座標に、バルーンの中央下座標が接する。\n\t\t\t\t\t\ttop\n\t\t\t\t\t\tcenterと同じ。\n\t\t\t\t\t\tright\n\t\t\t\t\t\tシェルの右上座標に、バルーンの左上座標が接する。\n\t\t\t\t\t\tbottom\n\t\t\t\t\t\tシェルの中央下座標に、バルーンの中央上座標が接する。\n\t\t\t\t\t\tnone\n\t\t\t\t\t\t座標によってleftとrightが入れ替わる。シェルのドラッグ移動後、バルーンが見切れる場合、スイッチする。\n\t\t\t\t\t\t上記以外\n\t\t\t\t\t\tnoneと同じ。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\0\\![set,balloonalign,top]本体側バルーンを、シェルの頭上に表示。\\1\\![set,balloonalign,right]相方側バルーンを、シェルの右側に表示。",
+      "content": "\\![set,balloonalign,ID]\nバルーンを下記IDの表示方向へ切り替える。IDは以下の方法が定義可能である。下記の位置を基準に、シェルのdescript.txtのballoon.offsetx及びballoon.offsetyの値、surfaces.txtのballoon.offsetx及びballoon.offsetyの値が反映される。初期値none。\n\t\t\t\t\tゴースト終了まで有効。\n\t\t\t\t\t\n\t\t\t\t\t\tleft\n\t\t\t\t\t\tシェルの左上座標に、バルーンの右上座標が接する。\n\t\t\t\t\t\tcenter\n\t\t\t\t\t\tシェルの中央上座標に、バルーンの中央下座標が接する。\n\t\t\t\t\t\ttop\n\t\t\t\t\t\tcenterと同じ。\n\t\t\t\t\t\tright\n\t\t\t\t\t\tシェルの右上座標に、バルーンの左上座標が接する。\n\t\t\t\t\t\tbottom\n\t\t\t\t\t\tシェルの中央下座標に、バルーンの中央上座標が接する。\n\t\t\t\t\t\tnone\n\t\t\t\t\t\t座標によってleftとrightが入れ替わる。シェルのドラッグ移動後、バルーンが見切れる場合、スイッチする。\n\t\t\t\t\t\t上記以外\n\t\t\t\t\t\tnoneと同じ。\n\t\t\t\t\t\n\t\t\t\t\t方向ごとに違うオフセット値を使わせることもできる。\n\t\t\t\t\tleft/rightではoffsetxl/offsetxr、center・topではoffsetxc、bottomではoffsetxb(無ければoffsetxc)が優先される。\n\t\t\t\t\t詳しくはsakura.balloon.offsetxを参照。\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t記述例\n\t\t\t\t\t\t\t\\0\\![set,balloonalign,top]本体側バルーンを、シェルの頭上に表示。\\1\\![set,balloonalign,right]相方側バルーンを、シェルの右側に表示。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bset_2cballoonalign_2cID_5d:1"
     },
     {
@@ -8275,20 +8275,20 @@
       "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bcancel_2cfilewatch_2c_30d1_30b9_5d:1"
     },
     {
-      "id": "ukadoc:list_sakura_script:_5c_21_5bexecute_2ccreatenar_5d:1",
-      "title": "\\![execute,createnar]",
+      "id": "ukadoc:list_sakura_script:_5c_21_5bexecute_2ccreatenar_2c_51fa_529b_5148_30d5_30a1_30a4_30eb_5d:1",
+      "title": "\\![execute,createnar,出力先ファイル]",
       "source": "ukadoc",
       "category": "sakurascript",
-      "content": "\\![execute,createnar]\nスクリプトを実行したゴースト自身のNARを作る。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.5.08",
-      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bexecute_2ccreatenar_5d:1"
+      "content": "\\![execute,createnar,出力先ファイル]\nスクリプトを実行したゴースト自身のNARを作る。\n\t\t\t\t\t出力先ファイル : 省略可。ゴーストのghost/masterフォルダからの相対パス、または絶対パスで指定する。[2.8.98]\n\t\t\t\t\t指定した場合は出力先の確認を行わずそのファイルに作り、既に同名のファイルがある場合は上書きする。出力先がゴーストのフォルダ内の場合、そのファイル自身はNARに含まれない。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.5.08",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bexecute_2ccreatenar_2c_51fa_529b_5148_30d5_30a1_30a4_30eb_5d:1"
     },
     {
-      "id": "ukadoc:list_sakura_script:_5c_21_5bexecute_2ccreateupdatedata_5d:1",
-      "title": "\\![execute,createupdatedata]",
+      "id": "ukadoc:list_sakura_script:_5c_21_5bexecute_2ccreateupdatedata_2c_51fa_529b_5148_30d5_30a1_30a4_30eb_5d:1",
+      "title": "\\![execute,createupdatedata,出力先ファイル]",
       "source": "ukadoc",
       "category": "sakurascript",
-      "content": "\\![execute,createupdatedata]\nスクリプトを実行したゴースト自身の更新定義ファイル(updates2.dau/updates.txt)を作る。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.5.08",
-      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bexecute_2ccreateupdatedata_5d:1"
+      "content": "\\![execute,createupdatedata,出力先ファイル]\nスクリプトを実行したゴースト自身の更新定義ファイル(updates2.dau/updates.txt)を作る。\n\t\t\t\t\t出力先ファイル : 省略可。ゴーストのghost/masterフォルダからの相対パス、または絶対パスで指定する。[2.8.98]\n\t\t\t\t\t指定した場合はそのファイルに1つだけ作り、既に同名のファイルがある場合は上書きする。ファイル名が.dauで終わる場合はupdates2.dauと同じ形式、それ以外の場合はupdates.txtの形式で出力する。\n\t\t\t\t\tこのとき通常の出力先(ゴーストのルートとghost/master)のupdates2.dau/updates.txtは作成・削除とも行わない。出力先がゴーストのフォルダ内の場合、そのファイル自身は更新定義に含まれない。\n\t\t\t\t\t\n\t\t\t\t\t\t 2.5.08",
+      "url": "https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_5c_21_5bexecute_2ccreateupdatedata_2c_51fa_529b_5148_30d5_30a1_30a4_30eb_5d:1"
     },
     {
       "id": "ukadoc:list_sakura_script:_5c_21_5bexecute_2cemptyrecyclebin_5d:1",
@@ -9503,7 +9503,7 @@
       "title": "OnInstallComplete",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnInstallComplete\nインストールが正常終了した際に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tインストールした物の※識別子。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tインストールした物の名前（install.txtのname指定）。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tインストールした物の名前2（ghost with balloonなどの場合のballoon側の名前）。",
+      "content": "OnInstallComplete\nインストールが正常終了した際に発生。このイベントは旧仕様のため、1回のインストールで同時に入った物のうち先頭の2件しか通知されない。\n\t\t\t\t\t同梱によって3件以上が同時にインストールされうる場合は、OnInstallCompleteExを使う事。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tインストールした物の※識別子。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tインストールした物の名前（install.txtのname指定）。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tインストールした物の名前2（ゴーストにバルーンを同梱した場合などのballoon側の名前）。",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnInstallComplete:1"
     },
     {
@@ -9519,7 +9519,7 @@
       "title": "OnInstallCompleteAll",
       "source": "ukadoc",
       "category": "shiori_event",
-      "content": "OnInstallCompleteAll\n複数のnarをD&Dした時などに、インストールがすべて正常終了した際に、OnInstallComplete/同Exの後に、最後に発生。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tインストールした物の※識別子。複数の場合はバイト値1区切り。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tインストールした物の名前。複数の場合はバイト値1区切り。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tインストールした場所。複数の場合はバイト値1区切り。",
+      "content": "OnInstallCompleteAll\n複数のnarをD&Dした時などに、インストールがすべて正常終了した際に、OnInstallComplete/同Exの後に、最後に発生。\n\t\t\t\t\tSSPでは2.9.00より前のバージョンに実装漏れがあり、実際には発生しない。\n\t\t\t\t\t\n\t\t\t\t\t\tReference0\n\t\t\t\t\t\tインストールした物の※識別子。複数の場合はバイト値1区切り。\n\t\t\t\t\t\tReference1\n\t\t\t\t\t\tインストールした物の名前。複数の場合はバイト値1区切り。\n\t\t\t\t\t\tReference2\n\t\t\t\t\t\tインストールした場所。複数の場合はバイト値1区切り。\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t 2.9.00",
       "url": "https://ssp.shillest.net/ukadoc/manual/list_shiori_event.html#OnInstallCompleteAll:1"
     },
     {
@@ -14159,7 +14159,7 @@
       "title": "SSTP/1.x - request",
       "source": "ukadoc",
       "category": "protocol",
-      "content": "request\nrequestサンプル\n\t\t\t\t実行\n\n\t\t\t\t\n\t\t\t\tdocument.getElementById(\"runButton\").addEventListener(\"click\", function() {\n\t\t\t\t\tjsstp.SEND({\n\t\t\t\t\t\tCharset: \"UTF-8\",\n\t\t\t\t\t\tSender: \"SSTPクライアント\",\n\t\t\t\t\t\tScript: \"\\\\h\\\\s0テストー。\\\\u\\\\s[10]テストやな。\",\n\t\t\t\t\t\tOption: \"notranslate\"\n\t\t\t\t\t})\n\t\t\t\t});\n\t\t\t\tdocument.addEventListener(\"DOMContentLoaded\", async () => {\n\t\t\t\t\tif(await jsstp.available())\n\t\t\t\t\t\tdocument.getElementById(\"runButton\").style.display = \"inline\";\n\t\t\t\t});\n\t\t\t\t\nSEND SSTP/1.0\nCharset: UTF-8\nSender: SSTPクライアント\nScript: \\h\\s0テストー。\\u\\s[10]テストやな。\nOption: notranslate\n\n\n\t\t\t\trequestの各メソッドに共通するヘッダ\n\t\t\t\tメソッド固有のものについては、後ろのメソッド別の説明を確認すること。\n\t\t\t\t\n\t\t\t\t\tCharset\n\t\t\t\t\tリクエストの文字コード。一番最初の行に現れるのが望ましい。\n\t\t\t\t\t特に理由がなければUTF-8を推奨する。\n\t\t\t\t\t\n\t\t\t\t\tSender\n\t\t\t\t\t送信者を示す文字列。「SSTP送信ツール」など。COMMUNICATEメソッドの場合は、送信元のゴースト\\0名。\n\t\t\t\t\t\n\t\t\t\t\tSecurityLevel\n\t\t\t\t\tSHIORIやSakuraScriptで処理する際のセキュリティレベルの指定。local/externalのいずれか。\n\t\t\t\t\tDirectSSTP、または127.0.0.1等明らかにローカルから来たリクエストのみ有効。\n\t\t\t\t\tSSTP over HTTPは、localhostから配信されたhtml等から送られた場合を除き、常にexternalとみなされる。\n\t\t\t\t\t\n\t\t\t\t\tSecurityOrigin [SSP 2.6.59]\n\t\t\t\t\t送信元サーバを示すURL風の文字列。以下の形式となる。HTTPヘッダのOriginと考え方は同じ。\n\t\t\t\t\tSecurityOrigin: null\n\t\t\t\t\tSecurityOrigin: <scheme>://<hostname>\n\t\t\t\t\tSecurityOrigin: <scheme>://<hostname>:<port>\n\t\t\t\t\tscheme は通常、http,https,sstpのいずれか。hostnameは送信元サーバ名かIP。portは返信受付可能なポート。\n\t\t\t\t\t特に指定がない場合は、nullが指定されたものとみなされる。\n\t\t\t\t\tSSTP over HTTPは、HTTPのOriginヘッダの中身が常に設定され、SSTPの中のSecurityOriginは無視される。\n\t\t\t\t\t\n\n\t\t\t\t\tOption\n\t\t\t\t\tSSTPで実行されるSakuraScriptがどのように扱われるかのオプションを指定する。\n\t\t\t\t\tカンマ区切りで複数指定可能。指定する文字列は以下の通り。\n\t\t\t\t\tnodescript : バルーンのSSTP表示を無効にする(リモートからのSSTPは無効)\n\t\t\t\t\tnotranslate : OnTranslateやMAKOTOでのトランスレート処理を行わない\n\t\t\t\t\tnobreak : 現在実行中のスクリプトを中断せず、終わるまで待つ\n\t\t\t\t\t\n\t\t\t\t\tID\n\t\t\t\t\t\"Owned SSTP\"と呼ばれるもの。SHIORI uniqueidで送られてきたIDか、FMOの識別ID(SSPのみ)を指定すると、各種セキュリティチェックやロック等を無視して、本SSTPをゴースト内部での処理と同じ優先度で扱う。\n\t\t\t\t\tSecurityLevel指定がlocalになり、さらに\\tなどの割り込み禁止状態でも強制的に割り込み再生を可能とする。\n\t\t\t\t\t\n\t\t\t\t\tX-SSTP-PassThru-(任意の文字列)\n\t\t\t\t\tNOTIFYなどゴースト側との通信の際に、SHIORIに直接渡されるヘッダ。\n\t\t\t\t\t文字コード変換等最低限の処理が行われるだけで、(任意の文字列)の部分や中身はそのまま中継される。\n\t\t\t\t\t\n\t\t\t\t\tHWnd\n\t\t\t\t\tDirectSSTP限定で、responseを返信すべきウインドウハンドルを示す。\n\t\t\t\t\tウインドウハンドル(ポインタ相当)のデータを符号なし10進整数として扱い、それを文字列化したもの。\n\t\t\t\t\t省略時はWM_COMMUNICATEのwParam。\n\t\t\t\t\t\n\t\t\t\t\tReceiverGhostHWnd [SSP 2.5.57]\n\t\t\t\t\t(Socket)SSTP限定で、requestを送るべきゴーストの\\0のウインドウハンドルを示す。\n\t\t\t\t\tこれを指定すると、処理すべきゴーストが固定され、Socket経由でもDirectSSTPと同じ処理が可能になる。\n\t\t\t\t\t見つからなかった場合は、404 Not Foundで即時エラー終了する。\n\t\t\t\t\t\n\t\t\t\t\tReceiverGhostName [SSP 2.5.57]\n\t\t\t\t\t(Socket)SSTP限定で、requestを送るべきゴーストの\\0名を示す。\n\t\t\t\t\tこれを指定すると、処理すべきゴーストが固定され、Socket経由でもDirectSSTPと同じ処理が可能になる。HWndの名前版。\n\t\t\t\t\t見つからなかった場合は、404 Not Foundで即時エラー終了する。",
+      "content": "request\nrequestサンプル\n\t\t\t\t実行\n\n\t\t\t\t\n\t\t\t\tdocument.getElementById(\"runButton\").addEventListener(\"click\", function() {\n\t\t\t\t\tjsstp.SEND({\n\t\t\t\t\t\tCharset: \"UTF-8\",\n\t\t\t\t\t\tSender: \"SSTPクライアント\",\n\t\t\t\t\t\tScript: \"\\\\h\\\\s0テストー。\\\\u\\\\s[10]テストやな。\",\n\t\t\t\t\t\tOption: \"notranslate\"\n\t\t\t\t\t})\n\t\t\t\t});\n\t\t\t\tdocument.addEventListener(\"DOMContentLoaded\", async () => {\n\t\t\t\t\tif(await jsstp.available())\n\t\t\t\t\t\tdocument.getElementById(\"runButton\").style.display = \"inline\";\n\t\t\t\t});\n\t\t\t\t\nSEND SSTP/1.0\nCharset: UTF-8\nSender: SSTPクライアント\nScript: \\h\\s0テストー。\\u\\s[10]テストやな。\nOption: notranslate\n\n\n\t\t\t\trequestの各メソッドに共通するヘッダ\n\t\t\t\tメソッド固有のものについては、後ろのメソッド別の説明を確認すること。\n\t\t\t\t\n\t\t\t\t\tCharset\n\t\t\t\t\tリクエストの文字コード。一番最初の行に現れるのが望ましい。\n\t\t\t\t\t特に理由がなければUTF-8を推奨する。\n\t\t\t\t\t\n\t\t\t\t\tSender\n\t\t\t\t\t送信者を示す文字列。「SSTP送信ツール」など。COMMUNICATEメソッドの場合は、送信元のゴースト\\0名。\n\t\t\t\t\t\n\t\t\t\t\tSecurityLevel\n\t\t\t\t\tSHIORIやSakuraScriptで処理する際のセキュリティレベルの指定。local/externalのいずれか。\n\t\t\t\t\tDirectSSTP、または127.0.0.1等明らかにローカルから来たリクエストのみ有効。\n\t\t\t\t\tSSTP over HTTPは、localhostから配信されたhtml等から送られた場合を除き、常にexternalとみなされる。\n\t\t\t\t\t\n\t\t\t\t\tSecurityOrigin [SSP 2.6.59]\n\t\t\t\t\t送信元サーバを示すURL風の文字列。以下の形式となる。HTTPヘッダのOriginと考え方は同じ。\n\t\t\t\t\tSecurityOrigin: null\n\t\t\t\t\tSecurityOrigin: <scheme>://<hostname>\n\t\t\t\t\tSecurityOrigin: <scheme>://<hostname>:<port>\n\t\t\t\t\tscheme は通常、http,https,sstpのいずれか。hostnameは送信元サーバ名かIP。portは返信受付可能なポート。\n\t\t\t\t\t特に指定がない場合は、nullが指定されたものとみなされる。\n\t\t\t\t\tSSTP over HTTPは、HTTPのOriginヘッダの中身が常に設定され、SSTPの中のSecurityOriginは無視される。\n\t\t\t\t\t\n\n\t\t\t\t\tOption\n\t\t\t\t\tSSTPで実行されるSakuraScriptがどのように扱われるかのオプションを指定する。\n\t\t\t\t\tカンマ区切りで複数指定可能。指定する文字列は以下の通り。\n\t\t\t\t\tnodescript : バルーンのSSTP表示を無効にする(リモートからのSSTPは無効)\n\t\t\t\t\tnotranslate : OnTranslateやMAKOTOでのトランスレート処理を行わない\n\t\t\t\t\tnobreak : 現在実行中のスクリプトを中断せず、終わるまで待つ\n\t\t\t\t\tstrict : SakuraScriptの解釈に失敗した箇所をエラーログに記録する。対象は存在しないサーフェス(\\s)・アニメーション(\\i)・バルーン(\\b)の指定、未知のタグ・\\![コマンド]・\\&[実体参照]、必要な[]や数字の欠け、\\p・\\b・\\n・\\c・\\qの不正な値。SENDのスクリプトと、NOTIFY/GIVEでゴーストが返したスクリプトに有効 [SSP 2.8.94]\n\t\t\t\t\t\n\t\t\t\t\tID\n\t\t\t\t\t\"Owned SSTP\"と呼ばれるもの。SHIORI uniqueidで送られてきたIDか、FMOの識別ID(SSPのみ)を指定すると、各種セキュリティチェックやロック等を無視して、本SSTPをゴースト内部での処理と同じ優先度で扱う。\n\t\t\t\t\tSecurityLevel指定がlocalになり、さらに\\tなどの割り込み禁止状態でも強制的に割り込み再生を可能とする。\n\t\t\t\t\t\n\t\t\t\t\tX-SSTP-PassThru-(任意の文字列)\n\t\t\t\t\tNOTIFYなどゴースト側との通信の際に、SHIORIに直接渡されるヘッダ。\n\t\t\t\t\t文字コード変換等最低限の処理が行われるだけで、(任意の文字列)の部分や中身はそのまま中継される。\n\t\t\t\t\t\n\t\t\t\t\tHWnd\n\t\t\t\t\tDirectSSTP限定で、responseを返信すべきウインドウハンドルを示す。\n\t\t\t\t\tウインドウハンドル(ポインタ相当)のデータを符号なし10進整数として扱い、それを文字列化したもの。\n\t\t\t\t\t省略時はWM_COMMUNICATEのwParam。\n\t\t\t\t\t\n\t\t\t\t\tReceiverGhostHWnd [SSP 2.5.57]\n\t\t\t\t\t(Socket)SSTP限定で、requestを送るべきゴーストの\\0のウインドウハンドルを示す。\n\t\t\t\t\tこれを指定すると、処理すべきゴーストが固定され、Socket経由でもDirectSSTPと同じ処理が可能になる。\n\t\t\t\t\t見つからなかった場合は、404 Not Foundで即時エラー終了する。\n\t\t\t\t\t\n\t\t\t\t\tReceiverGhostName [SSP 2.5.57]\n\t\t\t\t\t(Socket)SSTP限定で、requestを送るべきゴーストの\\0名を示す。\n\t\t\t\t\tこれを指定すると、処理すべきゴーストが固定され、Socket経由でもDirectSSTPと同じ処理が可能になる。HWndの名前版。\n\t\t\t\t\t見つからなかった場合は、404 Not Foundで即時エラー終了する。",
       "url": "https://ssp.shillest.net/ukadoc/manual/spec_sstp.html#request:1"
     },
     {
@@ -16103,7 +16103,7 @@
       "title": "LINT.GetFuncUsedBy",
       "source": "yaya_wiki",
       "category": "yaya_function",
-      "content": "LINT.GetFuncUsedBy† ↑形式† LINT.GetFuncUsedBy( function_name ) ↑機能† 指定した関数で使用している関数名を列挙し、汎用配列で返します。 ユーザー定義関数・システム関数の両方を列挙します。 ↑引数† function_name 調べたい関数名（文字列） ↑返り値† 使用している関数名：文字列の汎用配列 候補がない場合は空の汎用配列 エラー時は-1 ↑関連† マニュアル/関数/LINT.GetUserDefFuncUsedBy マニュアル/関数/LINT.GetGlobalVarUsedBy マニュアル/関数/LINT.GetLocalVarUsedBy マニュアル/関数/LINT.GetGlobalVarLetted マニュアル/関数/LINT.GetLocalVarLetted ↑バージョン† YAYA：Tc568-1 ↑例† NOWPRINTING 誰か記載してください！",
+      "content": "LINT.GetFuncUsedBy† ↑形式† LINT.GetFuncUsedBy( function_name ) ↑機能† 指定した関数で使用している関数名を列挙し、汎用配列で返します。 ユーザー定義関数・システム関数の両方を列挙します。 関数名は重複を除去し、名前順に並べて返されます。埋め込み式 %(式) を含む文字列があると、展開に内部的に使われる TOSTR も含まれます。制約の詳細は LINT系関数の仕様と制約 を参照してください。 ↑引数† function_name 調べたい関数名（文字列） ↑返り値† 使用している関数名：文字列の汎用配列 候補がない場合は空の汎用配列 エラー時は-1 ↑関連† マニュアル/関数/LINT.GetVarRefs マニュアル/関数/LINT.GetUserDefFuncUsedBy マニュアル/関数/LINT.GetGlobalVarUsedBy マニュアル/関数/LINT.GetLocalVarUsedBy マニュアル/関数/LINT.GetGlobalVarLetted マニュアル/関数/LINT.GetLocalVarLetted ↑バージョン† YAYA：Tc568-1 ↑例† NOWPRINTING 誰か記載してください！",
       "url": "https://emily.shillest.net/ayaya/?%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB/%E9%96%A2%E6%95%B0/LINT.GetFuncUsedBy"
     },
     {
@@ -16111,7 +16111,7 @@
       "title": "LINT.GetGlobalVarLetted",
       "source": "yaya_wiki",
       "category": "yaya_function",
-      "content": "LINT.GetGlobalVarLetted† ↑形式† LINT.GetGlobalVarLetted( function_name ) ↑機能† 指定した関数で定義された（代入された）グローバル変数名を列挙し、汎用配列で返します。 代入された時点のみを列挙し、読まれる時は無視します。読まれる方も含めて列挙したい場合は LINT.GetGlobalVarUsedBy を使ってください。 ↑引数† function_name 調べたい関数名（文字列） ↑返り値† 代入されたグローバル変数名：文字列の汎用配列 候補がない場合は空の汎用配列 エラー時は-1 ↑関連† マニュアル/関数/LINT.GetFuncUsedBy マニュアル/関数/LINT.GetUserDefFuncUsedBy マニュアル/関数/LINT.GetGlobalVarUsedBy マニュアル/関数/LINT.GetLocalVarUsedBy マニュアル/関数/LINT.GetLocalVarLetted ↑バージョン† YAYA：Tc568-1 ↑例† NOWPRINTING 誰か記載してください！",
+      "content": "LINT.GetGlobalVarLetted† ↑形式† LINT.GetGlobalVarLetted( function_name ) ↑機能† 指定した関数で定義された（代入された）グローバル変数名を列挙し、汎用配列で返します。 代入された時点のみを列挙し、読まれる時は無視します。読まれる方も含めて列挙したい場合は LINT.GetGlobalVarUsedBy を使ってください。 変数名は重複を除去し、名前順に並べて返されます。 以下も代入として列挙されます。 複合代入（+= -= など）と ++ -- 配列要素への代入（G_a[0] = 1 は G_a）（Tc574-1以降） foreach _list ; G_v のループ変数 G_v（Tc574-1以降） 制約の詳細は LINT系関数の仕様と制約 を参照してください。 ↑引数† function_name 調べたい関数名（文字列） ↑返り値† 代入されたグローバル変数名：文字列の汎用配列 候補がない場合は空の汎用配列 エラー時は-1 ↑関連† マニュアル/関数/LINT.GetVarRefs マニュアル/関数/LINT.GetFuncUsedBy マニュアル/関数/LINT.GetUserDefFuncUsedBy マニュアル/関数/LINT.GetGlobalVarUsedBy マニュアル/関数/LINT.GetLocalVarUsedBy マニュアル/関数/LINT.GetLocalVarLetted ↑バージョン† YAYA：Tc568-1 Tc574-1: 配列要素への代入と foreach のループ変数を列挙するように変更 ↑例† NOWPRINTING 誰か記載してください！",
       "url": "https://emily.shillest.net/ayaya/?%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB/%E9%96%A2%E6%95%B0/LINT.GetGlobalVarLetted"
     },
     {
@@ -16119,7 +16119,7 @@
       "title": "LINT.GetGlobalVarUsedBy",
       "source": "yaya_wiki",
       "category": "yaya_function",
-      "content": "LINT.GetGlobalVarUsedBy† ↑形式† LINT.GetGlobalVarUsedBy( function_name ) ↑機能† 指定した関数で使用しているグローバル変数名を列挙し、汎用配列で返します。 ↑引数† function_name 調べたい関数名（文字列） ↑返り値† 使用しているグローバル変数名：文字列の汎用配列 候補がない場合は空の汎用配列 エラー時は-1 ↑関連† マニュアル/関数/LINT.GetFuncUsedBy マニュアル/関数/LINT.GetUserDefFuncUsedBy マニュアル/関数/LINT.GetLocalVarUsedBy マニュアル/関数/LINT.GetGlobalVarLetted マニュアル/関数/LINT.GetLocalVarLetted ↑バージョン† YAYA：Tc568-1 ↑例† NOWPRINTING 誰か記載してください！",
+      "content": "LINT.GetGlobalVarUsedBy† ↑形式† LINT.GetGlobalVarUsedBy( function_name ) ↑機能† 指定した関数で使用しているグローバル変数名を列挙し、汎用配列で返します。 変数名は重複を除去し、名前順に並べて返されます。そのため LINT.GetGlobalVarLetted と組み合わせても「代入されているが読まれていない変数」は判別できません。制約の詳細は LINT系関数の仕様と制約 を参照してください。 ↑引数† function_name 調べたい関数名（文字列） ↑返り値† 使用しているグローバル変数名：文字列の汎用配列 候補がない場合は空の汎用配列 エラー時は-1 ↑関連† マニュアル/関数/LINT.GetVarRefs マニュアル/関数/LINT.GetFuncUsedBy マニュアル/関数/LINT.GetUserDefFuncUsedBy マニュアル/関数/LINT.GetLocalVarUsedBy マニュアル/関数/LINT.GetGlobalVarLetted マニュアル/関数/LINT.GetLocalVarLetted ↑バージョン† YAYA：Tc568-1 ↑例† NOWPRINTING 誰か記載してください！",
       "url": "https://emily.shillest.net/ayaya/?%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB/%E9%96%A2%E6%95%B0/LINT.GetGlobalVarUsedBy"
     },
     {
@@ -16127,7 +16127,7 @@
       "title": "LINT.GetLocalVarLetted",
       "source": "yaya_wiki",
       "category": "yaya_function",
-      "content": "LINT.GetLocalVarLetted† ↑形式† LINT.GetLocalVarLetted( function_name ) ↑機能† 指定した関数で定義された（代入された）ローカル変数名を列挙し、汎用配列で返します。 代入された時点のみを列挙し、読まれる時は無視します。読まれる方も含めて列挙したい場合は LINT.GetLocalVarUsedBy を使ってください。 ↑引数† function_name 調べたい関数名（文字列） ↑返り値† 使用しているローカル変数名を、使用箇所順に以下の通りの書式で列挙 入れ子(中括弧)内に入る時は { (開き中括弧1文字) 変数が代入されていたらその変数名 入れ子(中括弧)内から出る時は } (閉じ中括弧1文字) 候補がない場合は空の汎用配列（中括弧のみの時も空） エラー時は-1 ↑関連† マニュアル/関数/LINT.GetFuncUsedBy マニュアル/関数/LINT.GetUserDefFuncUsedBy マニュアル/関数/LINT.GetGlobalVarUsedBy マニュアル/関数/LINT.GetLocalVarUsedBy マニュアル/関数/LINT.GetGlobalVarLetted ↑バージョン† YAYA：Tc568-1 ↑例† NOWPRINTING 誰か記載してください！",
+      "content": "LINT.GetLocalVarLetted† ↑形式† LINT.GetLocalVarLetted( function_name ) ↑機能† 指定した関数で定義された（代入された）ローカル変数名を列挙し、汎用配列で返します。 代入された時点のみを列挙し、読まれる時は無視します。読まれる方も含めて列挙したい場合は LINT.GetLocalVarUsedBy を使ってください。 以下も代入として列挙されます。 複合代入（+= -= など）と ++ -- 配列要素への代入（_a[0] = 1 は _a）（Tc574-1以降） foreach _list ; _v のループ変数 _v（Tc574-1以降） case 構文が内部で生成するローカル変数（_CaSe_ExPr_PrEfIx_ で始まる名前）は列挙されません（Tc574-1以降）。 制約の詳細は LINT系関数の仕様と制約 を参照してください。 ↑引数† function_name 調べたい関数名（文字列） ↑返り値† 使用しているローカル変数名を、使用箇所順に以下の通りの書式で列挙 入れ子(中括弧)内に入る時は { (開き中括弧1文字) 変数が代入されていたらその変数名 入れ子(中括弧)内から出る時は } (閉じ中括弧1文字) 候補がない場合は空の汎用配列（中括弧のみの時も空） エラー時は-1 ↑関連† マニュアル/関数/LINT.GetVarRefs マニュアル/関数/LINT.GetFuncUsedBy マニュアル/関数/LINT.GetUserDefFuncUsedBy マニュアル/関数/LINT.GetGlobalVarUsedBy マニュアル/関数/LINT.GetLocalVarUsedBy マニュアル/関数/LINT.GetGlobalVarLetted ↑バージョン† YAYA：Tc568-1 Tc574-1: 配列要素への代入と foreach のループ変数を列挙するように変更。case の内部変数を除外 ↑例† NOWPRINTING 誰か記載してください！",
       "url": "https://emily.shillest.net/ayaya/?%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB/%E9%96%A2%E6%95%B0/LINT.GetLocalVarLetted"
     },
     {
@@ -16135,7 +16135,7 @@
       "title": "LINT.GetLocalVarUsedBy",
       "source": "yaya_wiki",
       "category": "yaya_function",
-      "content": "LINT.GetLocalVarUsedBy† ↑形式† LINT.GetLocalVarUsedBy( function_name ) ↑機能† 指定した関数で使用しているローカル変数名を列挙し、汎用配列で返します。 ↑引数† function_name 調べたい関数名（文字列） ↑返り値† 使用しているローカル変数名を、使用箇所順に以下の通りの書式で列挙 入れ子(中括弧)内に入る時は { (開き中括弧1文字) 変数を使用していたらその変数名 入れ子(中括弧)内から出る時は } (閉じ中括弧1文字) 候補がない場合は空の汎用配列（中括弧のみの時も空） エラー時は-1 ↑関連† マニュアル/関数/LINT.GetFuncUsedBy マニュアル/関数/LINT.GetUserDefFuncUsedBy マニュアル/関数/LINT.GetGlobalVarUsedBy マニュアル/関数/LINT.GetGlobalVarLetted マニュアル/関数/LINT.GetLocalVarLetted ↑バージョン† YAYA：Tc568-1 ↑例† NOWPRINTING 誰か記載してください！",
+      "content": "LINT.GetLocalVarUsedBy† ↑形式† LINT.GetLocalVarUsedBy( function_name ) ↑機能† 指定した関数で使用しているローカル変数名を列挙し、汎用配列で返します。 Tc574-1以降では、同じステートメント内の代入先の変数（foreach のループ変数を含む）は、そのステートメントの最後に並びます。代入は右辺の評価後に行われるためです。 _z = _z + 1 // → _z（読み）, _z（代入） _a[0] = _b // → _b, _a case 構文が内部で生成するローカル変数（_CaSe_ExPr_PrEfIx_ で始まる名前）は列挙されません（Tc574-1以降）。 戻り値には読みと代入の区別がありません。制約の詳細は LINT系関数の仕様と制約 を参照してください。 ↑引数† function_name 調べたい関数名（文字列） ↑返り値† 使用しているローカル変数名を、使用箇所順に以下の通りの書式で列挙 入れ子(中括弧)内に入る時は { (開き中括弧1文字) 変数を使用していたらその変数名 入れ子(中括弧)内から出る時は } (閉じ中括弧1文字) 候補がない場合は空の汎用配列（中括弧のみの時も空） エラー時は-1 ↑関連† マニュアル/関数/LINT.GetVarRefs マニュアル/関数/LINT.GetFuncUsedBy マニュアル/関数/LINT.GetUserDefFuncUsedBy マニュアル/関数/LINT.GetGlobalVarUsedBy マニュアル/関数/LINT.GetGlobalVarLetted マニュアル/関数/LINT.GetLocalVarLetted ↑バージョン† YAYA：Tc568-1 Tc574-1: 同一ステートメント内で代入先を最後に並べるように変更。case の内部変数を除外 ↑例† NOWPRINTING 誰か記載してください！",
       "url": "https://emily.shillest.net/ayaya/?%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB/%E9%96%A2%E6%95%B0/LINT.GetLocalVarUsedBy"
     },
     {
@@ -16143,8 +16143,16 @@
       "title": "LINT.GetUserDefFuncUsedBy",
       "source": "yaya_wiki",
       "category": "yaya_function",
-      "content": "LINT.GetUserDefFuncUsedBy† ↑形式† LINT.GetUserDefFuncUsedBy( function_name ) ↑機能† 指定した関数で使用しているユーザー定義関数名を列挙し、汎用配列で返します。 ↑引数† function_name 調べたい関数名（文字列） ↑返り値† 使用しているユーザー定義関数名：文字列の汎用配列 候補がない場合は空の汎用配列 エラー時は-1 ↑関連† マニュアル/関数/LINT.GetFuncUsedBy マニュアル/関数/LINT.GetGlobalVarUsedBy マニュアル/関数/LINT.GetLocalVarUsedBy マニュアル/関数/LINT.GetGlobalVarLetted マニュアル/関数/LINT.GetLocalVarLetted ↑バージョン† YAYA：Tc568-1 ↑例† NOWPRINTING 誰か記載してください！",
+      "content": "LINT.GetUserDefFuncUsedBy† ↑形式† LINT.GetUserDefFuncUsedBy( function_name ) ↑機能† 指定した関数で使用しているユーザー定義関数名を列挙し、汎用配列で返します。 関数名は重複を除去し、名前順に並べて返されます。EVAL などで文字列から呼び出される関数は含まれません。制約の詳細は LINT系関数の仕様と制約 を参照してください。 ↑引数† function_name 調べたい関数名（文字列） ↑返り値† 使用しているユーザー定義関数名：文字列の汎用配列 候補がない場合は空の汎用配列 エラー時は-1 ↑関連† マニュアル/関数/LINT.GetVarRefs マニュアル/関数/LINT.GetFuncUsedBy マニュアル/関数/LINT.GetGlobalVarUsedBy マニュアル/関数/LINT.GetLocalVarUsedBy マニュアル/関数/LINT.GetGlobalVarLetted マニュアル/関数/LINT.GetLocalVarLetted ↑バージョン† YAYA：Tc568-1 ↑例† NOWPRINTING 誰か記載してください！",
       "url": "https://emily.shillest.net/ayaya/?%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB/%E9%96%A2%E6%95%B0/LINT.GetUserDefFuncUsedBy"
+    },
+    {
+      "id": "yaya:マニュアル/関数/LINT.GetVarRefs",
+      "title": "LINT.GetVarRefs",
+      "source": "yaya_wiki",
+      "category": "yaya_function",
+      "content": "LINT.GetVarRefs† ↑形式† LINT.GetVarRefs( function_name ) ↑機能† 指定した関数内の変数・関数の出現と、ブロック（波括弧）の出入りを、出現ごとに1件ずつ列挙して汎用配列で返します。 LINT.GetLocalVarUsedBy などと異なり、読み・書きの区別、行番号、ブロックの種類、出現した構文の種類が含まれます。 各要素は kind,category,name,access,line,depth,context の7項目をカンマで区切った文字列です。簡易配列としてそのまま項目を取り出せます。 制約の詳細は マニュアル/LINT系関数の仕様と制約 を参照してください。 ↑項目† 番号項目値 0kindvar（変数） / func（関数） / {（ブロック開始） / }（ブロック終了） 1categoryvar のとき local / global、func のとき user / system、{ } のときブロックの種類 2name変数名・関数名（{ } では空） 3accessvar のとき r（読み） / w（代入） / rw（読み書き）、func のとき call（{ } では空） 4line辞書ファイル中の行番号 5depthブロックの入れ子の深さ（関数本体が1） 6context出現したステートメントの種類（{ } では空） ↑access† 値対象 r代入先以外のすべての出現 w= := の代入先、配列要素への = の代入先（_a[0] = 1 の _a）、foreach のループ変数 rw+= -= *= /= %= ,= とその := 形、++ -- の対象（配列要素への複合代入を含む） 代入は右辺の評価後に行われるため、同じステートメント内では代入先（w / rw）が最後に並びます。 _z = _z + 1 // var,local,_z,r,10,1,subst // var,local,_z,w,10,1,subst ↑ブロックの種類（{ } の category）† 値対象 function関数本体 if / elseif / elseif 構文 whilewhile 構文 forfor 構文 foreachforeach 構文 switchswitch 構文 casecase 構文 when / otherscase 構文内の when / others plain上記以外（単独の { } や、switch の各ブロックなど） } には、対応する { と同じ種類と深さが入ります。 ↑context† 値対象 output出力する数式 subst代入を含む数式 if / elseif / while / switch各構文の条件式 for-init / for-cond / for-stepfor a ; b ; c の a / b / c foreach / foreach-varforeach a ; b の a / b case / whencase の式 / when の条件 parallel / void / return各構文の式 例えば if _c = 1 は、context が if で access が w の件として現れます。 ↑列挙されないもの† case 構文が内部で生成するローカル変数（_CaSe_ExPr_PrEfIx_ で始まる名前） 変数・関数を含まないステートメント（break / continue / return（式なし） / --、リテラルだけの出力など） when のラベル（リテラル） ↑引数† function_name 解析対象の関数名 ↑返り値† 成功した場合、1件ごとに7項目をカンマで区切った文字列の汎用配列 失敗した場合、-1 ↑関連† マニュアル/関数/LINT.GetFuncUsedBy マニュアル/関数/LINT.GetUserDefFuncUsedBy マニュアル/関数/LINT.GetGlobalVarUsedBy マニュアル/関数/LINT.GetGlobalVarLetted マニュアル/関数/LINT.GetLocalVarUsedBy マニュアル/関数/LINT.GetLocalVarLetted マニュアル/LINT系関数の仕様と制約 ↑バージョン† YAYA：Tc574-1以降で利用可能 ↑例† _refs = LINT.GetVarRefs('OnTest') foreach _refs ; _r { _kind = _r[0] // var / func / { / } _name = _r[2] // 変数名・関数名 _line = TOINT(_r[4]) // 行番号 }",
+      "url": "https://emily.shillest.net/ayaya/?%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB/%E9%96%A2%E6%95%B0/LINT.GetVarRefs"
     },
     {
       "id": "yaya:マニュアル/関数/LOADLIB",
