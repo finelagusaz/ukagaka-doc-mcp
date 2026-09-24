@@ -2,7 +2,9 @@
  * http-server.ts
  *
  * Streamable HTTP トランスポートで MCP サーバーを公開する（ステートレス・認証なし）。
- * リクエストごとに McpServer とトランスポートを生成し、SearchEngine は共有する。
+ * createMcpHandler により 2026-07-28 リビジョン（リクエスト単位の _meta エンベロープ）と
+ * 2025 系以前（initialize ハンドシェイク）の両方を同一エンドポイントで受け付ける。
+ * リクエストごとに McpServer を生成し、SearchEngine は共有する。
  * Host / Origin 検証は行わない（リバースプロキシの背後で使う前提）。
  *
  * エンドポイント: POST /mcp
@@ -10,7 +12,8 @@
 
 import { createServer, type IncomingMessage, type Server, type ServerResponse } from 'node:http';
 import type { AddressInfo } from 'node:net';
-import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
+import { toNodeHandler, type NodeMcpRequestHandler } from '@modelcontextprotocol/node';
+import { createMcpHandler } from '@modelcontextprotocol/server';
 import type { SearchEngine } from './search/engine.js';
 import { createMcpServer } from './server.js';
 
@@ -31,8 +34,13 @@ export function startHttpServer(
   engine: SearchEngine,
   options: HttpServerOptions,
 ): Promise<RunningHttpServer> {
+  const mcpHandler = createMcpHandler(() => createMcpServer(engine), {
+    onerror: error => console.error('[http] MCP handler error:', error),
+  });
+  const nodeHandler = toNodeHandler(mcpHandler);
+
   const httpServer = createServer((req, res) => {
-    handleRequest(engine, req, res).catch(error => {
+    handleRequest(nodeHandler, req, res).catch(error => {
       console.error('[http] Error handling request:', error);
       if (!res.headersSent) {
         sendJsonRpcError(res, 500, -32603, 'Internal server error');
@@ -50,17 +58,20 @@ export function startHttpServer(
       resolvePromise({
         server: httpServer,
         address,
-        close: () => new Promise((resolveClose, rejectClose) => {
-          httpServer.close(err => (err ? rejectClose(err) : resolveClose()));
-          httpServer.closeAllConnections();
-        }),
+        close: async () => {
+          await mcpHandler.close();
+          await new Promise<void>((resolveClose, rejectClose) => {
+            httpServer.close(err => (err ? rejectClose(err) : resolveClose()));
+            httpServer.closeAllConnections();
+          });
+        },
       });
     });
   });
 }
 
 async function handleRequest(
-  engine: SearchEngine,
+  nodeHandler: NodeMcpRequestHandler,
   req: IncomingMessage,
   res: ServerResponse,
 ): Promise<void> {
@@ -70,25 +81,14 @@ async function handleRequest(
     return;
   }
 
-  // ステートレスモードではセッション用の GET (SSE) / DELETE は提供しない
+  // ステートレスのためセッション用の GET (SSE) / DELETE は提供しない
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     sendJsonRpcError(res, 405, -32000, 'Method not allowed');
     return;
   }
 
-  const server = createMcpServer(engine);
-  const transport = new StreamableHTTPServerTransport({
-    sessionIdGenerator: undefined,
-    enableJsonResponse: true,
-  });
-  res.on('close', () => {
-    void transport.close();
-    void server.close();
-  });
-
-  await server.connect(transport);
-  await transport.handleRequest(req, res);
+  await nodeHandler(req, res);
 }
 
 function sendJsonRpcError(res: ServerResponse, status: number, code: number, message: string): void {

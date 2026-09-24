@@ -7,7 +7,7 @@
  * 3. list_categories - カテゴリ一覧
  */
 
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { McpServer } from '@modelcontextprotocol/server';
 import type { SearchEngine } from './search/engine.js';
 import { registerGetDocTool } from './tools/get-doc.js';
 import { registerListCategoriesTool } from './tools/list-categories.js';

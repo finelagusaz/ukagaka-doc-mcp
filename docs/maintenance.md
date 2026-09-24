@@ -73,8 +73,8 @@ git add package.json package-lock.json
 git commit -m "chore(deps): upgrade typescript to vN"
 
 # Step 3: ライブラリ major bump
-# 必ず先に SDK の peer を確認
-cat node_modules/@modelcontextprotocol/sdk/package.json | jq '.peerDependencies'
+# 必ず先に SDK の依存・peer を確認（例: server は zod ^4.2 を要求）
+cat node_modules/@modelcontextprotocol/server/package.json | jq '.dependencies, .peerDependencies'
 npm install <library>@^N
 npm run build && npm test
 git add package.json package-lock.json
@@ -148,7 +148,7 @@ git commit -m "chore(deps): npm audit fix for transitive vulnerabilities"
 
 ### ランタイム影響の判定
 
-本サーバーは **stdio transport の MCP サーバー**。SDK が引いてくる HTTP/SSE 系 (`hono` / `@hono/node-server`) は実行時に呼ばれない。`vite` / `postcss` は vitest 経由の dev-only。とはいえ npm audit クリーン化と将来の公開信頼性のため修正は推奨。
+stdio モードでは `@modelcontextprotocol/node` が引いてくる `hono` / `@hono/node-server` は実行時に呼ばれないが、`--http` モードでは Node の req/res ↔ Web 標準 Request/Response 変換に使われる（該当する脆弱性はランタイム影響ありとして扱う）。`vite` / `postcss` は vitest 経由の dev-only。とはいえ npm audit クリーン化と将来の公開信頼性のため修正は推奨。
 
 ---
 
