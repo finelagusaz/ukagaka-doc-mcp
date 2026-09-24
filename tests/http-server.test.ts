@@ -56,7 +56,7 @@ async function connectClient(url: string, versionNegotiation?: ConstructorParame
 }
 
 describe('http-server', () => {
-  it('initialize と tools/call にステートレスで応答する', async () => {
+  it('2025 系の initialize と tools/call にステートレスかつ JSON で応答する', async () => {
     const url = await start();
 
     const initRes = await rpc(url, {
@@ -71,7 +71,8 @@ describe('http-server', () => {
     });
     expect(initRes.status).toBe(200);
     expect(initRes.headers.get('mcp-session-id')).toBeNull();
-    const init = await readRpc(initRes) as { result: { serverInfo: { name: string } } };
+    expect(initRes.headers.get('content-type')).toContain('application/json');
+    const init = await initRes.json() as { result: { serverInfo: { name: string } } };
     expect(init.result.serverInfo.name).toBe('ukagaka-doc-mcp');
 
     const callRes = await rpc(url, {
@@ -81,7 +82,8 @@ describe('http-server', () => {
       params: { name: 'get_doc', arguments: { id: 'ukadoc:list_sakura_script:tag_s0' } },
     }, { 'mcp-protocol-version': '2025-06-18' });
     expect(callRes.status).toBe(200);
-    const call = await readRpc(callRes) as { result: { content: { text: string }[] } };
+    expect(callRes.headers.get('content-type')).toContain('application/json');
+    const call = await callRes.json() as { result: { content: { text: string }[] } };
     expect(call.result.content[0].text).toContain('sample');
   });
 
@@ -103,6 +105,22 @@ describe('http-server', () => {
     } finally {
       await client.close();
     }
+  });
+
+  it('2025 系の通知には 202、バッチには JSON 配列で応答する', async () => {
+    const url = await start();
+
+    const notifyRes = await rpc(url, { jsonrpc: '2.0', method: 'notifications/initialized' });
+    expect(notifyRes.status).toBe(202);
+
+    const batchRes = await rpc(url, [
+      { jsonrpc: '2.0', id: 1, method: 'tools/list' },
+      { jsonrpc: '2.0', id: 2, method: 'ping' },
+    ], { 'mcp-protocol-version': '2025-06-18' });
+    expect(batchRes.status).toBe(200);
+    expect(batchRes.headers.get('content-type')).toContain('application/json');
+    const batch = await batchRes.json() as { id: number }[];
+    expect(batch.map(message => message.id).sort()).toEqual([1, 2]);
   });
 
   it('POST 以外は 405、/mcp 以外は 404', async () => {

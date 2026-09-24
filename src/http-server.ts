@@ -2,8 +2,10 @@
  * http-server.ts
  *
  * Streamable HTTP トランスポートで MCP サーバーを公開する（ステートレス・認証なし）。
- * createMcpHandler により 2026-07-28 リビジョン（リクエスト単位の _meta エンベロープ）と
- * 2025 系以前（initialize ハンドシェイク）の両方を同一エンドポイントで受け付ける。
+ * 2026-07-28 リビジョン（リクエスト単位の _meta エンベロープ）は createMcpHandler で、
+ * 2025 系以前（initialize ハンドシェイク）は isLegacyRequest で振り分けて
+ * JSON 応答モードのステートレス transport で処理する（v1 時代と同じく application/json で返す。
+ * createMcpHandler 組み込みの legacy 処理は常に SSE で応答するため使わない）。
  * リクエストごとに McpServer を生成し、SearchEngine は共有する。
  * Host / Origin 検証は行わない（リバースプロキシの背後で使う前提）。
  *
@@ -13,7 +15,12 @@
 import { createServer, type IncomingMessage, type Server, type ServerResponse } from 'node:http';
 import type { AddressInfo } from 'node:net';
 import { toNodeHandler, type NodeMcpRequestHandler } from '@modelcontextprotocol/node';
-import { createMcpHandler } from '@modelcontextprotocol/server';
+import {
+  createMcpHandler,
+  isLegacyRequest,
+  WebStandardStreamableHTTPServerTransport,
+  type McpHandlerRequestOptions,
+} from '@modelcontextprotocol/server';
 import type { SearchEngine } from './search/engine.js';
 import { createMcpServer } from './server.js';
 
@@ -35,9 +42,16 @@ export function startHttpServer(
   options: HttpServerOptions,
 ): Promise<RunningHttpServer> {
   const mcpHandler = createMcpHandler(() => createMcpServer(engine), {
+    legacy: 'reject',
     onerror: error => console.error('[http] MCP handler error:', error),
   });
-  const nodeHandler = toNodeHandler(mcpHandler);
+  const nodeHandler = toNodeHandler({
+    fetch: async (request, options) => (await isLegacyRequest(request, options?.parsedBody))
+      ? handleLegacyRequest(engine, request, options)
+      : mcpHandler.fetch(request, options),
+  }, {
+    onerror: error => console.error('[http] Node adapter error:', error),
+  });
 
   const httpServer = createServer((req, res) => {
     handleRequest(nodeHandler, req, res).catch(error => {
@@ -89,6 +103,29 @@ async function handleRequest(
   }
 
   await nodeHandler(req, res);
+}
+
+/**
+ * 2025 系以前のリクエストを 1 件処理する。JSON 応答モードなので、返る Response は
+ * 本文が確定済みであり、この時点でサーバーと transport を破棄してよい。
+ */
+async function handleLegacyRequest(
+  engine: SearchEngine,
+  request: Request,
+  options?: McpHandlerRequestOptions,
+): Promise<Response> {
+  const server = createMcpServer(engine);
+  const transport = new WebStandardStreamableHTTPServerTransport({
+    sessionIdGenerator: undefined,
+    enableJsonResponse: true,
+  });
+  try {
+    await server.connect(transport);
+    return await transport.handleRequest(request, options);
+  } finally {
+    await transport.close().catch(() => {});
+    await server.close().catch(() => {});
+  }
 }
 
 function sendJsonRpcError(res: ServerResponse, status: number, code: number, message: string): void {
