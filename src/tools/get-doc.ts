@@ -1,15 +1,17 @@
-import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import type { McpServer } from '@modelcontextprotocol/server';
 import { z } from 'zod';
 import type { SearchEngine } from '../search/engine.js';
 
 export function registerGetDocTool(server: McpServer, engine: SearchEngine): void {
-  server.tool(
+  server.registerTool(
     'get_doc',
-    'search_docs で得た id を指定して、ドキュメントの全文を取得する。',
     {
-      id: z.string().describe(
-        'canonical_id（例: "yaya:マニュアル/関数/REPLACE", "satori:特殊記号一覧", "ukadoc:list_sakura_script:tag_s", "aosora:04_04_変数"）',
-      ),
+      description: 'search_docs で得た id を指定して、ドキュメントの全文を取得する。',
+      inputSchema: z.object({
+        id: z.string().describe(
+          'canonical_id（例: "yaya:マニュアル/関数/REPLACE", "satori:特殊記号一覧", "ukadoc:list_sakura_script:tag_s", "aosora:04_04_変数"）',
+        ),
+      }),
     },
     async ({ id }) => {
       const entry = engine.getById(id);

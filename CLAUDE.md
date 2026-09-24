@@ -21,7 +21,7 @@ npm run refresh:index  # サブモジュール更新 + index.json 再生成
 src/
   index.ts            # エントリポイント（stdio / --http で MCP サーバー起動）
   cli.ts              # コマンドライン引数の解釈
-  http-server.ts      # Streamable HTTP サーバー（ステートレス）
+  http-server.ts      # Streamable HTTP サーバー（ステートレス、2026-07-28 は createMcpHandler、2025 系は isLegacyRequest で振り分け JSON 応答）
   index-updater.ts    # HTTP モード用のリモート index.json 定期取得・再ロード
   server.ts           # MCP サーバー定義
   bootstrap.ts        # index.json 読み込み → SearchEngine 初期化
@@ -69,6 +69,12 @@ npm run test:watch    # ウォッチモード
 ```
 
 テストは vitest。`tests/fixtures/` にテスト用 HTML を配置。
+
+## MCP SDK
+
+- v2 分割パッケージを使用（`@modelcontextprotocol/server` / `@modelcontextprotocol/node`、テスト用に `@modelcontextprotocol/client`）。旧 `@modelcontextprotocol/sdk` (v1) は使わない
+- stdio は `serveStdio`、HTTP は `createMcpHandler` + `toNodeHandler` 経由で起動する。HTTP の 2025 系リクエストは `createMcpHandler` 組み込みの legacy 処理（常に SSE 応答）を使わず、`legacy: 'reject'` + `isLegacyRequest` で自前の `enableJsonResponse: true` transport に回して JSON 応答を維持している。`server.connect(new StdioServerTransport())` のような直結は 2025 系しか話せないので使わない
+- ツール登録は `registerTool(name, { description, inputSchema: z.object({...}) }, cb)`（v1 の `server.tool()` は削除済み）
 
 ## Code Style
 

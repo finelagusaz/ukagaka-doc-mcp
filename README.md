@@ -64,6 +64,7 @@ npx ukagaka-doc-mcp --http --host 0.0.0.0 --port 9000   # listen 先を変更
 | `--port <port>` | listen するポート | `8951` |
 
 - エンドポイントは `POST /mcp` のみです。
+- MCP 仕様 2026-07-28（リクエスト単位の `_meta` エンベロープ）と、それ以前の `initialize` ハンドシェイク方式（2025-11-25 / 2025-06-18 / 2025-03-26 / 2024-11-05）の両方のクライアントを同じエンドポイントで受け付けます。2025 系以前のリクエストへの応答は従来どおり `application/json` です。stdio モードも同様に両方に対応します。
 - `Host` / `Origin` ヘッダの検証は行いません。外部に公開する場合は nginx 等のリバースプロキシの背後に置いてください。
 - 起動直後と 24 時間ごとに [GitHub 上の最新 `data/index.json`](https://github.com/finelagusaz/ukagaka-doc-mcp/raw/refs/heads/main/data/index.json) を取得し、同梱版より新しければメモリ上で差し替えます（ファイルには書き込みません）。取得に失敗した場合は現在のインデックスのまま動作を続けます。
 

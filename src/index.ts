@@ -4,8 +4,7 @@
  *
  * stdio モード（デフォルト）:
  * 1. data/index.json をロード + freshness 判定
- * 2. MCPサーバー作成
- * 3. stdio トランスポートで接続
+ * 2. serveStdio で待ち受け（最初のメッセージで 2026-07-28 / 2025 系のどちらで話すかが決まる）
  *
  * HTTP モード（--http）:
  * 1. data/index.json をロード + freshness 判定
@@ -13,7 +12,7 @@
  * 3. 起動直後と24時間ごとにリモートの index.json を確認し、新しければ再ロード
  */
 
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { serveStdio } from '@modelcontextprotocol/server/stdio';
 import { loadSearchEngine } from './bootstrap.js';
 import { parseCliArgs, USAGE } from './cli.js';
 import { INDEX_UPDATE_INTERVAL_MS, REMOTE_INDEX_URL } from './constants.js';
@@ -33,9 +32,9 @@ async function main(): Promise<void> {
   const { engine, generatedAt } = loadSearchEngine();
 
   if (options.mode === 'stdio') {
-    const server = createMcpServer(engine);
-    const transport = new StdioServerTransport();
-    await server.connect(transport);
+    serveStdio(() => createMcpServer(engine), {
+      onerror: error => console.error('[ukagaka-doc-mcp] stdio error:', error),
+    });
     console.error('[ukagaka-doc-mcp] Server ready');
     return;
   }
