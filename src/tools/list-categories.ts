@@ -9,7 +9,8 @@ export function registerListCategoriesTool(server: McpServer): void {
   server.registerTool(
     'list_categories',
     {
-      description: '検索に使えるカテゴリ一覧を返す。search_docs の category パラメータに使用する。',
+      description: 'カテゴリ ID・所属 source・ラベル（日本語の説明）の一覧を返す。ID は search_docs の category パラメータに渡す値で、'
+        + 'ID の一覧自体は search_docs の category の選択肢にも列挙されている。ID の意味をラベルで確かめたいときに使う。',
       inputSchema: z.object({}),
     },
     async () => {
