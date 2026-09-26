@@ -2,6 +2,7 @@ import { Client, StreamableHTTPClientTransport } from '@modelcontextprotocol/cli
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { startHttpServer, type RunningHttpServer } from '../src/http-server.js';
 import { SearchEngine } from '../src/search/engine.js';
+import packageJson from '../package.json' with { type: 'json' };
 
 let running: RunningHttpServer | undefined;
 
@@ -72,8 +73,9 @@ describe('http-server', () => {
     expect(initRes.status).toBe(200);
     expect(initRes.headers.get('mcp-session-id')).toBeNull();
     expect(initRes.headers.get('content-type')).toContain('application/json');
-    const init = await initRes.json() as { result: { serverInfo: { name: string } } };
+    const init = await initRes.json() as { result: { serverInfo: { name: string; version: string } } };
     expect(init.result.serverInfo.name).toBe('ukagaka-doc-mcp');
+    expect(init.result.serverInfo.version).toBe(packageJson.version);
 
     const callRes = await rpc(url, {
       jsonrpc: '2.0',
