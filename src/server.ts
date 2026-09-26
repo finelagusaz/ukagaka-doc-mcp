@@ -7,6 +7,9 @@
  * 3. list_categories - カテゴリ一覧
  */
 
+import { readFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { McpServer } from '@modelcontextprotocol/server';
 import type { SearchEngine } from './search/engine.js';
 import { registerGetDocTool } from './tools/get-doc.js';
@@ -31,9 +34,13 @@ category の値は search_docs のスキーマに列挙されています。list
 - search_docs の query は単語1つだけ（空白区切りの複数語・自然文は0件になる）。絞り込みは category / source で行ってください
 - さくらスクリプトのタグ検索: \\s0 のように入力（バックスラッシュはそのまま）`;
 
+// src/ と dist/ のどちらから実行しても、親ディレクトリがパッケージルート
+const PACKAGE_JSON_PATH = resolve(dirname(fileURLToPath(import.meta.url)), '..', 'package.json');
+const { version: PACKAGE_VERSION } = JSON.parse(readFileSync(PACKAGE_JSON_PATH, 'utf-8')) as { version: string };
+
 export function createMcpServer(engine: SearchEngine): McpServer {
   const server = new McpServer(
-    { name: 'ukagaka-doc-mcp', version: '0.1.0' },
+    { name: 'ukagaka-doc-mcp', version: PACKAGE_VERSION },
     { instructions: SERVER_INSTRUCTIONS },
   );
 
