@@ -31,6 +31,33 @@ describe('markdownToPlainText', () => {
     expect(markdownToPlainText('`a * b` と `snake_case` は保持')).toBe('a * b と snake_case は保持');
   });
 
+  it('単語の途中の _ は強調とみなさない', () => {
+    expect(markdownToPlainText('APPEND_RUNTIME_DIC を使う')).toBe('APPEND_RUNTIME_DIC を使う');
+    expect(markdownToPlainText('RE_GETSTR、RE_GETPOS で取得')).toBe('RE_GETSTR、RE_GETPOS で取得');
+    expect(markdownToPlainText('"_RUNTIME_DIC_" という辞書')).toBe('"_RUNTIME_DIC_" という辞書');
+  });
+
+  it('単語の途中でも * は強調とみなす', () => {
+    expect(markdownToPlainText('foo*bar*baz')).toBe('foobarbaz');
+  });
+
+  it('バックスラッシュエスケープを外す', () => {
+    expect(markdownToPlainText('## \\_\\_AYA\\_SYSTEM\\_FILE\\_\\_')).toBe('__AYA_SYSTEM_FILE__');
+    expect(markdownToPlainText('\\*強調ではない\\*')).toBe('*強調ではない*');
+  });
+
+  it('コードスパン内のバックスラッシュは文字どおり保持する', () => {
+    expect(markdownToPlainText('`"saori\\\\xxx.dll"` は不可')).toBe('"saori\\\\xxx.dll" は不可');
+  });
+
+  it('エスケープしたバッククォートはコードスパンを開かない', () => {
+    expect(markdownToPlainText('\\`_x_\\` と `_a_`')).toBe('`x` と _a_');
+  });
+
+  it('複数バッククォートのコードスパンを扱う', () => {
+    expect(markdownToPlainText('``a`b`` と **強調**')).toBe('a`b と 強調');
+  });
+
   it('テーブル行を | 区切りのまま保持する', () => {
     const md = '| 型 | 説明 |\n|---|---|\n| number | 数値 |';
     expect(markdownToPlainText(md)).toBe('| 型 | 説明 |\n|---|---|\n| number | 数値 |');
