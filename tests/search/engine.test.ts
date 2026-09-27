@@ -12,9 +12,9 @@ const entries: DocEntry[] = [
     url: 'https://example.com/1',
   },
   {
-    id: 'yaya:マニュアル/関数/REPLACE',
+    id: 'yaya:functions/REPLACE',
     title: 'REPLACE',
-    source: 'yaya_wiki',
+    source: 'yaya_docs',
     category: 'yaya_function',
     content: 'R'.repeat(600),
     url: 'https://example.com/2',
@@ -36,12 +36,12 @@ describe('SearchEngine', () => {
     engine.load(entries);
 
     const result = engine.search('replace', {
-      source: 'yaya_wiki',
+      source: 'yaya_docs',
       category: 'yaya_function',
     });
 
     expect(result.total).toBe(1);
-    expect(result.results[0].id).toBe('yaya:マニュアル/関数/REPLACE');
+    expect(result.results[0].id).toBe('yaya:functions/REPLACE');
   });
 
   it('summary を先頭500文字と明示的な省略記号で返す', () => {

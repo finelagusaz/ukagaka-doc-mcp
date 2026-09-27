@@ -22,7 +22,7 @@ const validEntries: DocEntry[] = [
   {
     id: 'yaya:b',
     title: 'b',
-    source: 'yaya_wiki',
+    source: 'yaya_docs',
     category: 'yaya_function',
     content: 'b',
     url: 'https://example.com/b',

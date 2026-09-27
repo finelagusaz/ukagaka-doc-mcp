@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { resolve } from 'node:path';
-import { markdownToPlainText, parseAosoraWiki } from '../../src/parser/aosora-parser.js';
+import { markdownToPlainText } from '../../src/parser/markdown.js';
+import { parseAosoraWiki } from '../../src/parser/aosora-parser.js';
 
 describe('markdownToPlainText', () => {
   it('見出し記号を除去しテキストを保持する', () => {

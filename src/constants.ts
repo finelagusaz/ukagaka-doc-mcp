@@ -5,7 +5,7 @@
 import type { Source } from './types.js';
 
 /** 全ソース種別（単一ソース。types.ts の Source 型と各所の zod enum がここから派生） */
-export const SOURCE_VALUES = ['ukadoc', 'yaya_wiki', 'satori_wiki', 'aosora_wiki'] as const;
+export const SOURCE_VALUES = ['ukadoc', 'yaya_docs', 'satori_wiki', 'aosora_wiki'] as const;
 
 /** インデックスが stale とみなされるまでの日数 */
 export const STALE_AFTER_DAYS = 7;
@@ -68,30 +68,34 @@ export const CATEGORIES = {
     label: '開発ガイド（シェル作成, NAR作成 等）',
   },
 
-  // --- YAYA Wiki ---
+  // --- YAYA docs ---
   yaya_grammar: {
-    source: 'yaya_wiki' as Source,
+    source: 'yaya_docs' as Source,
     label: 'YAYA言語文法',
   },
   yaya_basic: {
-    source: 'yaya_wiki' as Source,
+    source: 'yaya_docs' as Source,
     label: 'YAYA基礎概念（変数・関数・制御構造）',
   },
   yaya_function: {
-    source: 'yaya_wiki' as Source,
+    source: 'yaya_docs' as Source,
     label: 'YAYA組み込み関数',
   },
   yaya_system: {
-    source: 'yaya_wiki' as Source,
+    source: 'yaya_docs' as Source,
     label: 'YAYAシステム辞書',
   },
   yaya_tips: {
-    source: 'yaya_wiki' as Source,
+    source: 'yaya_docs' as Source,
     label: '実践Tips（YAYA）',
   },
   yaya_startup: {
-    source: 'yaya_wiki' as Source,
+    source: 'yaya_docs' as Source,
     label: 'チュートリアル・移行ガイド（YAYA）',
+  },
+  yaya_other: {
+    source: 'yaya_docs' as Source,
+    label: 'YAYAその他（SAORI/MAKOTO/PLUGIN・変更点・トラブルシューティング 等）',
   },
 
   // --- 里々Wiki ---

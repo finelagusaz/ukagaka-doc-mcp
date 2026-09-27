@@ -4,3 +4,6 @@
 [submodule "docs/aosora-wiki"]
 	path = docs/aosora-wiki
 	url = https://github.com/kanadelab/aosora-shiori.wiki.git
+[submodule "docs/yaya-docs"]
+	path = docs/yaya-docs
+	url = https://github.com/YAYA-shiori/yaya-docs.git
