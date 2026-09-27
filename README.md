@@ -89,7 +89,7 @@ npx ukagaka-doc-mcp --http --host 0.0.0.0 --port 9000   # listen 先を変更
 
 ## 必要環境
 
-- Node.js 20 以上
+- Node.js 22 以上
 
 ## 開発
 

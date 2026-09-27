@@ -57,7 +57,7 @@ docs/
 
 ### Gotchas
 
-- **npm publish は OIDC Trusted Publishing**。静的トークン不要だが npm CLI 11.5.1+ が必須（Node.js 20 同梱の npm 10.x では動かない）。ワークフロー内で `npm install -g "npm@>=11.5.1"` している
+- **npm publish は OIDC Trusted Publishing**。静的トークン不要だが npm CLI 11.5.1+ が必須（Node.js 22 以前に同梱の npm 10.x では動かない）。ワークフローは Node 24（同梱 npm 11.x）で動かしたうえで、保険として `npm install -g "npm@>=11.5.1"` している
 - **`setup-node` に `registry-url` を渡さないこと**。渡すと `GITHUB_TOKEN` が `NODE_AUTH_TOKEN` に自動注入され OIDC 認証が阻害される
 - **`release.yml` のトリガーは `push`**。`pull_request_target` は OIDC subject claim が npm に拒否される
 - PR 作成に GitHub App トークンを使用（`APP_ID` / `APP_PRIVATE_KEY` secrets）。`GITHUB_TOKEN` で作った PR は CI をトリガーしない
