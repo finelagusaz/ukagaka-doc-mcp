@@ -21,7 +21,7 @@
 本サーバーは以下の4ソースのみを対象とする。
 
 1. UKADOC (`docs/ukadoc/manual/`)
-2. YAYA Wiki (`https://emily.shillest.net/ayaya/`)
+2. YAYA docs (`docs/yaya-docs/`、`https://github.com/YAYA-shiori/yaya-docs`)
 3. 里々Wiki (`https://soliton.sub.jp/satori/`)
 4. 蒼空 Wiki (`https://github.com/kanadelab/aosora-shiori/wiki`)
 
@@ -41,7 +41,7 @@
 `npm run build:index` は以下を行う。
 
 1. UKADOC をローカルHTMLからパースする
-2. YAYA Wiki をHTTP取得してパースする
+2. YAYA docs をローカルMarkdownからパースする
 3. 里々Wiki をHTTP取得してパースする
 4. 蒼空 Wiki をGitHub Wiki取得してパースする
 5. 4ソースを統合して `data/index.json` を生成する
@@ -60,7 +60,7 @@
 ### 5.1 Source
 
 ```ts
-type Source = 'ukadoc' | 'yaya_wiki' | 'satori_wiki' | 'aosora_wiki';
+type Source = 'ukadoc' | 'yaya_docs' | 'satori_wiki' | 'aosora_wiki';
 ```
 
 ### 5.2 Category
@@ -81,6 +81,7 @@ type Category =
   | 'yaya_system'
   | 'yaya_tips'
   | 'yaya_startup'
+  | 'yaya_other'
   | 'satori_reference'
   | 'satori_event'
   | 'satori_tips'
@@ -171,11 +172,10 @@ type IndexFile = {
 - `normalized_raw_title` は安定した正規化文字列でなければならない
 - フォールバックは、記号除去や小文字化だけに依存してはならない
 
-#### YAYA Wiki
+#### YAYA docs
 
-- 関数ページは `yaya:{page_path}` とする
-- セクション分割ページは `yaya:{page_path}#{anchor}` とする
-- `page_path` はURLデコード済みの論理ページパスとする
+- 1ページ1エントリとし、`yaya:{dir}/{file_stem}` とする（例: `yaya:functions/REPLACE`）
+- `dir` はリポジトリ直下のディレクトリ名、`file_stem` は拡張子 `.md` を除いたファイル名とする
 
 #### 里々Wiki
 

@@ -2,7 +2,7 @@
  * ビルドスクリプト
  *
  * npm run build:index で実行する。
- * 全ソース（UKADOC, YAYA Wiki, 里々Wiki, 蒼空Wiki）をパース・スクレイプして
+ * 全ソース（UKADOC, YAYA docs, 里々Wiki, 蒼空Wiki）をパース・スクレイプして
  * data/index.json を生成する。
  *
  * Usage:
@@ -13,7 +13,7 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { DocEntry } from './types.js';
 import { parseUkadocManual } from './parser/ukadoc-parser.js';
-import { scrapeYayaWiki } from './parser/yaya-scraper.js';
+import { parseYayaDocs } from './parser/yaya-docs-parser.js';
 import { scrapeSatoriWiki } from './parser/satori-scraper.js';
 import { parseAosoraWiki } from './parser/aosora-parser.js';
 import { buildIndexFile, writeIndexAtomically } from './index-builder.js';
@@ -33,11 +33,12 @@ async function main(): Promise<void> {
   entries.push(...ukadocEntries);
   console.error(`[build-index] UKADOC: ${ukadocEntries.length} entries`);
 
-  // --- Phase 2: YAYA Wiki ---
-  console.error('[build-index] Scraping YAYA Wiki...');
-  const yayaEntries = await scrapeYayaWiki();
+  // --- Phase 2: YAYA docs ---
+  console.error('[build-index] Parsing YAYA docs...');
+  const yayaDocsDir = resolve(__dirname, '..', 'docs', 'yaya-docs');
+  const yayaEntries = parseYayaDocs(yayaDocsDir);
   entries.push(...yayaEntries);
-  console.error(`[build-index] YAYA Wiki: ${yayaEntries.length} entries`);
+  console.error(`[build-index] YAYA docs: ${yayaEntries.length} entries`);
 
   // --- Phase 3: 里々Wiki ---
   console.error('[build-index] Scraping 里々Wiki...');

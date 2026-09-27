@@ -21,7 +21,7 @@ const SERVER_INSTRUCTIONS = `\
 
 4つのソースからドキュメントを提供します:
 - UKADOC: SSP公式仕様書（さくらスクリプト、SHIORIイベント、設定ファイル仕様、プロトコル規格）
-- YAYA Wiki: YAYA SHIORIの文法、組み込み関数、実践Tips
+- YAYA docs: YAYA SHIORIの文法、組み込み関数、実践Tips
 - 里々Wiki: 里々SHIORIの構文、変数、関数、独自イベント、Tips
 - 蒼空(Aosora) Wiki: 蒼空スクリプトの文法、組み込み機能、発展的トピック
 

@@ -13,7 +13,7 @@ License. See `LICENSE`.
 documentation sources, including:
 
 - UKADOC
-- YAYA Wiki
+- YAYA docs (YAYA-shiori/yaya-docs)
 - 里々Wiki
 - 蒼空(aosora) Wiki
 

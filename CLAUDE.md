@@ -1,6 +1,6 @@
 # ukagaka-doc-mcp
 
-伺か技術ドキュメント（UKADOC / YAYA Wiki / 里々Wiki / 蒼空 Wiki）を検索する MCP サーバー。
+伺か技術ドキュメント（UKADOC / YAYA docs / 里々Wiki / 蒼空 Wiki）を検索する MCP サーバー。
 stdio モード（デフォルト）ではランタイムで外部通信せず `data/index.json` のみを使用する。
 `--http` モード（Streamable HTTP、ステートレス）のみ、起動直後と24時間ごとに GitHub raw の `data/index.json` を取得してメモリ上で差し替える。
 
@@ -29,7 +29,8 @@ src/
   tools/              # MCP ツール（search_docs, get_doc, list_categories）
   parser/             # ビルド時のみ使用（HTML → index.json 生成）
     ukadoc-parser.ts  # UKADOC HTML パーサー
-    yaya-scraper.ts   # YAYA Wiki スクレイパー
+    markdown.ts       # Markdown → プレーンテキスト（YAYA docs / 蒼空 共用）
+    yaya-docs-parser.ts # YAYA docs（GitHub リポジトリ submodule）パーサー
     satori-scraper.ts # 里々Wiki スクレイパー
     aosora-parser.ts  # 蒼空Wiki（GitHub Wiki submodule）パーサー
   index-builder.ts    # 4パーサーを束ねてindex.json生成
@@ -38,6 +39,7 @@ data/
   index.json          # ドキュメントスナップショット（npm tarball に含む）
 docs/
   ukadoc/             # git submodule（UKADOC HTML ソース）
+  yaya-docs/          # git submodule（YAYA docs Markdown ソース）
   aosora-wiki/        # git submodule（蒼空 Wiki Markdown ソース）
 ```
 

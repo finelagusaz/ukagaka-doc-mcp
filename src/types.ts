@@ -21,7 +21,7 @@ export type Category = keyof typeof CATEGORIES;
 export interface DocEntry {
   /** canonical_id
    * - ukadoc: `ukadoc:{filename}:{section_anchor}`
-   * - yaya_wiki: `yaya:{page_path}` (URLデコード済み日本語パス)
+   * - yaya_docs: `yaya:{dir}/{ファイルstem}` (例: yaya:functions/REPLACE)
    * - satori_wiki: `satori:{page_name}` (URLデコード済み)
    * - aosora_wiki: `aosora:{ファイルstem}` (例: aosora:04_04_変数)
    */
