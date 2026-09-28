@@ -11,6 +11,7 @@ const rawDocEntrySchema = z.object({
   category: z.string().min(1),
   content: z.string().min(1),
   url: z.string().min(1),
+  rawUrl: z.string().min(1).optional(),
 });
 
 const rawIndexFileSchema = z.object({

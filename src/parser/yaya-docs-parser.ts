@@ -16,6 +16,7 @@ import type { Category, DocEntry } from '../types.js';
 import { markdownToPlainText } from './markdown.js';
 
 const YAYA_DOCS_BASE_URL = 'https://yaya-shiori.github.io/yaya-docs/';
+const YAYA_DOCS_RAW_BASE_URL = 'https://raw.githubusercontent.com/YAYA-shiori/yaya-docs/refs/heads/main/';
 
 /** ディレクトリ → カテゴリ（上流 .pages の nav 順） */
 const DIR_CATEGORIES: Record<string, Category> = {
@@ -65,6 +66,7 @@ export function parseYayaDocs(rootDir: string): DocEntry[] {
       const pagePath = `${dir}/${file.replace(/\.md$/, '')}`;
       if (EXCLUDED_PAGES.has(pagePath)) continue;
 
+      const encodedPath = pagePath.split('/').map(encodeURIComponent).join('/');
       const raw = readFileSync(join(rootDir, dir, file), 'utf-8');
       const content = markdownToPlainText(raw);
       if (!content) continue;
@@ -75,7 +77,8 @@ export function parseYayaDocs(rootDir: string): DocEntry[] {
         source: 'yaya_docs',
         category,
         content,
-        url: `${YAYA_DOCS_BASE_URL}${pagePath.split('/').map(encodeURIComponent).join('/')}/`,
+        url: `${YAYA_DOCS_BASE_URL}${encodedPath}/`,
+        rawUrl: `${YAYA_DOCS_RAW_BASE_URL}${encodedPath}.md`,
       });
     }
   }

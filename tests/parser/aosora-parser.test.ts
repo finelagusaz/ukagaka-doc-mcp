@@ -97,6 +97,12 @@ describe('parseAosoraWiki', () => {
     );
   });
 
+  it('rawUrl は manual/ を含む raw.githubusercontent.com の Wiki URL', () => {
+    expect(byId.get('aosora:04_04_変数')?.rawUrl).toBe(
+      'https://raw.githubusercontent.com/wiki/kanadelab/aosora-shiori/manual/04_04_%E5%A4%89%E6%95%B0.md',
+    );
+  });
+
   it('第1階層番号でカテゴリ割当する', () => {
     expect(byId.get('aosora:04_04_変数')?.category).toBe('aosora_grammar');
     expect(byId.get('aosora:06_データ型')?.category).toBe('aosora_grammar');
