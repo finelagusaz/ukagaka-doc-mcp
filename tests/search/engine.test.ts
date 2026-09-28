@@ -18,6 +18,7 @@ const entries: DocEntry[] = [
     category: 'yaya_function',
     content: 'R'.repeat(600),
     url: 'https://example.com/2',
+    rawUrl: 'https://example.com/2.md',
   },
 ];
 
@@ -50,5 +51,13 @@ describe('SearchEngine', () => {
 
     const result = engine.search('replace');
     expect(result.results[0].summary).toBe(`${'R'.repeat(500)}...`);
+  });
+
+  it('rawUrl はあるエントリにだけ付ける', () => {
+    const engine = new SearchEngine();
+    engine.load(entries);
+
+    expect(engine.search('replace').results[0].rawUrl).toBe('https://example.com/2.md');
+    expect(engine.search('\\s0').results[0]).not.toHaveProperty('rawUrl');
   });
 });

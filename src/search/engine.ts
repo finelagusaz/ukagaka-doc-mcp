@@ -140,5 +140,6 @@ function toSearchEntry(entry: DocEntry): SearchEntry {
     category: entry.category,
     summary: buildSummary(entry.content),
     url: entry.url,
+    ...(entry.rawUrl ? { rawUrl: entry.rawUrl } : {}),
   };
 }

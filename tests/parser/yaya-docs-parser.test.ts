@@ -46,6 +46,7 @@ describe('parseYayaDocs', () => {
     const entry = byId.get('yaya:functions/REPLACE');
     expect(entry?.source).toBe('yaya_docs');
     expect(entry?.url).toBe('https://yaya-shiori.github.io/yaya-docs/functions/REPLACE/');
+    expect(entry?.rawUrl).toBe('https://raw.githubusercontent.com/YAYA-shiori/yaya-docs/refs/heads/main/functions/REPLACE.md');
   });
 
   it('title は先頭 h1 見出し、無ければファイル名', () => {

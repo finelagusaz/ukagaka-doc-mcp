@@ -16,6 +16,8 @@ import type { Category, DocEntry } from '../types.js';
 import { markdownToPlainText } from './markdown.js';
 
 const AOSORA_WIKI_BASE_URL = 'https://github.com/kanadelab/aosora-shiori/wiki/';
+/** Wiki の表示 URL はフラットだが、raw はリポジトリ内のパス（manual/）を含む */
+const AOSORA_WIKI_RAW_BASE_URL = 'https://raw.githubusercontent.com/wiki/kanadelab/aosora-shiori/manual/';
 
 /**
  * manual ディレクトリ内の Markdown を全てパースして DocEntry 配列を返す。
@@ -43,6 +45,7 @@ export function parseAosoraWiki(manualDir: string): DocEntry[] {
       category: categoryForStem(stem),
       content,
       url: `${AOSORA_WIKI_BASE_URL}${encodeURIComponent(stem)}`,
+      rawUrl: `${AOSORA_WIKI_RAW_BASE_URL}${encodeURIComponent(stem)}.md`,
     });
   }
 

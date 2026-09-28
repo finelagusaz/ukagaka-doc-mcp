@@ -33,6 +33,8 @@ export interface DocEntry {
   content: string;
   /** 元ページURL */
   url: string;
+  /** 元ページの生 Markdown の URL（Markdown が元のソース: yaya_docs / aosora_wiki のみ） */
+  rawUrl?: string;
 }
 
 /**
@@ -47,6 +49,7 @@ export interface SearchEntry {
   /** content 先頭500文字 */
   summary: string;
   url: string;
+  rawUrl?: string;
 }
 
 // ============================================================
