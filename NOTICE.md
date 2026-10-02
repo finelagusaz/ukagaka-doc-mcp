@@ -14,7 +14,7 @@ documentation sources, including:
 
 - UKADOC
 - YAYA docs (YAYA-shiori/yaya-docs)
-- 里々Wiki
+- 里々 docs (ukatech/satori-docs)
 - 蒼空(aosora) Wiki
 
 This generated data is not re-licensed under the MIT License by this

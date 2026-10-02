@@ -22,7 +22,7 @@ export interface DocEntry {
   /** canonical_id
    * - ukadoc: `ukadoc:{filename}:{section_anchor}`
    * - yaya_docs: `yaya:{dir}/{ファイルstem}` (例: yaya:functions/REPLACE)
-   * - satori_wiki: `satori:{page_name}` (URLデコード済み)
+   * - satori_docs: `satori:{dir}/{ファイルstem}` (例: satori:functions/set)
    * - aosora_wiki: `aosora:{ファイルstem}` (例: aosora:04_04_変数)
    */
   id: string;
@@ -33,7 +33,7 @@ export interface DocEntry {
   content: string;
   /** 元ページURL */
   url: string;
-  /** 元ページの生 Markdown の URL（Markdown が元のソース: yaya_docs / aosora_wiki のみ） */
+  /** 元ページの生 Markdown の URL（Markdown が元のソース: yaya_docs / satori_docs / aosora_wiki のみ） */
   rawUrl?: string;
 }
 

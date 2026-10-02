@@ -1,5 +1,5 @@
 /**
- * Markdown → プレーンテキスト変換（蒼空 Wiki / YAYA docs パーサー共用）
+ * Markdown → プレーンテキスト変換（蒼空 Wiki / YAYA docs / 里々 docs パーサー共用）
  */
 
 /**
@@ -101,6 +101,7 @@ function stripInlineMarkdown(line: string): string {
   const { text: protectedText, literals } = protectLiterals(unescaped);
 
   const text = protectedText
+    .replace(/^!!!\s+\w+(?:\s+"(.*)")?\s*$/, '$1') // admonition（!!! note "タイトル"）→ タイトル
     .replace(/^#{1,6}\s+/, '')                    // 見出し記号
     .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1')     // 画像 → alt
     .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')      // リンク → テキスト

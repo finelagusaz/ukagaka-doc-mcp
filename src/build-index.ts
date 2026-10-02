@@ -2,7 +2,7 @@
  * ビルドスクリプト
  *
  * npm run build:index で実行する。
- * 全ソース（UKADOC, YAYA docs, 里々Wiki, 蒼空Wiki）をパース・スクレイプして
+ * 全ソース（UKADOC, YAYA docs, 里々 docs, 蒼空Wiki）をパースして
  * data/index.json を生成する。
  *
  * Usage:
@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 import type { DocEntry } from './types.js';
 import { parseUkadocManual } from './parser/ukadoc-parser.js';
 import { parseYayaDocs } from './parser/yaya-docs-parser.js';
-import { scrapeSatoriWiki } from './parser/satori-scraper.js';
+import { parseSatoriDocs } from './parser/satori-docs-parser.js';
 import { parseAosoraWiki } from './parser/aosora-parser.js';
 import { buildIndexFile, writeIndexAtomically } from './index-builder.js';
 
@@ -40,11 +40,12 @@ async function main(): Promise<void> {
   entries.push(...yayaEntries);
   console.error(`[build-index] YAYA docs: ${yayaEntries.length} entries`);
 
-  // --- Phase 3: 里々Wiki ---
-  console.error('[build-index] Scraping 里々Wiki...');
-  const satoriEntries = await scrapeSatoriWiki();
+  // --- Phase 3: 里々 docs ---
+  console.error('[build-index] Parsing 里々 docs...');
+  const satoriDocsDir = resolve(__dirname, '..', 'docs', 'satori-docs');
+  const satoriEntries = parseSatoriDocs(satoriDocsDir);
   entries.push(...satoriEntries);
-  console.error(`[build-index] 里々Wiki: ${satoriEntries.length} entries`);
+  console.error(`[build-index] 里々 docs: ${satoriEntries.length} entries`);
 
   // --- Phase 4: 蒼空 Wiki ---
   console.error('[build-index] Parsing aosora wiki...');

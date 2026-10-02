@@ -31,6 +31,11 @@ describe('markdownToPlainText', () => {
     expect(markdownToPlainText('`a * b` と `snake_case` は保持')).toBe('a * b と snake_case は保持');
   });
 
+  it('admonition の見出し行はタイトルだけ残し、本文は保持する', () => {
+    expect(markdownToPlainText('!!! warning "式の中の `（`"\n    本文')).toBe('式の中の （\n    本文');
+    expect(markdownToPlainText('前文\n!!! note\n    本文')).toBe('前文\n\n    本文');
+  });
+
   it('単語の途中の _ は強調とみなさない', () => {
     expect(markdownToPlainText('APPEND_RUNTIME_DIC を使う')).toBe('APPEND_RUNTIME_DIC を使う');
     expect(markdownToPlainText('RE_GETSTR、RE_GETPOS で取得')).toBe('RE_GETSTR、RE_GETPOS で取得');

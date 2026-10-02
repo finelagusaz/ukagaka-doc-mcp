@@ -30,8 +30,8 @@ const validEntries: DocEntry[] = [
   {
     id: 'satori:c',
     title: 'c',
-    source: 'satori_wiki',
-    category: 'satori_tips',
+    source: 'satori_docs',
+    category: 'satori_function',
     content: 'c',
     url: 'https://example.com/c',
   },
@@ -47,7 +47,7 @@ const validEntries: DocEntry[] = [
 
 describe('index-builder', () => {
   it('必須ソースが欠けるとビルド失敗する', () => {
-    expect(() => buildIndexFile(validEntries.slice(0, 2))).toThrow(/Missing entries for required source: satori_wiki/);
+    expect(() => buildIndexFile(validEntries.slice(0, 2))).toThrow(/Missing entries for required source: satori_docs/);
   });
 
   it('aosora_wiki が欠けるとビルド失敗する', () => {
