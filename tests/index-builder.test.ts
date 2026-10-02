@@ -51,6 +51,14 @@ const validEntries: DocEntry[] = [
     content: 'e',
     url: 'https://example.com/e',
   },
+  {
+    id: 'minato:func/builtin',
+    title: 'ビルトイン関数',
+    source: 'minato_docs',
+    category: 'minato_grammar',
+    content: 'f',
+    url: 'https://example.com/f',
+  },
 ];
 
 const withoutSource = (source: Source) => validEntries.filter(entry => entry.source !== source);
@@ -66,6 +74,10 @@ describe('index-builder', () => {
 
   it('ssp_help が欠けるとビルド失敗する', () => {
     expect(() => buildIndexFile(withoutSource('ssp_help'))).toThrow(/Missing entries for required source: ssp_help/);
+  });
+
+  it('minato_docs が欠けるとビルド失敗する', () => {
+    expect(() => buildIndexFile(withoutSource('minato_docs'))).toThrow(/Missing entries for required source: minato_docs/);
   });
 
   it('重複 id があるとビルド失敗する', () => {

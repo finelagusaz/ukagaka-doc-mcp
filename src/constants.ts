@@ -5,7 +5,7 @@
 import type { Source } from './types.js';
 
 /** 全ソース種別（単一ソース。types.ts の Source 型と各所の zod enum がここから派生） */
-export const SOURCE_VALUES = ['ukadoc', 'ssp_help', 'yaya_docs', 'satori_docs', 'aosora_wiki'] as const;
+export const SOURCE_VALUES = ['ukadoc', 'ssp_help', 'yaya_docs', 'satori_docs', 'aosora_wiki', 'minato_docs'] as const;
 
 /** インデックスが stale とみなされるまでの日数 */
 export const STALE_AFTER_DAYS = 7;
@@ -163,6 +163,32 @@ export const CATEGORIES = {
   aosora_general: {
     source: 'aosora_wiki' as Source,
     label: '蒼空全般（導入・SHIORIイベント・プロジェクト設定 等）',
+  },
+
+  // --- 湊 docs ---
+  minato_startup: {
+    source: 'minato_docs' as Source,
+    label: '湊入門（湊とは・インストールと最初のゴースト）',
+  },
+  minato_basic: {
+    source: 'minato_docs' as Source,
+    label: '湊の基本の書き方（ファイル構成・トーク定義・セリフの書き方・コメント）',
+  },
+  minato_grammar: {
+    source: 'minato_docs' as Source,
+    label: '湊文法（変数とデータ・制御構文・関数・include）',
+  },
+  minato_talk: {
+    source: 'minato_docs' as Source,
+    label: '湊トーク制御（条件フィルタ・ランダムトーク・now/reference）',
+  },
+  minato_other: {
+    source: 'minato_docs' as Source,
+    label: '湊その他（SAORI連携・config.toml・エラーと対処）',
+  },
+  minato_migration: {
+    source: 'minato_docs' as Source,
+    label: '里々・YAYAから湊への移行ガイド',
   },
 } as const;
 

@@ -19,12 +19,13 @@ import { registerSearchDocsTool } from './tools/search-docs.js';
 const SERVER_INSTRUCTIONS = `\
 このサーバーは伺か（Ukagaka）の技術ドキュメントを検索します。
 
-5つのソースからドキュメントを提供します:
+6つのソースからドキュメントを提供します:
 - UKADOC: SSP公式仕様書（さくらスクリプト、SHIORIイベント、設定ファイル仕様、プロトコル規格）
 - SSPヘルプ: SSP本体の使い方、機能、設定画面の各項目、FAQ、開発者向け機能
 - YAYA docs: YAYA SHIORIの文法、組み込み関数、実践Tips
 - 里々 docs: 里々SHIORIの文法、SHIORIとしての動作、システム変数、内蔵関数、ssu
 - 蒼空(Aosora) Wiki: 蒼空スクリプトの文法、組み込み機能、発展的トピック
+- 湊 docs: 湊（Minato）SHIORIの文法、トーク制御、ビルトイン関数、里々・YAYAからの移行ガイド
 
 search_docs の summary は本文の冒頭部分だけなので、続きや詳細は get_doc(id) で全文を取得してください。
 category の値は search_docs のスキーマに列挙されています。list_categories は各カテゴリのラベルを確認するためのものです。

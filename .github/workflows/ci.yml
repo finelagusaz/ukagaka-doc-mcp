@@ -55,6 +55,7 @@ jobs:
               'docs/yaya-docs',
               'docs/satori-docs',
               'docs/aosora-wiki',
+              'docs/minato',
               'package.json',
               'package-lock.json',
             ]);

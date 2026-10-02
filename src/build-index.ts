@@ -2,7 +2,7 @@
  * ビルドスクリプト
  *
  * npm run build:index で実行する。
- * 全ソース（UKADOC, SSP ヘルプ, YAYA docs, 里々 docs, 蒼空Wiki）をパースして
+ * 全ソース（UKADOC, SSP ヘルプ, YAYA docs, 里々 docs, 蒼空Wiki, 湊 docs）をパースして
  * data/index.json を生成する。
  *
  * Usage:
@@ -17,6 +17,7 @@ import { parseSspHelp } from './parser/ssphelp-parser.js';
 import { parseYayaDocs } from './parser/yaya-docs-parser.js';
 import { parseSatoriDocs } from './parser/satori-docs-parser.js';
 import { parseAosoraWiki } from './parser/aosora-parser.js';
+import { parseMinatoDocs } from './parser/minato-docs-parser.js';
 import { buildIndexFile, writeIndexAtomically } from './index-builder.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -61,6 +62,13 @@ async function main(): Promise<void> {
   const aosoraEntries = parseAosoraWiki(aosoraManualDir);
   entries.push(...aosoraEntries);
   console.error(`[build-index] aosora wiki: ${aosoraEntries.length} entries`);
+
+  // --- Phase 6: 湊 docs ---
+  console.error('[build-index] Parsing 湊 docs...');
+  const minatoDocsDir = resolve(__dirname, '..', 'docs', 'minato', 'docs', 'src');
+  const minatoEntries = parseMinatoDocs(minatoDocsDir);
+  entries.push(...minatoEntries);
+  console.error(`[build-index] 湊 docs: ${minatoEntries.length} entries`);
 
   // --- 統合 ---
   const indexFile = buildIndexFile(entries);
