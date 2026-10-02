@@ -33,7 +33,7 @@ const DIR_CATEGORIES: Record<string, Category> = {
 const EXCLUDED_PAGES = new Set(['system/system-functions-index']);
 
 /** ページ本文を持たないディレクトリ */
-const NON_CONTENT_DIRS = new Set(['assets', 'scripts']);
+const NON_CONTENT_DIRS = new Set(['assets', 'scripts', 'overrides']);
 
 /**
  * yaya-docs リポジトリ内の Markdown を全てパースして DocEntry 配列を返す。
