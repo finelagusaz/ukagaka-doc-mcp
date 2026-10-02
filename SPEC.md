@@ -18,13 +18,14 @@
 
 ### 3.1 対象ソース
 
-本サーバーは以下の5ソースのみを対象とする。
+本サーバーは以下の6ソースのみを対象とする。
 
 1. UKADOC (`docs/ukadoc/manual/`)
 2. SSP ヘルプ (`docs/ukadoc/ssphelp_src/`、`https://ssp.shillest.net/ukadoc/ssphelp/`)
 3. YAYA docs (`docs/yaya-docs/`、`https://github.com/YAYA-shiori/yaya-docs`)
 4. 里々 docs (`docs/satori-docs/`、`https://github.com/ukatech/satori-docs`)
 5. 蒼空 Wiki (`https://github.com/kanadelab/aosora-shiori/wiki`)
+6. 湊 docs (`docs/minato/docs/src/`、`https://github.com/mizuki-yura/minato`)
 
 ### 3.2 非スコープ
 
@@ -46,7 +47,8 @@
 3. YAYA docs をローカルMarkdownからパースする
 4. 里々 docs をローカルMarkdownからパースする
 5. 蒼空 Wiki をGitHub Wiki取得してパースする
-6. 5ソースを統合して `data/index.json` を生成する
+6. 湊 docs をローカルMarkdownからパースする
+7. 6ソースを統合して `data/index.json` を生成する
 
 ### 4.2 ランタイム
 
@@ -62,7 +64,7 @@
 ### 5.1 Source
 
 ```ts
-type Source = 'ukadoc' | 'ssp_help' | 'yaya_docs' | 'satori_docs' | 'aosora_wiki';
+type Source = 'ukadoc' | 'ssp_help' | 'yaya_docs' | 'satori_docs' | 'aosora_wiki' | 'minato_docs';
 ```
 
 ### 5.2 Category
@@ -95,7 +97,13 @@ type Category =
   | 'satori_system'
   | 'satori_function'
   | 'satori_ssu'
-  | 'satori_other';
+  | 'satori_other'
+  | 'minato_startup'
+  | 'minato_basic'
+  | 'minato_grammar'
+  | 'minato_talk'
+  | 'minato_other'
+  | 'minato_migration';
 ```
 
 ### 5.3 DocEntry
@@ -199,6 +207,12 @@ type IndexFile = {
 - `dir` はリポジトリ直下のディレクトリ名、`file_stem` は拡張子 `.md` を除いたファイル名とする
 - 各ディレクトリの `index.md` も本文を持つため取り込む（例: `satori:functions/index`）
 
+#### 湊 docs
+
+- 1ページ1エントリとし、`minato:{path}` とする（例: `minato:func/builtin`）
+- `path` は mdBook のソースディレクトリ `docs/src/` からの相対パスから拡張子 `.md` を除いたもの（例: `minato:include`、`minato:README`）とする
+- 対象ページは上流サイトの目次 `docs/src/SUMMARY.md` から決め、カテゴリは `path` の先頭要素から決める
+
 ## 7. 収集・正規化仕様
 
 ### 7.1 リンク正規化
@@ -286,7 +300,7 @@ Wikiリンクは取得前に正規化しなければならない。
 
 `npm run build:index` は、以下をすべて満たしたときのみ成功してよい。
 
-- 必須5ソースの取得・パースが完了している
+- 必須6ソースの取得・パースが完了している
 - 重複 `id` が存在しない
 - 無効ページが含まれていない
 - 各ソースが空でない
@@ -310,7 +324,7 @@ Wikiリンクは取得前に正規化しなければならない。
 
 ### 9.4 部分成功の禁止
 
-- UKADOC だけ成功、SSP ヘルプ/YAYA/里々/蒼空失敗のような部分成功を正規成果物として出力してはならない
+- UKADOC だけ成功、SSP ヘルプ/YAYA/里々/蒼空/湊失敗のような部分成功を正規成果物として出力してはならない
 - ビルドは fail-open ではなく fail-closed でなければならない
 
 ## 10. ランタイム仕様

@@ -10,3 +10,6 @@
 [submodule "docs/satori-docs"]
 	path = docs/satori-docs
 	url = https://github.com/ukatech/satori-docs.git
+[submodule "docs/minato"]
+	path = docs/minato
+	url = https://github.com/mizuki-yura/minato.git

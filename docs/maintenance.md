@@ -197,7 +197,7 @@ gh workflow run release.yml
 ```bash
 npm run refresh:index
 # 内部: git submodule sync --recursive
-#       git submodule update --init --remote docs/ukadoc docs/yaya-docs docs/satori-docs docs/aosora-wiki
+#       git submodule update --init --remote docs/ukadoc docs/yaya-docs docs/satori-docs docs/aosora-wiki docs/minato
 #       npm run build:index
 ```
 
