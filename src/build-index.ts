@@ -2,7 +2,7 @@
  * ビルドスクリプト
  *
  * npm run build:index で実行する。
- * 全ソース（UKADOC, YAYA docs, 里々 docs, 蒼空Wiki）をパースして
+ * 全ソース（UKADOC, SSP ヘルプ, YAYA docs, 里々 docs, 蒼空Wiki）をパースして
  * data/index.json を生成する。
  *
  * Usage:
@@ -13,6 +13,7 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { DocEntry } from './types.js';
 import { parseUkadocManual } from './parser/ukadoc-parser.js';
+import { parseSspHelp } from './parser/ssphelp-parser.js';
 import { parseYayaDocs } from './parser/yaya-docs-parser.js';
 import { parseSatoriDocs } from './parser/satori-docs-parser.js';
 import { parseAosoraWiki } from './parser/aosora-parser.js';
@@ -33,21 +34,28 @@ async function main(): Promise<void> {
   entries.push(...ukadocEntries);
   console.error(`[build-index] UKADOC: ${ukadocEntries.length} entries`);
 
-  // --- Phase 2: YAYA docs ---
+  // --- Phase 2: SSP ヘルプ ---
+  console.error('[build-index] Parsing SSP help...');
+  const ukadocDir = resolve(__dirname, '..', 'docs', 'ukadoc');
+  const sspHelpEntries = parseSspHelp(ukadocDir);
+  entries.push(...sspHelpEntries);
+  console.error(`[build-index] SSP help: ${sspHelpEntries.length} entries`);
+
+  // --- Phase 3: YAYA docs ---
   console.error('[build-index] Parsing YAYA docs...');
   const yayaDocsDir = resolve(__dirname, '..', 'docs', 'yaya-docs');
   const yayaEntries = parseYayaDocs(yayaDocsDir);
   entries.push(...yayaEntries);
   console.error(`[build-index] YAYA docs: ${yayaEntries.length} entries`);
 
-  // --- Phase 3: 里々 docs ---
+  // --- Phase 4: 里々 docs ---
   console.error('[build-index] Parsing 里々 docs...');
   const satoriDocsDir = resolve(__dirname, '..', 'docs', 'satori-docs');
   const satoriEntries = parseSatoriDocs(satoriDocsDir);
   entries.push(...satoriEntries);
   console.error(`[build-index] 里々 docs: ${satoriEntries.length} entries`);
 
-  // --- Phase 4: 蒼空 Wiki ---
+  // --- Phase 5: 蒼空 Wiki ---
   console.error('[build-index] Parsing aosora wiki...');
   const aosoraManualDir = resolve(__dirname, '..', 'docs', 'aosora-wiki', 'manual');
   const aosoraEntries = parseAosoraWiki(aosoraManualDir);

@@ -5,7 +5,7 @@
 import type { Source } from './types.js';
 
 /** 全ソース種別（単一ソース。types.ts の Source 型と各所の zod enum がここから派生） */
-export const SOURCE_VALUES = ['ukadoc', 'yaya_docs', 'satori_docs', 'aosora_wiki'] as const;
+export const SOURCE_VALUES = ['ukadoc', 'ssp_help', 'yaya_docs', 'satori_docs', 'aosora_wiki'] as const;
 
 /** インデックスが stale とみなされるまでの日数 */
 export const STALE_AFTER_DAYS = 7;
@@ -63,6 +63,28 @@ export const CATEGORIES = {
   dev_guide: {
     source: 'ukadoc' as Source,
     label: '開発ガイド（シェル作成, NAR作成 等）',
+  },
+
+  // --- SSP ヘルプ ---
+  ssp_usage: {
+    source: 'ssp_help' as Source,
+    label: 'SSPの使い方（はじめに・起動・ゴーストとあそぶ・右クリックメニュー 等）',
+  },
+  ssp_feature: {
+    source: 'ssp_help' as Source,
+    label: 'SSPの機能（カレンダー・エクスプローラ・ビューワ・ショートカット・起動オプション 等）',
+  },
+  ssp_config: {
+    source: 'ssp_help' as Source,
+    label: 'SSPの設定（ゴーストごとの設定・本体設定の各ページ）',
+  },
+  ssp_info: {
+    source: 'ssp_help' as Source,
+    label: 'SSPの情報（FAQ・用語説明・リンク集・基本情報）',
+  },
+  ssp_dev: {
+    source: 'ssp_help' as Source,
+    label: 'SSP開発者向けヘルプ（スクリプトログ・開発用パレット・開発FAQ 等）',
   },
 
   // --- YAYA docs ---

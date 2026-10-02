@@ -18,12 +18,13 @@
 
 ### 3.1 対象ソース
 
-本サーバーは以下の4ソースのみを対象とする。
+本サーバーは以下の5ソースのみを対象とする。
 
 1. UKADOC (`docs/ukadoc/manual/`)
-2. YAYA docs (`docs/yaya-docs/`、`https://github.com/YAYA-shiori/yaya-docs`)
-3. 里々 docs (`docs/satori-docs/`、`https://github.com/ukatech/satori-docs`)
-4. 蒼空 Wiki (`https://github.com/kanadelab/aosora-shiori/wiki`)
+2. SSP ヘルプ (`docs/ukadoc/ssphelp_src/`、`https://ssp.shillest.net/ukadoc/ssphelp/`)
+3. YAYA docs (`docs/yaya-docs/`、`https://github.com/YAYA-shiori/yaya-docs`)
+4. 里々 docs (`docs/satori-docs/`、`https://github.com/ukatech/satori-docs`)
+5. 蒼空 Wiki (`https://github.com/kanadelab/aosora-shiori/wiki`)
 
 ### 3.2 非スコープ
 
@@ -41,10 +42,11 @@
 `npm run build:index` は以下を行う。
 
 1. UKADOC をローカルHTMLからパースする
-2. YAYA docs をローカルMarkdownからパースする
-3. 里々 docs をローカルMarkdownからパースする
-4. 蒼空 Wiki をGitHub Wiki取得してパースする
-5. 4ソースを統合して `data/index.json` を生成する
+2. SSP ヘルプをローカルHTMLからパースする
+3. YAYA docs をローカルMarkdownからパースする
+4. 里々 docs をローカルMarkdownからパースする
+5. 蒼空 Wiki をGitHub Wiki取得してパースする
+6. 5ソースを統合して `data/index.json` を生成する
 
 ### 4.2 ランタイム
 
@@ -60,7 +62,7 @@
 ### 5.1 Source
 
 ```ts
-type Source = 'ukadoc' | 'yaya_docs' | 'satori_docs' | 'aosora_wiki';
+type Source = 'ukadoc' | 'ssp_help' | 'yaya_docs' | 'satori_docs' | 'aosora_wiki';
 ```
 
 ### 5.2 Category
@@ -75,6 +77,11 @@ type Category =
   | 'protocol'
   | 'file_structure'
   | 'dev_guide'
+  | 'ssp_usage'
+  | 'ssp_feature'
+  | 'ssp_config'
+  | 'ssp_info'
+  | 'ssp_dev'
   | 'yaya_grammar'
   | 'yaya_basic'
   | 'yaya_function'
@@ -175,6 +182,12 @@ type IndexFile = {
 - `normalized_raw_title` は安定した正規化文字列でなければならない
 - フォールバックは、記号除去や小文字化だけに依存してはならない
 
+#### SSP ヘルプ
+
+- 1ページ1エントリとし、`ssphelp:{place}` とする（例: `ssphelp:config-ghost`）
+- 対象ページとカテゴリは `ssphelp_builder/index.yaml` の目次から決める。`place` は目次の値（= 原稿ファイル名から `.html` を除いたもの）とする
+- 生成済みの `ssphelp/` ではなく、公開サイトの元になる原稿 `ssphelp_src/` を読む
+
 #### YAYA docs
 
 - 1ページ1エントリとし、`yaya:{dir}/{file_stem}` とする（例: `yaya:functions/REPLACE`）
@@ -273,7 +286,7 @@ Wikiリンクは取得前に正規化しなければならない。
 
 `npm run build:index` は、以下をすべて満たしたときのみ成功してよい。
 
-- 必須4ソースの取得・パースが完了している
+- 必須5ソースの取得・パースが完了している
 - 重複 `id` が存在しない
 - 無効ページが含まれていない
 - 各ソースが空でない
@@ -297,7 +310,7 @@ Wikiリンクは取得前に正規化しなければならない。
 
 ### 9.4 部分成功の禁止
 
-- UKADOC だけ成功、YAYA/里々/蒼空失敗のような部分成功を正規成果物として出力してはならない
+- UKADOC だけ成功、SSP ヘルプ/YAYA/里々/蒼空失敗のような部分成功を正規成果物として出力してはならない
 - ビルドは fail-open ではなく fail-closed でなければならない
 
 ## 10. ランタイム仕様
