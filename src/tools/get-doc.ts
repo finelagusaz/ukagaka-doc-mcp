@@ -7,7 +7,7 @@ export function registerGetDocTool(server: McpServer, engine: SearchEngine): voi
     'get_doc',
     {
       description: 'search_docs の結果にある id を指定して、ドキュメント1件の全文（content）と title・source・category・url を返す。'
-        + 'YAYA・蒼空は元の Markdown を取得できる rawUrl も返す。'
+        + 'UKADOC・SSP ヘルプ以外（元のソースが Markdown）は、元の Markdown を取得できる rawUrl も返す。'
         + 'search_docs の summary は本文の冒頭で切れているので、続きや詳細を確かめるときに使う。'
         + 'id の形式はソースごとに異なり、search_docs の結果の id がそのまま使える。存在しない id には status: "not_found" を返す。',
       inputSchema: z.object({

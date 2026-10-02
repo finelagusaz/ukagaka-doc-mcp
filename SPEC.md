@@ -118,6 +118,7 @@ type DocEntry = {
   category: Category;
   content: string;
   url: string;
+  rawUrl?: string;
 };
 ```
 
@@ -128,6 +129,7 @@ type DocEntry = {
 - `content` は全文でなければならない
 - `content` は保存時に要約化してはならない
 - `url` はそのエントリの元ページまたは元セクションを指さなければならない
+- `rawUrl` は元のソースが Markdown のソース（YAYA docs・里々 docs・蒼空 Wiki・湊 docs）の全エントリに付与し、元の Markdown を指さなければならない。元のソースが HTML のソース（UKADOC・SSP ヘルプ）には付与してはならない
 
 ### 5.4 SearchEntry
 
@@ -141,6 +143,7 @@ type SearchEntry = {
   category: Category;
   summary: string;
   url: string;
+  rawUrl?: string;
 };
 ```
 
@@ -152,6 +155,7 @@ type SearchEntry = {
 - 省略時の `summary` は `content.slice(0, 500) + "..."` と等価でなければならない
 - `summary` 生成時に改行や空白の追加正規化を行ってはならない
 - `summary` はインデックスの正規データではなく派生値であること
+- `rawUrl` は `DocEntry` に `rawUrl` がある場合に限り含めること
 
 ### 5.5 IndexFile
 
