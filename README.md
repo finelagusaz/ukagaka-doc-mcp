@@ -2,7 +2,7 @@
 
 伺か（Ukagaka）の技術ドキュメントを検索する MCP サーバーです。
 
-UKADOC・YAYA docs・里々 docs・蒼空 Wiki のスナップショットを同梱しており、stdio モード（デフォルト）では**ランタイムで外部ネットワークにアクセスしません**。
+UKADOC・SSP ヘルプ・YAYA docs・里々 docs・蒼空 Wiki のスナップショットを同梱しており、stdio モード（デフォルト）では**ランタイムで外部ネットワークにアクセスしません**。
 
 ## 使い方
 
@@ -81,6 +81,7 @@ npx ukagaka-doc-mcp --http --host 0.0.0.0 --port 9000   # listen 先を変更
 | ソース | 内容 |
 |--------|------|
 | UKADOC | 伺か全般の仕様・リファレンス |
+| SSP ヘルプ（[ssphelp](https://ssp.shillest.net/ukadoc/ssphelp/index.html)） | SSP 本体の使い方・機能・設定 |
 | YAYA docs（[yaya-docs](https://github.com/YAYA-shiori/yaya-docs)） | YAYA スクリプトのリファレンス |
 | 里々 docs（[satori-docs](https://github.com/ukatech/satori-docs)） | 里々スクリプト・ssu のリファレンス |
 | 蒼空(aosora) Wiki | 蒼空 shiori/GHOST 開発ガイド |
@@ -142,4 +143,4 @@ npm tarball に含まれるファイル：
 
 実装コードは **MIT License**（`LICENSE` 参照）。
 
-同梱の `data/index.json` は UKADOC・YAYA docs・里々 docs・蒼空 Wiki を元に生成した外部由来データです。MIT License での再ライセンスは行っていません。利用・再配布時は上流の権利関係を別途確認してください（`NOTICE.md` 参照）。
+同梱の `data/index.json` は UKADOC・SSP ヘルプ・YAYA docs・里々 docs・蒼空 Wiki を元に生成した外部由来データです。MIT License での再ライセンスは行っていません。利用・再配布時は上流の権利関係を別途確認してください（`NOTICE.md` 参照）。

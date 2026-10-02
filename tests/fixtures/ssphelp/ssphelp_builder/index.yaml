@@ -1,0 +1,15 @@
+- title: はじめに
+  place: index
+- title: 設定
+  place: config
+  children: 
+    - title: 本体設定
+      children: 
+        - title: ゴースト(1)
+          place: config-ghost
+        - title: 存在しない
+          place: missing-page
+- title: 新しい区分
+  place: new-section
+- title: 開発者向けヘルプ
+  place: dev

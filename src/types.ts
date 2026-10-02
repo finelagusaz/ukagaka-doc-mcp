@@ -22,6 +22,7 @@ export interface DocEntry {
   /** canonical_id
    * - ukadoc: `ukadoc:{filename}:{section_anchor}`
    * - yaya_docs: `yaya:{dir}/{ファイルstem}` (例: yaya:functions/REPLACE)
+   * - ssp_help: `ssphelp:{ページ名}` (例: ssphelp:config-ghost)
    * - satori_docs: `satori:{dir}/{ファイルstem}` (例: satori:functions/set)
    * - aosora_wiki: `aosora:{ファイルstem}` (例: aosora:04_04_変数)
    */

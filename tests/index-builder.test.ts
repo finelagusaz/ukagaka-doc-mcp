@@ -2,7 +2,7 @@ import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { buildIndexFile, writeIndexAtomically } from '../src/index-builder.js';
-import type { DocEntry } from '../src/types.js';
+import type { DocEntry, Source } from '../src/types.js';
 
 const tempDir = resolve('.tmp-tests-builder');
 
@@ -43,15 +43,29 @@ const validEntries: DocEntry[] = [
     content: 'd',
     url: 'https://example.com/d',
   },
+  {
+    id: 'ssphelp:e',
+    title: 'e',
+    source: 'ssp_help',
+    category: 'ssp_config',
+    content: 'e',
+    url: 'https://example.com/e',
+  },
 ];
+
+const withoutSource = (source: Source) => validEntries.filter(entry => entry.source !== source);
 
 describe('index-builder', () => {
   it('必須ソースが欠けるとビルド失敗する', () => {
-    expect(() => buildIndexFile(validEntries.slice(0, 2))).toThrow(/Missing entries for required source: satori_docs/);
+    expect(() => buildIndexFile(withoutSource('satori_docs'))).toThrow(/Missing entries for required source: satori_docs/);
   });
 
   it('aosora_wiki が欠けるとビルド失敗する', () => {
-    expect(() => buildIndexFile(validEntries.slice(0, 3))).toThrow(/Missing entries for required source: aosora_wiki/);
+    expect(() => buildIndexFile(withoutSource('aosora_wiki'))).toThrow(/Missing entries for required source: aosora_wiki/);
+  });
+
+  it('ssp_help が欠けるとビルド失敗する', () => {
+    expect(() => buildIndexFile(withoutSource('ssp_help'))).toThrow(/Missing entries for required source: ssp_help/);
   });
 
   it('重複 id があるとビルド失敗する', () => {
@@ -94,7 +108,7 @@ describe('index-builder', () => {
     writeIndexAtomically(outputPath, indexFile);
 
     const written = JSON.parse(readFileSync(outputPath, 'utf-8'));
-    expect(written.entries).toHaveLength(4);
+    expect(written.entries).toHaveLength(validEntries.length);
     expect(written.generatedAt).toBe('2026-04-03T00:00:00.000Z');
   });
 });
