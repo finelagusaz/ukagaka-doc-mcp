@@ -22,7 +22,7 @@ const SERVER_INSTRUCTIONS = `\
 4つのソースからドキュメントを提供します:
 - UKADOC: SSP公式仕様書（さくらスクリプト、SHIORIイベント、設定ファイル仕様、プロトコル規格）
 - YAYA docs: YAYA SHIORIの文法、組み込み関数、実践Tips
-- 里々Wiki: 里々SHIORIの構文、変数、関数、独自イベント、Tips
+- 里々 docs: 里々SHIORIの文法、SHIORIとしての動作、システム変数、内蔵関数、ssu
 - 蒼空(Aosora) Wiki: 蒼空スクリプトの文法、組み込み機能、発展的トピック
 
 search_docs の summary は本文の冒頭部分だけなので、続きや詳細は get_doc(id) で全文を取得してください。

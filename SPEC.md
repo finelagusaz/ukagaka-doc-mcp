@@ -22,7 +22,7 @@
 
 1. UKADOC (`docs/ukadoc/manual/`)
 2. YAYA docs (`docs/yaya-docs/`、`https://github.com/YAYA-shiori/yaya-docs`)
-3. 里々Wiki (`https://soliton.sub.jp/satori/`)
+3. 里々 docs (`docs/satori-docs/`、`https://github.com/ukatech/satori-docs`)
 4. 蒼空 Wiki (`https://github.com/kanadelab/aosora-shiori/wiki`)
 
 ### 3.2 非スコープ
@@ -42,7 +42,7 @@
 
 1. UKADOC をローカルHTMLからパースする
 2. YAYA docs をローカルMarkdownからパースする
-3. 里々Wiki をHTTP取得してパースする
+3. 里々 docs をローカルMarkdownからパースする
 4. 蒼空 Wiki をGitHub Wiki取得してパースする
 5. 4ソースを統合して `data/index.json` を生成する
 
@@ -60,7 +60,7 @@
 ### 5.1 Source
 
 ```ts
-type Source = 'ukadoc' | 'yaya_docs' | 'satori_wiki' | 'aosora_wiki';
+type Source = 'ukadoc' | 'yaya_docs' | 'satori_docs' | 'aosora_wiki';
 ```
 
 ### 5.2 Category
@@ -82,10 +82,13 @@ type Category =
   | 'yaya_tips'
   | 'yaya_startup'
   | 'yaya_other'
-  | 'satori_reference'
-  | 'satori_event'
-  | 'satori_tips'
-  | 'satori_saori';
+  | 'satori_startup'
+  | 'satori_grammar'
+  | 'satori_shiori'
+  | 'satori_system'
+  | 'satori_function'
+  | 'satori_ssu'
+  | 'satori_other';
 ```
 
 ### 5.3 DocEntry
@@ -177,11 +180,11 @@ type IndexFile = {
 - 1ページ1エントリとし、`yaya:{dir}/{file_stem}` とする（例: `yaya:functions/REPLACE`）
 - `dir` はリポジトリ直下のディレクトリ名、`file_stem` は拡張子 `.md` を除いたファイル名とする
 
-#### 里々Wiki
+#### 里々 docs
 
-- ページ単位は `satori:{page_name}` とする
-- セクション分割ページは `satori:{page_name}#{anchor}` とする
-- `page_name` はURLデコード済みの論理ページ名とする
+- 1ページ1エントリとし、`satori:{dir}/{file_stem}` とする（例: `satori:functions/set`）
+- `dir` はリポジトリ直下のディレクトリ名、`file_stem` は拡張子 `.md` を除いたファイル名とする
+- 各ディレクトリの `index.md` も本文を持つため取り込む（例: `satori:functions/index`）
 
 ## 7. 収集・正規化仕様
 

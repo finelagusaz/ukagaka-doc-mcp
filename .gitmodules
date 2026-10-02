@@ -7,3 +7,6 @@
 [submodule "docs/yaya-docs"]
 	path = docs/yaya-docs
 	url = https://github.com/YAYA-shiori/yaya-docs.git
+[submodule "docs/satori-docs"]
+	path = docs/satori-docs
+	url = https://github.com/ukatech/satori-docs.git

@@ -5,7 +5,7 @@
 import type { Source } from './types.js';
 
 /** 全ソース種別（単一ソース。types.ts の Source 型と各所の zod enum がここから派生） */
-export const SOURCE_VALUES = ['ukadoc', 'yaya_docs', 'satori_wiki', 'aosora_wiki'] as const;
+export const SOURCE_VALUES = ['ukadoc', 'yaya_docs', 'satori_docs', 'aosora_wiki'] as const;
 
 /** インデックスが stale とみなされるまでの日数 */
 export const STALE_AFTER_DAYS = 7;
@@ -31,9 +31,6 @@ export const INDEX_SCHEMA_VERSION = 1;
 
 /** search_docs で返す summary の最大文字数 */
 export const SUMMARY_MAX_LENGTH = 500;
-
-/** ビルド時スクレイプのレート制限 (ms) */
-export const SCRAPE_RATE_LIMIT_MS = 500;
 
 // ============================================================
 // カテゴリ定義
@@ -98,22 +95,34 @@ export const CATEGORIES = {
     label: 'YAYAその他（SAORI/MAKOTO/PLUGIN・変更点・トラブルシューティング 等）',
   },
 
-  // --- 里々Wiki ---
-  satori_reference: {
-    source: 'satori_wiki' as Source,
-    label: '里々リファレンス（特殊記号・演算子・変数・関数）',
+  // --- 里々 docs ---
+  satori_startup: {
+    source: 'satori_docs' as Source,
+    label: '里々入門（里々とは・はじめてのゴースト・チートシート）',
   },
-  satori_event: {
-    source: 'satori_wiki' as Source,
-    label: '里々独自イベント',
+  satori_grammar: {
+    source: 'satori_docs' as Source,
+    label: '里々文法（辞書・文と単語群・（）の展開・変数・式・制御構造 等）',
   },
-  satori_tips: {
-    source: 'satori_wiki' as Source,
-    label: '実践Tips（里々）',
+  satori_shiori: {
+    source: 'satori_docs' as Source,
+    label: '里々のSHIORIとしての動作（イベント処理・独自イベント・ランダムトーク 等）',
   },
-  satori_saori: {
-    source: 'satori_wiki' as Source,
-    label: '里々 SAORI連携',
+  satori_system: {
+    source: 'satori_docs' as Source,
+    label: '里々システム変数・組み込み名',
+  },
+  satori_function: {
+    source: 'satori_docs' as Source,
+    label: '里々（）内蔵関数',
+  },
+  satori_ssu: {
+    source: 'satori_docs' as Source,
+    label: 'ssu（里々同梱SAORI）の関数',
+  },
+  satori_other: {
+    source: 'satori_docs' as Source,
+    label: '里々その他（エラーメッセージ・SAORI・Unicode版の変更点 等）',
   },
 
   // --- 蒼空 (aosora) Wiki ---

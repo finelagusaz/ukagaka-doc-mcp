@@ -26,7 +26,7 @@ OK: "OnBoot" "選択肢" "REPLACE" "\\q" "surfaces.txt" ／ NG（0件）: "文�
         category: z.enum(CATEGORY_KEYS as [Category, ...Category[]]).optional()
           .describe('カテゴリで絞り込み（list_categories で確認可能）'),
         source: z.enum(SOURCE_VALUES).optional()
-          .describe('ソースで絞り込み: ukadoc / yaya_docs / satori_wiki / aosora_wiki'),
+          .describe('ソースで絞り込み: ukadoc / yaya_docs / satori_docs / aosora_wiki'),
         limit: z.number().int().min(1).max(50).default(10)
           .describe('返却件数の上限（デフォルト10、最大50）'),
       }),

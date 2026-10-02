@@ -53,6 +53,7 @@ jobs:
               'data/index.json',
               'docs/ukadoc',
               'docs/yaya-docs',
+              'docs/satori-docs',
               'docs/aosora-wiki',
               'package.json',
               'package-lock.json',
