@@ -73,8 +73,11 @@ describe('http-server', () => {
     expect(initRes.status).toBe(200);
     expect(initRes.headers.get('mcp-session-id')).toBeNull();
     expect(initRes.headers.get('content-type')).toContain('application/json');
-    const init = await initRes.json() as { result: { serverInfo: { name: string; version: string } } };
+    const init = await initRes.json() as {
+      result: { serverInfo: { name: string; version: string }; capabilities: { tools?: { listChanged?: boolean } } };
+    };
     expect(init.result.serverInfo.name).toBe('ukagaka-doc-mcp');
+    expect(init.result.capabilities.tools?.listChanged).toBe(false);
     expect(init.result.serverInfo.version).toBe(packageJson.version);
 
     const callRes = await rpc(url, {

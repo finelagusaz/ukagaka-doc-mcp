@@ -44,7 +44,12 @@ const { version: PACKAGE_VERSION } = JSON.parse(readFileSync(PACKAGE_JSON_PATH, 
 export function createMcpServer(engine: SearchEngine): McpServer {
   const server = new McpServer(
     { name: 'ukagaka-doc-mcp', version: PACKAGE_VERSION },
-    { instructions: SERVER_INSTRUCTIONS },
+    {
+      instructions: SERVER_INSTRUCTIONS,
+      // ツール一覧は起動後に変わらない（index 差し替えでもスキーマは不変）。
+      // SDK は registerTool 時に未指定なら listChanged: true を宣言するので明示的に false にする
+      capabilities: { tools: { listChanged: false } },
+    },
   );
 
   registerSearchDocsTool(server, engine);
