@@ -6,6 +6,7 @@
  * 検索仕様:
  * - 大文字小文字無視
  * - 日本語・英語とも部分一致
+ * - NFKC 正規化: 全角英数記号・半角カナを同一視（"＠＄" と "@$" が一致する）
  * - バックスラッシュ正規化: \\s → \s（クエリとコンテンツ両方に適用）
  * - スコアリング: タイトル完全一致 > タイトル部分一致 > 本文部分一致
  */
@@ -17,15 +18,11 @@ import { buildSummary } from '../text.js';
 // 正規化
 // ============================================================
 
-function normalizeQuery(query: string): string {
-  return query
-    // \\s → \s のような二重バックスラッシュを正規化
-    .replace(/\\\\/g, '\\')
-    .toLowerCase();
-}
-
-function normalizeContent(text: string): string {
+/** クエリと title / content の両方に同じ正規化をかける（NFKC → 二重バックスラッシュの正規化 → 小文字化） */
+function normalize(text: string): string {
   return text
+    .normalize('NFKC')
+    // \\s → \s のような二重バックスラッシュを正規化
     .replace(/\\\\/g, '\\')
     .toLowerCase();
 }
@@ -38,10 +35,18 @@ const SCORE_TITLE_EXACT    = 100;
 const SCORE_TITLE_PARTIAL  = 50;
 const SCORE_CONTENT_MATCH  = 10;
 
-function scoreEntry(entry: DocEntry, normalizedQuery: string): number {
-  const title = normalizeContent(entry.title);
-  const content = normalizeContent(entry.content);
+/** 検索用に正規化済みの title / content を持つエントリ。応答には元の entry を使う */
+interface IndexedEntry {
+  entry: DocEntry;
+  title: string;
+  content: string;
+}
 
+function indexEntry(entry: DocEntry): IndexedEntry {
+  return { entry, title: normalize(entry.title), content: normalize(entry.content) };
+}
+
+function scoreEntry({ title, content }: IndexedEntry, normalizedQuery: string): number {
   if (title === normalizedQuery) return SCORE_TITLE_EXACT;
   if (title.includes(normalizedQuery)) return SCORE_TITLE_PARTIAL;
   if (content.includes(normalizedQuery)) return SCORE_CONTENT_MATCH;
@@ -59,13 +64,14 @@ export interface SearchOptions {
 }
 
 export class SearchEngine {
-  private entries: DocEntry[] = [];
+  private entries: IndexedEntry[] = [];
 
   /**
    * インデックスをロードする。起動時に1回呼ぶ。
+   * 正規化はここで済ませ、検索のたびに全文を正規化し直さない。
    */
   load(entries: DocEntry[]): void {
-    this.entries = entries;
+    this.entries = entries.map(indexEntry);
     console.error(`[search-engine] Loaded ${entries.length} entries`);
   }
 
@@ -75,8 +81,8 @@ export class SearchEngine {
   merge(newEntries: DocEntry[]): void {
     const idSet = new Set(newEntries.map(e => e.id));
     this.entries = [
-      ...this.entries.filter(e => !idSet.has(e.id)),
-      ...newEntries,
+      ...this.entries.filter(e => !idSet.has(e.entry.id)),
+      ...newEntries.map(indexEntry),
     ];
   }
 
@@ -88,7 +94,7 @@ export class SearchEngine {
    * id でエントリを1件取得する（get_doc ツール用）。
    */
   getById(id: string): DocEntry | undefined {
-    return this.entries.find(e => e.id === id);
+    return this.entries.find(e => e.entry.id === id)?.entry;
   }
 
   /**
@@ -99,18 +105,19 @@ export class SearchEngine {
       return { results: [], total: 0 };
     }
 
-    const normalizedQuery = normalizeQuery(query);
+    const normalizedQuery = normalize(query);
     const limit = Math.min(opts.limit ?? 10, 50);
 
     const scored: Array<{ entry: DocEntry; score: number }> = [];
 
-    for (const entry of this.entries) {
+    for (const indexed of this.entries) {
+      const { entry } = indexed;
       // ソースフィルタ
       if (opts.source && entry.source !== opts.source) continue;
       // カテゴリフィルタ
       if (opts.category && entry.category !== opts.category) continue;
 
-      const score = scoreEntry(entry, normalizedQuery);
+      const score = scoreEntry(indexed, normalizedQuery);
       if (score > 0) {
         scored.push({ entry, score });
       }

@@ -17,7 +17,7 @@ export function registerSearchDocsTool(server: McpServer, engine: SearchEngine):
         + 'query は単語1つのみ（空白区切りや自然文は0件になる）。',
       inputSchema: z.object({
         query: z.string().min(1).describe(
-          `検索語。クエリ全体を1個の部分文字列として照合する単純検索（部分一致/大小無視）。分かち書き・AND/OR無し。
+          `検索語。クエリ全体を1個の部分文字列として照合する単純検索（部分一致/大小無視/全角半角無視）。分かち書き・AND/OR無し。
 OK: "OnBoot" "選択肢" "REPLACE" "\\q" "surfaces.txt" ／ NG（0件）: "文字列 置換" "さくらスクリプトで選択肢を出す方法" ／ NG（取りこぼす）: "variable"（→ "変数"）
 - 識別子・タグは原文表記のまま（さくらスクリプトは "\\q" のようにバックスラッシュ付き）
 - 日本語で引き、助詞や修飾は落として名詞の核だけにする（"変数のスコープ"→"スコープ"）
