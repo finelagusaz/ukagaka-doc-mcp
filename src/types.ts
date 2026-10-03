@@ -26,7 +26,7 @@ export interface DocEntry {
    * - satori_docs: `satori:{dir}/{ファイルstem}` (例: satori:functions/set)
    * - aosora_wiki: `aosora:{ファイルstem}` (例: aosora:04_04_変数)
    * - minato_docs: `minato:{src からのパス stem}` (例: minato:func/builtin)
-   * - pasta_docs: `pasta:{src からのパス stem}` (例: pasta:grammar/markers)
+   * - pasta_docs: `pasta:{src からのパス stem}`（導入部）/ `pasta:{パス stem}:{## 見出しのアンカー}` (例: pasta:grammar/markers, pasta:grammar/variables:ローカル変数)
    */
   id: string;
   title: string;
