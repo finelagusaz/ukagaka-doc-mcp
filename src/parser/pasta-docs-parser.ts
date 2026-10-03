@@ -3,6 +3,7 @@
  *
  * docs/pasta/book/src/**\/*.md（git submodule: ekicyou/pasta）をローカルでパースする。
  * ネットワークアクセスなし・レート制限不要。mdBook 共通の処理は mdbook.ts を参照。
+ * 湊 docs と違い、`##` 見出しごとに分割し、各ページ冒頭・末尾の案内役の口上（`---` の外側）を除く。
  */
 
 import type { DocEntry } from '../types.js';
@@ -26,5 +27,7 @@ export function parsePastaDocs(srcDir: string): DocEntry[] {
     },
     logTag: 'pasta-docs-parser',
     displayName: 'Pasta docs',
+    splitSections: true,
+    stripFraming: true,
   });
 }
