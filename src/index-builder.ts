@@ -1,10 +1,9 @@
 import { existsSync, mkdirSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import { basename, dirname, join } from 'node:path';
-import { INDEX_SCHEMA_VERSION } from './constants.js';
+import { INDEX_SCHEMA_VERSION, SOURCE_VALUES } from './constants.js';
 import { findDuplicateIds } from './index-validation.js';
 import type { DocEntry, IndexFile, Source } from './types.js';
 
-const REQUIRED_SOURCES: Source[] = ['ukadoc', 'ssp_help', 'yaya_docs', 'satori_docs', 'aosora_wiki', 'minato_docs', 'pasta_docs'];
 const INVALID_PAGE_MARKERS = ['有効なWikiNameではありません'];
 
 export function buildIndexFile(entries: DocEntry[], generatedAt = new Date().toISOString()): IndexFile {
@@ -37,7 +36,7 @@ export function validateEntriesForBuild(entries: DocEntry[]): void {
     sources.set(entry.source, (sources.get(entry.source) ?? 0) + 1);
   }
 
-  for (const source of REQUIRED_SOURCES) {
+  for (const source of SOURCE_VALUES) {
     if (!sources.has(source)) {
       throw new Error(`Missing entries for required source: ${source}`);
     }

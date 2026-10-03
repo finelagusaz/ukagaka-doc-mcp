@@ -1,10 +1,14 @@
 import type { McpServer } from '@modelcontextprotocol/server';
 import { z } from 'zod';
 import type { SearchEngine } from '../search/engine.js';
-import { CATEGORIES, SOURCE_VALUES } from '../constants.js';
+import { CATEGORIES, SOURCES, SOURCE_VALUES } from '../constants.js';
 import type { Category, Source } from '../types.js';
 
 const CATEGORY_KEYS = Object.keys(CATEGORIES) as Category[];
+
+export const SEARCH_DOCS_DESCRIPTION =
+  `伺か（${Object.values(SOURCES).map(s => s.shortName).join('・')}）の技術ドキュメントをキーワード検索する。各件の summary は本文の先頭500文字（要約ではない）。全文は get_doc で取得。`
+  + 'query は単語1つのみ（空白区切りや自然文は0件になる）。';
 
 export function registerSearchDocsTool(server: McpServer, engine: SearchEngine): void {
   // NOTE: ツール description は OpenAI 系クライアント（MCP→function calling ブリッジ）で
@@ -13,8 +17,7 @@ export function registerSearchDocsTool(server: McpServer, engine: SearchEngine):
   server.registerTool(
     'search_docs',
     {
-      description: '伺か（UKADOC・SSPヘルプ）・YAYA・里々・蒼空・湊・Pasta の技術ドキュメントをキーワード検索する。各件の summary は本文の先頭500文字（要約ではない）。全文は get_doc で取得。'
-        + 'query は単語1つのみ（空白区切りや自然文は0件になる）。',
+      description: SEARCH_DOCS_DESCRIPTION,
       inputSchema: z.object({
         query: z.string().min(1).describe(
           `検索語。クエリ全体を1個の部分文字列として照合する単純検索（部分一致/大小無視/全角半角無視）。分かち書き・AND/OR無し。
@@ -26,7 +29,7 @@ OK: "OnBoot" "選択肢" "REPLACE" "\\q" "surfaces.txt" ／ NG（0件）: "文�
         category: z.enum(CATEGORY_KEYS as [Category, ...Category[]]).optional()
           .describe('カテゴリで絞り込み（list_categories で確認可能）'),
         source: z.enum(SOURCE_VALUES).optional()
-          .describe('ソースで絞り込み: ukadoc / ssp_help / yaya_docs / satori_docs / aosora_wiki / minato_docs / pasta_docs'),
+          .describe(`ソースで絞り込み: ${SOURCE_VALUES.join(' / ')}`),
         limit: z.number().int().min(1).max(50).default(10)
           .describe('返却件数の上限（デフォルト10、最大50）'),
       }),

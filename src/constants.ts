@@ -4,8 +4,70 @@
 
 import type { Source } from './types.js';
 
-/** 全ソース種別（単一ソース。types.ts の Source 型と各所の zod enum がここから派生） */
-export const SOURCE_VALUES = ['ukadoc', 'ssp_help', 'yaya_docs', 'satori_docs', 'aosora_wiki', 'minato_docs', 'pasta_docs'] as const;
+// ============================================================
+// ソース定義（単一ソース）
+// ソースの追加・改名はここだけを直す。Source 型・zod enum・必須ソース検査・
+// サーバー instructions・ツール description はすべてここから組み立てる。
+// ============================================================
+
+export interface SourceInfo {
+  /** instructions の一覧に出す表示名 */
+  name: string;
+  /** search_docs の description に並べる短い名前 */
+  shortName: string;
+  /** instructions の一覧に出す収録内容 */
+  description: string;
+  /** get_doc の id 例（id 形式はソースごとに異なる） */
+  exampleId: string;
+}
+
+export const SOURCES = {
+  ukadoc: {
+    name: 'UKADOC',
+    shortName: 'UKADOC',
+    description: 'SSP公式仕様書（さくらスクリプト、SHIORIイベント、設定ファイル仕様、プロトコル規格）',
+    exampleId: 'ukadoc:list_sakura_script:tag_s',
+  },
+  ssp_help: {
+    name: 'SSPヘルプ',
+    shortName: 'SSPヘルプ',
+    description: 'SSP本体の使い方、機能、設定画面の各項目、FAQ、開発者向け機能',
+    exampleId: 'ssphelp:config-ghost',
+  },
+  yaya_docs: {
+    name: 'YAYA docs',
+    shortName: 'YAYA',
+    description: 'YAYA SHIORIの文法、組み込み関数、実践Tips',
+    exampleId: 'yaya:functions/REPLACE',
+  },
+  satori_docs: {
+    name: '里々 docs',
+    shortName: '里々',
+    description: '里々SHIORIの文法、SHIORIとしての動作、システム変数、内蔵関数、ssu',
+    exampleId: 'satori:functions/set',
+  },
+  aosora_wiki: {
+    name: '蒼空(Aosora) Wiki',
+    shortName: '蒼空',
+    description: '蒼空スクリプトの文法、組み込み機能、発展的トピック',
+    exampleId: 'aosora:04_04_変数',
+  },
+  minato_docs: {
+    name: '湊 docs',
+    shortName: '湊',
+    description: '湊（Minato）SHIORIの文法、トーク制御、ビルトイン関数、里々・YAYAからの移行ガイド',
+    exampleId: 'minato:func/builtin',
+  },
+  pasta_docs: {
+    name: 'Pasta docs',
+    shortName: 'Pasta',
+    description: 'Pasta SHIORIのPasta DSL文法、Lua API、SHIORIイベント、デバッグ、内部設計',
+    exampleId: 'pasta:grammar/markers',
+  },
+} as const satisfies Record<string, SourceInfo>;
+
+/** 全ソース種別（SOURCES の定義順。types.ts の Source 型と各所の zod enum がここから派生） */
+export const SOURCE_VALUES = Object.keys(SOURCES) as [keyof typeof SOURCES, ...(keyof typeof SOURCES)[]];
 
 /** インデックスが stale とみなされるまでの日数 */
 export const STALE_AFTER_DAYS = 7;
