@@ -26,6 +26,7 @@ export interface DocEntry {
    * - satori_docs: `satori:{dir}/{ファイルstem}` (例: satori:functions/set)
    * - aosora_wiki: `aosora:{ファイルstem}` (例: aosora:04_04_変数)
    * - minato_docs: `minato:{src からのパス stem}` (例: minato:func/builtin)
+   * - pasta_docs: `pasta:{src からのパス stem}` (例: pasta:grammar/markers)
    */
   id: string;
   title: string;
@@ -35,7 +36,7 @@ export interface DocEntry {
   content: string;
   /** 元ページURL */
   url: string;
-  /** 元ページの生 Markdown の URL（Markdown が元のソース: yaya_docs / satori_docs / aosora_wiki / minato_docs のみ） */
+  /** 元ページの生 Markdown の URL（Markdown が元のソース: yaya_docs / satori_docs / aosora_wiki / minato_docs / pasta_docs のみ） */
   rawUrl?: string;
 }
 

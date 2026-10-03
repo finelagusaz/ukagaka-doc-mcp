@@ -13,3 +13,6 @@
 [submodule "docs/minato"]
 	path = docs/minato
 	url = https://github.com/mizuki-yura/minato.git
+[submodule "docs/pasta"]
+	path = docs/pasta
+	url = https://github.com/ekicyou/pasta.git

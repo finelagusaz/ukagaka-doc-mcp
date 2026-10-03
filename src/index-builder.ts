@@ -4,7 +4,7 @@ import { INDEX_SCHEMA_VERSION } from './constants.js';
 import { findDuplicateIds } from './index-validation.js';
 import type { DocEntry, IndexFile, Source } from './types.js';
 
-const REQUIRED_SOURCES: Source[] = ['ukadoc', 'ssp_help', 'yaya_docs', 'satori_docs', 'aosora_wiki', 'minato_docs'];
+const REQUIRED_SOURCES: Source[] = ['ukadoc', 'ssp_help', 'yaya_docs', 'satori_docs', 'aosora_wiki', 'minato_docs', 'pasta_docs'];
 const INVALID_PAGE_MARKERS = ['有効なWikiNameではありません'];
 
 export function buildIndexFile(entries: DocEntry[], generatedAt = new Date().toISOString()): IndexFile {

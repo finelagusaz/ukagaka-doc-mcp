@@ -59,6 +59,14 @@ const validEntries: DocEntry[] = [
     content: 'f',
     url: 'https://example.com/f',
   },
+  {
+    id: 'pasta:grammar/markers',
+    title: 'キーワード・マーカー',
+    source: 'pasta_docs',
+    category: 'pasta_grammar',
+    content: 'g',
+    url: 'https://example.com/g',
+  },
 ];
 
 const withoutSource = (source: Source) => validEntries.filter(entry => entry.source !== source);
@@ -78,6 +86,10 @@ describe('index-builder', () => {
 
   it('minato_docs が欠けるとビルド失敗する', () => {
     expect(() => buildIndexFile(withoutSource('minato_docs'))).toThrow(/Missing entries for required source: minato_docs/);
+  });
+
+  it('pasta_docs が欠けるとビルド失敗する', () => {
+    expect(() => buildIndexFile(withoutSource('pasta_docs'))).toThrow(/Missing entries for required source: pasta_docs/);
   });
 
   it('重複 id があるとビルド失敗する', () => {

@@ -2,7 +2,7 @@
 
 伺か（Ukagaka）の技術ドキュメントを検索する MCP サーバーです。
 
-UKADOC・SSP ヘルプ・YAYA docs・里々 docs・蒼空 Wiki・湊 docs のスナップショットを同梱しており、stdio モード（デフォルト）では**ランタイムで外部ネットワークにアクセスしません**。
+UKADOC・SSP ヘルプ・YAYA docs・里々 docs・蒼空 Wiki・湊 docs・Pasta docs のスナップショットを同梱しており、stdio モード（デフォルト）では**ランタイムで外部ネットワークにアクセスしません**。
 
 ## 使い方
 
@@ -86,6 +86,7 @@ npx ukagaka-doc-mcp --http --host 0.0.0.0 --port 9000   # listen 先を変更
 | 里々 docs（[satori-docs](https://github.com/ukatech/satori-docs)） | 里々スクリプト・ssu のリファレンス |
 | 蒼空(aosora) Wiki | 蒼空 shiori/GHOST 開発ガイド |
 | 湊 docs（[minato](https://mizuki-yura.github.io/minato/)） | 湊（Minato）SHIORI のリファレンス・里々/YAYA からの移行ガイド |
+| Pasta docs（[pasta](https://ekicyou.github.io/pasta/)） | Pasta SHIORI の Pasta DSL 文法・Lua API・デバッグ・内部設計 |
 
 `data/index.json` として同梱済みです。週1回 CI が自動更新します。
 
@@ -144,4 +145,4 @@ npm tarball に含まれるファイル：
 
 実装コードは **MIT License**（`LICENSE` 参照）。
 
-同梱の `data/index.json` は UKADOC・SSP ヘルプ・YAYA docs・里々 docs・蒼空 Wiki・湊 docs を元に生成した外部由来データです。MIT License での再ライセンスは行っていません。利用・再配布時は上流の権利関係を別途確認してください（`NOTICE.md` 参照）。
+同梱の `data/index.json` は UKADOC・SSP ヘルプ・YAYA docs・里々 docs・蒼空 Wiki・湊 docs・Pasta docs を元に生成した外部由来データです。MIT License での再ライセンスは行っていません。利用・再配布時は上流の権利関係を別途確認してください（`NOTICE.md` 参照）。

@@ -18,7 +18,7 @@
 
 ### 3.1 対象ソース
 
-本サーバーは以下の6ソースのみを対象とする。
+本サーバーは以下の7ソースのみを対象とする。
 
 1. UKADOC (`docs/ukadoc/manual/`)
 2. SSP ヘルプ (`docs/ukadoc/ssphelp_src/`、`https://ssp.shillest.net/ukadoc/ssphelp/`)
@@ -26,6 +26,7 @@
 4. 里々 docs (`docs/satori-docs/`、`https://github.com/ukatech/satori-docs`)
 5. 蒼空 Wiki (`https://github.com/kanadelab/aosora-shiori/wiki`)
 6. 湊 docs (`docs/minato/docs/src/`、`https://github.com/mizuki-yura/minato`)
+7. Pasta docs (`docs/pasta/book/src/`、`https://github.com/ekicyou/pasta`)
 
 ### 3.2 非スコープ
 
@@ -48,7 +49,8 @@
 4. 里々 docs をローカルMarkdownからパースする
 5. 蒼空 Wiki をGitHub Wiki取得してパースする
 6. 湊 docs をローカルMarkdownからパースする
-7. 6ソースを統合して `data/index.json` を生成する
+7. Pasta docs をローカルMarkdownからパースする
+8. 7ソースを統合して `data/index.json` を生成する
 
 ### 4.2 ランタイム
 
@@ -64,7 +66,7 @@
 ### 5.1 Source
 
 ```ts
-type Source = 'ukadoc' | 'ssp_help' | 'yaya_docs' | 'satori_docs' | 'aosora_wiki' | 'minato_docs';
+type Source = 'ukadoc' | 'ssp_help' | 'yaya_docs' | 'satori_docs' | 'aosora_wiki' | 'minato_docs' | 'pasta_docs';
 ```
 
 ### 5.2 Category
@@ -103,7 +105,13 @@ type Category =
   | 'minato_grammar'
   | 'minato_talk'
   | 'minato_other'
-  | 'minato_migration';
+  | 'minato_migration'
+  | 'pasta_startup'
+  | 'pasta_grammar'
+  | 'pasta_lua'
+  | 'pasta_debug'
+  | 'pasta_reference'
+  | 'pasta_internals';
 ```
 
 ### 5.3 DocEntry
@@ -129,7 +137,7 @@ type DocEntry = {
 - `content` は全文でなければならない
 - `content` は保存時に要約化してはならない
 - `url` はそのエントリの元ページまたは元セクションを指さなければならない
-- `rawUrl` は元のソースが Markdown のソース（YAYA docs・里々 docs・蒼空 Wiki・湊 docs）の全エントリに付与し、元の Markdown を指さなければならない。元のソースが HTML のソース（UKADOC・SSP ヘルプ）には付与してはならない
+- `rawUrl` は元のソースが Markdown のソース（YAYA docs・里々 docs・蒼空 Wiki・湊 docs・Pasta docs）の全エントリに付与し、元の Markdown を指さなければならない。元のソースが HTML のソース（UKADOC・SSP ヘルプ）には付与してはならない
 
 ### 5.4 SearchEntry
 
@@ -216,6 +224,12 @@ type IndexFile = {
 - 1ページ1エントリとし、`minato:{path}` とする（例: `minato:func/builtin`）
 - `path` は mdBook のソースディレクトリ `docs/src/` からの相対パスから拡張子 `.md` を除いたもの（例: `minato:include`、`minato:README`）とする
 - 対象ページは上流サイトの目次 `docs/src/SUMMARY.md` から決め、カテゴリは `path` の先頭要素から決める
+
+#### Pasta docs
+
+- 1ページ1エントリとし、`pasta:{path}` とする（例: `pasta:grammar/markers`）
+- `path` は mdBook のソースディレクトリ `book/src/` からの相対パスから拡張子 `.md` を除いたもの（例: `pasta:introduction`、`pasta:lua/modules/enc`）とする
+- 対象ページは上流サイトの目次 `book/src/SUMMARY.md` から決め、カテゴリは `path` の先頭要素から決める
 
 ## 7. 収集・正規化仕様
 
@@ -304,7 +318,7 @@ Wikiリンクは取得前に正規化しなければならない。
 
 `npm run build:index` は、以下をすべて満たしたときのみ成功してよい。
 
-- 必須6ソースの取得・パースが完了している
+- 必須7ソースの取得・パースが完了している
 - 重複 `id` が存在しない
 - 無効ページが含まれていない
 - 各ソースが空でない
@@ -328,7 +342,7 @@ Wikiリンクは取得前に正規化しなければならない。
 
 ### 9.4 部分成功の禁止
 
-- UKADOC だけ成功、SSP ヘルプ/YAYA/里々/蒼空/湊失敗のような部分成功を正規成果物として出力してはならない
+- UKADOC だけ成功、SSP ヘルプ/YAYA/里々/蒼空/湊/Pasta失敗のような部分成功を正規成果物として出力してはならない
 - ビルドは fail-open ではなく fail-closed でなければならない
 
 ## 10. ランタイム仕様

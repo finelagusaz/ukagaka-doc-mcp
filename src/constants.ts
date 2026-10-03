@@ -5,7 +5,7 @@
 import type { Source } from './types.js';
 
 /** 全ソース種別（単一ソース。types.ts の Source 型と各所の zod enum がここから派生） */
-export const SOURCE_VALUES = ['ukadoc', 'ssp_help', 'yaya_docs', 'satori_docs', 'aosora_wiki', 'minato_docs'] as const;
+export const SOURCE_VALUES = ['ukadoc', 'ssp_help', 'yaya_docs', 'satori_docs', 'aosora_wiki', 'minato_docs', 'pasta_docs'] as const;
 
 /** インデックスが stale とみなされるまでの日数 */
 export const STALE_AFTER_DAYS = 7;
@@ -189,6 +189,32 @@ export const CATEGORIES = {
   minato_migration: {
     source: 'minato_docs' as Source,
     label: '里々・YAYAから湊への移行ガイド',
+  },
+
+  // --- Pasta docs ---
+  pasta_startup: {
+    source: 'pasta_docs' as Source,
+    label: 'Pasta入門（はじめに・前提環境と準備・最初のゴースト）',
+  },
+  pasta_grammar: {
+    source: 'pasta_docs' as Source,
+    label: 'Pasta DSL文法（マーカー・ブロック構造・Call/Jump・変数・単語・アクター辞書 等）',
+  },
+  pasta_lua: {
+    source: 'pasta_docs' as Source,
+    label: 'Pasta Lua API（公開モジュール・SHIORIイベントとハンドラ・ランタイムAPI・記述パターン）',
+  },
+  pasta_debug: {
+    source: 'pasta_docs' as Source,
+    label: 'Pastaデバッグ（VSCode接続・ソースレベルデバッグ・開発支援アクション・トラブルシューティング）',
+  },
+  pasta_reference: {
+    source: 'pasta_docs' as Source,
+    label: 'Pastaリファレンス（起動シーケンスとモジュール解決・pasta.toml・外部リンク集）',
+  },
+  pasta_internals: {
+    source: 'pasta_docs' as Source,
+    label: 'Pasta内部設計（コントリビュータ向け: トランスパイラ・実行モデル・SHIORI層 等）',
   },
 } as const;
 

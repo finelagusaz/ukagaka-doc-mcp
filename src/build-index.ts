@@ -2,7 +2,7 @@
  * ビルドスクリプト
  *
  * npm run build:index で実行する。
- * 全ソース（UKADOC, SSP ヘルプ, YAYA docs, 里々 docs, 蒼空Wiki, 湊 docs）をパースして
+ * 全ソース（UKADOC, SSP ヘルプ, YAYA docs, 里々 docs, 蒼空Wiki, 湊 docs, Pasta docs）をパースして
  * data/index.json を生成する。
  *
  * Usage:
@@ -18,6 +18,7 @@ import { parseYayaDocs } from './parser/yaya-docs-parser.js';
 import { parseSatoriDocs } from './parser/satori-docs-parser.js';
 import { parseAosoraWiki } from './parser/aosora-parser.js';
 import { parseMinatoDocs } from './parser/minato-docs-parser.js';
+import { parsePastaDocs } from './parser/pasta-docs-parser.js';
 import { buildIndexFile, writeIndexAtomically } from './index-builder.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -69,6 +70,13 @@ async function main(): Promise<void> {
   const minatoEntries = parseMinatoDocs(minatoDocsDir);
   entries.push(...minatoEntries);
   console.error(`[build-index] 湊 docs: ${minatoEntries.length} entries`);
+
+  // --- Phase 7: Pasta docs ---
+  console.error('[build-index] Parsing Pasta docs...');
+  const pastaDocsDir = resolve(__dirname, '..', 'docs', 'pasta', 'book', 'src');
+  const pastaEntries = parsePastaDocs(pastaDocsDir);
+  entries.push(...pastaEntries);
+  console.error(`[build-index] Pasta docs: ${pastaEntries.length} entries`);
 
   // --- 統合 ---
   const indexFile = buildIndexFile(entries);

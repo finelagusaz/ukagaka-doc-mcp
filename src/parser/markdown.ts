@@ -1,5 +1,5 @@
 /**
- * Markdown → プレーンテキスト変換（蒼空 Wiki / YAYA docs / 里々 docs / 湊 docs パーサー共用）
+ * Markdown → プレーンテキスト変換（蒼空 Wiki / YAYA docs / 里々 docs / 湊 docs / Pasta docs パーサー共用）
  */
 
 /**
