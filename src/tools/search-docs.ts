@@ -13,7 +13,7 @@ export function registerSearchDocsTool(server: McpServer, engine: SearchEngine):
   server.registerTool(
     'search_docs',
     {
-      description: '伺か・YAYA・里々・蒼空の技術ドキュメントをキーワード検索する。各件の summary は本文の先頭500文字（要約ではない）。全文は get_doc で取得。'
+      description: '伺か（UKADOC・SSPヘルプ）・YAYA・里々・蒼空・湊・Pasta の技術ドキュメントをキーワード検索する。各件の summary は本文の先頭500文字（要約ではない）。全文は get_doc で取得。'
         + 'query は単語1つのみ（空白区切りや自然文は0件になる）。',
       inputSchema: z.object({
         query: z.string().min(1).describe(
