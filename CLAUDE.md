@@ -13,6 +13,7 @@ npm test             # vitest run
 npm run dev          # tsx で直接起動（開発用）
 npm start            # dist/index.js を起動
 npm run refresh:index  # サブモジュール更新 + index.json 再生成
+npm run build:index    # 今の submodule のまま index.json だけ再生成（パーサー変更時はこちら。PR に index.json も含める）
 ```
 
 ## Architecture
@@ -25,6 +26,7 @@ src/
   index-updater.ts    # HTTP モード用のリモート index.json 定期取得・再ロード
   server.ts           # MCP サーバー定義
   bootstrap.ts        # index.json 読み込み → SearchEngine 初期化
+  constants.ts        # SOURCES（ソース定義の単一ソース。instructions・ツール説明・enum はここから組み立てる）・CATEGORIES
   search/engine.ts    # 全文検索エンジン
   tools/              # MCP ツール（search_docs, get_doc, list_categories）
   parser/             # ビルド時のみ使用（HTML → index.json 生成）
