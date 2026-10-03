@@ -56,6 +56,7 @@ jobs:
               'docs/satori-docs',
               'docs/aosora-wiki',
               'docs/minato',
+              'docs/pasta',
               'package.json',
               'package-lock.json',
             ]);

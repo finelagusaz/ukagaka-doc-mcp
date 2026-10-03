@@ -18,6 +18,7 @@ documentation sources, including:
 - 里々 docs (ukatech/satori-docs)
 - 蒼空(aosora) Wiki
 - 湊 docs (mizuki-yura/minato docs/src)
+- Pasta docs (ekicyou/pasta book/src)
 
 This generated data is not re-licensed under the MIT License by this
 repository. It remains subject to the terms, permissions, and restrictions of

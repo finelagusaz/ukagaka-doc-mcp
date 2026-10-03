@@ -1,6 +1,6 @@
 # ukagaka-doc-mcp
 
-伺か技術ドキュメント（UKADOC / SSP ヘルプ / YAYA docs / 里々 docs / 蒼空 Wiki / 湊 docs）を検索する MCP サーバー。
+伺か技術ドキュメント（UKADOC / SSP ヘルプ / YAYA docs / 里々 docs / 蒼空 Wiki / 湊 docs / Pasta docs）を検索する MCP サーバー。
 stdio モード（デフォルト）ではランタイムで外部通信せず `data/index.json` のみを使用する。
 `--http` モード（Streamable HTTP、ステートレス）のみ、起動直後と24時間ごとに GitHub raw の `data/index.json` を取得してメモリ上で差し替える。
 
@@ -30,12 +30,14 @@ src/
   parser/             # ビルド時のみ使用（HTML → index.json 生成）
     ukadoc-parser.ts  # UKADOC HTML パーサー
     ssphelp-parser.ts # SSP ヘルプ（ukadoc submodule の ssphelp_src）パーサー
-    markdown.ts       # Markdown → プレーンテキスト（YAYA docs / 里々 docs / 蒼空 / 湊 共用）
+    markdown.ts       # Markdown → プレーンテキスト（YAYA docs / 里々 docs / 蒼空 / 湊 / Pasta 共用）
+    mdbook.ts         # mdBook ソース（SUMMARY.md 目次）共通パーサー（湊 / Pasta 共用）
     yaya-docs-parser.ts # YAYA docs（GitHub リポジトリ submodule）パーサー
     satori-docs-parser.ts # 里々 docs（GitHub リポジトリ submodule）パーサー
     aosora-parser.ts  # 蒼空Wiki（GitHub Wiki submodule）パーサー
     minato-docs-parser.ts # 湊 docs（GitHub リポジトリ submodule の mdBook ソース）パーサー
-  index-builder.ts    # 6パーサーを束ねてindex.json生成
+    pasta-docs-parser.ts # Pasta docs（GitHub リポジトリ submodule の mdBook ソース）パーサー
+  index-builder.ts    # 7パーサーを束ねてindex.json生成
   index-validation.ts # index.json スキーマ検証
 data/
   index.json          # ドキュメントスナップショット（npm tarball に含む）
@@ -45,6 +47,7 @@ docs/
   satori-docs/        # git submodule（里々 docs Markdown ソース）
   aosora-wiki/        # git submodule（蒼空 Wiki Markdown ソース）
   minato/             # git submodule（湊リポジトリ。docs/src/ が mdBook の Markdown ソース）
+  pasta/              # git submodule（Pasta リポジトリ。book/src/ が mdBook の Markdown ソース）
 ```
 
 ## CI/CD
