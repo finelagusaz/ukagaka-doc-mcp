@@ -1,5 +1,6 @@
 import type { McpServer } from '@modelcontextprotocol/server';
 import { z } from 'zod';
+import { SOURCES } from '../constants.js';
 import type { SearchEngine } from '../search/engine.js';
 
 export function registerGetDocTool(server: McpServer, engine: SearchEngine): void {
@@ -12,7 +13,7 @@ export function registerGetDocTool(server: McpServer, engine: SearchEngine): voi
         + 'id の形式はソースごとに異なり、search_docs の結果の id がそのまま使える。存在しない id には status: "not_found" を返す。',
       inputSchema: z.object({
         id: z.string().describe(
-          'canonical_id（例: "yaya:functions/REPLACE", "satori:functions/set", "ukadoc:list_sakura_script:tag_s", "ssphelp:config-ghost", "aosora:04_04_変数", "minato:func/builtin", "pasta:grammar/markers"）',
+          `canonical_id（例: ${Object.values(SOURCES).map(s => `"${s.exampleId}"`).join(', ')}）`,
         ),
       }),
     },

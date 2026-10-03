@@ -4,7 +4,7 @@
 
 import type { CATEGORIES, SOURCE_VALUES } from './constants.js';
 
-// ソース種別（constants.ts の SOURCE_VALUES から派生）
+// ソース種別（constants.ts の SOURCES から派生）
 export type Source = (typeof SOURCE_VALUES)[number];
 
 // カテゴリID（CATEGORIES定数のキー）
@@ -19,14 +19,9 @@ export type Category = keyof typeof CATEGORIES;
  * index.json に保存される形式。
  */
 export interface DocEntry {
-  /** canonical_id
+  /** canonical_id（形式はソースごとに異なる。各ソースの例は constants.ts の SOURCES[*].exampleId）
    * - ukadoc: `ukadoc:{filename}:{section_anchor}`
-   * - yaya_docs: `yaya:{dir}/{ファイルstem}` (例: yaya:functions/REPLACE)
-   * - ssp_help: `ssphelp:{ページ名}` (例: ssphelp:config-ghost)
-   * - satori_docs: `satori:{dir}/{ファイルstem}` (例: satori:functions/set)
-   * - aosora_wiki: `aosora:{ファイルstem}` (例: aosora:04_04_変数)
-   * - minato_docs: `minato:{src からのパス stem}` (例: minato:func/builtin)
-   * - pasta_docs: `pasta:{src からのパス stem}`（導入部）/ `pasta:{パス stem}:{## 見出しのアンカー}` (例: pasta:grammar/markers, pasta:grammar/variables:ローカル変数)
+   * - Markdown 由来のソース: `{接頭辞}:{ファイルパス stem}`（pasta_docs の節は末尾に `:{## 見出しのアンカー}`）
    */
   id: string;
   title: string;
