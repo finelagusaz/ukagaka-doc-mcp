@@ -198,7 +198,7 @@ function splitSections(lines: string[]): Section[] {
   const sections: Section[] = [{ lines: [] }];
 
   lines.forEach((line, i) => {
-    const heading = outside[i] ? line.match(/^(#{1,6})\s+(.+?)\s*#*\s*$/) : null;
+    const heading = outside[i] ? line.match(/^(#{1,6})\s+(.+?)(?:\s+#+)?\s*$/) : null;
     if (!heading) {
       sections[sections.length - 1].lines.push(line);
       return;

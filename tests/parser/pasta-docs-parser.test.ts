@@ -31,6 +31,7 @@ describe('parsePastaDocs', () => {
       'pasta:grammar/markers',
       'pasta:grammar/markers:マーカー一覧',
       'pasta:grammar/markers:-単語参照',
+      'pasta:grammar/markers:c',
       'pasta:grammar/markers:マーカー一覧-1',
       'pasta:lua/modules/index',
       'pasta:lua/modules/enc',
@@ -57,7 +58,9 @@ describe('parsePastaDocs', () => {
     expect(section?.rawUrl).toBe('https://raw.githubusercontent.com/ekicyou/pasta/refs/heads/main/book/src/grammar/markers.md');
     expect(section?.content).toContain('識別子（Identifier）');
     expect(section?.content).toContain('## これは見出しではない\n---');
+    // 閉じの # 列（前に空白があるもの）だけを落とし、`C#` の # は見出しの一部として残す
     expect(byId.get('pasta:grammar/markers:-単語参照')?.title).toBe('キーワード・マーカー - @ 単語参照（＠）');
+    expect(byId.get('pasta:grammar/markers:c')?.title).toBe('キーワード・マーカー - C#');
   });
 
   it('パスの先頭要素からカテゴリを割り当てる（入れ子のページも先頭要素で決まる）', () => {
