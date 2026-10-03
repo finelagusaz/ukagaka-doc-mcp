@@ -60,4 +60,25 @@ describe('SearchEngine', () => {
     expect(engine.search('replace').results[0].rawUrl).toBe('https://example.com/2.md');
     expect(engine.search('\\s0').results[0]).not.toHaveProperty('rawUrl');
   });
+
+  it('全角半角を NFKC で同一視して照合し、返す本文は原文のまま', () => {
+    const engine = new SearchEngine();
+    engine.load([
+      ...entries,
+      {
+        id: 'pasta:grammar/variables',
+        title: '変数',
+        source: 'pasta_docs',
+        category: 'pasta_grammar',
+        content: '＠＄名前 は単語参照。ｶﾀｶﾅ もある。',
+        url: 'https://example.com/3',
+      },
+    ]);
+
+    expect(engine.search('@$').results.map(r => r.id)).toEqual(['pasta:grammar/variables']);
+    expect(engine.search('＠＄').results.map(r => r.id)).toEqual(['pasta:grammar/variables']);
+    expect(engine.search('カタカナ').total).toBe(1);
+    expect(engine.search('＼ｓ０').results[0].id).toBe('ukadoc:list_sakura_script:tag_s0');
+    expect(engine.search('@$').results[0].summary).toBe('＠＄名前 は単語参照。ｶﾀｶﾅ もある。');
+  });
 });
