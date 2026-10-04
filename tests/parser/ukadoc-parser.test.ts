@@ -10,9 +10,10 @@ describe('parseUkadocFile', () => {
 
     expect(entries).toHaveLength(1);
     expect(entries[0]).toMatchObject({
-      id: 'ukadoc:list_sakura_script:tag_s0',
+      id: 'ukadoc:list_sakura_script:_s0',
       title: '\\s0',
       category: 'sakurascript',
+      url: 'https://ssp.shillest.net/ukadoc/manual/list_sakura_script.html#_s0',
     });
     expect(entries[0].content).toContain('サーフェス0に切り替える。');
   });
@@ -41,5 +42,33 @@ describe('parseUkadocFile', () => {
 
     expect(entries).toHaveLength(3);
     expect(new Set(entries.map(entry => entry.id)).size).toBe(3);
+  });
+
+  it('URL には元ページに実在するアンカーだけを付ける', () => {
+    const html = `
+      <!doctype html><html><body>
+        <h1 id="page-title">spec</h1>
+        <dl id="OnBoot,起動"><dt class="entry">OnBoot</dt><dd>a</dd></dl>
+        <section id="request">
+          <dl>
+            <dt class="entry">メソッド</dt><dd>b</dd>
+            <dt class="entry">バージョン</dt><dd>c</dd>
+          </dl>
+        </section>
+        <dl><dt class="entry">孤立</dt><dd>d</dd></dl>
+      </body></html>
+    `;
+    const entries = parseUkadocFile(html, 'spec_shiori3.html', 'protocol');
+    const base = 'https://ssp.shillest.net/ukadoc/manual/spec_shiori3.html';
+
+    expect(entries.map(entry => entry.url)).toEqual([
+      `${base}#${encodeURIComponent('OnBoot,起動')}`,
+      `${base}#request`,
+      `${base}#request`,
+      base,
+    ]);
+    // id は dl id があればそれを使い、無ければページ内で一意な値を生成する
+    expect(entries[0].id).toBe('ukadoc:spec_shiori3:OnBoot,起動');
+    expect(new Set(entries.map(entry => entry.id)).size).toBe(4);
   });
 });

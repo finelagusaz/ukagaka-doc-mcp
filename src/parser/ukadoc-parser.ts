@@ -130,13 +130,9 @@ export function parseUkadocFile(
       const entryName = $dt.text().trim();
       if (!entryName) return;
 
-      // id 属性または前のアンカーから anchor を取得
-      const anchor = createUkadocAnchor(
-        $dt.attr('id') || $dt.prev('a').attr('name'),
-        entryName,
-        fallbackAnchorCounts,
-        usedAnchors,
-      );
+      // UKADOC の実アンカーは dt を包む <dl id> に付く。dt 自身の id・直前の <a name> も一応見る
+      const ownAnchor = $dt.attr('id') || $dt.prev('a').attr('name') || $dt.parent('dl').attr('id');
+      const anchor = createUkadocAnchor(ownAnchor, entryName, fallbackAnchorCounts, usedAnchors);
 
       // dd (説明) を取得
       const $dd = $dt.next('dd');
@@ -157,7 +153,7 @@ export function parseUkadocFile(
         source: 'ukadoc',
         category,
         content,
-        url: `${baseUrl}#${anchor}`,
+        url: buildUkadocUrl(baseUrl, ownAnchor || findAncestorAnchor($dt)),
       });
     });
 
@@ -200,7 +196,7 @@ export function parseUkadocFile(
         source: 'ukadoc',
         category,
         content,
-        url: `${baseUrl}#${anchor}`,
+        url: buildUkadocUrl(baseUrl, $header.attr('id') || findAncestorAnchor($header)),
       });
     });
 
@@ -239,6 +235,21 @@ function getSectionTitle($: cheerio.CheerioAPI, $el: cheerio.Cheerio<Element>): 
   return '';
 }
 
+/** 要素自身にアンカーが無いとき、元ページで飛べる最寄りの位置として祖先の id を使う。 */
+function findAncestorAnchor($el: cheerio.Cheerio<Element>): string | undefined {
+  return $el.parents('[id]').first().attr('id');
+}
+
+/**
+ * 元ページに実在するアンカーだけを URL に付ける。
+ * id 用に生成したアンカー（`:1` 付き等）はページ上に存在しないので使わない。
+ */
+function buildUkadocUrl(baseUrl: string, anchor: string | undefined): string {
+  const trimmed = anchor?.trim();
+  return trimmed ? `${baseUrl}#${encodeURIComponent(trimmed)}` : baseUrl;
+}
+
+/** エントリ id 用のアンカー。ページ内で一意になるよう、無ければ生成し、重複には連番を付ける。 */
 function createUkadocAnchor(
   explicitAnchor: string | undefined,
   rawTitle: string,
