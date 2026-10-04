@@ -35,6 +35,10 @@ const SECTION_CATEGORIES: Record<string, Category> = {
 /** 改行を入れるブロック要素 */
 const BLOCK_SELECTOR = 'p, div, h1, h2, h3, h4, h5, h6, li, dt, dd, table, ul, ol, dl, pre, blockquote, section';
 
+/** pre を退避した位置の目印。原稿に現れない私用領域の文字で番号を挟む */
+const PRE_PLACEHOLDER = '';
+const PRE_PATTERN = new RegExp(`${PRE_PLACEHOLDER}(\\d+)${PRE_PLACEHOLDER}`, 'g');
+
 interface TocPage {
   place: string;
   section: string;
@@ -122,9 +126,22 @@ export function parseSspHelpHtml(html: string, place: string): { title: string; 
 
   const title = $('h1').first().text().replace(/\s+/g, ' ').trim() || place;
 
+  // pre は改行・字下げに意味があるので、空白の正規化が済むまで退避しておく
+  const preTexts: string[] = [];
+  $('pre').each((_, pre) => {
+    preTexts.push($(pre).text().replace(/^\r?\n/, '').replace(/\s+$/, ''));
+    $(pre).replaceWith(`<p>${PRE_PLACEHOLDER}${preTexts.length - 1}${PRE_PLACEHOLDER}</p>`);
+  });
+
   // ソース上の改行・字下げは HTML では意味を持たないので、先に空白へ潰す
   $('*').contents().each((_, node) => {
     if (node.type === 'text') node.data = node.data.replace(/\s+/g, ' ');
+  });
+
+  // 表のセル内の改行は行を割らないよう空白にする（詰めると英単語どうしが繋がる）
+  $('td br, th br').replaceWith(' ');
+  $('td, th').find(BLOCK_SELECTOR).each((_, el) => {
+    $(el).prepend(' ').append(' ');
   });
 
   // 表の行はセルを | で区切った 1 行にする（行の間に空行を挟まない）
@@ -143,7 +160,8 @@ export function parseSspHelpHtml(html: string, place: string): { title: string; 
     .map(line => line.replace(/\s+/g, ' ').trim())
     .join('\n')
     .replace(/\n{3,}/g, '\n\n')
-    .trim();
+    .trim()
+    .replace(PRE_PATTERN, (_, index: string) => preTexts[Number(index)]);
 
   return { title, content };
 }

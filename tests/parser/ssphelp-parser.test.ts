@@ -1,7 +1,7 @@
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import type { DocEntry } from '../../src/types.js';
 import { resolve } from 'node:path';
-import { parseSspHelp, parseToc } from '../../src/parser/ssphelp-parser.js';
+import { parseSspHelp, parseSspHelpHtml, parseToc } from '../../src/parser/ssphelp-parser.js';
 
 const fixtureDir = resolve('tests/fixtures/ssphelp');
 
@@ -71,6 +71,16 @@ describe('parseSspHelp', () => {
     expect(byId.get('ssphelp:dev')?.content).toBe(
       '見出しのないページ。\n\n| 機能 | ショートカット |\n| カレンダー | Ctrl - D |\n| 開発用パレット | Ctrl - Shift - D |\n\n表のあと。',
     );
+  });
+
+  it('pre は改行と字下げを保つ', () => {
+    const html = '<p>前</p>\n<pre><code>GET SHIORI/3.0\n  Charset: UTF-8\n\n*x*\n</code></pre>\n<p>後</p>';
+    expect(parseSspHelpHtml(html, 'p').content).toBe('前\n\nGET SHIORI/3.0\n  Charset: UTF-8\n\n*x*\n\n後');
+  });
+
+  it('表のセル内の br は行を割らずに空白にする', () => {
+    const html = '<table><tr><td>Sakura Script<br />reference</td><td><p>a</p><p>b</p></td></tr></table>';
+    expect(parseSspHelpHtml(html, 'p').content).toBe('| Sakura Script reference | a b |');
   });
 
   it('未知の最上位項目・目次に無い原稿・原稿の無いページを警告する（空の原稿は黙って除外）', () => {
