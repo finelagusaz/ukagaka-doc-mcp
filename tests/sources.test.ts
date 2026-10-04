@@ -21,4 +21,12 @@ describe('SOURCES', () => {
       expect(rows.some(row => row.startsWith(shortName.replace(/\s/g, ''))), shortName).toBe(true);
     }
   });
+
+  it('get_doc の説明に載せる exampleId が data/index.json に実在する', () => {
+    const index = JSON.parse(readFileSync('data/index.json', 'utf-8')) as { entries: { id: string }[] };
+    const ids = new Set(index.entries.map(entry => entry.id));
+    for (const { exampleId } of Object.values(SOURCES)) {
+      expect(ids.has(exampleId), exampleId).toBe(true);
+    }
+  });
 });

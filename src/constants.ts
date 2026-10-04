@@ -26,7 +26,7 @@ export const SOURCES = {
     name: 'UKADOC',
     shortName: 'UKADOC',
     description: 'SSP公式仕様書（さくらスクリプト、SHIORIイベント、設定ファイル仕様、プロトコル規格）',
-    exampleId: 'ukadoc:list_sakura_script:tag_s',
+    exampleId: 'ukadoc:list_shiori_event:OnBoot',
   },
   ssp_help: {
     name: 'SSPヘルプ',
