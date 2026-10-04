@@ -16,9 +16,12 @@ concurrency:
 
 jobs:
   release:
+    # 手動実行でも main 以外のブランチからは公開しない（--ref の選び間違いで未レビューのコードを出さない）
     if: >-
-      github.event_name == 'workflow_dispatch' ||
-      startsWith(github.event.head_commit.message, 'chore: refresh documentation snapshot')
+      github.ref == 'refs/heads/main' && (
+        github.event_name == 'workflow_dispatch' ||
+        startsWith(github.event.head_commit.message, 'chore: refresh documentation snapshot')
+      )
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository

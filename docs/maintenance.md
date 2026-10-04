@@ -159,7 +159,7 @@ stdio モードでは `@modelcontextprotocol/node` が引いてくる `hono` / `
 `release.yml` は次のいずれかでのみ発火する:
 
 1. `chore: refresh documentation snapshot` で**始まる** commit message が main に push（cron 経由の通常リリース）
-2. `workflow_dispatch`（手動）
+2. `workflow_dispatch`（手動。main 以外の ref を選んだ場合はジョブごと skip される）
 
 その他の commit message は publish しない。dep 系の `chore(deps):` 等は安全。
 
