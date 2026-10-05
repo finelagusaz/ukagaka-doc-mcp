@@ -11,7 +11,7 @@
  */
 
 import { getFreshnessWarning } from './bootstrap.js';
-import { INDEX_FETCH_TIMEOUT_MS } from './constants.js';
+import { INDEX_FETCH_TIMEOUT_MS, INDEX_FUTURE_TOLERANCE_MS } from './constants.js';
 import { parseAndValidateIndexFile } from './index-validation.js';
 import type { SearchEngine } from './search/engine.js';
 
@@ -111,6 +111,11 @@ export class IndexUpdater {
       console.error(warning);
     }
 
+    // 未来の generatedAt を一度受け入れると、以後の正常なインデックスがすべて not-newer になる
+    if (isFuture(indexFile.generatedAt, Date.now())) {
+      throw new Error(`Remote index generatedAt is in the future: ${indexFile.generatedAt}`);
+    }
+
     // 検証まで通ったレスポンスの ETag だけ記憶する
     this.etag = response.headers.get('etag') ?? undefined;
 
@@ -136,13 +141,18 @@ export class IndexUpdater {
   }
 }
 
+function isFuture(generatedAt: string, now: number): boolean {
+  return new Date(generatedAt).getTime() > now + INDEX_FUTURE_TOLERANCE_MS;
+}
+
 function isNewer(candidate: string, current: string): boolean {
   const candidateTime = new Date(candidate).getTime();
   if (isNaN(candidateTime)) {
     return false;
   }
   const currentTime = new Date(current).getTime();
-  if (isNaN(currentTime)) {
+  // 現在のものが未来日時（同梱インデックスの誤生成等）なら比較の基準にならないので差し替える
+  if (isNaN(currentTime) || isFuture(current, Date.now())) {
     return true;
   }
   return candidateTime > currentTime;

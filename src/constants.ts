@@ -88,6 +88,9 @@ export const INDEX_UPDATE_INTERVAL_MS = 24 * 60 * 60 * 1000;
 /** インデックス取得のタイムアウト (ms) */
 export const INDEX_FETCH_TIMEOUT_MS = 60 * 1000;
 
+/** リモートインデックスの generatedAt が現在時刻より先でも許す幅 (ms)。時計のずれ用 */
+export const INDEX_FUTURE_TOLERANCE_MS = 24 * 60 * 60 * 1000;
+
 /** インデックスファイルの現在のスキーマバージョン */
 export const INDEX_SCHEMA_VERSION = 1;
 
