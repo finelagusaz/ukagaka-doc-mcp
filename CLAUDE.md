@@ -57,7 +57,7 @@ docs/
 週次自動更新パイプライン（3ワークフロー連携）：
 
 1. `refresh-index-pr.yml` — 毎週月曜 cron / 手動実行。docs 更新 → patch version bump → PR 作成（auto-merge）
-2. `ci.yml` — PR / push で検証。auto-index-refresh ラベル付き PR はスコープ検証あり
+2. `ci.yml` — PR / push で検証。bot/refresh-index ブランチまたは auto-index-refresh ラベル付きの PR はスコープ検証あり
 3. `release.yml` — main push 時にコミットメッセージで判定 → npm publish → git tag → GitHub Release。`workflow_dispatch` で手動リリースも可能
 
 認証は全て自動更新方式（静的トークンは期限切れで壊れるため不採用）：

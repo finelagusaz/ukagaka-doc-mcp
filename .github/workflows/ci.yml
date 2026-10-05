@@ -36,8 +36,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # ラベルは PR 作成後に別 API で付くため、opened イベント時点で欠けることがある。ブランチ名でも判定する
       - name: Validate auto-refresh PR scope
-        if: github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'auto-index-refresh')
+        if: >-
+          github.event_name == 'pull_request' && (
+            github.head_ref == 'bot/refresh-index' ||
+            contains(github.event.pull_request.labels.*.name, 'auto-index-refresh')
+          )
         uses: actions/github-script@v9
         with:
           script: |

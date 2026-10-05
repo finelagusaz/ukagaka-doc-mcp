@@ -23,7 +23,7 @@ ukagaka-doc-mcp の運用・保守手順を、共同メンテナ向けにまと�
 | Workflow | Trigger | 役割 |
 |---|---|---|
 | `refresh-index-pr.yml` | cron `17 3 * * 1`（毎週月曜 12:17 JST） / `workflow_dispatch` | submodule 更新 → index 再生成 → patch version bump → PR 作成（auto-merge） |
-| `ci.yml` | `pull_request` / `push` to main / `workflow_dispatch` | build + test + `npm pack` 検証。`auto-index-refresh` ラベル PR には scope 検証あり |
+| `ci.yml` | `pull_request` / `push` to main / `workflow_dispatch` | build + test + `npm pack` 検証。`bot/refresh-index` ブランチまたは `auto-index-refresh` ラベルの PR には scope 検証あり |
 | `release.yml` | `push` to main で commit message 判定 / `workflow_dispatch` | npm publish (OIDC) + git tag + GitHub Release |
 
 通常時はこの 3 つが噛み合って週次リリースが流れる。人手介入が必要になるのは以下のケース:
@@ -203,8 +203,8 @@ npm run refresh:index
 
 PR にする場合の注意:
 
-- `auto-index-refresh` ラベルを **付けない**こと。ラベルが付くと `ci.yml` の scope 検証が動き、許可ファイル以外の変更で CI が落ちる
-- 許可ファイル: `data/index.json` / `docs/ukadoc` / `package.json`（version 行のみ） / `package-lock.json`（version 行のみ）
+- `auto-index-refresh` ラベルを **付けず**、ブランチ名に `bot/refresh-index` を使わないこと。どちらかに当たると `ci.yml` の scope 検証が動き、許可ファイル以外の変更で CI が落ちる
+- 許可ファイル: `data/index.json` / `docs/` 配下の各 submodule / `package.json`（version 行のみ） / `package-lock.json`（version 行のみ）
 
 人手のリフレッシュ PR を release に流したい場合は commit message を `chore: refresh documentation snapshot` にすること（cron 経由と同じ扱いで `release.yml` が動く）。
 
