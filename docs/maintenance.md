@@ -186,7 +186,17 @@ gh workflow run release.yml
 | OIDC: npm CLI が 11.5.1+ か | release.yml の `npm install -g "npm@>=11.5.1"` ステップ |
 | OIDC: `setup-node` に `registry-url` 未設定か | `.github/workflows/release.yml` の `Set up Node.js` ステップ |
 
-`release.yml` の Validate release state ステップは npm/tag/release の三位一体を検証している。途中まで成功して止まった場合、整合が崩れていると以後のリトライが弾かれる。手動で tag や release を消してから再実行すること。
+`release.yml` の Validate release state ステップは npm / tag / release の整合を検証し、次のように振る舞う:
+
+| 状態 | 動作 |
+|---|---|
+| npm 未公開・tag も release も無い | publish → tag → release |
+| npm 公開済み・tag と release が揃っている | 何もしない（成功） |
+| npm 公開済み・tag か release が欠けている（publish 後に止まった） | publish を飛ばし、欠けている方だけ作る。公開元コミット（`npm view <pkg>@<version> gitHead`）が実行コミットと一致する場合に限る |
+| tag が実行コミット以外を指している | 失敗 |
+| npm 未公開なのに tag か release がある | 失敗。tag / release を消してから再実行する |
+
+publish 後に tag push や release 作成で落ちた場合は、**同じ run を re-run するだけで復旧する**。
 
 ---
 
