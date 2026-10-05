@@ -82,9 +82,12 @@ describe('parseMinatoDocs', () => {
 
   it('未知の章・目次に無いページ・目次にあるが存在しないページを警告する（SUMMARY.md 自身は除く）', () => {
     expect(byId.has('minato:newsection/page')).toBe(false);
+    // Object.prototype のプロパティ名もカテゴリ表に無い章として扱う
+    expect(byId.has('minato:constructor/page')).toBe(false);
     expect(byId.has('minato:func/unlisted')).toBe(false);
     expect(warnings).toEqual(expect.arrayContaining([
       expect.stringContaining('unknown section, skipped: newsection/page'),
+      expect.stringContaining('unknown section, skipped: constructor/page'),
       expect.stringContaining('page not in SUMMARY.md, skipped: func/unlisted'),
       expect.stringContaining('page listed in SUMMARY.md not found: func/missing'),
     ]));

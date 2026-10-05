@@ -101,7 +101,7 @@ export function validateIndexFile(value: unknown): IndexValidationResult {
 
 /** カテゴリは1つのソースに属する。食い違うエントリは source と category の併用で絞ると消えるので落とす */
 export function isCategoryOfSource(category: Category, source: Source): boolean {
-  return CATEGORIES[category].source === source;
+  return Object.hasOwn(CATEGORIES, category) && CATEGORIES[category].source === source;
 }
 
 export function findDuplicateIds(entries: Array<Pick<DocEntry, 'id'>>): string[] {

@@ -81,7 +81,8 @@ export function parseUkadocManual(manualDir: string): DocEntry[] {
 
   for (const filename of htmlFiles) {
     const stem = basename(filename, '.html');
-    const category = FILE_CATEGORY_MAP[stem];
+    // 継承プロパティ（constructor 等）に当たらないよう自身のキーだけを引く
+    const category = Object.hasOwn(FILE_CATEGORY_MAP, stem) ? FILE_CATEGORY_MAP[stem] : undefined;
     if (!category) {
       // マッピングにないファイルはスキップ
       continue;

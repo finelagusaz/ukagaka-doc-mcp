@@ -52,7 +52,8 @@ export function parseYayaDocs(rootDir: string): DocEntry[] {
   const entries: DocEntry[] = [];
 
   for (const dir of dirs) {
-    const category = DIR_CATEGORIES[dir];
+    // 継承プロパティ（constructor 等）に当たらないよう自身のキーだけを引く
+    const category = Object.hasOwn(DIR_CATEGORIES, dir) ? DIR_CATEGORIES[dir] : undefined;
     if (!category) {
       console.error(`[yaya-docs-parser] Warning: unknown directory, skipped: ${dir}`);
       continue;
