@@ -18,7 +18,7 @@ function indexJson(generatedAt: string, ids: string[]): string {
   return JSON.stringify({ version: 1, generatedAt, entries: ids.map(entry) });
 }
 
-function setup(initialGeneratedAt: string, fetchFn: typeof fetch) {
+function setup(initialGeneratedAt: string, fetchFn: typeof fetch, maxBytes?: number) {
   const engine = new SearchEngine();
   engine.load([entry('old')]);
   const updater = new IndexUpdater({
@@ -26,6 +26,7 @@ function setup(initialGeneratedAt: string, fetchFn: typeof fetch) {
     url: 'https://example.com/index.json',
     generatedAt: initialGeneratedAt,
     fetchFn,
+    maxBytes,
   });
   return { engine, updater };
 }
@@ -134,6 +135,48 @@ describe('IndexUpdater', () => {
     expect(await updater.update()).toBe('failed');
     expect(engine.getById('old')).toBeDefined();
     expect(updater.currentGeneratedAt).toBe('2026-01-01T00:00:00.000Z');
+  });
+
+  it('上限を超える応答は読み込みを打ち切り、現在のインデックスを維持する', async () => {
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    const body = indexJson(new Date().toISOString(), ['new1', 'new2']);
+    const pulled: number[] = [];
+    // Content-Length を付けないストリームで、上限を超えた時点で読むのをやめることを確かめる
+    const fetchFn = vi.fn(async () => new Response(new ReadableStream<Uint8Array>({
+      pull(controller) {
+        pulled.push(pulled.length);
+        if (pulled.length > 100) controller.close();
+        else controller.enqueue(new TextEncoder().encode(body));
+      },
+    }), { status: 200 }));
+    const { engine, updater } = setup('2026-01-01T00:00:00.000Z', fetchFn as typeof fetch, body.length * 2);
+
+    expect(await updater.update()).toBe('failed');
+    expect(engine.getById('old')).toBeDefined();
+    expect(pulled.length).toBeLessThan(10);
+  });
+
+  it('Content-Length が上限を超えていれば本文を読まずに拒否する', async () => {
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    const body = indexJson(new Date().toISOString(), ['new1']);
+    const fetchFn = vi.fn(async () => new Response(body, {
+      status: 200,
+      headers: { 'content-length': String(body.length) },
+    }));
+    const { engine, updater } = setup('2026-01-01T00:00:00.000Z', fetchFn as typeof fetch, body.length - 1);
+
+    expect(await updater.update()).toBe('failed');
+    expect(engine.getById('old')).toBeDefined();
+  });
+
+  it('上限以内なら BOM 付きでも読み込める', async () => {
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    const body = '\uFEFF' + indexJson(new Date().toISOString(), ['new1']);
+    const fetchFn = vi.fn(async () => new Response(body, { status: 200 }));
+    const { engine, updater } = setup('2026-01-01T00:00:00.000Z', fetchFn as typeof fetch, body.length * 2);
+
+    expect(await updater.update()).toBe('updated');
+    expect(engine.getById('new1')).toBeDefined();
   });
 
   it('ネットワークエラーでも throw しない', async () => {
