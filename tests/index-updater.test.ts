@@ -61,6 +61,45 @@ describe('IndexUpdater', () => {
     expect(engine.getById('old')).toBeDefined();
   });
 
+  it('未来の generatedAt は拒否し、現在のインデックスと ETag を維持する', async () => {
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    const fetchFn = vi.fn(async (_url: string | URL | Request, _init?: RequestInit) => new Response(
+      indexJson('9999-01-01T00:00:00.000Z', ['future']),
+      { status: 200, headers: { etag: '"future"' } },
+    ));
+    const { engine, updater } = setup('2026-01-01T00:00:00.000Z', fetchFn as typeof fetch);
+
+    expect(await updater.update()).toBe('failed');
+    expect(engine.getById('old')).toBeDefined();
+    expect(updater.currentGeneratedAt).toBe('2026-01-01T00:00:00.000Z');
+
+    await updater.update();
+    expect(fetchFn.mock.calls[1][1]?.headers).not.toHaveProperty('If-None-Match');
+  });
+
+  it('時計のずれの範囲内なら、わずかに未来の generatedAt も受け入れる', async () => {
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    const fetchFn = vi.fn(async () => new Response(
+      indexJson(new Date(Date.now() + 60 * 60 * 1000).toISOString(), ['new1']),
+      { status: 200 },
+    ));
+    const { updater } = setup('2026-01-01T00:00:00.000Z', fetchFn as typeof fetch);
+
+    expect(await updater.update()).toBe('updated');
+  });
+
+  it('現在のインデックスが未来日時なら、正常なリモートで差し替える', async () => {
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    const fetchFn = vi.fn(async () => new Response(
+      indexJson(new Date().toISOString(), ['new1']),
+      { status: 200 },
+    ));
+    const { engine, updater } = setup('9999-01-01T00:00:00.000Z', fetchFn as typeof fetch);
+
+    expect(await updater.update()).toBe('updated');
+    expect(engine.getById('new1')).toBeDefined();
+  });
+
   it('2回目以降は ETag で条件付き取得し、304 なら何もしない', async () => {
     vi.spyOn(console, 'error').mockImplementation(() => {});
     const fetchFn = vi.fn(async (_url: string | URL | Request, init?: RequestInit) => {
