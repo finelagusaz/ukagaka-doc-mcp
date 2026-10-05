@@ -11,7 +11,7 @@
  */
 
 import { getFreshnessWarning } from './bootstrap.js';
-import { INDEX_FETCH_TIMEOUT_MS, INDEX_FUTURE_TOLERANCE_MS } from './constants.js';
+import { INDEX_FETCH_TIMEOUT_MS, INDEX_FUTURE_TOLERANCE_MS, INDEX_MAX_BYTES } from './constants.js';
 import { parseAndValidateIndexFile } from './index-validation.js';
 import type { SearchEngine } from './search/engine.js';
 
@@ -24,6 +24,7 @@ export interface IndexUpdaterOptions {
   generatedAt: string;
   fetchFn?: typeof fetch;
   timeoutMs?: number;
+  maxBytes?: number;
 }
 
 export class IndexUpdater {
@@ -31,6 +32,7 @@ export class IndexUpdater {
   private readonly url: string;
   private readonly fetchFn: typeof fetch;
   private readonly timeoutMs: number;
+  private readonly maxBytes: number;
   private generatedAt: string;
   private etag: string | undefined;
   private running = false;
@@ -42,6 +44,7 @@ export class IndexUpdater {
     this.generatedAt = options.generatedAt;
     this.fetchFn = options.fetchFn ?? fetch;
     this.timeoutMs = options.timeoutMs ?? INDEX_FETCH_TIMEOUT_MS;
+    this.maxBytes = options.maxBytes ?? INDEX_MAX_BYTES;
   }
 
   get currentGeneratedAt(): string {
@@ -105,7 +108,7 @@ export class IndexUpdater {
       throw new Error(`HTTP ${response.status} ${response.statusText}`);
     }
 
-    const raw = await response.text();
+    const raw = await readTextWithLimit(response, this.maxBytes);
     const { indexFile, warnings } = parseAndValidateIndexFile(raw);
     for (const warning of warnings) {
       console.error(warning);
@@ -139,6 +142,33 @@ export class IndexUpdater {
 
     return 'updated';
   }
+}
+
+/** 本文を maxBytes まで読む。超えたら読み込みを打ち切って throw する（巨大な応答でメモリを使い切らないため） */
+async function readTextWithLimit(response: Response, maxBytes: number): Promise<string> {
+  const declared = Number(response.headers.get('content-length'));
+  if (declared > maxBytes) {
+    await response.body?.cancel();
+    throw new Error(`Remote index too large: ${declared} bytes (limit ${maxBytes})`);
+  }
+  if (!response.body) {
+    return '';
+  }
+
+  const reader = response.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let total = 0;
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    total += value.byteLength;
+    if (total > maxBytes) {
+      await reader.cancel();
+      throw new Error(`Remote index too large: over ${maxBytes} bytes`);
+    }
+    chunks.push(value);
+  }
+  return new TextDecoder().decode(Buffer.concat(chunks));
 }
 
 function isFuture(generatedAt: string, now: number): boolean {
