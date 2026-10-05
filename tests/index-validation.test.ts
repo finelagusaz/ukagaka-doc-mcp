@@ -76,6 +76,20 @@ describe('index-validation', () => {
     expect(result.indexFile.entries[0].id).toBe('known');
   });
 
+  it('別ソースのカテゴリを持つエントリを落として警告する', () => {
+    const result = parseAndValidateIndexFile(JSON.stringify({
+      version: 1,
+      generatedAt: new Date().toISOString(),
+      entries: [
+        { id: 'ok', title: 'ok', source: 'ukadoc', category: 'sakurascript', content: 'ok', url: 'https://example.com/ok' },
+        { id: 'ng', title: 'ng', source: 'ukadoc', category: 'yaya_function', content: 'ng', url: 'https://example.com/ng' },
+      ],
+    }));
+
+    expect(result.warnings.some(warning => warning.includes('Dropping 1 entries whose category belongs to another source'))).toBe(true);
+    expect(result.indexFile.entries.map(entry => entry.id)).toEqual(['ok']);
+  });
+
   it('aosora_wiki ソースのエントリを受理する', () => {
     const { indexFile } = parseAndValidateIndexFile(JSON.stringify({
       version: 1,

@@ -82,6 +82,10 @@ export const DEFAULT_HTTP_PORT = 8951;
 export const REMOTE_INDEX_URL =
   'https://github.com/finelagusaz/ukagaka-doc-mcp/raw/refs/heads/main/data/index.json';
 
+/** ツール入力の長さ上限。現状の最長 id は 131 文字。巨大な入力の受理とエラー文への全量反射を防ぐ */
+export const MAX_QUERY_LENGTH = 512;
+export const MAX_ID_LENGTH = 512;
+
 /** HTTP モードでのインデックス更新間隔 (ms) */
 export const INDEX_UPDATE_INTERVAL_MS = 24 * 60 * 60 * 1000;
 

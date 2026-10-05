@@ -99,6 +99,13 @@ describe('index-builder', () => {
     ])).toThrow(/Duplicate ids/i);
   });
 
+  it('別ソースのカテゴリを持つエントリがあるとビルド失敗する', () => {
+    expect(() => buildIndexFile([
+      ...validEntries,
+      { ...validEntries[0], id: 'ukadoc:mismatch', category: 'yaya_function' },
+    ])).toThrow(/does not belong to source/);
+  });
+
   it('無効ページマーカーを含むエントリでビルド失敗する', () => {
     expect(() => buildIndexFile([
       ...validEntries.slice(0, 2),
