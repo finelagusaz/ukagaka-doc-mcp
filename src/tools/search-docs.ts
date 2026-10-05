@@ -1,7 +1,7 @@
 import type { McpServer } from '@modelcontextprotocol/server';
 import { z } from 'zod';
 import type { SearchEngine } from '../search/engine.js';
-import { CATEGORIES, SOURCES, SOURCE_VALUES } from '../constants.js';
+import { CATEGORIES, MAX_QUERY_LENGTH, SOURCES, SOURCE_VALUES } from '../constants.js';
 import type { Category, Source } from '../types.js';
 
 const CATEGORY_KEYS = Object.keys(CATEGORIES) as Category[];
@@ -19,7 +19,7 @@ export function registerSearchDocsTool(server: McpServer, engine: SearchEngine):
     {
       description: SEARCH_DOCS_DESCRIPTION,
       inputSchema: z.object({
-        query: z.string().min(1).describe(
+        query: z.string().min(1).max(MAX_QUERY_LENGTH).describe(
           `検索語。クエリ全体を1個の部分文字列として照合する単純検索（部分一致/大小無視/全角半角無視）。分かち書き・AND/OR無し。
 OK: "OnBoot" "選択肢" "REPLACE" "\\q" "surfaces.txt" ／ NG（0件）: "文字列 置換" "さくらスクリプトで選択肢を出す方法" ／ NG（取りこぼす）: "variable"（→ "変数"）
 - 識別子・タグは原文表記のまま（さくらスクリプトは "\\q" のようにバックスラッシュ付き）

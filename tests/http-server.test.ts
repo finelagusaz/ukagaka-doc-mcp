@@ -112,6 +112,22 @@ describe('http-server', () => {
     }
   });
 
+  it('長さ上限を超える query / id はツール実行前に入力エラーにする', async () => {
+    const url = await start();
+    const client = await connectClient(url, undefined);
+    try {
+      const long = 'x'.repeat(513);
+      for (const [name, args] of [['search_docs', { query: long }], ['get_doc', { id: long }]] as const) {
+        const result = await client.callTool({ name, arguments: args });
+        expect(result.isError, name).toBe(true);
+        const text = (result.content as { type: string; text: string }[])[0].text;
+        expect(text, name).not.toContain(long);
+      }
+    } finally {
+      await client.close();
+    }
+  });
+
   it('2025 系の通知には 202、バッチには JSON 配列で応答する', async () => {
     const url = await start();
 

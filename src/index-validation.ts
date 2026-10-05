@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { CATEGORIES, INDEX_SCHEMA_VERSION, SOURCE_VALUES } from './constants.js';
-import type { Category, DocEntry, IndexFile } from './types.js';
+import type { Category, DocEntry, IndexFile, Source } from './types.js';
 
 const KNOWN_CATEGORY_SET = new Set(Object.keys(CATEGORIES));
 
@@ -62,8 +62,19 @@ export function validateIndexFile(value: unknown): IndexValidationResult {
     );
   }
 
+  const mismatchedEntries = parsed.data.entries.filter(entry =>
+    KNOWN_CATEGORY_SET.has(entry.category) && !isCategoryOfSource(entry.category as Category, entry.source),
+  );
+  if (mismatchedEntries.length > 0) {
+    warnings.push(
+      `[bootstrap] Warning: Dropping ${mismatchedEntries.length} entries whose category belongs to another source.`,
+    );
+  }
+
   const entries = parsed.data.entries
-    .filter((entry): entry is typeof entry & { category: Category } => KNOWN_CATEGORY_SET.has(entry.category))
+    .filter((entry): entry is typeof entry & { category: Category } =>
+      KNOWN_CATEGORY_SET.has(entry.category) && isCategoryOfSource(entry.category as Category, entry.source),
+    )
     .map(entry => ({
       ...entry,
       category: entry.category,
@@ -86,6 +97,11 @@ export function validateIndexFile(value: unknown): IndexValidationResult {
     },
     warnings,
   };
+}
+
+/** カテゴリは1つのソースに属する。食い違うエントリは source と category の併用で絞ると消えるので落とす */
+export function isCategoryOfSource(category: Category, source: Source): boolean {
+  return CATEGORIES[category].source === source;
 }
 
 export function findDuplicateIds(entries: Array<Pick<DocEntry, 'id'>>): string[] {

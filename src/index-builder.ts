@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import { basename, dirname, join } from 'node:path';
 import { INDEX_SCHEMA_VERSION, SOURCE_VALUES } from './constants.js';
-import { findDuplicateIds } from './index-validation.js';
+import { findDuplicateIds, isCategoryOfSource } from './index-validation.js';
 import type { DocEntry, IndexFile, Source } from './types.js';
 
 const INVALID_PAGE_MARKERS = ['有効なWikiNameではありません'];
@@ -29,6 +29,11 @@ export function validateEntriesForBuild(entries: DocEntry[]): void {
   const invalidEntries = entries.filter(isInvalidEntry);
   if (invalidEntries.length > 0) {
     throw new Error(`Invalid pages detected in index entries: ${invalidEntries.slice(0, 10).map(entry => entry.id).join(', ')}`);
+  }
+
+  const mismatchedEntries = entries.filter(entry => !isCategoryOfSource(entry.category, entry.source));
+  if (mismatchedEntries.length > 0) {
+    throw new Error(`Category does not belong to source: ${mismatchedEntries.slice(0, 10).map(entry => `${entry.id} (${entry.category})`).join(', ')}`);
   }
 
   const sources = new Map<Source, number>();
