@@ -68,7 +68,8 @@ export function parseSspHelp(ukadocDir: string): DocEntry[] {
   const entries: DocEntry[] = [];
 
   for (const { place, section } of toc) {
-    const category = SECTION_CATEGORIES[section];
+    // 継承プロパティ（constructor 等）に当たらないよう自身のキーだけを引く
+    const category = Object.hasOwn(SECTION_CATEGORIES, section) ? SECTION_CATEGORIES[section] : undefined;
     if (!category) {
       console.error(`[ssphelp-parser] Warning: unknown section in index.yaml, skipped: ${section} (${place})`);
       continue;

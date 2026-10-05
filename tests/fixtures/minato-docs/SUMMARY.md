@@ -15,6 +15,8 @@
 
 - [新しい章](newsection/page.md)
 
+- [継承プロパティ名の章](constructor/page.md)
+
 ---
 
 # 移行ガイド

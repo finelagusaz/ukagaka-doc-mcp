@@ -71,7 +71,9 @@ export function parseMdBook(srcDir: string, config: MdBookConfig): DocEntry[] {
   const entries: DocEntry[] = [];
 
   for (const { path, label } of toc) {
-    const category = config.topCategories[path.split('/')[0]];
+    // 継承プロパティ（constructor 等）に当たらないよう自身のキーだけを引く
+    const top = path.split('/')[0];
+    const category = Object.hasOwn(config.topCategories, top) ? config.topCategories[top] : undefined;
     if (!category) {
       console.error(`[${config.logTag}] Warning: unknown section, skipped: ${path}`);
       continue;
