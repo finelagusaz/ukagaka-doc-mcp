@@ -13,6 +13,12 @@ describe('markdownToPlainText', () => {
       .toBe('変数を参照。図');
   });
 
+  it('リンクテキスト・alt 内の対になった [] を保持して変換する', () => {
+    expect(markdownToPlainText('- [[psl] ASCIIコード一覧表](http://example.com/a)'))
+      .toBe('- [psl] ASCIIコード一覧表');
+    expect(markdownToPlainText('![図 [1]](img.png)')).toBe('図 [1]');
+  });
+
   it('強調記号を除去する', () => {
     expect(markdownToPlainText('**重要** と *注意* と _補足_')).toBe('重要 と 注意 と 補足');
   });

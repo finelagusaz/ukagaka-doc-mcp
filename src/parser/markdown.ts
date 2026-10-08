@@ -103,8 +103,9 @@ function stripInlineMarkdown(line: string): string {
   const text = protectedText
     .replace(/^!!!\s+\w+(?:\s+"(.*)")?\s*$/, '$1') // admonition（!!! note "タイトル"）→ タイトル
     .replace(/^#{1,6}\s+/, '')                    // 見出し記号
-    .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1')     // 画像 → alt
-    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')      // リンク → テキスト
+    // リンクテキスト・alt は対になった [] を1段まで含められる（[[psl] 一覧表](url) 等）
+    .replace(/!\[((?:[^[\]]|\[[^[\]]*\])*)\]\([^)]*\)/g, '$1')  // 画像 → alt
+    .replace(/\[((?:[^[\]]|\[[^[\]]*\])+)\]\([^)]*\)/g, '$1')   // リンク → テキスト
     .replace(/\*\*(.+?)\*\*/g, '$1')              // 強い強調
     .replace(/\*([^\s*][^*]*)\*/g, '$1')          // 強調
     // `_` は CommonMark 同様に単語の途中では強調にしない（APPEND_RUNTIME_DIC や snake_case を保つ）
