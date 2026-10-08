@@ -62,7 +62,7 @@ describe('parseYayaDocs', () => {
     expect(content).not.toContain('**');
   });
 
-  it('未知のディレクトリは警告してスキップし、assets・overrides は黙って除外する', () => {
+  it('未知のディレクトリは警告してスキップし、assets・overrides・attachment は黙って除外する', () => {
     const warn = vi.spyOn(console, 'error').mockImplementation(() => {});
     const result = parseYayaDocs(fixtureDir);
     expect(result.some(e => e.id.startsWith('yaya:unknown-dir/'))).toBe(false);
@@ -70,6 +70,7 @@ describe('parseYayaDocs', () => {
     expect(warn).toHaveBeenCalledWith(expect.stringContaining('unknown-dir'));
     expect(warn).not.toHaveBeenCalledWith(expect.stringContaining('assets'));
     expect(warn).not.toHaveBeenCalledWith(expect.stringContaining('overrides'));
+    expect(warn).not.toHaveBeenCalledWith(expect.stringContaining('attachment'));
   });
 
   it('ディレクトリが無ければ submodule 初期化を促して失敗する', () => {
