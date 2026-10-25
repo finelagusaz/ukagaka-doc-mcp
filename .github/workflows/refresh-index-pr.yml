@@ -31,7 +31,37 @@ jobs:
         run: npm ci
 
       - name: Refresh snapshot
-        run: npm run refresh:index
+        shell: bash
+        run: npm run refresh:index 2>&1 | tee "$RUNNER_TEMP/refresh-index.log"
+
+      # パーサーは上流の未知の章・ディレクトリを警告して読み飛ばすだけでビルドは通る。
+      # auto-merge の前に人の目に入るよう、警告を PR 本文・ジョブサマリー・注釈に載せる
+      - name: Collect parser warnings
+        id: warnings
+        shell: bash
+        run: |
+          grep -E '^\[[a-z-]+\] Warning:' "$RUNNER_TEMP/refresh-index.log" > "$RUNNER_TEMP/warnings.txt" || true
+          if [ ! -s "$RUNNER_TEMP/warnings.txt" ]; then
+            exit 0
+          fi
+          while IFS= read -r line; do
+            echo "::warning title=Parser warning::$line"
+          done < "$RUNNER_TEMP/warnings.txt"
+          {
+            echo '## ⚠️ Parser warnings'
+            echo
+            echo 'Pages below were skipped. Map the new section in the parser (see CLAUDE.md Gotchas).'
+            echo
+            echo '```'
+            cat "$RUNNER_TEMP/warnings.txt"
+            echo '```'
+          } > "$RUNNER_TEMP/warnings.md"
+          cat "$RUNNER_TEMP/warnings.md" >> "$GITHUB_STEP_SUMMARY"
+          {
+            echo "body<<EOF_WARNINGS"
+            cat "$RUNNER_TEMP/warnings.md"
+            echo "EOF_WARNINGS"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Detect snapshot changes
         id: snapshot
@@ -67,6 +97,8 @@ jobs:
             - `docs/ukadoc` / `docs/ukadoc-ssp` / `docs/yaya-docs` / `docs/satori-docs` / `docs/aosora-wiki` / `docs/minato` / `docs/pasta` / `docs/kawari-docs` submodule pointers
             - `data/index.json`
             - package patch version for the release that follows merge
+
+            ${{ steps.warnings.outputs.body }}
           branch: bot/refresh-index
           delete-branch: true
           labels: auto-index-refresh
