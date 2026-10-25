@@ -19,3 +19,6 @@
 [submodule "docs/kawari-docs"]
 	path = docs/kawari-docs
 	url = https://github.com/ukatech/kawari-docs.git
+[submodule "docs/ukadoc-ssp"]
+	path = docs/ukadoc-ssp
+	url = https://github.com/ukatech/ukadoc-ssp.git

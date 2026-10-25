@@ -32,7 +32,7 @@ export const SOURCES = {
     name: 'SSPヘルプ',
     shortName: 'SSPヘルプ',
     description: 'SSP本体の使い方、機能、設定画面の各項目、FAQ、開発者向け機能',
-    exampleId: 'ssphelp:config-ghost',
+    exampleId: 'ssphelp:config/ghost',
   },
   yaya_docs: {
     name: 'YAYA docs',

@@ -13,7 +13,7 @@ License. See `LICENSE`.
 documentation sources, including:
 
 - UKADOC
-- SSP ヘルプ (ukatech/ukadoc ssphelp_src)
+- SSP ヘルプ (ukatech/ukadoc-ssp, CC BY 4.0, UKADOC project)
 - YAYA docs (YAYA-shiori/yaya-docs)
 - 里々 docs (ukatech/satori-docs)
 - 蒼空(aosora) Wiki

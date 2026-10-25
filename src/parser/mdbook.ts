@@ -4,7 +4,7 @@
  * 設計方針:
  * - 既定は 1ページ = 1エントリ（yaya-docs / satori-docs と同じ）。
  *   splitSections を有効にすると `##` 見出しごとに分ける（ukadoc と同じ粒度）
- * - 対象ページは上流サイト（mdBook）の目次 SUMMARY.md から決める（ssphelp と同じ）。
+ * - 対象ページは上流サイト（mdBook）の目次 SUMMARY.md から決める。
  *   目次に無い Markdown は mdBook も出力しないため取り込まない
  * - カテゴリはページパスの先頭要素（ディレクトリ、直下のファイルはファイル名）から決める
  * - mdBook は README.md を index.html として出力する

@@ -207,7 +207,7 @@ publish 後に tag push や release 作成で落ちた場合は、**同じ run �
 ```bash
 npm run refresh:index
 # 内部: git submodule sync --recursive
-#       git submodule update --init --remote docs/ukadoc docs/yaya-docs docs/satori-docs docs/aosora-wiki docs/minato docs/pasta docs/kawari-docs
+#       git submodule update --init --remote docs/ukadoc docs/ukadoc-ssp docs/yaya-docs docs/satori-docs docs/aosora-wiki docs/minato docs/pasta docs/kawari-docs
 #       npm run build:index
 ```
 

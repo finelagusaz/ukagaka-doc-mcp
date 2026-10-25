@@ -81,7 +81,7 @@ npx ukagaka-doc-mcp --http --host 0.0.0.0 --port 9000   # listen 先を変更
 | ソース | 内容 |
 |--------|------|
 | UKADOC | 伺か全般の仕様・リファレンス |
-| SSP ヘルプ（[ssphelp](https://ssp.shillest.net/ukadoc/ssphelp/index.html)） | SSP 本体の使い方・機能・設定 |
+| SSP ヘルプ（[ukadoc-ssp](https://ukatech.shillest.net/ukadoc-ssp/)） | SSP 本体の使い方・機能・設定 |
 | YAYA docs（[yaya-docs](https://github.com/YAYA-shiori/yaya-docs)） | YAYA スクリプトのリファレンス |
 | 里々 docs（[satori-docs](https://github.com/ukatech/satori-docs)） | 里々スクリプト・ssu のリファレンス |
 | 蒼空(aosora) Wiki | 蒼空 shiori/GHOST 開発ガイド |
