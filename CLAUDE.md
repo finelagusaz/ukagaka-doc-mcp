@@ -29,7 +29,7 @@ src/
   constants.ts        # SOURCES（ソース定義の単一ソース。instructions・ツール説明・enum はここから組み立てる）・CATEGORIES
   search/engine.ts    # 全文検索エンジン
   tools/              # MCP ツール（search_docs, get_doc, list_categories）
-  parser/             # ビルド時のみ使用（HTML → index.json 生成）
+  parser/             # ビルド時のみ使用（HTML / Markdown → index.json 生成）
     ukadoc-parser.ts  # UKADOC HTML パーサー
     ssphelp-parser.ts # SSP ヘルプ（ukadoc-ssp submodule）パーサー
     markdown.ts       # Markdown → プレーンテキスト（SSP ヘルプ / YAYA docs / 里々 docs / 蒼空 / 湊 / Pasta / 華和梨 共用）
@@ -75,6 +75,8 @@ docs/
 - **`release.yml` のトリガーは `push`**。`pull_request_target` は OIDC subject claim が npm に拒否される
 - PR 作成に GitHub App トークンを使用（`APP_ID` / `APP_PRIVATE_KEY` secrets）。`GITHUB_TOKEN` で作った PR は CI をトリガーしない
 - **人手の dep PR は refresh-index PR と必ず衝突する**。週次 cron で `package.json` version と `package-lock.json` が頻繁に動くため、長く寝かせると merge 不能に。dep PR は branch を切ったら短期で merge まで進めるか、merge 直前に `git rebase origin/main` で吸収する。lockfile 衝突は `git checkout --ours package-lock.json && npm install --package-lock-only` で main 側を採用 → 自分の `package.json` 制約で再生成、が定石
+- **パーサーの警告ではビルドが失敗しない**。上流の目次・ディレクトリに未知の章が増えると `[xxx-parser] Warning: … skipped` を出してそのページを読み飛ばすだけで、週次 refresh PR も通って auto-merge される。上流の構成変更に気づく手段は `build:index` の stderr の `Warning` だけなので、パーサーや submodule を触ったら必ず確認する
+- **UKADOC の正本は移行中**。ukatech/ukadoc の HTML はアーカイブ扱いで、正本は Markdown の ukatech/ukadoc-spec に移った。並存期間中は ukadoc の `manual/` も更新されるため `docs/ukadoc` を読み続けている。SSP ヘルプは移行済み（ukadoc の `ssphelp_src/` ではなく `docs/ukadoc-ssp` を読む）
 
 ## Testing
 
@@ -83,7 +85,7 @@ npm test              # 全テスト実行
 npm run test:watch    # ウォッチモード
 ```
 
-テストは vitest。`tests/fixtures/` にテスト用 HTML を配置。
+テストは vitest。`tests/fixtures/` にテスト用 HTML・Markdown を配置。
 
 ## MCP SDK
 
