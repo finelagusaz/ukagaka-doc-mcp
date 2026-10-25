@@ -116,7 +116,7 @@ npm test
 
 ```
 毎週月曜（cron）または手動実行
-  ↓ docs/ukadoc サブモジュールを最新化
+  ↓ docs/ 配下の各サブモジュールを最新化
   ↓ data/index.json を再生成
   ↓ 変更があればパッチバージョンを上げて PR を自動作成
   ↓ CI 通過後に auto-merge
@@ -140,7 +140,7 @@ npm tarball に含まれるファイル：
 - `data/index.json` — ドキュメントスナップショット
 - `LICENSE` / `NOTICE.md` / `README.md` / `SPEC.md`
 
-`src/`・`tests/`・`docs/ukadoc/` は含みません。
+`src/`・`tests/`・`docs/`（ドキュメントのサブモジュール）は含みません。
 
 ## ライセンス
 
