@@ -67,6 +67,14 @@ const validEntries: DocEntry[] = [
     content: 'g',
     url: 'https://example.com/g',
   },
+  {
+    id: 'kawari:kis/if',
+    title: 'if',
+    source: 'kawari_docs',
+    category: 'kawari_kis',
+    content: 'h',
+    url: 'https://example.com/h',
+  },
 ];
 
 const withoutSource = (source: Source) => validEntries.filter(entry => entry.source !== source);
@@ -90,6 +98,10 @@ describe('index-builder', () => {
 
   it('pasta_docs が欠けるとビルド失敗する', () => {
     expect(() => buildIndexFile(withoutSource('pasta_docs'))).toThrow(/Missing entries for required source: pasta_docs/);
+  });
+
+  it('kawari_docs が欠けるとビルド失敗する', () => {
+    expect(() => buildIndexFile(withoutSource('kawari_docs'))).toThrow(/Missing entries for required source: kawari_docs/);
   });
 
   it('重複 id があるとビルド失敗する', () => {

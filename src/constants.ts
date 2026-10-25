@@ -64,6 +64,12 @@ export const SOURCES = {
     description: 'Pasta SHIORIのPasta DSL文法、Lua API、SHIORIイベント、デバッグ、内部設計',
     exampleId: 'pasta:grammar/markers',
   },
+  kawari_docs: {
+    name: '華和梨(KAWARI) docs',
+    shortName: '華和梨',
+    description: '華和梨SHIORIの辞書の文法、KIS（インラインスクリプト）コマンド、SHIORI/SAORIインターフェース、幸水、旧版からの移行ガイド、仕様書',
+    exampleId: 'kawari:kis/if',
+  },
 } as const satisfies Record<string, SourceInfo>;
 
 /** 全ソース種別（SOURCES の定義順。types.ts の Source 型と各所の zod enum がここから派生） */
@@ -287,6 +293,44 @@ export const CATEGORIES = {
   pasta_internals: {
     source: 'pasta_docs' as Source,
     label: 'Pasta内部設計（コントリビュータ向け: トランスパイラ・実行モデル・SHIORI層 等）',
+  },
+
+  // --- 華和梨 docs ---
+  kawari_startup: {
+    source: 'kawari_docs' as Source,
+    label: '華和梨入門（華和梨とは・導入ガイド）',
+  },
+  kawari_grammar: {
+    source: 'kawari_docs' as Source,
+    label: '華和梨文法（辞書ファイル・エントリ定義・置換・エントリ呼び出し・式・インラインスクリプト）',
+  },
+  kawari_shiori: {
+    source: 'kawari_docs' as Source,
+    label: '華和梨のSHIORI/SAORIインターフェース（イベント・システムエントリ・ランダムトーク・SAORI呼び出し・コミュニケート 等）',
+  },
+  kawari_kis: {
+    source: 'kawari_docs' as Source,
+    label: 'KIS（華和梨インラインスクリプト）コマンド',
+  },
+  kawari_kosui: {
+    source: 'kawari_docs' as Source,
+    label: '幸水（kosui: 華和梨のコンソール版インタープリタ・デバッグ）',
+  },
+  kawari_tips: {
+    source: 'kawari_docs' as Source,
+    label: '華和梨ヒント集',
+  },
+  kawari_migration: {
+    source: 'kawari_docs' as Source,
+    label: '華和梨の移行ガイド（華和梨8・Phase 7以前からPhase 9へ）',
+  },
+  kawari_spec: {
+    source: 'kawari_docs' as Source,
+    label: '華和梨仕様書（言語仕様・意味論・構文・外部インターフェース・BNF。互換実装・KIS開発者向け）',
+  },
+  kawari_other: {
+    source: 'kawari_docs' as Source,
+    label: '華和梨その他（エラーメッセージ・ライセンス・ソース概略・更新履歴 等）',
   },
 } as const;
 
