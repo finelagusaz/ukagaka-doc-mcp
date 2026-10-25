@@ -1,20 +1,9 @@
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import type { DocEntry } from '../../src/types.js';
 import { resolve } from 'node:path';
-import { parseSspHelp, parseSspHelpHtml, parseToc } from '../../src/parser/ssphelp-parser.js';
+import { parseSspHelp } from '../../src/parser/ssphelp-parser.js';
 
 const fixtureDir = resolve('tests/fixtures/ssphelp');
-
-describe('parseToc', () => {
-  it('入れ子の place を最上位項目に対応づける（CRLF 可）', () => {
-    const yaml = '- title: 設定\r\n  place: config\r\n  children: \r\n    - title: 本体設定\r\n      children: \r\n        - title: 一般\r\n          place: config-ippan\r\n- title: 情報\r\n  place: information\r\n';
-    expect(parseToc(yaml)).toEqual([
-      { place: 'config', section: '設定' },
-      { place: 'config-ippan', section: '設定' },
-      { place: 'information', section: '情報' },
-    ]);
-  });
-});
 
 describe('parseSspHelp', () => {
   afterEach(() => {
@@ -23,79 +12,66 @@ describe('parseSspHelp', () => {
 
   let entries: DocEntry[];
   let byId: Map<string, DocEntry>;
-  let warnings: string[];
 
   beforeAll(() => {
+    // 未知ディレクトリの警告は専用テストで検証する
     const warn = vi.spyOn(console, 'error').mockImplementation(() => {});
     entries = parseSspHelp(fixtureDir);
     byId = new Map(entries.map(e => [e.id, e]));
-    warnings = warn.mock.calls.map(args => String(args[0]));
     warn.mockRestore();
   });
 
-  it('目次にあるページだけを 1 ページ 1 エントリで目次順に取り込む', () => {
-    expect(entries.map(e => e.id)).toEqual([
+  it('直下の INDEX.md と既知ディレクトリのページを 1 ページ 1 エントリで取り込む（README.md は除く）', () => {
+    expect([...byId.keys()].sort()).toEqual([
+      'ssphelp:config/ghost',
+      'ssphelp:functions/calendar/index',
+      'ssphelp:functions/calendar/menu',
       'ssphelp:index',
-      'ssphelp:config',
-      'ssphelp:config-ghost',
-      'ssphelp:dev',
     ]);
+    expect(entries.some(e => e.content.includes('リポジトリの説明'))).toBe(false);
   });
 
-  it('目次の最上位項目からカテゴリを割り当てる（入れ子のページも最上位に従う）', () => {
+  it('先頭のディレクトリからカテゴリを割り当て、INDEX.md は基本的な使い方に入れる', () => {
     expect(byId.get('ssphelp:index')?.category).toBe('ssp_usage');
-    expect(byId.get('ssphelp:config')?.category).toBe('ssp_config');
-    expect(byId.get('ssphelp:config-ghost')?.category).toBe('ssp_config');
-    expect(byId.get('ssphelp:dev')?.category).toBe('ssp_dev');
+    expect(byId.get('ssphelp:config/ghost')?.category).toBe('ssp_config');
+    expect(byId.get('ssphelp:functions/calendar/menu')?.category).toBe('ssp_feature');
   });
 
-  it('source と url は公開サイトのページを指し、rawUrl は持たない', () => {
-    const entry = byId.get('ssphelp:config-ghost');
+  it('url は新しいサイトのページ、rawUrl は生 Markdown を指す', () => {
+    const entry = byId.get('ssphelp:config/ghost');
     expect(entry?.source).toBe('ssp_help');
-    expect(entry?.url).toBe('https://ssp.shillest.net/ukadoc/ssphelp/config-ghost.html');
-    expect(entry?.rawUrl).toBeUndefined();
+    expect(entry?.title).toBe('設定：ゴースト(1)');
+    expect(entry?.url).toBe('https://ukatech.shillest.net/ukadoc-ssp/config/ghost/');
+    expect(entry?.rawUrl).toBe('https://raw.githubusercontent.com/ukatech/ukadoc-ssp/refs/heads/main/config/ghost.md');
   });
 
-  it('title は先頭 h1、無ければ place', () => {
-    expect(byId.get('ssphelp:config-ghost')?.title).toBe('設定：ゴースト(1)');
-    expect(byId.get('ssphelp:dev')?.title).toBe('dev');
+  it('入れ子のディレクトリの index.md はディレクトリ URL、直下の INDEX.md はサイトのルートで配信される', () => {
+    expect(byId.get('ssphelp:functions/calendar/index')?.url).toBe('https://ukatech.shillest.net/ukadoc-ssp/functions/calendar/');
+    expect(byId.get('ssphelp:functions/calendar/menu')?.url).toBe('https://ukatech.shillest.net/ukadoc-ssp/functions/calendar/menu/');
+    const index = byId.get('ssphelp:index');
+    expect(index?.title).toBe('はじめに');
+    expect(index?.url).toBe('https://ukatech.shillest.net/ukadoc-ssp/');
+    expect(index?.rawUrl).toBe('https://raw.githubusercontent.com/ukatech/ukadoc-ssp/refs/heads/main/INDEX.md');
   });
 
-  it('ソース上の改行は潰し、br とブロック要素で改行する', () => {
-    expect(byId.get('ssphelp:index')?.content).toBe('はじめに\n\nSSP の ヘルプです。\n二行目。');
-    const content = byId.get('ssphelp:config-ghost')?.content ?? '';
-    expect(content).toContain('最小化時に喋らない\n\nゴーストをアイコン化するときに一切喋りません。');
+  it('本文はプレーンテキスト化する（画像は alt、<br> と強調は外す）', () => {
+    expect(byId.get('ssphelp:index')?.content).toMatch(/^SSP\n\nはじめに/);
+    const content = byId.get('ssphelp:config/ghost')?.content ?? '';
+    expect(content).toContain('ゴーストを1つランダムに選択して起動（前回終了時の状態は破棄）\n  起動時にゴーストを1つランダムに起動します。');
+    expect(content).not.toMatch(/<br|\*\*/);
   });
 
-  it('表は行ごとにセルを | で区切り、行の間に空行を挟まない', () => {
-    expect(byId.get('ssphelp:dev')?.content).toBe(
-      '見出しのないページ。\n\n| 機能 | ショートカット |\n| カレンダー | Ctrl - D |\n| 開発用パレット | Ctrl - Shift - D |\n\n表のあと。',
-    );
+  it('未知のディレクトリは警告してスキップし、assets・materials は黙って除外する', () => {
+    const warn = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const result = parseSspHelp(fixtureDir);
+    expect(result.some(e => e.id.startsWith('ssphelp:unknown-dir/'))).toBe(false);
+    expect(result.some(e => e.id.startsWith('ssphelp:materials/'))).toBe(false);
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining('unknown-dir'));
+    expect(warn).not.toHaveBeenCalledWith(expect.stringContaining('assets'));
+    expect(warn).not.toHaveBeenCalledWith(expect.stringContaining('materials'));
   });
 
-  it('pre は改行と字下げを保つ', () => {
-    const html = '<p>前</p>\n<pre><code>GET SHIORI/3.0\n  Charset: UTF-8\n\n*x*\n</code></pre>\n<p>後</p>';
-    expect(parseSspHelpHtml(html, 'p').content).toBe('前\n\nGET SHIORI/3.0\n  Charset: UTF-8\n\n*x*\n\n後');
-  });
-
-  it('表のセル内の br は行を割らずに空白にする', () => {
-    const html = '<table><tr><td>Sakura Script<br />reference</td><td><p>a</p><p>b</p></td></tr></table>';
-    expect(parseSspHelpHtml(html, 'p').content).toBe('| Sakura Script reference | a b |');
-  });
-
-  it('未知の最上位項目・目次に無い原稿・原稿の無いページを警告する（空の原稿は黙って除外）', () => {
-    expect(byId.has('ssphelp:new-section')).toBe(false);
-    expect(byId.has('ssphelp:unlisted')).toBe(false);
-    expect(byId.has('ssphelp:disclaimer')).toBe(false);
-    expect(warnings).toEqual(expect.arrayContaining([
-      expect.stringContaining('unknown section in index.yaml, skipped: 新しい区分'),
-      expect.stringContaining('page not in index.yaml, skipped: unlisted'),
-      expect.stringContaining('page listed in index.yaml not found: missing-page'),
-    ]));
-    expect(warnings.some(w => w.includes('disclaimer'))).toBe(false);
-  });
-
-  it('原稿が無ければ submodule 初期化を促して失敗する', () => {
+  it('ディレクトリが無ければ submodule 初期化を促して失敗する', () => {
     expect(() => parseSspHelp(resolve('tests/fixtures/no-such-dir'))).toThrow(/git submodule update/);
   });
 });

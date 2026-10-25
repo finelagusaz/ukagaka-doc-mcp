@@ -39,8 +39,8 @@ async function main(): Promise<void> {
 
   // --- Phase 2: SSP ヘルプ ---
   console.error('[build-index] Parsing SSP help...');
-  const ukadocDir = resolve(__dirname, '..', 'docs', 'ukadoc');
-  const sspHelpEntries = parseSspHelp(ukadocDir);
+  const sspHelpDir = resolve(__dirname, '..', 'docs', 'ukadoc-ssp');
+  const sspHelpEntries = parseSspHelp(sspHelpDir);
   entries.push(...sspHelpEntries);
   console.error(`[build-index] SSP help: ${sspHelpEntries.length} entries`);
 

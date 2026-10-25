@@ -21,7 +21,7 @@
 本サーバーは以下の8ソースのみを対象とする。
 
 1. UKADOC (`docs/ukadoc/manual/`)
-2. SSP ヘルプ (`docs/ukadoc/ssphelp_src/`、`https://ssp.shillest.net/ukadoc/ssphelp/`)
+2. SSP ヘルプ (`docs/ukadoc-ssp/`、`https://github.com/ukatech/ukadoc-ssp`)
 3. YAYA docs (`docs/yaya-docs/`、`https://github.com/YAYA-shiori/yaya-docs`)
 4. 里々 docs (`docs/satori-docs/`、`https://github.com/ukatech/satori-docs`)
 5. 蒼空 Wiki (`https://github.com/kanadelab/aosora-shiori/wiki`)
@@ -45,7 +45,7 @@
 `npm run build:index` は以下を行う。
 
 1. UKADOC をローカルHTMLからパースする
-2. SSP ヘルプをローカルHTMLからパースする
+2. SSP ヘルプをローカルMarkdownからパースする
 3. YAYA docs をローカルMarkdownからパースする
 4. 里々 docs をローカルMarkdownからパースする
 5. 蒼空 Wiki をGitHub Wiki取得してパースする
@@ -148,7 +148,7 @@ type DocEntry = {
 - `content` は全文でなければならない
 - `content` は保存時に要約化してはならない
 - `url` はそのエントリの元ページまたは元セクションを指さなければならない
-- `rawUrl` は元のソースが Markdown のソース（YAYA docs・里々 docs・蒼空 Wiki・湊 docs・Pasta docs・華和梨 docs）の全エントリに付与し、元の Markdown を指さなければならない。元のソースが HTML のソース（UKADOC・SSP ヘルプ）には付与してはならない
+- `rawUrl` は元のソースが Markdown のソース（SSP ヘルプ・YAYA docs・里々 docs・蒼空 Wiki・湊 docs・Pasta docs・華和梨 docs）の全エントリに付与し、元の Markdown を指さなければならない。元のソースが HTML のソース（UKADOC）には付与してはならない
 
 ### 5.4 SearchEntry
 
@@ -215,9 +215,10 @@ type IndexFile = {
 
 #### SSP ヘルプ
 
-- 1ページ1エントリとし、`ssphelp:{place}` とする（例: `ssphelp:config-ghost`）
-- 対象ページとカテゴリは `ssphelp_builder/index.yaml` の目次から決める。`place` は目次の値（= 原稿ファイル名から `.html` を除いたもの）とする
-- 生成済みの `ssphelp/` ではなく、公開サイトの元になる原稿 `ssphelp_src/` を読む
+- 1ページ1エントリとし、`ssphelp:{path}` とする（例: `ssphelp:config/ghost`）
+- `path` はリポジトリ直下からの相対パスから拡張子 `.md` を除いたもの（例: `ssphelp:functions/calendar/menu`）とする。カテゴリは `path` の先頭のディレクトリから決める
+- 各ディレクトリの `index.md` も本文を持つため取り込む（例: `ssphelp:functions/index`）。直下の `INDEX.md`（はじめに）は `ssphelp:index` とする
+- 旧 HTML 版（`ukatech/ukadoc` の `ssphelp_src/`）はアーカイブ済みのため読まない
 
 #### YAYA docs
 

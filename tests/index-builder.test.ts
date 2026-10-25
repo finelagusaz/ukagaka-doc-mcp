@@ -44,7 +44,7 @@ const validEntries: DocEntry[] = [
     url: 'https://example.com/d',
   },
   {
-    id: 'ssphelp:e',
+    id: 'ssphelp:config/ghost',
     title: 'e',
     source: 'ssp_help',
     category: 'ssp_config',

@@ -31,10 +31,10 @@ src/
   tools/              # MCP ツール（search_docs, get_doc, list_categories）
   parser/             # ビルド時のみ使用（HTML → index.json 生成）
     ukadoc-parser.ts  # UKADOC HTML パーサー
-    ssphelp-parser.ts # SSP ヘルプ（ukadoc submodule の ssphelp_src）パーサー
-    markdown.ts       # Markdown → プレーンテキスト（YAYA docs / 里々 docs / 蒼空 / 湊 / Pasta / 華和梨 共用）
+    ssphelp-parser.ts # SSP ヘルプ（ukadoc-ssp submodule）パーサー
+    markdown.ts       # Markdown → プレーンテキスト（SSP ヘルプ / YAYA docs / 里々 docs / 蒼空 / 湊 / Pasta / 華和梨 共用）
     mdbook.ts         # mdBook ソース（SUMMARY.md 目次）共通パーサー（湊 / Pasta 共用）
-    mkdocs.ts         # MkDocs 系サイトのディレクトリ単位 Markdown 共通パーサー（里々 / 華和梨 共用）
+    mkdocs.ts         # MkDocs 系サイトのディレクトリ単位 Markdown 共通パーサー（SSP ヘルプ / 里々 / 華和梨 共用）
     yaya-docs-parser.ts # YAYA docs（GitHub リポジトリ submodule）パーサー
     satori-docs-parser.ts # 里々 docs（GitHub リポジトリ submodule）パーサー
     aosora-parser.ts  # 蒼空Wiki（GitHub Wiki submodule）パーサー
@@ -46,7 +46,8 @@ src/
 data/
   index.json          # ドキュメントスナップショット（npm tarball に含む）
 docs/
-  ukadoc/             # git submodule（UKADOC HTML ソース・SSP ヘルプ原稿 ssphelp_src/）
+  ukadoc/             # git submodule（UKADOC HTML ソース）
+  ukadoc-ssp/         # git submodule（SSP ヘルプ Markdown ソース）
   yaya-docs/          # git submodule（YAYA docs Markdown ソース）
   satori-docs/        # git submodule（里々 docs Markdown ソース）
   aosora-wiki/        # git submodule（蒼空 Wiki Markdown ソース）

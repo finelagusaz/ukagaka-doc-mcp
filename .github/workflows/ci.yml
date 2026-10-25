@@ -57,6 +57,7 @@ jobs:
             const allowedFiles = new Set([
               'data/index.json',
               'docs/ukadoc',
+              'docs/ukadoc-ssp',
               'docs/yaya-docs',
               'docs/satori-docs',
               'docs/aosora-wiki',
