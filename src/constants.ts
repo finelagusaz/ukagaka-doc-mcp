@@ -246,7 +246,7 @@ export const CATEGORIES = {
   // --- 湊 docs ---
   minato_startup: {
     source: 'minato_docs' as Source,
-    label: '湊入門（湊とは・インストールと最初のゴースト）',
+    label: '湊入門（湊とは・インストールと最初のゴースト・チートシート）',
   },
   minato_basic: {
     source: 'minato_docs' as Source,
@@ -262,7 +262,7 @@ export const CATEGORIES = {
   },
   minato_other: {
     source: 'minato_docs' as Source,
-    label: '湊その他（SAORI連携・config.toml・エラーと対処）',
+    label: '湊その他（SAORI連携・config.toml・ファイルとJSON・エラーと対処）',
   },
   minato_migration: {
     source: 'minato_docs' as Source,
