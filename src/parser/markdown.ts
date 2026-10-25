@@ -103,6 +103,11 @@ function stripInlineMarkdown(line: string): string {
   const text = protectedText
     // HTML コメント（湊 docs はサンプルの動作確認用の目印 <!--run OnBoot--> を置く）。1 行内で閉じるものだけ
     .replace(/<!--.*?-->/g, '')
+    // インライン HTML: 行末の <br> は消し、行の途中の <br> は改行にする。<strong> は強調記号と同じく外す
+    .replace(/\s*<br\s*\/?>\s*$/i, '')
+    .replace(/\s*<br\s*\/?>\s*/gi, '\n')
+    .replace(/<\/?strong>/gi, '')
+    .replace(/<(https?:\/\/[^\s<>]+)>/g, '$1')    // 自動リンク <https://…> → URL
     .replace(/^!!!\s+\w+(?:\s+"(.*)")?\s*$/, '$1') // admonition（!!! note "タイトル"）→ タイトル
     .replace(/^#{1,6}\s+/, '')                    // 見出し記号
     // リンクテキスト・alt は対になった [] を1段まで含められる（[[psl] 一覧表](url) 等）

@@ -39,6 +39,13 @@ describe('markdownToPlainText', () => {
     expect(markdownToPlainText('```\n<!-- x -->\n```')).toBe('<!-- x -->');
   });
 
+  it('<br>・<strong>・自動リンクを外し、行の途中の <br> は改行にする', () => {
+    expect(markdownToPlainText('一行目<br>\n二行目 <br/>')).toBe('一行目\n二行目');
+    expect(markdownToPlainText('前<br>後<br />末')).toBe('前\n後\n末');
+    expect(markdownToPlainText('<strong>重要</strong> は <https://example.com/a> へ')).toBe('重要 は https://example.com/a へ');
+    expect(markdownToPlainText('`<br>` は保持')).toBe('<br> は保持');
+  });
+
   it('inline code 内の記号を保護する', () => {
     expect(markdownToPlainText('`a * b` と `snake_case` は保持')).toBe('a * b と snake_case は保持');
   });
