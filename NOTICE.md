@@ -19,6 +19,7 @@ documentation sources, including:
 - 蒼空(aosora) Wiki
 - 湊 docs (mizuki-yura/minato docs/src)
 - Pasta docs (ekicyou/pasta book/src)
+- 華和梨 docs (ukatech/kawari-docs)
 
 This generated data is not re-licensed under the MIT License by this
 repository. It remains subject to the terms, permissions, and restrictions of

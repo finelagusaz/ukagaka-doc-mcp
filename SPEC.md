@@ -18,7 +18,7 @@
 
 ### 3.1 対象ソース
 
-本サーバーは以下の7ソースのみを対象とする。
+本サーバーは以下の8ソースのみを対象とする。
 
 1. UKADOC (`docs/ukadoc/manual/`)
 2. SSP ヘルプ (`docs/ukadoc/ssphelp_src/`、`https://ssp.shillest.net/ukadoc/ssphelp/`)
@@ -27,6 +27,7 @@
 5. 蒼空 Wiki (`https://github.com/kanadelab/aosora-shiori/wiki`)
 6. 湊 docs (`docs/minato/docs/src/`、`https://github.com/mizuki-yura/minato`)
 7. Pasta docs (`docs/pasta/book/src/`、`https://github.com/ekicyou/pasta`)
+8. 華和梨 docs (`docs/kawari-docs/`、`https://github.com/ukatech/kawari-docs`)
 
 ### 3.2 非スコープ
 
@@ -50,7 +51,8 @@
 5. 蒼空 Wiki をGitHub Wiki取得してパースする
 6. 湊 docs をローカルMarkdownからパースする
 7. Pasta docs をローカルMarkdownからパースする
-8. 7ソースを統合して `data/index.json` を生成する
+8. 華和梨 docs をローカルMarkdownからパースする
+9. 8ソースを統合して `data/index.json` を生成する
 
 ### 4.2 ランタイム
 
@@ -66,7 +68,7 @@
 ### 5.1 Source
 
 ```ts
-type Source = 'ukadoc' | 'ssp_help' | 'yaya_docs' | 'satori_docs' | 'aosora_wiki' | 'minato_docs' | 'pasta_docs';
+type Source = 'ukadoc' | 'ssp_help' | 'yaya_docs' | 'satori_docs' | 'aosora_wiki' | 'minato_docs' | 'pasta_docs' | 'kawari_docs';
 ```
 
 ### 5.2 Category
@@ -111,7 +113,16 @@ type Category =
   | 'pasta_lua'
   | 'pasta_debug'
   | 'pasta_reference'
-  | 'pasta_internals';
+  | 'pasta_internals'
+  | 'kawari_startup'
+  | 'kawari_grammar'
+  | 'kawari_shiori'
+  | 'kawari_kis'
+  | 'kawari_kosui'
+  | 'kawari_tips'
+  | 'kawari_migration'
+  | 'kawari_spec'
+  | 'kawari_other';
 ```
 
 ### 5.3 DocEntry
@@ -137,7 +148,7 @@ type DocEntry = {
 - `content` は全文でなければならない
 - `content` は保存時に要約化してはならない
 - `url` はそのエントリの元ページまたは元セクションを指さなければならない
-- `rawUrl` は元のソースが Markdown のソース（YAYA docs・里々 docs・蒼空 Wiki・湊 docs・Pasta docs）の全エントリに付与し、元の Markdown を指さなければならない。元のソースが HTML のソース（UKADOC・SSP ヘルプ）には付与してはならない
+- `rawUrl` は元のソースが Markdown のソース（YAYA docs・里々 docs・蒼空 Wiki・湊 docs・Pasta docs・華和梨 docs）の全エントリに付与し、元の Markdown を指さなければならない。元のソースが HTML のソース（UKADOC・SSP ヘルプ）には付与してはならない
 
 ### 5.4 SearchEntry
 
@@ -231,6 +242,13 @@ type IndexFile = {
 - `path` は mdBook のソースディレクトリ `book/src/` からの相対パスから拡張子 `.md` を除いたもの（例: `pasta:introduction`、`pasta:lua/modules/enc`）とする
 - 対象ページは上流サイトの目次 `book/src/SUMMARY.md` から決め、カテゴリは `path` の先頭要素から決める
 
+#### 華和梨 docs
+
+- 1ページ1エントリとし、`kawari:{dir}/{file_stem}` とする（例: `kawari:kis/if`）
+- `dir` はリポジトリ直下のディレクトリ名、`file_stem` は拡張子 `.md` を除いたファイル名とする
+- 各ディレクトリの `index.md` も本文を持つため取り込む（例: `kawari:kis/index`）
+- 上流サイトは `kis/`・`grammar/`・`migration/`・`spec/` のファイルを 1 ページにまとめて配信するが、`url` は元ファイルの URL（例: `https://ukatech.shillest.net/kawari-docs/kis/if/`。上流がまとめたページの見出しへ転送する）とする
+
 ## 7. 収集・正規化仕様
 
 ### 7.1 リンク正規化
@@ -318,7 +336,7 @@ Wikiリンクは取得前に正規化しなければならない。
 
 `npm run build:index` は、以下をすべて満たしたときのみ成功してよい。
 
-- 必須7ソースの取得・パースが完了している
+- 必須8ソースの取得・パースが完了している
 - 重複 `id` が存在しない
 - 無効ページが含まれていない
 - 各ソースが空でない
@@ -342,7 +360,7 @@ Wikiリンクは取得前に正規化しなければならない。
 
 ### 9.4 部分成功の禁止
 
-- UKADOC だけ成功、SSP ヘルプ/YAYA/里々/蒼空/湊/Pasta失敗のような部分成功を正規成果物として出力してはならない
+- UKADOC だけ成功、SSP ヘルプ/YAYA/里々/蒼空/湊/Pasta/華和梨失敗のような部分成功を正規成果物として出力してはならない
 - ビルドは fail-open ではなく fail-closed でなければならない
 
 ## 10. ランタイム仕様

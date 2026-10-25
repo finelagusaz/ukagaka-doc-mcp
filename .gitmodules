@@ -16,3 +16,6 @@
 [submodule "docs/pasta"]
 	path = docs/pasta
 	url = https://github.com/ekicyou/pasta.git
+[submodule "docs/kawari-docs"]
+	path = docs/kawari-docs
+	url = https://github.com/ukatech/kawari-docs.git
