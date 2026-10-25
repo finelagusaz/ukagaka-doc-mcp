@@ -101,6 +101,8 @@ function stripInlineMarkdown(line: string): string {
   const { text: protectedText, literals } = protectLiterals(unescaped);
 
   const text = protectedText
+    // HTML コメント（湊 docs はサンプルの動作確認用の目印 <!--run OnBoot--> を置く）。1 行内で閉じるものだけ
+    .replace(/<!--.*?-->/g, '')
     .replace(/^!!!\s+\w+(?:\s+"(.*)")?\s*$/, '$1') // admonition（!!! note "タイトル"）→ タイトル
     .replace(/^#{1,6}\s+/, '')                    // 見出し記号
     // リンクテキスト・alt は対になった [] を1段まで含められる（[[psl] 一覧表](url) 等）

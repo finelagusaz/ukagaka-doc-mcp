@@ -33,6 +33,12 @@ describe('markdownToPlainText', () => {
     expect(markdownToPlainText(md)).toBe('x * y');
   });
 
+  it('HTML コメントを除去し、コードスパン・コードフェンス内のものは保持する', () => {
+    expect(markdownToPlainText('前<!--run OnBoot-->後\n<!--any OnBoot-->\n\n本文')).toBe('前後\n\n本文');
+    expect(markdownToPlainText('`<!-- x -->` は保持')).toBe('<!-- x --> は保持');
+    expect(markdownToPlainText('```\n<!-- x -->\n```')).toBe('<!-- x -->');
+  });
+
   it('inline code 内の記号を保護する', () => {
     expect(markdownToPlainText('`a * b` と `snake_case` は保持')).toBe('a * b と snake_case は保持');
   });
