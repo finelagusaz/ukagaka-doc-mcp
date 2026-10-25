@@ -20,6 +20,7 @@ export function parseMinatoDocs(srcDir: string): DocEntry[] {
     topCategories: {
       README: 'minato_startup',
       intro: 'minato_startup',
+      cheatsheet: 'minato_startup',
       basic: 'minato_basic',
       data: 'minato_grammar',
       control: 'minato_grammar',
@@ -28,6 +29,7 @@ export function parseMinatoDocs(srcDir: string): DocEntry[] {
       talk: 'minato_talk',
       saori: 'minato_other',
       config: 'minato_other',
+      file: 'minato_other',
       error: 'minato_other',
       migration: 'minato_migration',
     },
