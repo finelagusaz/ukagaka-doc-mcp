@@ -1,27 +1,27 @@
 # ukagaka-doc-mcp
 
-伺か（Ukagaka）の技術ドキュメントを検索する MCP サーバーです。
+伺か（Ukagaka）の技術ドキュメントを検索できる MCP サーバーです。
 
-UKADOC・SSP ヘルプ・YAYA docs・里々 docs・蒼空 Wiki・湊 docs・Pasta docs・華和梨 docs のスナップショットを同梱しており、stdio モード（デフォルト）では**ランタイムで外部ネットワークにアクセスしません**。
+UKADOC・SSP ヘルプ・YAYA docs・里々 docs・蒼空 Wiki・湊 docs・Pasta docs・華和梨 docs のスナップショットを同梱しているため、stdio モード（デフォルト）では**実行中に外部ネットワークへアクセスしません**。
 
 ## 使い方
 
-### npx（インストール不要）
+### npx で実行する（インストール不要）
 
 ```bash
 npx ukagaka-doc-mcp
 ```
 
-### グローバルインストール
+### グローバルインストールして実行する
 
 ```bash
 npm install -g ukagaka-doc-mcp
 ukagaka-doc-mcp
 ```
 
-## Claude Desktop への組み込み
+## Claude Desktop での設定
 
-`~/Library/Application Support/Claude/claude_desktop_config.json` に追加します。
+`~/Library/Application Support/Claude/claude_desktop_config.json` に次の設定を追加してください。
 
 **npx を使う場合（推奨）：**
 
@@ -36,7 +36,7 @@ ukagaka-doc-mcp
 }
 ```
 
-**グローバルインストール済みの場合：**
+**グローバルインストールした場合：**
 
 ```json
 {
@@ -50,25 +50,25 @@ ukagaka-doc-mcp
 
 ## HTTP モード
 
-`--http` を付けると Streamable HTTP の MCP サーバーとして起動します（ステートレス・認証なし）。
+`--http` を付けて起動すると、Streamable HTTP で通信する MCP サーバーになります（ステートレス・認証なし）。
 
 ```bash
 npx ukagaka-doc-mcp --http                              # http://127.0.0.1:8951/mcp
-npx ukagaka-doc-mcp --http --host 0.0.0.0 --port 9000   # listen 先を変更
+npx ukagaka-doc-mcp --http --host 0.0.0.0 --port 9000   # 待ち受けるアドレスとポートを変更
 ```
 
 | オプション | 説明 | デフォルト |
 |------------|------|------------|
-| `--http` | HTTP モードで起動 | （なし＝stdio） |
-| `--host <host>` | listen するホスト | `127.0.0.1` |
-| `--port <port>` | listen するポート | `8951` |
+| `--http` | HTTP モードで起動する | なし（stdio モード） |
+| `--host <host>` | 待ち受けるホスト | `127.0.0.1` |
+| `--port <port>` | 待ち受けるポート | `8951` |
 
-- エンドポイントは `POST /mcp` のみです。
-- MCP 仕様 2026-07-28（リクエスト単位の `_meta` エンベロープ）と、それ以前の `initialize` ハンドシェイク方式（2025-11-25 / 2025-06-18 / 2025-03-26 / 2024-11-05）の両方のクライアントを同じエンドポイントで受け付けます。2025 系以前のリクエストへの応答は従来どおり `application/json` です。stdio モードも同様に両方に対応します。
-- `Host` / `Origin` ヘッダの検証は行いません。外部に公開する場合は nginx 等のリバースプロキシの背後に置いてください。
-- 起動直後と 24 時間ごとに [GitHub 上の最新 `data/index.json`](https://github.com/finelagusaz/ukagaka-doc-mcp/raw/refs/heads/main/data/index.json) を取得し、同梱版より新しければメモリ上で差し替えます（ファイルには書き込みません）。取得に失敗した場合は現在のインデックスのまま動作を続けます。
+- エンドポイントは `POST /mcp` だけです。
+- MCP 仕様 2026-07-28（リクエストごとに `_meta` エンベロープを付ける方式）のクライアントと、それより前の `initialize` ハンドシェイク方式（2025-11-25 / 2025-06-18 / 2025-03-26 / 2024-11-05）のクライアントを、同じエンドポイントで受け付けます。2025 系以前のリクエストには、これまでどおり `application/json` で応答します。stdio モードもどちらの方式にも対応しています。
+- `Host` / `Origin` ヘッダーは検証しません。外部に公開する場合は、nginx などのリバースプロキシの背後に置いてください。
+- 起動直後と、その後 24 時間ごとに [GitHub 上の最新の `data/index.json`](https://github.com/finelagusaz/ukagaka-doc-mcp/raw/refs/heads/main/data/index.json) を取得し、同梱版より新しければメモリ上のインデックスを差し替えます（ファイルには書き込みません）。取得に失敗した場合は、現在のインデックスのまま動作を続けます。
 
-## 提供ツール
+## 提供するツール
 
 | ツール | 説明 |
 |--------|------|
@@ -85,13 +85,13 @@ npx ukagaka-doc-mcp --http --host 0.0.0.0 --port 9000   # listen 先を変更
 | YAYA docs（[yaya-docs](https://github.com/YAYA-shiori/yaya-docs)） | YAYA スクリプトのリファレンス |
 | 里々 docs（[satori-docs](https://github.com/ukatech/satori-docs)） | 里々スクリプト・ssu のリファレンス |
 | 蒼空(aosora) Wiki | 蒼空 shiori/GHOST 開発ガイド |
-| 湊 docs（[minato](https://mizuki-yura.github.io/minato/)） | 湊（Minato）SHIORI のリファレンス・里々/YAYA からの移行ガイド |
+| 湊 docs（[minato](https://mizuki-yura.github.io/minato/)） | 湊（Minato）SHIORI のリファレンス、里々・YAYA からの移行ガイド |
 | Pasta docs（[pasta](https://ekicyou.github.io/pasta/)） | Pasta SHIORI の Pasta DSL 文法・Lua API・デバッグ・内部設計 |
-| 華和梨 docs（[kawari-docs](https://ukatech.shillest.net/kawari-docs/)） | 華和梨（KAWARI）SHIORI の辞書の文法・KIS コマンド・SHIORI/SAORI インターフェース・移行ガイド・仕様書 |
+| 華和梨 docs（[kawari-docs](https://ukatech.shillest.net/kawari-docs/)） | 華和梨（KAWARI）SHIORI の辞書文法・KIS コマンド・SHIORI/SAORI インターフェース・移行ガイド・仕様書 |
 
-`data/index.json` として同梱済みです。週1回 CI が自動更新します。
+これらは `data/index.json` としてパッケージに同梱しており、CI が週に 1 回自動で更新します。
 
-## 必要環境
+## 動作環境
 
 - Node.js 22 以上
 
@@ -99,28 +99,28 @@ npx ukagaka-doc-mcp --http --host 0.0.0.0 --port 9000   # listen 先を変更
 
 ```bash
 npm install
-npm run refresh:index   # ドキュメントの取得とインデックス生成
+npm run refresh:index   # ドキュメントを取得してインデックスを生成
 npm run build
 npm start
 ```
 
-テスト：
+テストの実行：
 
 ```bash
 npm test
 ```
 
-メンテナンス（依存更新・脆弱性対応・手動リリース等）の手順は [docs/maintenance.md](docs/maintenance.md) を参照してください。
+メンテナンス（依存パッケージの更新・脆弱性への対応・手動リリースなど）の手順は [docs/maintenance.md](docs/maintenance.md) にまとめています。
 
-## インデックスの自動更新フロー
+## インデックスの自動更新の流れ
 
 ```
-毎週月曜（cron）または手動実行
-  ↓ docs/ 配下の各サブモジュールを最新化
-  ↓ data/index.json を再生成
-  ↓ 変更があればパッチバージョンを上げて PR を自動作成
-  ↓ CI 通過後に auto-merge
-  ↓ npm publish・git tag・GitHub Release を自動作成
+毎週月曜（cron）または手動で実行
+  ↓ docs/ 配下の各サブモジュールを最新にする
+  ↓ data/index.json を再生成する
+  ↓ 変更があればパッチバージョンを上げて PR を自動作成する
+  ↓ CI が通ったら auto-merge する
+  ↓ npm への公開・git tag・GitHub Release の作成を自動で行う
 ```
 
 ### 必要な設定
@@ -129,21 +129,21 @@ npm test
 |------|------|
 | `APP_ID` secret | GitHub App の ID |
 | `APP_PRIVATE_KEY` secret | GitHub App の秘密鍵 |
-| リポジトリの auto-merge | Settings → General → Allow auto-merge を有効化 |
-| npm Trusted Publishers | npmjs.com のパッケージ設定でこのリポジトリを登録 |
+| リポジトリの auto-merge | Settings → General → Allow auto-merge を有効にする |
+| npm Trusted Publishers | npmjs.com のパッケージ設定でこのリポジトリを登録する |
 
-## パッケージ内容
+## パッケージの内容
 
-npm tarball に含まれるファイル：
+npm tarball には次のファイルが含まれます。
 
-- `dist/` — コンパイル済み JS
-- `data/index.json` — ドキュメントスナップショット
+- `dist/` — コンパイル済みの JS
+- `data/index.json` — ドキュメントのスナップショット
 - `LICENSE` / `NOTICE.md` / `README.md` / `SPEC.md`
 
-`src/`・`tests/`・`docs/`（ドキュメントのサブモジュール）は含みません。
+`src/`・`tests/`・`docs/`（ドキュメントのサブモジュール）は含まれません。
 
 ## ライセンス
 
-実装コードは **MIT License**（`LICENSE` 参照）。
+ソースコードは **MIT License** で提供しています（`LICENSE` を参照）。
 
-同梱の `data/index.json` は UKADOC・SSP ヘルプ・YAYA docs・里々 docs・蒼空 Wiki・湊 docs・Pasta docs・華和梨 docs を元に生成した外部由来データです。MIT License での再ライセンスは行っていません。利用・再配布時は上流の権利関係を別途確認してください（`NOTICE.md` 参照）。
+同梱の `data/index.json` は、UKADOC・SSP ヘルプ・YAYA docs・里々 docs・蒼空 Wiki・湊 docs・Pasta docs・華和梨 docs をもとに生成した外部由来のデータであり、MIT License の対象ではありません。利用・再配布の際は、上流の権利関係を各自でご確認ください（`NOTICE.md` を参照）。
