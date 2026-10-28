@@ -42,7 +42,9 @@ src/
     pasta-docs-parser.ts # Pasta docs（GitHub リポジトリ submodule の mdBook ソース）パーサー
     kawari-docs-parser.ts # 華和梨 docs（GitHub リポジトリ submodule）パーサー
   index-builder.ts    # 8パーサーを束ねてindex.json生成
+  build-index.ts      # build:index のエントリポイント（index-builder を呼んで data/index.json を書き出す）
   index-validation.ts # index.json スキーマ検証
+  types.ts            # 共通型（Source 型は constants.ts の SOURCES から派生）
 data/
   index.json          # ドキュメントスナップショット（npm tarball に含む）
 docs/
@@ -77,6 +79,7 @@ docs/
 - **人手の dep PR は refresh-index PR と必ず衝突する**。週次 cron で `package.json` version と `package-lock.json` が頻繁に動くため、長く寝かせると merge 不能に。dep PR は branch を切ったら短期で merge まで進めるか、merge 直前に `git rebase origin/main` で吸収する。lockfile 衝突は `git checkout --ours package-lock.json && npm install --package-lock-only` で main 側を採用 → 自分の `package.json` 制約で再生成、が定石
 - **パーサーの警告ではビルドが失敗しない**。上流の目次・ディレクトリに未知の章が増えると `[xxx-parser] Warning: … skipped` を出してそのページを読み飛ばすだけで、週次 refresh PR も通って auto-merge される。週次 refresh PR では警告を本文の「Parser warnings」節・ジョブサマリー・注釈に載せる（auto-merge は止めない）。手元ではパーサーや submodule を触ったら `build:index` の stderr の `Warning` を必ず確認する
 - **UKADOC の正本は移行中**。ukatech/ukadoc の HTML はアーカイブ扱いで、正本は Markdown の ukatech/ukadoc-spec に移った。並存期間中は ukadoc の `manual/` も更新されるため `docs/ukadoc` を読み続けている。SSP ヘルプは移行済み（ukadoc の `ssphelp_src/` ではなく `docs/ukadoc-ssp` を読む）
+- **ソースを追加するときは、`SOURCES` 以外にも submodule パスを手書きしている箇所がある**。`package.json` の `refresh:index`、`ci.yml` の `allowedFiles`（漏れると週次 refresh PR のスコープ検証で落ちる）、`refresh-index-pr.yml`（変更検知の `git diff`・PR 本文・`git add` の 3 箇所）。あわせて README・NOTICE.md・SPEC.md のソース一覧と、このファイルの Architecture も更新する
 
 ## Testing
 
