@@ -23,10 +23,12 @@ describe('parseUkadoc', () => {
     warn.mockRestore();
   });
 
-  it('1 ファイル 1 エントリで取り込み、目次だけの index.md・直下のファイル・非本文ディレクトリは除く', () => {
+  it('1 ファイル 1 エントリで取り込み、目次だけの index.md・直下のファイル・本文を持たないディレクトリは除く', () => {
     expect([...byId.keys()].sort()).toEqual([
       'ukadoc:descript/ghost/descript-txt/charset',
       'ukadoc:descript/shell/descript-txt/charset',
+      'ukadoc:dev/howto/nested',
+      'ukadoc:dev/index',
       'ukadoc:list/shiori-event/boot/OnBoot',
       'ukadoc:list/shiori-event/index',
       'ukadoc:list/shiori-event/other/OnClose',
@@ -36,7 +38,24 @@ describe('parseUkadoc', () => {
       'ukadoc:memo/shiori-event',
       'ukadoc:spec/plugin',
       'ukadoc:spec/sstp/sstp',
+      'ukadoc:spec/web/browser',
     ]);
+  });
+
+  it('1 ファイル 1 ページ側は入れ子のディレクトリも取り込み、index.md はディレクトリの URL で「## 一覧」も残す', () => {
+    const nested = byId.get('ukadoc:dev/howto/nested');
+    expect(nested?.category).toBe('dev_guide');
+    expect(nested?.url).toBe(`${SITE}dev/howto/nested/`);
+    const index = byId.get('ukadoc:dev/index');
+    expect(index?.url).toBe(`${SITE}dev/`);
+    expect(index?.rawUrl).toBe(`${RAW}dev/index.md`);
+    expect(index?.content).toContain('一覧');
+  });
+
+  it('index.md を持たないディレクトリは 1 ページにまとめず、各ファイルを 1 ページとして扱う', () => {
+    const entry = byId.get('ukadoc:spec/web/browser');
+    expect(entry?.category).toBe('protocol');
+    expect(entry?.url).toBe(`${SITE}spec/web/browser/`);
   });
 
   it('ページからカテゴリを割り当てる（memo/shiori-event は個別の指定が優先）', () => {
@@ -84,7 +103,12 @@ describe('parseUkadoc', () => {
 
   it('index.md は「## 一覧」を除いた本文を取り込み、パンくずに自身の H1 は含めない', () => {
     const content = byId.get('ukadoc:list/shiori-event/index')?.content ?? '';
+    // 「## 一覧」より後ろの節も、上流と同じく捨てる
     expect(content).toBe('SHIORI Eventリスト\n\nイベントの一覧。');
+  });
+
+  it('カテゴリ行を除くと H1 しか残らない index.md は取り込まない', () => {
+    expect(byId.has('ukadoc:list/shiori-event/other/index')).toBe(false);
   });
 
   it('本文はプレーンテキスト化する（<br />・リンク・強調・admonition・文字実体参照）', () => {
@@ -95,6 +119,7 @@ describe('parseUkadoc', () => {
     const onClose = byId.get('ukadoc:list/shiori-event/other/OnClose')?.content ?? '';
     expect(onClose).toContain('非推奨');
     expect(onClose).toContain('終了時に発生。a &lt; b と <tag>。');
+    expect(onClose).toContain('上付き上、公開元：~~旧サイト~~消失');
   });
 
   it('未知のページ・ディレクトリは警告を出してスキップする', () => {

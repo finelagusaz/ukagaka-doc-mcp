@@ -206,8 +206,8 @@ type IndexFile = {
 #### UKADOC
 
 - 1ファイル1エントリとし、`ukadoc:{path}` とする（例: `ukadoc:list/shiori-event/boot-close-change/OnBoot`）
-- `path` はリポジトリ直下からの相対パスから拡張子 `.md` を除いたものとする。カテゴリは `path` の先頭 2 階層（`list/sakura-script` など。`manual/` `dev/` `memo/` は先頭のディレクトリ）から決める
-- 各ディレクトリの `index.md` は、`## 一覧`（目次）を除いて本文が残るものだけ取り込む
+- `path` はリポジトリ直下からの相対パスから拡張子 `.md` を除いたものとする。カテゴリは `path` の先頭 2 階層（`list/sakura-script` など。`manual/` `dev/` `memo/` は先頭のディレクトリ）から決める。ただし `memo/shiori-event`（SHIORI Event の補足）は個別に `shiori_event` とする
+- まとめて配信されるページの `index.md` は、`## 一覧`（目次）から後ろを除いて本文が残るものだけ取り込む
 - 本文の `**カテゴリ:**` 行は除き、祖先の `index.md` の H1 を ` > ` でつないだパンくずを `[…]` で先頭に置く
 - `descript/` `list/` `spec/` の下のディレクトリは、公開サイトで 1 ページにまとめて配信されるため、`url` はまとめたページの見出しのアンカーを指す。アンカーは上流 `scripts/prepare_site.py` と同じ規則（項目のファイル名の stem。ページ内で重なるときはページからのパスを `-` でつないだもの）で決める
 - 旧 HTML 版（`ukatech/ukadoc` の `manual/`）はアーカイブ扱いのため読まない

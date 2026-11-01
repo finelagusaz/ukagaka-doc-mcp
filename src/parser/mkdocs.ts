@@ -11,7 +11,7 @@
  * - 対象ディレクトリは上流 .nav.yml の nav と対応させる
  */
 
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, type Dirent } from 'node:fs';
 import { join } from 'node:path';
 import type { Category, DocEntry, Source } from '../types.js';
 import { markdownToPlainText } from './markdown.js';
@@ -46,10 +46,9 @@ export function parseMkDocs(rootDir: string, config: MkDocsConfig): DocEntry[] {
     throw new Error(`${config.displayName} directory not found: ${rootDir}\nRun: git submodule update --init --recursive`);
   }
 
-  const dirs = readdirSync(rootDir, { withFileTypes: true })
+  const dirs = sortedDirents(rootDir)
     .filter(dirent => dirent.isDirectory() && !dirent.name.startsWith('.') && !NON_CONTENT_DIRS.has(dirent.name))
-    .map(dirent => dirent.name)
-    .sort();
+    .map(dirent => dirent.name);
 
   const entries: DocEntry[] = [];
 
@@ -99,12 +98,19 @@ export function parseMkDocs(rootDir: string, config: MkDocsConfig): DocEntry[] {
   return entries;
 }
 
-/** dir（rootDir からの相対、区切りは /）以下の Markdown を、入れ子のディレクトリも含めて名前順に返す */
-function listMarkdownFiles(rootDir: string, dir: string): string[] {
-  const files: string[] = [];
-  const dirents = readdirSync(join(rootDir, dir), { withFileTypes: true })
+/** dir の中身を名前順（コードポイント順）に返す */
+export function sortedDirents(dir: string): Dirent[] {
+  return readdirSync(dir, { withFileTypes: true })
     .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
-  for (const dirent of dirents) {
+}
+
+/**
+ * dir（rootDir からの相対、区切りは /）以下の Markdown を、入れ子のディレクトリも含めて名前順に返す
+ * （mkdocs / ukadoc パーサー共用）
+ */
+export function listMarkdownFiles(rootDir: string, dir: string): string[] {
+  const files: string[] = [];
+  for (const dirent of sortedDirents(join(rootDir, dir))) {
     const path = `${dir}/${dirent.name}`;
     if (dirent.isDirectory()) {
       if (!dirent.name.startsWith('.')) files.push(...listMarkdownFiles(rootDir, path));

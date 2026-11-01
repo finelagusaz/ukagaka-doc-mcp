@@ -8,7 +8,8 @@
  * - `descript/<種別>/` `list/<名前>/` `spec/<名前>/` はディレクトリ 1 つが旧 HTML の 1 ページで、
  *   その下にカテゴリのディレクトリ、さらにその下に 1 項目 1 ファイルの `.md` が並ぶ。
  *   公開サイトはディレクトリごとに 1 ページ（`<ディレクトリ>/`）へまとめ、項目は見出しのアンカーで指す
- * - `manual/` `dev/` `memo/` と、ディレクトリを持たない `spec/*.md` は 1 ファイル 1 ページ
+ * - `manual/` `dev/` `memo/`（入れ子のディレクトリも含む）と、ディレクトリを持たない `spec/*.md`、
+ *   index.md を持たないディレクトリの各ファイルは 1 ファイル 1 ページ（index.md はディレクトリの URL）
  * - 各 `index.md` の `## 一覧` は目次。その前に本文（カテゴリの説明）を持つものだけ取り込む
  *
  * 設計方針:
@@ -18,10 +19,11 @@
  * - 未知のページ（ディレクトリ・ファイル）は警告を出してスキップする（上流の構成変更の検知手段）
  */
 
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join, posix } from 'node:path';
 import type { Category, DocEntry } from '../types.js';
 import { markdownToPlainText } from './markdown.js';
+import { listMarkdownFiles, sortedDirents } from './mkdocs.js';
 
 const BASE_URL = 'https://ukatech.shillest.net/ukadoc-spec/';
 const RAW_BASE_URL = 'https://raw.githubusercontent.com/ukatech/ukadoc-spec/refs/heads/main/';
@@ -71,6 +73,7 @@ const PAGE_CATEGORIES: Record<string, Category> = {
   'memo':                       'dev_guide',
 };
 
+/** 上流 prepare_site.py の INDEX_SECTION と同じく、この行から後ろが目次 */
 const INDEX_SECTION = /^## 一覧[ \t]*$/m;
 const CATEGORY_LINE = /^\*\*カテゴリ:\*\*.*\n?/m;
 
@@ -90,20 +93,28 @@ export function parseUkadoc(rootDir: string): DocEntry[] {
     if (BUNDLE_ROOTS.has(top.name)) {
       for (const page of sortedDirents(join(rootDir, top.name))) {
         const pagePath = `${top.name}/${page.name.replace(/\.md$/, '')}`;
-        if (page.isDirectory()) {
-          const category = lookupCategory(pagePath);
-          if (category) entries.push(...parseBundle(rootDir, pagePath, category));
-        } else if (page.name.endsWith('.md')) {
-          const category = lookupCategory(pagePath);
-          if (category) pushEntry(entries, parseStandalonePage(rootDir, `${pagePath}.md`, category));
+        if (!page.isDirectory() && !page.name.endsWith('.md')) continue;
+        const category = lookupPageCategory(pagePath);
+        if (!category) {
+          console.error(`[${LOG_TAG}] Warning: unknown page, skipped: ${pagePath}`);
+          continue;
+        }
+        if (!page.isDirectory()) {
+          pushEntry(entries, parseStandalonePage(rootDir, `${pagePath}.md`, category));
+        } else if (existsSync(join(rootDir, pagePath, 'index.md'))) {
+          entries.push(...parseBundle(rootDir, pagePath, category));
+        } else {
+          // 上流は index.md を持つディレクトリだけを 1 ページにまとめる。持たなければ各ファイルが 1 ページ
+          for (const file of listMarkdownFiles(rootDir, pagePath)) {
+            pushEntry(entries, parseStandalonePage(rootDir, file, category));
+          }
         }
       }
     } else if (PAGE_ROOTS.has(top.name)) {
-      for (const page of sortedDirents(join(rootDir, top.name))) {
-        if (!page.isFile() || !page.name.endsWith('.md')) continue;
-        const pagePath = `${top.name}/${page.name.replace(/\.md$/, '')}`;
-        const category = lookupCategory(pagePath) ?? lookupCategory(top.name);
-        if (category) pushEntry(entries, parseStandalonePage(rootDir, `${pagePath}.md`, category));
+      // 上流は入れ子のディレクトリも含めて 1 ファイル 1 ページで配信する
+      for (const file of listMarkdownFiles(rootDir, top.name)) {
+        const category = lookupPageCategory(file.replace(/\.md$/, '')) ?? lookupPageCategory(top.name);
+        if (category) pushEntry(entries, parseStandalonePage(rootDir, file, category));
       }
     } else {
       console.error(`[${LOG_TAG}] Warning: unknown directory, skipped: ${top.name}`);
@@ -113,11 +124,15 @@ export function parseUkadoc(rootDir: string): DocEntry[] {
   return entries;
 }
 
-/** 1 ファイル 1 ページ（manual/ghost.md、spec/plugin.md など）を 1 エントリにする */
+/**
+ * 1 ファイル 1 ページ（manual/ghost.md、spec/plugin.md など）を 1 エントリにする。
+ * index.md はディレクトリの URL で配信される。まとめたページではないので「## 一覧」もそのまま本文に残る
+ */
 function parseStandalonePage(rootDir: string, file: string, category: Category): DocEntry | undefined {
   const raw = readFileSync(join(rootDir, file), 'utf-8');
   const stem = file.replace(/\.md$/, '');
-  return buildEntry(raw, stem, category, [], `${BASE_URL}${encodePath(stem)}/`);
+  const urlPath = isIndex(file) ? posix.dirname(file) : stem;
+  return buildEntry(raw, stem, category, [], `${BASE_URL}${encodePath(urlPath)}/`);
 }
 
 /**
@@ -128,14 +143,18 @@ function parseStandalonePage(rootDir: string, file: string, category: Category):
  */
 function parseBundle(rootDir: string, pagePath: string, category: Category): DocEntry[] {
   const files = listMarkdownFiles(rootDir, pagePath);
+  const raws = new Map(files.map(file => [file, readFileSync(join(rootDir, file), 'utf-8')]));
   const pageUrl = `${BASE_URL}${encodePath(pagePath)}/`;
 
-  const candidate = (file: string) => posix.basename(isIndex(file) ? posix.dirname(file) : file.replace(/\.md$/, ''));
+  const candidates = new Map(files.map(file => [
+    file,
+    posix.basename(isIndex(file) ? posix.dirname(file) : file.replace(/\.md$/, '')),
+  ]));
   const counts = new Map<string, number>();
-  for (const file of files) counts.set(candidate(file), (counts.get(candidate(file)) ?? 0) + 1);
+  for (const c of candidates.values()) counts.set(c, (counts.get(c) ?? 0) + 1);
 
   const anchorOf = (file: string): string => {
-    const c = candidate(file);
+    const c = candidates.get(file) ?? '';
     if ((counts.get(c) ?? 0) <= 1) return c;
     const sub = posix.relative(pagePath, isIndex(file) ? posix.dirname(file) : file.replace(/\.md$/, ''));
     return sub === '' ? `${c}-page` : sub.replace(/\//g, '-');
@@ -143,22 +162,23 @@ function parseBundle(rootDir: string, pagePath: string, category: Category): Doc
 
   // パンくずに使う、各ディレクトリの index.md の H1
   const headings = new Map<string, string>();
-  for (const file of files) {
-    if (isIndex(file)) headings.set(posix.dirname(file), extractTitle(readFileSync(join(rootDir, file), 'utf-8')) ?? '');
+  for (const [file, raw] of raws) {
+    if (isIndex(file)) headings.set(posix.dirname(file), extractTitle(raw) ?? '');
   }
 
   const entries: DocEntry[] = [];
-  for (const file of files) {
-    const raw = readFileSync(join(rootDir, file), 'utf-8');
+  for (const [file, raw] of raws) {
     // ページ自身から項目の親ディレクトリまでの index.md の H1（index.md 自身の H1 は含めない）
     const parts = posix.relative(pagePath, posix.dirname(file)).split('/').filter(Boolean);
     const dirs = [pagePath, ...parts.map((_, i) => posix.join(pagePath, ...parts.slice(0, i + 1)))];
     if (isIndex(file)) dirs.pop();
     const ancestors = dirs.map(d => headings.get(d)).filter((h): h is string => !!h);
 
+    // 上流 unit_body と同じく、index.md は「## 一覧」から後ろを全て捨てる
+    const body = isIndex(file) ? raw.split(INDEX_SECTION, 1)[0] : raw;
     const isPageIndex = file === `${pagePath}/index.md`;
     const url = isPageIndex ? pageUrl : `${pageUrl}#${encodeURIComponent(anchorOf(file))}`;
-    pushEntry(entries, buildEntry(raw, file.replace(/\.md$/, ''), category, ancestors, url));
+    pushEntry(entries, buildEntry(body, file.replace(/\.md$/, ''), category, ancestors, url));
   }
   return entries;
 }
@@ -170,20 +190,9 @@ function buildEntry(
   ancestors: string[],
   url: string,
 ): DocEntry | undefined {
-  const indexFile = posix.basename(stem) === 'index';
-  let body = raw;
-  if (indexFile) {
-    // 「## 一覧」から後ろ（次の ## 見出しまで）は目次なので除く
-    const match = INDEX_SECTION.exec(body);
-    if (match) {
-      const after = body.slice(match.index + match[0].length);
-      const next = after.search(/^## /m);
-      body = body.slice(0, match.index) + (next === -1 ? '' : after.slice(next));
-    }
-    // H1 しか残らない目次だけの index.md は取り込まない
-    if (!body.replace(/^#\s+.*$/m, '').trim()) return undefined;
-  }
-  body = body.replace(CATEGORY_LINE, '');
+  const body = raw.replace(CATEGORY_LINE, '');
+  // H1 しか残らないもの（目次だけの index.md など）は取り込まない
+  if (!body.replace(/^#\s+.*$/m, '').trim()) return undefined;
 
   const text = markdownToPlainText(body);
   if (!text) return undefined;
@@ -204,13 +213,9 @@ function buildEntry(
 // ユーティリティ
 // ============================================================
 
-function lookupCategory(pagePath: string): Category | undefined {
+function lookupPageCategory(pagePath: string): Category | undefined {
   // 継承プロパティ（constructor 等）に当たらないよう自身のキーだけを引く
-  if (Object.hasOwn(PAGE_CATEGORIES, pagePath)) return PAGE_CATEGORIES[pagePath];
-  if (!PAGE_ROOTS.has(pagePath.split('/')[0])) {
-    console.error(`[${LOG_TAG}] Warning: unknown page, skipped: ${pagePath}`);
-  }
-  return undefined;
+  return Object.hasOwn(PAGE_CATEGORIES, pagePath) ? PAGE_CATEGORIES[pagePath] : undefined;
 }
 
 function pushEntry(entries: DocEntry[], entry: DocEntry | undefined): void {
@@ -229,23 +234,4 @@ function extractTitle(markdown: string): string | undefined {
 
 function encodePath(path: string): string {
   return path.split('/').map(encodeURIComponent).join('/');
-}
-
-function sortedDirents(dir: string) {
-  return readdirSync(dir, { withFileTypes: true })
-    .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
-}
-
-/** dir（rootDir からの相対、区切りは /）以下の Markdown を、入れ子のディレクトリも含めて名前順に返す */
-function listMarkdownFiles(rootDir: string, dir: string): string[] {
-  const files: string[] = [];
-  for (const dirent of sortedDirents(join(rootDir, dir))) {
-    const path = `${dir}/${dirent.name}`;
-    if (dirent.isDirectory()) {
-      if (!dirent.name.startsWith('.')) files.push(...listMarkdownFiles(rootDir, path));
-    } else if (dirent.name.endsWith('.md')) {
-      files.push(path);
-    }
-  }
-  return files;
 }
