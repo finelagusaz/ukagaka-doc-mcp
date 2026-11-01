@@ -74,13 +74,13 @@ npx ukagaka-doc-mcp --http --host 0.0.0.0 --port 9000   # 待ち受けるアド�
 |--------|------|
 | `list_categories` | 検索対象のカテゴリ一覧を返す |
 | `search_docs` | キーワードでドキュメントを検索する |
-| `get_doc` | URL を指定してドキュメント本文を取得する |
+| `get_doc` | `search_docs` の結果の id を指定して、ドキュメントの全文と、元ページの URL（`url`）・元の Markdown の URL（`rawUrl`）を返す |
 
 ## 検索対象
 
 | ソース | 内容 |
 |--------|------|
-| UKADOC（[ukadoc-spec](https://ukatech.shillest.net/ukadoc-spec/)） | 伺か全般の仕様・リファレンス |
+| UKADOC（[ukadoc-spec](https://ukatech.shillest.net/ukadoc-spec/)） | SSP 公式仕様書（さくらスクリプト・SHIORI イベント・設定ファイル・SHIORI/SSTP/SAORI などの規格） |
 | SSP ヘルプ（[ukadoc-ssp](https://ukatech.shillest.net/ukadoc-ssp/)） | SSP 本体の使い方・機能・設定 |
 | YAYA docs（[yaya-docs](https://github.com/YAYA-shiori/yaya-docs)） | YAYA スクリプトのリファレンス |
 | 里々 docs（[satori-docs](https://github.com/ukatech/satori-docs)） | 里々スクリプト・ssu のリファレンス |
