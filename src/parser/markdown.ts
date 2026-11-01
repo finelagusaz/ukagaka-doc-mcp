@@ -109,7 +109,7 @@ function stripInlineMarkdown(line: string): string {
     .replace(/\s*<br\s*\/?>\s*$/i, '')
     .replace(/\s*<br\s*\/?>\s*/gi, '\n')
     .replace(/<\/?strong>/gi, '')
-    // 取り消し線は ~~ で残し（取り消された記述と分かるように）、そのほかの文字装飾のタグは外して中身だけ残す
+    // <del> は、取り消された記述と分かるよう ~~…~~ で残す。ほかの文字装飾のタグは外し、中身だけを残す
     .replace(/<del>(.*?)<\/del>/gi, '~~$1~~')
     .replace(/<\/?(?:del|ins|sup|sub|s|u|em|b|i|small|span|mark|kbd)(?:\s[^>]*)?>/gi, '')
     .replace(/<(https?:\/\/[^\s<>]+)>/g, '$1')    // 自動リンク <https://…> → URL

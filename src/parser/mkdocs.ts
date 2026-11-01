@@ -98,7 +98,7 @@ export function parseMkDocs(rootDir: string, config: MkDocsConfig): DocEntry[] {
   return entries;
 }
 
-/** dir の中身を名前順（コードポイント順）に返す */
+/** dir の中身を名前の UTF-16 コード単位順に返す（`Array.prototype.sort` の既定と同じ） */
 export function sortedDirents(dir: string): Dirent[] {
   return readdirSync(dir, { withFileTypes: true })
     .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));

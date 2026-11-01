@@ -30,7 +30,7 @@ export interface DocEntry {
   content: string;
   /** 元ページURL */
   url: string;
-  /** 元ページの生 Markdown の URL（Markdown が元のソース: ukadoc / ssp_help / yaya_docs / satori_docs / aosora_wiki / minato_docs / pasta_docs / kawari_docs のみ） */
+  /** 元ページの生 Markdown の URL（全ソースが Markdown を元にするため、全エントリに付く） */
   rawUrl?: string;
 }
 

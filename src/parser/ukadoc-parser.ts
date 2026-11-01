@@ -5,12 +5,14 @@
  * UKADOC の正本は ukatech/ukadoc の manual/*.html（アーカイブ扱い）から ukadoc-spec に移った。
  *
  * 上流の構成:
- * - `descript/<種別>/` `list/<名前>/` `spec/<名前>/` はディレクトリ 1 つが旧 HTML の 1 ページで、
- *   その下にカテゴリのディレクトリ、さらにその下に 1 項目 1 ファイルの `.md` が並ぶ。
- *   公開サイトはディレクトリごとに 1 ページ（`<ディレクトリ>/`）へまとめ、項目は見出しのアンカーで指す
- * - `manual/` `dev/` `memo/`（入れ子のディレクトリも含む）と、ディレクトリを持たない `spec/*.md`、
- *   index.md を持たないディレクトリの各ファイルは 1 ファイル 1 ページ（index.md はディレクトリの URL）
- * - 各 `index.md` の `## 一覧` は目次。その前に本文（カテゴリの説明）を持つものだけ取り込む
+ * - `descript/<種別>/` `list/<名前>/` `spec/<名前>/` は、ディレクトリ 1 つが旧 HTML の 1 ページにあたる。
+ *   その下にカテゴリのディレクトリがあり、さらにその下に 1 項目 1 ファイルの `.md` が並ぶ。
+ *   公開サイトは、index.md を持つディレクトリを 1 ページ（`<ディレクトリ>/`）にまとめ、項目を見出しのアンカーで指す
+ * - 次のものは 1 ファイル 1 ページで配信される（index.md はディレクトリの URL）
+ *   - `manual/` `dev/` `memo/` の下のファイル（入れ子のディレクトリも含む）
+ *   - ディレクトリを持たない `spec/*.md`
+ *   - index.md を持たないディレクトリの下のファイル
+ * - まとめたページの index.md は、`## 一覧` から後ろが目次。その前に本文（カテゴリの説明）があるものだけを取り込む
  *
  * 設計方針:
  * - 1 ファイル = 1 エントリ。id は `ukadoc:{リポジトリ直下からのパス stem}`
@@ -41,7 +43,7 @@ const NON_CONTENT_DIRS = new Set(['assets', 'migration', 'scripts', 'site_ext'])
 /**
  * ページ → カテゴリ（上流 .nav.yml の nav 順）。
  * キーはページのパス（`list/sakura-script`、`spec/plugin` のように .md を除く）。
- * 1 ファイル 1 ページのディレクトリは、直下のディレクトリ名でまとめて引く（個別の指定が優先）。
+ * `manual` `dev` `memo` の下のファイルは、ファイルごとの指定（`memo/shiori-event`）が無ければ直下のディレクトリ名で引く。
  */
 const PAGE_CATEGORIES: Record<string, Category> = {
   'manual':                     'file_structure',
@@ -137,9 +139,11 @@ function parseStandalonePage(rootDir: string, file: string, category: Category):
 
 /**
  * ディレクトリ 1 つを 1 ページにまとめて配信するもの（list/shiori-event など）の各項目をエントリにする。
- * 項目の URL は、まとめたページの見出しのアンカー。アンカーは上流 scripts/prepare_site.py の
- * register_bundle と同じ規則で決める: 項目のファイル名の stem（index.md はディレクトリ名）で、
- * ページ内で重なるときはページからのパスを `-` でつないだもの（ページ自身の index.md は `{名前}-page`）。
+ * 項目の URL は、まとめたページの見出しのアンカー。
+ * アンカーは、上流 scripts/prepare_site.py の register_bundle と同じ規則で決める。
+ * - 原則は項目のファイル名の stem（index.md はディレクトリ名）
+ * - ページ内で重なるときは、ページからのパスを `-` でつないだもの
+ * - ページ自身の index.md が重なるときは `{名前}-page`
  */
 function parseBundle(rootDir: string, pagePath: string, category: Category): DocEntry[] {
   const files = listMarkdownFiles(rootDir, pagePath);

@@ -78,7 +78,7 @@ docs/
 - PR 作成に GitHub App トークンを使用（`APP_ID` / `APP_PRIVATE_KEY` secrets）。`GITHUB_TOKEN` で作った PR は CI をトリガーしない
 - **人手の dep PR は refresh-index PR と必ず衝突する**。週次 cron で `package.json` version と `package-lock.json` が頻繁に動くため、長く寝かせると merge 不能に。dep PR は branch を切ったら短期で merge まで進めるか、merge 直前に `git rebase origin/main` で吸収する。lockfile 衝突は `git checkout --ours package-lock.json && npm install --package-lock-only` で main 側を採用 → 自分の `package.json` 制約で再生成、が定石
 - **パーサーの警告ではビルドが失敗しない**。上流の目次・ディレクトリに未知の章が増えると `[xxx-parser] Warning: … skipped` を出してそのページを読み飛ばすだけで、週次 refresh PR も通って auto-merge される。週次 refresh PR では警告を本文の「Parser warnings」節・ジョブサマリー・注釈に載せる（auto-merge は止めない）。手元ではパーサーや submodule を触ったら `build:index` の stderr の `Warning` を必ず確認する
-- **UKADOC は ukatech/ukadoc-spec（Markdown）を読む**。旧 HTML の ukatech/ukadoc はアーカイブ扱いで読まない（SSP ヘルプも同様に、ukadoc の `ssphelp_src/` ではなく `docs/ukadoc-ssp` を読む）。ukadoc-spec の `descript/` `list/` `spec/` 配下はサイトで 1 ページにまとめて配信されるため、項目の URL アンカーは上流 `scripts/prepare_site.py` の採番規則を写して組み立てている。上流がこの規則を変えると、警告も出ずに URL のアンカーだけがずれる
+- **UKADOC の項目の URL アンカーは、上流の採番規則を写して組み立てている**。ukadoc-spec は `descript/` `list/` `spec/` の下のディレクトリを、サイトで 1 ページにまとめて配信する。そのため、項目の URL はまとめたページのアンカーになり、アンカーは上流 `scripts/prepare_site.py` の規則で決まる。上流がこの規則を変えると、警告も出ずにアンカーだけがずれる。旧 HTML の ukatech/ukadoc はアーカイブ扱いで、もう読まない（SSP ヘルプも同じく `docs/ukadoc-ssp` を読む）
 - **ソースを追加するときは、`SOURCES` 以外にも submodule パスを手書きしている箇所がある**。`package.json` の `refresh:index`、`ci.yml` の `allowedFiles`（漏れると週次 refresh PR のスコープ検証で落ちる）、`refresh-index-pr.yml`（変更検知の `git diff`・PR 本文・`git add` の 3 箇所）。あわせて README・NOTICE.md・SPEC.md のソース一覧と、このファイルの Architecture も更新する
 
 ## Testing
