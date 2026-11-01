@@ -207,7 +207,7 @@ publish 後に tag push や release 作成で落ちた場合は、**同じ run �
 ```bash
 npm run refresh:index
 # 内部: git submodule sync --recursive
-#       git submodule update --init --remote docs/ukadoc docs/ukadoc-ssp docs/yaya-docs docs/satori-docs docs/aosora-wiki docs/minato docs/pasta docs/kawari-docs
+#       git submodule update --init --remote docs/ukadoc-spec docs/ukadoc-ssp docs/yaya-docs docs/satori-docs docs/aosora-wiki docs/minato docs/pasta docs/kawari-docs
 #       npm run build:index
 ```
 
@@ -246,7 +246,7 @@ PR 作成時のトークンに注意:
 
 | 症状 | 原因 | 対処 |
 |---|---|---|
-| `git pull` 後 `docs/ukadoc (new commits)` と表示 | submodule HEAD が記録 SHA と乖離 | `git submodule update --recursive` |
+| `git pull` 後 `docs/ukadoc-spec (new commits)` と表示 | submodule HEAD が記録 SHA と乖離 | `git submodule update --recursive` |
 | dep PR が `CONFLICTING` | 寝かせている間に refresh-index PR が main を更新 | [refresh-index PR との衝突対処](#refresh-index-pr-との衝突対処) |
 | CI `validate` が走らない | PR 作成トークンが `GITHUB_TOKEN` | App token または個人トークンで作り直し |
 | `npm publish` で OIDC 認証エラー | `registry-url` 設定 / npm CLI 古い / Trusted Publisher 不一致 | [失敗時のチェックリスト](#失敗時のチェックリスト) |

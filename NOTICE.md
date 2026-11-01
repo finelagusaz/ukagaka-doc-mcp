@@ -12,7 +12,7 @@ License. See `LICENSE`.
 `data/index.json` is a generated snapshot derived from third-party technical
 documentation sources, including:
 
-- UKADOC
+- UKADOC (ukatech/ukadoc-spec, CC BY 4.0, UKADOC project)
 - SSP ヘルプ (ukatech/ukadoc-ssp, CC BY 4.0, UKADOC project)
 - YAYA docs (YAYA-shiori/yaya-docs)
 - 里々 docs (ukatech/satori-docs)

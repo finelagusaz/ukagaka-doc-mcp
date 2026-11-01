@@ -20,7 +20,7 @@
 
 本サーバーは以下の8ソースのみを対象とする。
 
-1. UKADOC (`docs/ukadoc/manual/`)
+1. UKADOC (`docs/ukadoc-spec/`、`https://github.com/ukatech/ukadoc-spec`)
 2. SSP ヘルプ (`docs/ukadoc-ssp/`、`https://github.com/ukatech/ukadoc-ssp`)
 3. YAYA docs (`docs/yaya-docs/`、`https://github.com/YAYA-shiori/yaya-docs`)
 4. 里々 docs (`docs/satori-docs/`、`https://github.com/ukatech/satori-docs`)
@@ -44,7 +44,7 @@
 
 `npm run build:index` は以下を行う。
 
-1. UKADOC をローカルHTMLからパースする
+1. UKADOC をローカルMarkdownからパースする
 2. SSP ヘルプをローカルMarkdownからパースする
 3. YAYA docs をローカルMarkdownからパースする
 4. 里々 docs をローカルMarkdownからパースする
@@ -148,7 +148,7 @@ type DocEntry = {
 - `content` は全文でなければならない
 - `content` は保存時に要約化してはならない
 - `url` はそのエントリの元ページまたは元セクションを指さなければならない
-- `rawUrl` は元のソースが Markdown のソース（SSP ヘルプ・YAYA docs・里々 docs・蒼空 Wiki・湊 docs・Pasta docs・華和梨 docs）の全エントリに付与し、元の Markdown を指さなければならない。元のソースが HTML のソース（UKADOC）には付与してはならない
+- `rawUrl` は全ソースの全エントリに付与し、元の Markdown を指さなければならない
 
 ### 5.4 SearchEntry
 
@@ -205,13 +205,16 @@ type IndexFile = {
 
 #### UKADOC
 
-- 形式は `ukadoc:{filename}:{anchor}` を基本とする
-- `anchor` には、ソースHTMLに存在する `id` または `name` を優先的に使用しなければならない
-- 優先順位は `id` → `name` → フォールバックでなければならない
-- フォールバック形式は `ukadoc:{filename}:{normalized_raw_title}:{occurrence_index}` とする
-- `occurrence_index` は、同一ページ内で同じ `normalized_raw_title` が出現した順の 1 始まり整数とする
-- `normalized_raw_title` は安定した正規化文字列でなければならない
-- フォールバックは、記号除去や小文字化だけに依存してはならない
+- 1ファイル1エントリとし、`ukadoc:{path}` とする（例: `ukadoc:list/shiori-event/boot-close-change/OnBoot`）
+- `path` は、リポジトリ直下からの相対パスから拡張子 `.md` を除いたものとする
+- カテゴリは `path` の先頭2階層（`list/sakura-script` など）から決める。`manual/` `dev/` `memo/` は先頭のディレクトリから決める
+- `memo/shiori-event`（SHIORI Event の補足）は、例外として `shiori_event` とする
+- `descript/` `list/` `spec/` の下で `index.md` を持つディレクトリは、公開サイトで1ページにまとめて配信される。`url` はまとめたページの見出しのアンカーを指す
+- アンカーは上流 `scripts/prepare_site.py` と同じ規則で決める。項目のファイル名の stem を使い、ページ内で重なるときはページからのパスを `-` でつなぐ
+- まとめたページの `index.md` は、`## 一覧`（目次）から後ろを除く。本文が残るものだけを取り込む
+- そのほかのファイルは1ファイル1ページとし、`url` はそのページを指す。`index.md` はディレクトリの URL とする
+- 本文の `**カテゴリ:**` 行は除く。代わりに、祖先の `index.md` の H1 を ` > ` でつないだパンくずを `[…]` で囲んで先頭に置く
+- 旧 HTML 版（`ukatech/ukadoc` の `manual/`）はアーカイブ扱いのため読まない
 
 #### SSP ヘルプ
 

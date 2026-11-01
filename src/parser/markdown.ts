@@ -1,5 +1,5 @@
 /**
- * Markdown → プレーンテキスト変換（SSP ヘルプ / 蒼空 Wiki / YAYA docs / 里々 docs / 湊 docs / Pasta docs / 華和梨 docs パーサー共用）
+ * Markdown → プレーンテキスト変換（UKADOC / SSP ヘルプ / 蒼空 Wiki / YAYA docs / 里々 docs / 湊 docs / Pasta docs / 華和梨 docs パーサー共用）
  */
 
 /**
@@ -93,6 +93,8 @@ function protectLiterals(line: string): { text: string; literals: string[] } {
   return { text, literals };
 }
 
+const HTML_ENTITIES: Record<string, string> = { lt: '<', gt: '>', amp: '&', quot: '"', nbsp: ' ' };
+
 /** 1行分の inline Markdown 記法を除去する。inline code の中身とエスケープした記号は保護する。 */
 function stripInlineMarkdown(line: string): string {
   // 表の行ではセル区切りと区別するため `|` が `\|` とエスケープされている（コードスパン内も）
@@ -107,6 +109,9 @@ function stripInlineMarkdown(line: string): string {
     .replace(/\s*<br\s*\/?>\s*$/i, '')
     .replace(/\s*<br\s*\/?>\s*/gi, '\n')
     .replace(/<\/?strong>/gi, '')
+    // <del> は、取り消された記述と分かるよう ~~…~~ で残す。ほかの文字装飾のタグは外し、中身だけを残す
+    .replace(/<del>(.*?)<\/del>/gi, '~~$1~~')
+    .replace(/<\/?(?:del|ins|sup|sub|s|u|em|b|i|small|span|mark|kbd)(?:\s[^>]*)?>/gi, '')
     .replace(/<(https?:\/\/[^\s<>]+)>/g, '$1')    // 自動リンク <https://…> → URL
     .replace(/^!!!\s+\w+(?:\s+"(.*)")?\s*$/, '$1') // admonition（!!! note "タイトル"）→ タイトル
     .replace(/^#{1,6}\s+/, '')                    // 見出し記号
@@ -117,7 +122,9 @@ function stripInlineMarkdown(line: string): string {
     .replace(/\*([^\s*][^*]*)\*/g, '$1')          // 強調
     // `_` は CommonMark 同様に単語の途中では強調にしない（APPEND_RUNTIME_DIC や snake_case を保つ）
     .replace(/(?<![\p{L}\p{N}_])__(.+?)__(?![\p{L}\p{N}_])/gu, '$1')
-    .replace(/(?<![\p{L}\p{N}_])_([^\s_](?:[^_]*[^\s_])?)_(?![\p{L}\p{N}_])/gu, '$1');
+    .replace(/(?<![\p{L}\p{N}_])_([^\s_](?:[^_]*[^\s_])?)_(?![\p{L}\p{N}_])/gu, '$1')
+    // 文字実体参照（UKADOC は表示崩れを避けて `<` を `&lt;` と書く）。一度に置き換えて `&amp;lt;` の二重展開を防ぐ
+    .replace(/&(lt|gt|amp|quot|nbsp);/g, (_match, name: string) => HTML_ENTITIES[name]);
 
   // 退避した inline code・エスケープ記号を復元
   return text.replace(/\u0000(\d+)\u0000/g, (_match, i: string) => literals[Number(i)]);

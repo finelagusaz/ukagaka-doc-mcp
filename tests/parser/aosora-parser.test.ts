@@ -19,6 +19,16 @@ describe('markdownToPlainText', () => {
     expect(markdownToPlainText('![図 [1]](img.png)')).toBe('図 [1]');
   });
 
+  it('文字実体参照を展開する（コードスパンの中と二重の展開は除く）', () => {
+    expect(markdownToPlainText('a &lt;b&gt; &amp;lt; `&lt;`')).toBe('a <b> &lt; &lt;');
+  });
+
+  it('文字装飾の HTML タグは外し、取り消し線は ~~ で残す', () => {
+    expect(markdownToPlainText('x<sup>2</sup> <span style="color:red">赤</span> <del>旧</del><ins>新</ins> <b>太</b>'))
+      .toBe('x2 赤 ~~旧~~新 太');
+    expect(markdownToPlainText('`<b>` は残す')).toBe('<b> は残す');
+  });
+
   it('強調記号を除去する', () => {
     expect(markdownToPlainText('**重要** と *注意* と _補足_')).toBe('重要 と 注意 と 補足');
   });

@@ -20,8 +20,7 @@ export type Category = keyof typeof CATEGORIES;
  */
 export interface DocEntry {
   /** canonical_id（形式はソースごとに異なる。各ソースの例は constants.ts の SOURCES[*].exampleId）
-   * - ukadoc: `ukadoc:{filename}:{section_anchor}`
-   * - Markdown 由来のソース: `{接頭辞}:{ファイルパス stem}`（pasta_docs の節は末尾に `:{## 見出しのアンカー}`）
+   * - Markdown 由来のソース（ukadoc を含む）: `{接頭辞}:{ファイルパス stem}`（pasta_docs の節は末尾に `:{## 見出しのアンカー}`）
    */
   id: string;
   title: string;
@@ -31,7 +30,7 @@ export interface DocEntry {
   content: string;
   /** 元ページURL */
   url: string;
-  /** 元ページの生 Markdown の URL（Markdown が元のソース: ssp_help / yaya_docs / satori_docs / aosora_wiki / minato_docs / pasta_docs / kawari_docs のみ） */
+  /** 元ページの生 Markdown の URL（全ソースが Markdown を元にするため、全エントリに付く） */
   rawUrl?: string;
 }
 

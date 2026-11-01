@@ -12,7 +12,7 @@
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { DocEntry } from './types.js';
-import { parseUkadocManual } from './parser/ukadoc-parser.js';
+import { parseUkadoc } from './parser/ukadoc-parser.js';
 import { parseSspHelp } from './parser/ssphelp-parser.js';
 import { parseYayaDocs } from './parser/yaya-docs-parser.js';
 import { parseSatoriDocs } from './parser/satori-docs-parser.js';
@@ -32,8 +32,8 @@ async function main(): Promise<void> {
 
   // --- Phase 1: UKADOC ---
   console.error('[build-index] Parsing UKADOC...');
-  const ukadocManualDir = resolve(__dirname, '..', 'docs', 'ukadoc', 'manual');
-  const ukadocEntries = parseUkadocManual(ukadocManualDir);
+  const ukadocDir = resolve(__dirname, '..', 'docs', 'ukadoc-spec');
+  const ukadocEntries = parseUkadoc(ukadocDir);
   entries.push(...ukadocEntries);
   console.error(`[build-index] UKADOC: ${ukadocEntries.length} entries`);
 

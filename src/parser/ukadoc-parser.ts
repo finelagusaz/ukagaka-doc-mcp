@@ -1,293 +1,241 @@
 /**
- * UKADOCパーサー
+ * UKADOC パーサー
  *
- * UKADOC の HTMLファイルを解析して DocEntry 配列を返す。
+ * docs/ukadoc-spec（git submodule: ukatech/ukadoc-spec）の Markdown をローカルでパースする。
+ * UKADOC の正本は ukatech/ukadoc の manual/*.html（アーカイブ扱い）から ukadoc-spec に移った。
  *
- * HTML構造の観察:
- * - list_sakura_script.html: section.category > dl > dt.entry が各タグ
- * - list_shiori_event.html: section.category > dl > dt.entry が各イベント
- * - descript_*.html: section > dl > dt.entry or セクション形式
- * - spec_*.html: セクション形式（h2/h3 + 説明文）
+ * 上流の構成:
+ * - `descript/<種別>/` `list/<名前>/` `spec/<名前>/` は、ディレクトリ 1 つが旧 HTML の 1 ページにあたる。
+ *   その下にカテゴリのディレクトリがあり、さらにその下に 1 項目 1 ファイルの `.md` が並ぶ。
+ *   公開サイトは、index.md を持つディレクトリを 1 ページ（`<ディレクトリ>/`）にまとめ、項目を見出しのアンカーで指す
+ * - 次のものは 1 ファイル 1 ページで配信される（index.md はディレクトリの URL）
+ *   - `manual/` `dev/` `memo/` の下のファイル（入れ子のディレクトリも含む）
+ *   - ディレクトリを持たない `spec/*.md`
+ *   - index.md を持たないディレクトリの下のファイル
+ * - まとめたページの index.md は、`## 一覧` から後ろが目次。その前に本文（カテゴリの説明）があるものだけを取り込む
+ *
+ * 設計方針:
+ * - 1 ファイル = 1 エントリ。id は `ukadoc:{リポジトリ直下からのパス stem}`
+ * - 本文の `**カテゴリ:**` 行は除き、代わりに祖先の index.md の H1 をつないだパンくずを先頭に置く
+ *   （ghost と shell の `charset` など、同じ名前の項目を見分けるため）
+ * - 未知のページ（ディレクトリ・ファイル）は警告を出してスキップする（上流の構成変更の検知手段）
  */
 
-import { readFileSync, readdirSync, existsSync } from 'node:fs';
-import { join, basename } from 'node:path';
-import * as cheerio from 'cheerio';
-import type { Element } from 'domhandler';
-import type { DocEntry, Category } from '../types.js';
+import { existsSync, readFileSync } from 'node:fs';
+import { join, posix } from 'node:path';
+import type { Category, DocEntry } from '../types.js';
+import { markdownToPlainText } from './markdown.js';
+import { listMarkdownFiles, sortedDirents } from './mkdocs.js';
 
-// ============================================================
-// ファイル → カテゴリ のマッピング
-// ============================================================
+const BASE_URL = 'https://ukatech.shillest.net/ukadoc-spec/';
+const RAW_BASE_URL = 'https://raw.githubusercontent.com/ukatech/ukadoc-spec/refs/heads/main/';
+const LOG_TAG = 'ukadoc-parser';
 
-/** filename (拡張子なし) → Category */
-const FILE_CATEGORY_MAP: Record<string, Category> = {
-  list_sakura_script:        'sakurascript',
-  list_shiori_event:         'shiori_event',
-  list_shiori_event_ex:      'shiori_event',
-  list_shiori_resource:      'shiori_event',
-  list_plugin_event:         'shiori_event',
-  list_propertysystem:       'protocol',
-  descript_ghost:            'descript',
-  descript_shell:            'descript',
-  descript_shell_surfaces:   'descript',
-  descript_shell_surfacetable: 'descript',
-  descript_balloon:          'descript',
-  descript_install:          'descript',
-  descript_headline:         'descript',
-  descript_plugin:           'descript',
-  spec_shiori3:              'protocol',
-  spec_sstp:                 'protocol',
-  spec_dll:                  'protocol',
-  spec_plugin:               'protocol',
-  spec_fmo_mutex:            'protocol',
-  spec_headline:             'protocol',
-  spec_update_file:          'protocol',
-  spec_web:                  'protocol',
-  manual_directory:          'file_structure',
-  manual_ghost:              'file_structure',
-  manual_shell:              'file_structure',
-  manual_balloon:            'file_structure',
-  manual_install:            'file_structure',
-  manual_update:             'file_structure',
-  manual_translator:         'file_structure',
-  manual_owner_draw_menu:    'file_structure',
-  dev_bind:                  'dev_guide',
-  dev_nar:                   'dev_guide',
-  dev_ownerdraw:             'dev_guide',
-  dev_shell:                 'dev_guide',
-  dev_shell_error:           'dev_guide',
-  dev_update:                'dev_guide',
-  memo:                      'dev_guide',
-  memo_shiorievent:          'shiori_event',
-};
+/** ディレクトリ 1 つを 1 ページにまとめて配信する直下のディレクトリ */
+const BUNDLE_ROOTS = new Set(['descript', 'list', 'spec']);
 
-// ============================================================
-// パース関数
-// ============================================================
+/** 1 ファイル 1 ページの直下のディレクトリ */
+const PAGE_ROOTS = new Set(['manual', 'dev', 'memo']);
+
+/** ページ本文を持たない直下のディレクトリ */
+const NON_CONTENT_DIRS = new Set(['assets', 'migration', 'scripts', 'site_ext']);
 
 /**
- * UKADOC の manual/ ディレクトリ全体をパースして DocEntry[] を返す。
+ * ページ → カテゴリ（上流 .nav.yml の nav 順）。
+ * キーはページのパス（`list/sakura-script`、`spec/plugin` のように .md を除く）。
+ * `manual` `dev` `memo` の下のファイルは、ファイルごとの指定（`memo/shiori-event`）が無ければ直下のディレクトリ名で引く。
  */
-export function parseUkadocManual(manualDir: string): DocEntry[] {
-  if (!existsSync(manualDir)) {
-    throw new Error(`UKADOC manual directory not found: ${manualDir}\nRun: git submodule update --init --recursive`);
-  }
+const PAGE_CATEGORIES: Record<string, Category> = {
+  'manual':                     'file_structure',
+  'descript/ghost':             'descript',
+  'descript/shell':             'descript',
+  'descript/shell-surfaces':    'descript',
+  'descript/shell-surfacetable': 'descript',
+  'descript/balloon':           'descript',
+  'descript/plugin':            'descript',
+  'descript/headline':          'descript',
+  'descript/install':           'descript',
+  'spec/update-file':           'protocol',
+  'list/sakura-script':         'sakurascript',
+  'list/propertysystem':        'protocol',
+  'list/shiori-event':          'shiori_event',
+  'list/shiori-event-ex':       'shiori_event',
+  'list/shiori-resource':       'shiori_event',
+  'list/plugin-event':          'shiori_event',
+  'spec/shiori3':               'protocol',
+  'spec/sstp':                  'protocol',
+  'spec/saori-ex':              'protocol',
+  'spec/plugin':                'protocol',
+  'spec/headline':              'protocol',
+  'spec/dll':                   'protocol',
+  'spec/fmo-mutex':             'protocol',
+  'spec/web':                   'protocol',
+  'dev':                        'dev_guide',
+  'memo/shiori-event':          'shiori_event',
+  'memo':                       'dev_guide',
+};
 
-  const htmlFiles = readdirSync(manualDir)
-    .filter(f => f.endsWith('.html') && !f.startsWith('index') && f !== 'base.css');
+/** 上流 prepare_site.py の INDEX_SECTION と同じく、この行から後ろが目次 */
+const INDEX_SECTION = /^## 一覧[ \t]*$/m;
+const CATEGORY_LINE = /^\*\*カテゴリ:\*\*.*\n?/m;
+
+/**
+ * ukadoc-spec リポジトリ内の Markdown を全てパースして DocEntry 配列を返す。
+ */
+export function parseUkadoc(rootDir: string): DocEntry[] {
+  if (!existsSync(rootDir)) {
+    throw new Error(`UKADOC directory not found: ${rootDir}\nRun: git submodule update --init --recursive`);
+  }
 
   const entries: DocEntry[] = [];
 
-  for (const filename of htmlFiles) {
-    const stem = basename(filename, '.html');
-    // 継承プロパティ（constructor 等）に当たらないよう自身のキーだけを引く
-    const category = Object.hasOwn(FILE_CATEGORY_MAP, stem) ? FILE_CATEGORY_MAP[stem] : undefined;
-    if (!category) {
-      // マッピングにないファイルはスキップ
-      continue;
-    }
+  for (const top of sortedDirents(rootDir)) {
+    if (!top.isDirectory() || top.name.startsWith('.') || NON_CONTENT_DIRS.has(top.name)) continue;
 
-    const filePath = join(manualDir, filename);
-    const html = readFileSync(filePath, 'utf-8');
-    const fileEntries = parseUkadocFile(html, filename, category);
-    entries.push(...fileEntries);
+    if (BUNDLE_ROOTS.has(top.name)) {
+      for (const page of sortedDirents(join(rootDir, top.name))) {
+        const pagePath = `${top.name}/${page.name.replace(/\.md$/, '')}`;
+        if (!page.isDirectory() && !page.name.endsWith('.md')) continue;
+        const category = lookupPageCategory(pagePath);
+        if (!category) {
+          console.error(`[${LOG_TAG}] Warning: unknown page, skipped: ${pagePath}`);
+          continue;
+        }
+        if (!page.isDirectory()) {
+          pushEntry(entries, parseStandalonePage(rootDir, `${pagePath}.md`, category));
+        } else if (existsSync(join(rootDir, pagePath, 'index.md'))) {
+          entries.push(...parseBundle(rootDir, pagePath, category));
+        } else {
+          // 上流は index.md を持つディレクトリだけを 1 ページにまとめる。持たなければ各ファイルが 1 ページ
+          for (const file of listMarkdownFiles(rootDir, pagePath)) {
+            pushEntry(entries, parseStandalonePage(rootDir, file, category));
+          }
+        }
+      }
+    } else if (PAGE_ROOTS.has(top.name)) {
+      // 上流は入れ子のディレクトリも含めて 1 ファイル 1 ページで配信する
+      for (const file of listMarkdownFiles(rootDir, top.name)) {
+        const category = lookupPageCategory(file.replace(/\.md$/, '')) ?? lookupPageCategory(top.name);
+        if (category) pushEntry(entries, parseStandalonePage(rootDir, file, category));
+      }
+    } else {
+      console.error(`[${LOG_TAG}] Warning: unknown directory, skipped: ${top.name}`);
+    }
   }
 
   return entries;
 }
 
 /**
- * 単一のUKADOC HTMLファイルをパースして DocEntry[] を返す。
+ * 1 ファイル 1 ページ（manual/ghost.md、spec/plugin.md など）を 1 エントリにする。
+ * index.md はディレクトリの URL で配信される。まとめたページではないので「## 一覧」もそのまま本文に残る
  */
-export function parseUkadocFile(
-  html: string,
-  filename: string,
-  category: Category,
-): DocEntry[] {
-  const $ = cheerio.load(html);
-  const stem = basename(filename, '.html');
-  const baseUrl = `https://ssp.shillest.net/ukadoc/manual/${filename}`;
-  const usedAnchors = new Map<string, number>();
-  const fallbackAnchorCounts = new Map<string, number>();
+function parseStandalonePage(rootDir: string, file: string, category: Category): DocEntry | undefined {
+  const raw = readFileSync(join(rootDir, file), 'utf-8');
+  const stem = file.replace(/\.md$/, '');
+  const urlPath = isIndex(file) ? posix.dirname(file) : stem;
+  return buildEntry(raw, stem, category, [], `${BASE_URL}${encodePath(urlPath)}/`);
+}
 
-  // まずナビゲーションを除去
-  $('nav').remove();
-  $('.navigation-bar').remove();
-  $('header').remove();
+/**
+ * ディレクトリ 1 つを 1 ページにまとめて配信するもの（list/shiori-event など）の各項目をエントリにする。
+ * 項目の URL は、まとめたページの見出しのアンカー。
+ * アンカーは、上流 scripts/prepare_site.py の register_bundle と同じ規則で決める。
+ * - 原則は項目のファイル名の stem（index.md はディレクトリ名）
+ * - ページ内で重なるときは、ページからのパスを `-` でつないだもの
+ * - ページ自身の index.md が重なるときは `{名前}-page`
+ */
+function parseBundle(rootDir: string, pagePath: string, category: Category): DocEntry[] {
+  const files = listMarkdownFiles(rootDir, pagePath);
+  const raws = new Map(files.map(file => [file, readFileSync(join(rootDir, file), 'utf-8')]));
+  const pageUrl = `${BASE_URL}${encodePath(pagePath)}/`;
 
-  const pageTitle = $('h1#page-title').text().trim() || $('title').text().trim() || stem;
+  const candidates = new Map(files.map(file => [
+    file,
+    posix.basename(isIndex(file) ? posix.dirname(file) : file.replace(/\.md$/, '')),
+  ]));
+  const counts = new Map<string, number>();
+  for (const c of candidates.values()) counts.set(c, (counts.get(c) ?? 0) + 1);
+
+  const anchorOf = (file: string): string => {
+    const c = candidates.get(file) ?? '';
+    if ((counts.get(c) ?? 0) <= 1) return c;
+    const sub = posix.relative(pagePath, isIndex(file) ? posix.dirname(file) : file.replace(/\.md$/, ''));
+    return sub === '' ? `${c}-page` : sub.replace(/\//g, '-');
+  };
+
+  // パンくずに使う、各ディレクトリの index.md の H1
+  const headings = new Map<string, string>();
+  for (const [file, raw] of raws) {
+    if (isIndex(file)) headings.set(posix.dirname(file), extractTitle(raw) ?? '');
+  }
 
   const entries: DocEntry[] = [];
+  for (const [file, raw] of raws) {
+    // ページ自身から項目の親ディレクトリまでの index.md の H1（index.md 自身の H1 は含めない）
+    const parts = posix.relative(pagePath, posix.dirname(file)).split('/').filter(Boolean);
+    const dirs = [pagePath, ...parts.map((_, i) => posix.join(pagePath, ...parts.slice(0, i + 1)))];
+    if (isIndex(file)) dirs.pop();
+    const ancestors = dirs.map(d => headings.get(d)).filter((h): h is string => !!h);
 
-  // --------------------------------------------------------
-  // パターン1: dt.entry を持つ定義リスト形式
-  // (list_sakura_script, list_shiori_event, descript_* 等)
-  // --------------------------------------------------------
-  const dtEntries = $('dt.entry');
-  if (dtEntries.length > 0) {
-    dtEntries.each((_, dt) => {
-      const $dt = $(dt);
-      const entryName = $dt.text().trim();
-      if (!entryName) return;
-
-      // UKADOC の実アンカーは dt を包む <dl id> に付く。dt 自身の id・直前の <a name> も一応見る
-      const ownAnchor = $dt.attr('id') || $dt.prev('a').attr('name') || $dt.parent('dl').attr('id');
-      const anchor = createUkadocAnchor(ownAnchor, entryName, fallbackAnchorCounts, usedAnchors);
-
-      // dd (説明) を取得
-      const $dd = $dt.next('dd');
-      const description = $dd.text().trim();
-
-      // セクション見出しを取得（親の section 内の最初の caption/h2 等）
-      const sectionTitle = getSectionTitle($, $dt);
-
-      const content = [
-        sectionTitle ? `[${sectionTitle}]` : '',
-        entryName,
-        description,
-      ].filter(Boolean).join('\n');
-
-      entries.push({
-        id: `ukadoc:${stem}:${anchor}`,
-        title: entryName,
-        source: 'ukadoc',
-        category,
-        content,
-        url: buildUkadocUrl(baseUrl, ownAnchor || findAncestorAnchor($dt)),
-      });
-    });
-
-    return entries;
+    // 上流 unit_body と同じく、index.md は「## 一覧」から後ろを全て捨てる
+    const body = isIndex(file) ? raw.split(INDEX_SECTION, 1)[0] : raw;
+    const isPageIndex = file === `${pagePath}/index.md`;
+    const url = isPageIndex ? pageUrl : `${pageUrl}#${encodeURIComponent(anchorOf(file))}`;
+    pushEntry(entries, buildEntry(body, file.replace(/\.md$/, ''), category, ancestors, url));
   }
+  return entries;
+}
 
-  // --------------------------------------------------------
-  // パターン2: セクション形式 (spec_*, manual_*, dev_*)
-  // h2 または h3 でセクション分割
-  // --------------------------------------------------------
-  const sectionHeaders = $('h2, h3');
-  if (sectionHeaders.length > 0) {
-    sectionHeaders.each((_, header) => {
-      const $header = $(header);
-      const sectionTitle = $header.text().trim();
-      if (!sectionTitle) return;
+function buildEntry(
+  raw: string,
+  stem: string,
+  category: Category,
+  ancestors: string[],
+  url: string,
+): DocEntry | undefined {
+  const body = raw.replace(CATEGORY_LINE, '');
+  // H1 しか残らないもの（目次だけの index.md など）は取り込まない
+  if (!body.replace(/^#\s+.*$/m, '').trim()) return undefined;
 
-      const anchor = createUkadocAnchor(
-        $header.attr('id'),
-        sectionTitle,
-        fallbackAnchorCounts,
-        usedAnchors,
-      );
+  const text = markdownToPlainText(body);
+  if (!text) return undefined;
 
-      // セクションの本文: 次のh2/h3が来るまでのテキストを集める
-      const contentParts: string[] = [sectionTitle];
-      let $next = $header.next();
-      while ($next.length && !$next.is('h2, h3')) {
-        const text = $next.text().trim();
-        if (text) contentParts.push(text);
-        $next = $next.next();
-      }
-
-      const content = contentParts.join('\n');
-      if (content.length <= sectionTitle.length + 5) return; // 本文がほぼ空ならスキップ
-
-      entries.push({
-        id: `ukadoc:${stem}:${anchor}`,
-        title: `${pageTitle} - ${sectionTitle}`,
-        source: 'ukadoc',
-        category,
-        content,
-        url: buildUkadocUrl(baseUrl, $header.attr('id') || findAncestorAnchor($header)),
-      });
-    });
-
-    if (entries.length > 0) return entries;
-  }
-
-  // --------------------------------------------------------
-  // パターン3: フォールバック - ページ全体を1エントリとして扱う
-  // --------------------------------------------------------
-  const bodyText = $('body').text().replace(/\s+/g, ' ').trim();
-  entries.push({
+  const title = extractTitle(raw) ?? posix.basename(stem);
+  return {
     id: `ukadoc:${stem}`,
-    title: pageTitle,
+    title,
     source: 'ukadoc',
     category,
-    content: bodyText,
-    url: baseUrl,
-  });
-
-  return entries;
+    content: ancestors.length > 0 ? `[${ancestors.join(' > ')}]\n${text}` : text,
+    url,
+    rawUrl: `${RAW_BASE_URL}${encodePath(stem)}.md`,
+  };
 }
 
 // ============================================================
 // ユーティリティ
 // ============================================================
 
-function getSectionTitle($: cheerio.CheerioAPI, $el: cheerio.Cheerio<Element>): string {
-  // 親の section 内の caption または h2 を探す
-  const $section = $el.closest('section.category');
-  if ($section.length) {
-    const caption = $section.prev('section.caption').find('h2').first().text().trim();
-    if (caption) return caption;
-    const h2 = $section.find('h2').first().text().trim();
-    if (h2) return h2;
-  }
-  return '';
+function lookupPageCategory(pagePath: string): Category | undefined {
+  // 継承プロパティ（constructor 等）に当たらないよう自身のキーだけを引く
+  return Object.hasOwn(PAGE_CATEGORIES, pagePath) ? PAGE_CATEGORIES[pagePath] : undefined;
 }
 
-/** 要素自身にアンカーが無いとき、元ページで飛べる最寄りの位置として祖先の id を使う。 */
-function findAncestorAnchor($el: cheerio.Cheerio<Element>): string | undefined {
-  return $el.parents('[id]').first().attr('id');
+function pushEntry(entries: DocEntry[], entry: DocEntry | undefined): void {
+  if (entry) entries.push(entry);
 }
 
-/**
- * 元ページに実在するアンカーだけを URL に付ける。
- * id 用に生成したアンカー（`:1` 付き等）はページ上に存在しないので使わない。
- */
-function buildUkadocUrl(baseUrl: string, anchor: string | undefined): string {
-  const trimmed = anchor?.trim();
-  return trimmed ? `${baseUrl}#${encodeURIComponent(trimmed)}` : baseUrl;
+function isIndex(file: string): boolean {
+  return posix.basename(file) === 'index.md';
 }
 
-/** エントリ id 用のアンカー。ページ内で一意になるよう、無ければ生成し、重複には連番を付ける。 */
-function createUkadocAnchor(
-  explicitAnchor: string | undefined,
-  rawTitle: string,
-  fallbackAnchorCounts: Map<string, number>,
-  usedAnchors: Map<string, number>,
-): string {
-  let anchor = explicitAnchor?.trim();
-
-  if (!anchor) {
-    const normalizedRawTitle = normalizeRawTitleForFallback(rawTitle);
-    const occurrenceIndex = (fallbackAnchorCounts.get(normalizedRawTitle) ?? 0) + 1;
-    fallbackAnchorCounts.set(normalizedRawTitle, occurrenceIndex);
-    anchor = `${normalizedRawTitle}:${occurrenceIndex}`;
-  }
-
-  const seenCount = (usedAnchors.get(anchor) ?? 0) + 1;
-  usedAnchors.set(anchor, seenCount);
-
-  if (seenCount === 1) {
-    return anchor;
-  }
-
-  return `${anchor}:${seenCount}`;
+/** 先頭 H1 をプレーンテキストにしたもの（さくらスクリプトのタグはコードスパンで書かれている） */
+function extractTitle(markdown: string): string | undefined {
+  const h1 = markdown.match(/^#\s+(.+)$/m);
+  return h1 ? markdownToPlainText(h1[1]).trim() || undefined : undefined;
 }
 
-function normalizeRawTitleForFallback(text: string): string {
-  return text
-    .trim()
-    .replace(/\s+/g, ' ')
-    .normalize('NFKC')
-    .split('')
-    .map(char => {
-      if (/^[A-Za-z0-9._-]$/.test(char)) {
-        return char;
-      }
-      return `_${char.codePointAt(0)?.toString(16) ?? '0'}`;
-    })
-    .join('')
-    .slice(0, 120);
+function encodePath(path: string): string {
+  return path.split('/').map(encodeURIComponent).join('/');
 }
