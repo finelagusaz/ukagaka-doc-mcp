@@ -148,7 +148,8 @@ type DocEntry = {
 - `content` は全文でなければならない
 - `content` は保存時に要約化してはならない
 - `url` はそのエントリの元ページまたは元セクションを指さなければならない
-- `rawUrl` は全ソースの全エントリに付与し、元の Markdown を指さなければならない
+- `rawUrl` は全ソースの全エントリに付与し、元の Markdown ファイルそのもの（`raw.githubusercontent.com` の URL など）を指さなければならない
+- `rawUrl` は、公開サイトのページなどレンダリング済みの HTML を指してはならない。`rawUrl` は、LLM クライアントが記法を保った原文を取得するためのフィールドである（利用者の要望による）
 
 ### 5.4 SearchEntry
 
