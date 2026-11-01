@@ -124,7 +124,7 @@ export const CATEGORIES = {
   },
   shiori_event: {
     source: 'ukadoc' as Source,
-    label: 'SHIORIイベント一覧',
+    label: 'SHIORIイベント・SHIORIリソース・PLUGINイベント一覧',
   },
   descript: {
     source: 'ukadoc' as Source,
@@ -132,7 +132,7 @@ export const CATEGORIES = {
   },
   protocol: {
     source: 'ukadoc' as Source,
-    label: 'プロトコル仕様（SHIORI/3.0, SSTP 等）',
+    label: 'プロトコル仕様（SHIORI/3.0・SSTP・SAORI・PLUGIN 等）・プロパティシステム',
   },
   file_structure: {
     source: 'ukadoc' as Source,
