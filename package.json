@@ -44,7 +44,7 @@
     "build": "tsc",
     "build:index": "tsx src/build-index.ts",
     "dev": "tsx src/index.ts",
-    "refresh:index": "git submodule sync --recursive && git submodule update --init --remote docs/ukadoc docs/ukadoc-ssp docs/yaya-docs docs/satori-docs docs/aosora-wiki docs/minato docs/pasta docs/kawari-docs && npm run build:index",
+    "refresh:index": "git submodule sync --recursive && git submodule update --init --remote docs/ukadoc-spec docs/ukadoc-ssp docs/yaya-docs docs/satori-docs docs/aosora-wiki docs/minato docs/pasta docs/kawari-docs && npm run build:index",
     "start": "node dist/index.js",
     "prepack": "npm run build",
     "prepublishOnly": "npm test",
@@ -54,7 +54,6 @@
   "dependencies": {
     "@modelcontextprotocol/node": "^2.1.0",
     "@modelcontextprotocol/server": "^2.1.0",
-    "cheerio": "^1.2.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {

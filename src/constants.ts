@@ -26,7 +26,7 @@ export const SOURCES = {
     name: 'UKADOC',
     shortName: 'UKADOC',
     description: 'SSP公式仕様書（さくらスクリプト、SHIORIイベント、設定ファイル仕様、プロトコル規格）',
-    exampleId: 'ukadoc:list_shiori_event:OnBoot',
+    exampleId: 'ukadoc:list/shiori-event/boot-close-change/OnBoot',
   },
   ssp_help: {
     name: 'SSPヘルプ',
@@ -88,7 +88,7 @@ export const DEFAULT_HTTP_PORT = 8951;
 export const REMOTE_INDEX_URL =
   'https://github.com/finelagusaz/ukagaka-doc-mcp/raw/refs/heads/main/data/index.json';
 
-/** ツール入力の長さ上限。現状の最長 id は 131 文字。巨大な入力の受理とエラー文への全量反射を防ぐ */
+/** ツール入力の長さ上限。現状の最長 id は 114 文字。巨大な入力の受理とエラー文への全量反射を防ぐ */
 export const MAX_QUERY_LENGTH = 512;
 export const MAX_ID_LENGTH = 512;
 
@@ -98,7 +98,7 @@ export const INDEX_UPDATE_INTERVAL_MS = 24 * 60 * 60 * 1000;
 /** インデックス取得のタイムアウト (ms) */
 export const INDEX_FETCH_TIMEOUT_MS = 60 * 1000;
 
-/** リモートインデックスの最大サイズ (bytes, 展開後)。現状 3〜4MB に対し十分な余裕を取る */
+/** リモートインデックスの最大サイズ (bytes, 展開後)。現状 6MB 弱に対し十分な余裕を取る */
 export const INDEX_MAX_BYTES = 32 * 1024 * 1024;
 
 /** リモートインデックスの generatedAt が現在時刻より先でも許す幅 (ms)。時計のずれ用 */
