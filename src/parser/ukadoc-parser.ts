@@ -7,12 +7,13 @@
  * 上流の構成:
  * - `descript/<種別>/` `list/<名前>/` `spec/<名前>/` は、ディレクトリ 1 つが旧 HTML の 1 ページにあたる。
  *   その下にカテゴリのディレクトリがあり、さらにその下に 1 項目 1 ファイルの `.md` が並ぶ。
- *   公開サイトは、index.md を持つディレクトリを 1 ページ（`<ディレクトリ>/`）にまとめ、項目を見出しのアンカーで指す
- * - 次のものは 1 ファイル 1 ページで配信される（index.md はディレクトリの URL）
+ *   公開サイトは、index.md を持つディレクトリを 1 ページにまとめ、項目を見出しのアンカーで指す
+ * - 次のものは 1 ファイル 1 ページで配信される
  *   - `manual/` `dev/` `memo/` の下のファイル（入れ子のディレクトリも含む）
  *   - ディレクトリを持たない `spec/*.md`
  *   - index.md を持たないディレクトリの下のファイル
  * - まとめたページの index.md は、`## 一覧` から後ろが目次。その前に本文（カテゴリの説明）があるものだけを取り込む
+ * - 公開サイトのページは旧版 UKADOC と同じ平らなファイル名（`list_shiori_event.html` など）で、上流 oldstyle/build.py の out_name が決める
  *
  * 設計方針:
  * - 1 ファイル = 1 エントリ。id は `ukadoc:{リポジトリ直下からのパス stem}`
@@ -36,6 +37,12 @@ const BUNDLE_ROOTS = new Set(['descript', 'list', 'spec']);
 
 /** 1 ファイル 1 ページの直下のディレクトリ */
 const PAGE_ROOTS = new Set(['manual', 'dev', 'memo']);
+
+/** 旧版のファイル名が規則から外れるもの（上流 oldstyle/build.py の NAME_EXCEPTIONS） */
+const PAGE_NAME_EXCEPTIONS: Record<string, string> = {
+  'memo/memo.md': 'memo.html',
+  'memo/shiori-event.md': 'memo_shiorievent.html',
+};
 
 /** ページ本文を持たない直下のディレクトリ */
 const NON_CONTENT_DIRS = new Set<string>([...COMMON_NON_CONTENT_DIRS, 'migration', 'site_ext']);
@@ -133,8 +140,7 @@ export function parseUkadoc(rootDir: string): DocEntry[] {
 function parseStandalonePage(rootDir: string, file: string, category: Category): DocEntry | undefined {
   const raw = readFileSync(join(rootDir, file), 'utf-8');
   const stem = file.replace(/\.md$/, '');
-  const urlPath = isIndex(file) ? posix.dirname(file) : stem;
-  return buildEntry(raw, stem, category, [], `${BASE_URL}${encodePath(urlPath)}/`);
+  return buildEntry(raw, stem, category, [], pageUrlOf(file));
 }
 
 /**
@@ -148,7 +154,7 @@ function parseStandalonePage(rootDir: string, file: string, category: Category):
 function parseBundle(rootDir: string, pagePath: string, category: Category): DocEntry[] {
   const files = listMarkdownFiles(rootDir, pagePath);
   const raws = new Map(files.map(file => [file, readFileSync(join(rootDir, file), 'utf-8')]));
-  const pageUrl = `${BASE_URL}${encodePath(pagePath)}/`;
+  const pageUrl = pageUrlOf(`${pagePath}/index.md`);
 
   const candidates = new Map(files.map(file => [
     file,
@@ -234,6 +240,21 @@ function isIndex(file: string): boolean {
 function extractTitle(markdown: string): string | undefined {
   const h1 = markdown.match(/^#\s+(.+)$/m);
   return h1 ? markdownToPlainText(h1[1]).trim() || undefined : undefined;
+}
+
+/**
+ * 原稿のパス（まとめたページは `<ディレクトリ>/index.md`）→ 公開サイトのページの URL。
+ * 上流 oldstyle/build.py の out_name と同じ規則で、パスを `_` でつなぎ、`-` を `_` にし、末尾の index を落とす。
+ */
+function pageUrlOf(mdPath: string): string {
+  return `${BASE_URL}${encodeURIComponent(pageFileName(mdPath))}`;
+}
+
+function pageFileName(mdPath: string): string {
+  if (Object.hasOwn(PAGE_NAME_EXCEPTIONS, mdPath)) return PAGE_NAME_EXCEPTIONS[mdPath];
+  const parts = mdPath.replace(/\.md$/, '').split('/');
+  if (parts.at(-1) === 'index') parts.pop();
+  return `${parts.map(part => part.replace(/-/g, '_')).join('_')}.html`;
 }
 
 function encodePath(path: string): string {
