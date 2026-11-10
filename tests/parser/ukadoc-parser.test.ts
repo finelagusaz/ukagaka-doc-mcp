@@ -131,12 +131,6 @@ describe('parseUkadoc', () => {
     expect(messages).toHaveLength(2);
   });
 
-  it('翻訳版の i18n ディレクトリは警告を出さずに除外する', () => {
-    vi.spyOn(console, 'error').mockImplementation(() => {});
-    const result = parseUkadoc(fixtureDir);
-    expect(result.some(e => e.id.startsWith('ukadoc:i18n/') || e.url.includes('/i18n/'))).toBe(false);
-  });
-
   it('ディレクトリが無ければ submodule の初期化を促すエラーにする', () => {
     expect(() => parseUkadoc(resolve('tests/fixtures/__missing__'))).toThrow(/git submodule update/);
   });

@@ -14,6 +14,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { Category, DocEntry } from '../types.js';
 import { markdownToPlainText } from './markdown.js';
+import { COMMON_NON_CONTENT_DIRS } from './mkdocs.js';
 
 const YAYA_DOCS_BASE_URL = 'https://yaya-shiori.github.io/yaya-docs/';
 const YAYA_DOCS_RAW_BASE_URL = 'https://raw.githubusercontent.com/YAYA-shiori/yaya-docs/refs/heads/main/';
@@ -32,8 +33,8 @@ const DIR_CATEGORIES: Record<string, Category> = {
 /** 目次ページは検索ノイズのため除外（リポジトリ直下の INDEX.md は走査対象外） */
 const EXCLUDED_PAGES = new Set(['system/system-functions-index']);
 
-/** ページ本文を持たないディレクトリ（i18n は翻訳版で、原文と重複するため取り込まない） */
-const NON_CONTENT_DIRS = new Set(['assets', 'scripts', 'overrides', 'attachment', 'i18n']);
+/** ページ本文を持たないディレクトリ */
+const NON_CONTENT_DIRS = new Set<string>([...COMMON_NON_CONTENT_DIRS, 'overrides', 'attachment']);
 
 /**
  * yaya-docs リポジトリ内の Markdown を全てパースして DocEntry 配列を返す。

@@ -66,11 +66,11 @@ describe('parseSspHelp', () => {
     const result = parseSspHelp(fixtureDir);
     expect(result.some(e => e.id.startsWith('ssphelp:unknown-dir/'))).toBe(false);
     expect(result.some(e => e.id.startsWith('ssphelp:materials/'))).toBe(false);
-    expect(warn).toHaveBeenCalledWith(expect.stringContaining('unknown-dir'));
-    expect(warn).not.toHaveBeenCalledWith(expect.stringContaining('assets'));
-    expect(warn).not.toHaveBeenCalledWith(expect.stringContaining('materials'));
     expect(result.some(e => e.id.startsWith('ssphelp:i18n/'))).toBe(false);
-    expect(warn).not.toHaveBeenCalledWith(expect.stringContaining('i18n'));
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining('unknown-dir'));
+    for (const dir of ['assets', 'materials', 'i18n']) {
+      expect(warn).not.toHaveBeenCalledWith(expect.stringContaining(dir));
+    }
   });
 
   it('ディレクトリが無ければ submodule 初期化を促して失敗する', () => {

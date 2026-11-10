@@ -25,7 +25,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join, posix } from 'node:path';
 import type { Category, DocEntry } from '../types.js';
 import { markdownToPlainText } from './markdown.js';
-import { listMarkdownFiles, sortedDirents } from './mkdocs.js';
+import { COMMON_NON_CONTENT_DIRS, listMarkdownFiles, sortedDirents } from './mkdocs.js';
 
 const BASE_URL = 'https://ukatech.shillest.net/ukadoc-spec/';
 const RAW_BASE_URL = 'https://raw.githubusercontent.com/ukatech/ukadoc-spec/refs/heads/main/';
@@ -37,8 +37,8 @@ const BUNDLE_ROOTS = new Set(['descript', 'list', 'spec']);
 /** 1 ファイル 1 ページの直下のディレクトリ */
 const PAGE_ROOTS = new Set(['manual', 'dev', 'memo']);
 
-/** ページ本文を持たない直下のディレクトリ（i18n は翻訳版で、原文と重複するため取り込まない） */
-const NON_CONTENT_DIRS = new Set(['assets', 'i18n', 'migration', 'scripts', 'site_ext']);
+/** ページ本文を持たない直下のディレクトリ */
+const NON_CONTENT_DIRS = new Set<string>([...COMMON_NON_CONTENT_DIRS, 'migration', 'site_ext']);
 
 /**
  * ページ → カテゴリ（上流 .nav.yml の nav 順）。
