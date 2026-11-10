@@ -58,7 +58,7 @@ describe('parseKawariDocs', () => {
     expect(content).not.toContain('**');
   });
 
-  it('未知のディレクトリは警告してスキップし、assets・scripts・overrides・i18n は黙って除外する', () => {
+  it('未知のディレクトリは警告してスキップし、assets・scripts・overrides・i18n・oldstyle は黙って除外する', () => {
     const warn = vi.spyOn(console, 'error').mockImplementation(() => {});
     const result = parseKawariDocs(fixtureDir);
     expect(result.some(e => e.id.startsWith('kawari:unknown-dir/'))).toBe(false);
@@ -66,7 +66,7 @@ describe('parseKawariDocs', () => {
     expect(result.some(e => e.id.startsWith('kawari:overrides/'))).toBe(false);
     expect(result.some(e => e.id.startsWith('kawari:i18n/'))).toBe(false);
     expect(warn).toHaveBeenCalledWith(expect.stringContaining('unknown-dir'));
-    for (const dir of ['assets', 'scripts', 'overrides', 'i18n']) {
+    for (const dir of ['assets', 'scripts', 'overrides', 'i18n', 'oldstyle']) {
       expect(warn).not.toHaveBeenCalledWith(expect.stringContaining(dir));
     }
   });
