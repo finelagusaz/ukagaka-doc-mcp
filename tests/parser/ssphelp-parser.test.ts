@@ -61,14 +61,16 @@ describe('parseSspHelp', () => {
     expect(content).not.toMatch(/<br|\*\*/);
   });
 
-  it('未知のディレクトリは警告してスキップし、assets・materials は黙って除外する', () => {
+  it('未知のディレクトリは警告してスキップし、assets・materials・i18n は黙って除外する', () => {
     const warn = vi.spyOn(console, 'error').mockImplementation(() => {});
     const result = parseSspHelp(fixtureDir);
     expect(result.some(e => e.id.startsWith('ssphelp:unknown-dir/'))).toBe(false);
     expect(result.some(e => e.id.startsWith('ssphelp:materials/'))).toBe(false);
+    expect(result.some(e => e.id.startsWith('ssphelp:i18n/'))).toBe(false);
     expect(warn).toHaveBeenCalledWith(expect.stringContaining('unknown-dir'));
-    expect(warn).not.toHaveBeenCalledWith(expect.stringContaining('assets'));
-    expect(warn).not.toHaveBeenCalledWith(expect.stringContaining('materials'));
+    for (const dir of ['assets', 'materials', 'i18n']) {
+      expect(warn).not.toHaveBeenCalledWith(expect.stringContaining(dir));
+    }
   });
 
   it('ディレクトリが無ければ submodule 初期化を促して失敗する', () => {

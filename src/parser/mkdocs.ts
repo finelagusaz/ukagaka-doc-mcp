@@ -34,8 +34,14 @@ export interface MkDocsConfig {
   displayName: string;
 }
 
+/**
+ * どの上流リポジトリでもページ本文を持たない直下のディレクトリ（各パーサーの除外集合の基底）。
+ * i18n は翻訳版で、原文と重複するため取り込まない。
+ */
+export const COMMON_NON_CONTENT_DIRS = ['assets', 'scripts', 'i18n'] as const;
+
 /** ページ本文を持たないディレクトリ（materials は SSP ヘルプの画像素材） */
-const NON_CONTENT_DIRS = new Set(['assets', 'scripts', 'overrides', 'materials']);
+const NON_CONTENT_DIRS = new Set<string>([...COMMON_NON_CONTENT_DIRS, 'overrides', 'materials']);
 
 /**
  * リポジトリ内の Markdown を全てパースして DocEntry 配列を返す。
