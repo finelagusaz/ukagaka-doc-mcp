@@ -34,7 +34,7 @@ src/
     ssphelp-parser.ts # SSP ヘルプ（ukadoc-ssp submodule）パーサー
     markdown.ts       # Markdown → プレーンテキスト（UKADOC / SSP ヘルプ / YAYA docs / 里々 docs / 蒼空 / 湊 / Pasta / 華和梨 共用）
     mdbook.ts         # mdBook ソース（SUMMARY.md 目次）共通パーサー（湊 / Pasta 共用）
-    mkdocs.ts         # MkDocs 系サイトのディレクトリ単位 Markdown 共通パーサー（SSP ヘルプ / 里々 / 華和梨 共用）
+    mkdocs.ts         # MkDocs 系サイトのディレクトリ単位 Markdown 共通パーサー（SSP ヘルプ / 里々 / 華和梨 共用）。全パーサー共通の除外ディレクトリ COMMON_NON_CONTENT_DIRS も持つ
     yaya-docs-parser.ts # YAYA docs（GitHub リポジトリ submodule）パーサー
     satori-docs-parser.ts # 里々 docs（GitHub リポジトリ submodule）パーサー
     aosora-parser.ts  # 蒼空Wiki（GitHub Wiki submodule）パーサー
@@ -45,6 +45,7 @@ src/
   build-index.ts      # build:index のエントリポイント（index-builder を呼んで data/index.json を書き出す）
   index-validation.ts # index.json スキーマ検証
   types.ts            # 共通型（Source 型は constants.ts の SOURCES から派生）
+  text.ts             # 検索結果の summary 切り詰め（buildSummary）
 data/
   index.json          # ドキュメントスナップショット（npm tarball に含む）
 docs/
@@ -78,6 +79,7 @@ docs/
 - PR 作成に GitHub App トークンを使用（`APP_ID` / `APP_PRIVATE_KEY` secrets）。`GITHUB_TOKEN` で作った PR は CI をトリガーしない
 - **人手の dep PR は refresh-index PR と必ず衝突する**。週次 cron で `package.json` version と `package-lock.json` が頻繁に動くため、長く寝かせると merge 不能に。dep PR は branch を切ったら短期で merge まで進めるか、merge 直前に `git rebase origin/main` で吸収する。lockfile 衝突は `git checkout --ours package-lock.json && npm install --package-lock-only` で main 側を採用 → 自分の `package.json` 制約で再生成、が定石
 - **パーサーの警告ではビルドが失敗しない**。上流の目次・ディレクトリに未知の章が増えると `[xxx-parser] Warning: … skipped` を出してそのページを読み飛ばすだけで、週次 refresh PR も通って auto-merge される。週次 refresh PR では警告を本文の「Parser warnings」節・ジョブサマリー・注釈に載せる（auto-merge は止めない）。手元ではパーサーや submodule を触ったら `build:index` の stderr の `Warning` を必ず確認する
+- **本文でないディレクトリ・章を、警告を出さずに読み飛ばす場所はパーサーごとに違う**。全ソースに共通のもの（`assets` `scripts` `i18n` `oldstyle`）は `mkdocs.ts` の `COMMON_NON_CONTENT_DIRS` に、1 ソースだけのものは各パーサーの `NON_CONTENT_DIRS` に足す。mdBook 系（湊 / Pasta）は目次の章単位なので、設定の `ignoredSections` に足す。未知の章を警告するのは上流の構成変更を検知するためなので、仕様の本文でないと確かめたものだけを足す
 - **UKADOC の URL（ページのファイル名と項目のアンカー）は、上流の規則を写して組み立てている**。ukadoc-spec は `descript/` `list/` `spec/` の下のディレクトリを、サイトで 1 ページにまとめて配信する。そのため、項目の URL はまとめたページのアンカーになり、アンカーは上流 `scripts/prepare_site.py` の規則で決まる。ページは旧版 UKADOC と同じ平らなファイル名（`list_shiori_event.html` など）で、上流 `oldstyle/build.py` の `out_name` と `NAME_EXCEPTIONS` で決まる。上流がこれらの規則を変えると、警告も出ずに URL だけがずれる（2026-11 にサイトのビルドが Zensical から oldstyle に移ったときは、ページの URL が全件 404 になった）。旧 HTML の ukatech/ukadoc はアーカイブ扱いで、もう読まない（SSP ヘルプも同じく `docs/ukadoc-ssp` を読む）
 - **ソースを追加するときは、`SOURCES` 以外にも submodule パスを手書きしている箇所がある**。`package.json` の `refresh:index`、`ci.yml` の `allowedFiles`（漏れると週次 refresh PR のスコープ検証で落ちる）、`refresh-index-pr.yml`（変更検知の `git diff`・PR 本文・`git add` の 3 箇所）。あわせて README・NOTICE.md・SPEC.md のソース一覧と、このファイルの Architecture も更新する
 
@@ -88,7 +90,7 @@ npm test              # 全テスト実行
 npm run test:watch    # ウォッチモード
 ```
 
-テストは vitest。`tests/fixtures/` にテスト用 HTML・Markdown を配置。
+テストは vitest。`tests/fixtures/<ソース>/` に上流リポジトリを模した Markdown を置く。除外の確認は、フィクスチャに除外対象のディレクトリを置き、エントリにならないことと警告が出ないことの両方を確かめる
 
 ## MCP SDK
 
