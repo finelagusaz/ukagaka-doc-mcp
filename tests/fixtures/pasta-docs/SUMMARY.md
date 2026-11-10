@@ -14,3 +14,7 @@
 
 - [公開モジュール API](lua/modules/index.md)
   - [@enc](lua/modules/enc.md)
+
+# 雑記
+
+- [開発の雑記](notes/diary.md)

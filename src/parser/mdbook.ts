@@ -25,6 +25,8 @@ export interface MdBookConfig {
   rawBaseUrl: string;
   /** ページパスの先頭要素 → カテゴリ（上流 SUMMARY.md の章立てに対応） */
   topCategories: Record<string, Category>;
+  /** 目次にあっても取り込まない先頭要素（仕様ではない雑記など）。未知の章と違い、警告を出さずに読み飛ばす */
+  ignoredSections?: readonly string[];
   /** 警告ログの接頭辞（例: minato-docs-parser） */
   logTag: string;
   /** SUMMARY.md が無いときのエラーメッセージに出す名前（例: Minato docs） */
@@ -71,8 +73,9 @@ export function parseMdBook(srcDir: string, config: MdBookConfig): DocEntry[] {
   const entries: DocEntry[] = [];
 
   for (const { path, label } of toc) {
-    // 継承プロパティ（constructor 等）に当たらないよう自身のキーだけを引く
     const top = path.split('/')[0];
+    if (config.ignoredSections?.includes(top)) continue;
+    // 継承プロパティ（constructor 等）に当たらないよう自身のキーだけを引く
     const category = Object.hasOwn(config.topCategories, top) ? config.topCategories[top] : undefined;
     if (!category) {
       console.error(`[${config.logTag}] Warning: unknown section, skipped: ${path}`);

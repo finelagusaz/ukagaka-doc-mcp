@@ -25,6 +25,8 @@ export function parsePastaDocs(srcDir: string): DocEntry[] {
       reference: 'pasta_reference',
       internals: 'pasta_internals',
     },
+    // 「雑記」（開発ワークフローの記事など）は Pasta の仕様ではないので取り込まない
+    ignoredSections: ['notes'],
     logTag: 'pasta-docs-parser',
     displayName: 'Pasta docs',
     splitSections: true,
