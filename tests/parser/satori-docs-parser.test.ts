@@ -66,14 +66,14 @@ describe('parseSatoriDocs', () => {
     expect(byId.get('satori:grammar/06-variables')?.content).not.toContain('**');
   });
 
-  it('未知のディレクトリは警告してスキップし、assets・overrides・i18n は黙って除外する', () => {
+  it('未知のディレクトリは警告してスキップし、assets・overrides・i18n・oldstyle は黙って除外する', () => {
     const warn = vi.spyOn(console, 'error').mockImplementation(() => {});
     const result = parseSatoriDocs(fixtureDir);
     expect(result.some(e => e.id.startsWith('satori:unknown-dir/'))).toBe(false);
     expect(result.some(e => e.id.startsWith('satori:overrides/'))).toBe(false);
     expect(result.some(e => e.id.startsWith('satori:i18n/'))).toBe(false);
     expect(warn).toHaveBeenCalledWith(expect.stringContaining('unknown-dir'));
-    for (const dir of ['assets', 'overrides', 'i18n']) {
+    for (const dir of ['assets', 'overrides', 'i18n', 'oldstyle']) {
       expect(warn).not.toHaveBeenCalledWith(expect.stringContaining(dir));
     }
   });
