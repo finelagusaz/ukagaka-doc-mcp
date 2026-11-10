@@ -32,8 +32,8 @@ const DIR_CATEGORIES: Record<string, Category> = {
 /** 目次ページは検索ノイズのため除外（リポジトリ直下の INDEX.md は走査対象外） */
 const EXCLUDED_PAGES = new Set(['system/system-functions-index']);
 
-/** ページ本文を持たないディレクトリ */
-const NON_CONTENT_DIRS = new Set(['assets', 'scripts', 'overrides', 'attachment']);
+/** ページ本文を持たないディレクトリ（i18n は翻訳版で、原文と重複するため取り込まない） */
+const NON_CONTENT_DIRS = new Set(['assets', 'scripts', 'overrides', 'attachment', 'i18n']);
 
 /**
  * yaya-docs リポジトリ内の Markdown を全てパースして DocEntry 配列を返す。

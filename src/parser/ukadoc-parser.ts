@@ -37,8 +37,8 @@ const BUNDLE_ROOTS = new Set(['descript', 'list', 'spec']);
 /** 1 ファイル 1 ページの直下のディレクトリ */
 const PAGE_ROOTS = new Set(['manual', 'dev', 'memo']);
 
-/** ページ本文を持たない直下のディレクトリ */
-const NON_CONTENT_DIRS = new Set(['assets', 'migration', 'scripts', 'site_ext']);
+/** ページ本文を持たない直下のディレクトリ（i18n は翻訳版で、原文と重複するため取り込まない） */
+const NON_CONTENT_DIRS = new Set(['assets', 'i18n', 'migration', 'scripts', 'site_ext']);
 
 /**
  * ページ → カテゴリ（上流 .nav.yml の nav 順）。

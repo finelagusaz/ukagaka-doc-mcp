@@ -34,8 +34,8 @@ export interface MkDocsConfig {
   displayName: string;
 }
 
-/** ページ本文を持たないディレクトリ（materials は SSP ヘルプの画像素材） */
-const NON_CONTENT_DIRS = new Set(['assets', 'scripts', 'overrides', 'materials']);
+/** ページ本文を持たないディレクトリ（materials は SSP ヘルプの画像素材。i18n は翻訳版で、原文と重複するため取り込まない） */
+const NON_CONTENT_DIRS = new Set(['assets', 'scripts', 'overrides', 'materials', 'i18n']);
 
 /**
  * リポジトリ内の Markdown を全てパースして DocEntry 配列を返す。
